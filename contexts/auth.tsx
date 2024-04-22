@@ -43,11 +43,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   // Function to refresh tokens
   const refreshTokens = async () => {
     
-    if(!refreshToken) return;
+    if(!refreshToken) {
+      if (typeof window !== 'undefined' && window.location.pathname !== '/') {
+        window.location.href = '/';
+      }
+    };
     
     const response = await fetch(`/api/auth/refresh?token=${refreshToken}`);
     const data = await response.json();
     if(data.error !== 0) {
+
       return;
     }
     const newAccessToken = data?.credential?.accessToken?.token;

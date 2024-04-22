@@ -37,7 +37,7 @@ export function RealtimeSearch() {
       <header className="bg-gray-900 py-8 px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
           <Input
-            className="w-full px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            className="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             placeholder="Search for anything..."
             type="search"
             value={searchQuery}
