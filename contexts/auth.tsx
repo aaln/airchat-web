@@ -47,8 +47,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (typeof window !== 'undefined' && window.location.pathname !== '/') {
         window.location.href = '/';
       }
+      return;
     };
-    
+
     const response = await fetch(`/api/auth/refresh?token=${refreshToken}`);
     const data = await response.json();
     if(data.error !== 0) {

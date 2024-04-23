@@ -1,8 +1,6 @@
-import Link from "next/link"
-import Image from "next/image"
-import { PuzzleIcon, Search } from "lucide-react"
-import { ThemeToggle } from "../navbar/theme-toggle"
 import { siteSettings } from "@/config/site"
+import Link from "next/link"
+import { ThemeToggle } from "../navbar/theme-toggle"
 export const Header = () => {
     return (
         <header className="w-full bg-black text-gray-50 py-2 max-h-[100px]">
@@ -22,7 +20,7 @@ export const Header = () => {
             
                     </Link>
                     
-                    <Link
+                    {/* <Link
                         className="flex flex-row justify-center items-center gap-2 flex-1 hover:bg-gray-800 px-4 py-2 rounded-md transition-colors"
                         href="#"
                     >
@@ -36,7 +34,7 @@ export const Header = () => {
                     >
                     <Search className="h-6 w-6" />
                     <span className="text-sm font-medium">Discover</span>
-                    </Link>
+                    </Link> */}
                     
                     <Link
                         className="flex flex-col justify-center items-center gap-2 flex-1 hover:bg-gray-800 px-4 py-2 rounded-md transition-colors"

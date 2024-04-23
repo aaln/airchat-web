@@ -20,7 +20,7 @@ export function OTPForm() {
   const [tokensRequested, setTokensRequested] = useState<any>(null);
   const { accessToken, refreshToken } = useAuth();
   if(refreshToken) {
-    window.location.href = '/activity';
+    window.location.href = '/feed';
   }
   useEffect(() => {
     async function requestTokens() {
@@ -61,26 +61,25 @@ export function OTPForm() {
     
   }, [otp]);
   return (
-    <Card className="w-full max-w-lg flex flex-col items-center gap-3 w-[580px] h-[400px] bg-white text-black border border-transparent shadow-xl rounded-xl ">
+    <Card className="w-full max-w-lg flex flex-col items-center gap-3 bg-white text-black border border-transparent shadow-xl rounded-xl mx-auto p-2">
       <CardHeader className="flex flex-col items-center space-y-2">
         <div className="text-center font-helvetica font-bold">To login, enter your phone number.</div>
         <div className="text-center font-helvetica">You’ll be sent a one time verification code.</div>
       </CardHeader>
       <CardContent className="w-full flex flex-col gap-8">
-        <div className="w-full flex gap-4">
-          <Label className="text-sm w-[200px] text-black">
+        <div className="w-full flex flex-wrap gap-4">
+          <Label className="text-sm flex-1 min-w-[200px] text-black">
             Phone number (including area code):
           </Label>
           <Input
-
-            className="w-full text-black bg-white"
+            className="flex-1 text-black bg-white"
             required type="tel"
             placeholder="+19171234567"
             value={phone}
-            onChange={(e?: any) => setPhone(e.target.value)}
-            />
+            onChange={(e) => setPhone(e.target.value)}
+          />
         </div>
-        <Button className="w-full bg-black text-white" variant="primary" disabled={false} 
+        <Button className="w-full bg-black text-white" variant="default" disabled={loading} 
           onClick={async () => {
             setLoading(true);
             setOtpRequested(true);
@@ -107,7 +106,7 @@ export function OTPForm() {
         </Button>
         { otpRequested && <div className="grid gap-2">
           <Card>
-            <div className="p-4 flex flex-col bg-black items-center justify-center gap-2">
+            <div className="p-4 flex flex-col bg-black text-white items-center justify-center gap-2">
               <InputOTP maxLength={4} onChange={setOtp} value={otp} disabled={otp.length === 4}>
                 <InputOTPGroup>
                   <InputOTPSlot index={0} />
@@ -116,13 +115,9 @@ export function OTPForm() {
                   <InputOTPSlot index={3} />
                 </InputOTPGroup>
               </InputOTP>
-
-            
               {loading && <div className="animate-spin rounded-full h-5 w-5 border-b-2">
                 <LoaderIcon />
               </div>}
-
-              {/* <Button className="w-full w-[200px]" disabled={loading}>Submit OTP</Button> */}
             </div>
           </Card>
         </div>}
