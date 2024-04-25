@@ -34,8 +34,8 @@ export default function StreamContainer() {
             }
             <div className="flex flex-col gap-8 p-6 items-center">
                 {
-                    feed.map(item => (
-                        <StreamItem item={item} />
+                    feed.map((item, index) => (
+                        <StreamItem item={item} key={index} />
                     ))
                 }
             </div>

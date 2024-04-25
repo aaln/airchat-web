@@ -1,4 +1,5 @@
 import { MessageAPIClient } from "@/airchat/message/v2/message_api_grpc_pb";
+// @ts-ignore
 import { GetMessageThreadsRequest } from "@/airchat/message/v2/message_api_pb";
 import { airchatHostUrl } from '@/constants';
 import * as grpc from '@grpc/grpc-js';
