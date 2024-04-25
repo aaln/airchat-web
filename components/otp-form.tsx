@@ -20,7 +20,7 @@ export function OTPForm() {
   const [tokensRequested, setTokensRequested] = useState<any>(null);
   const { accessToken, refreshToken } = useAuth();
   if(refreshToken) {
-    window.location.href = '/feed';
+    window.location.href = '/stream';
   }
   useEffect(() => {
     async function requestTokens() {
@@ -53,7 +53,7 @@ export function OTPForm() {
         setTokenInSessionStorage("accessToken", data.credential.accessToken.token);
         setTokenInSessionStorage("refreshToken", data.credential.refreshToken.token);
         setLoading(false);
-        window.location.href = '/feed';
+        window.location.href = '/stream';
  
       }
     }

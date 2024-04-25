@@ -2,24 +2,15 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { airchatCDNUrl } from "@/constants";
-import { EyeIcon, Heart, PlayIcon, Repeat } from "lucide-react";
-import React from "react";
+import { EyeIcon, Heart, Repeat } from "lucide-react";
 import Moment from 'react-moment';
+import AudioWrapper from "./audio-wrapper";
+import TranscriptionWrapper from "./transcription-wrapper";
 
-const renderTranscription = (message) => {
-    console.log(" message?.transcription?.transcriptionText",  message?.transcription?.transcriptionText)
-    const words = message?.transcription?.transcriptionText.split(' ');
-    return words?.map((word, index) => {
-        const isMentionedUser = message?.mentionedUsersList?.some(u => u.name === word);
-        return (
-            <React.Fragment key={index}>
-                {isMentionedUser ? <span className="text-blue-600">{word}</span> : word}
-                {index < words.length - 1 ? ' ' : ''}
-            </React.Fragment>
-        );
-    });
-}
+
+
 const renderMessage = ({item, message}: {item: any, message: any}) => {
+      
     return (
         <div className="flex flex-row gap-6 z-10">
             <div className="flex flex-col items-center gap-4">
@@ -27,9 +18,7 @@ const renderMessage = ({item, message}: {item: any, message: any}) => {
                     <AvatarImage src={`${airchatCDNUrl}/${message?.fromUser?.avatar}`} alt={message?.fromUser?.name} />
                     <AvatarFallback delayMs={600}>{message?.fromUser?.name.charAt(0)}</AvatarFallback>
                 </Avatar>
-                <div className="cursor-pointer">
-                    <PlayIcon />
-                </div>
+                <AudioWrapper message={message}/>
             </div>
             <div className="flex flex-col w-full">
                 <div className="relative flex flex-col rounded-lg p-2.5 gap-2 bg-white dark:bg-gray-800 w-full shadow-lg">
@@ -49,9 +38,8 @@ const renderMessage = ({item, message}: {item: any, message: any}) => {
                         </span>
                     </div>
 
-                        <p>
-                            {renderTranscription(message)}
-                        </p>
+                        
+                        <TranscriptionWrapper message={message} />
                         {message?.imageReferenceIdsList.length > 0 && (
                         <div className="flex flex-wrap gap-2 mt-2">
                             {/* {message?.imageReferencesList.map((imageRef, idx) => (
@@ -104,7 +92,7 @@ export function StreamItem({item}) {
 //     )
 //   }
   return (
-    <div className="relative flex flex-col gap-8 py-6 w-full justify-center max-w-5xl">
+    <div className="relative flex flex-col gap-14 pt-6 w-full justify-center max-w-2xl">
         {
             item?.referenceMessage && renderMessage({item, message: item?.referenceMessage})
         }

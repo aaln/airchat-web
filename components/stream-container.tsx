@@ -25,13 +25,10 @@ export default function StreamContainer() {
         fetchData();
     }, []);
     const item = feed?.[0];
-    console.log({item   })
+    console.log({item})
     return (
         <>
             <Header />
-            {
-                loading && <p>Loading...</p>
-            }
             <div className="flex flex-col gap-8 p-6 items-center">
                 {
                     feed.map((item, index) => (

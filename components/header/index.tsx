@@ -10,13 +10,14 @@ export const Header = () => {
                     href="/"
                     >
                         <img
-                            className="md:block hidden max-h-[40px]" 
-                            src={siteSettings.logo.url} height={20}/>
-                        <img
-                            className="block md:hidden max-h-[40px]" 
+                            className="max-h-[40px]" 
+                            src={siteSettings.logo.url} height={20}
+                        />
+                        {/* <img
+                            className="max-h-[40px]" 
                             src={siteSettings.logo_icon.url}
                             height={20}
-                        />
+                        /> */}
             
                     </Link>
                     

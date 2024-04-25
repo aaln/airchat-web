@@ -1,9 +1,10 @@
 
+import { ThemeProvider } from "@/components/theme-provider";
+import { AudioPlayerProvider } from "@/contexts/audio-player";
+import { AuthProvider } from '@/contexts/auth';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { AuthProvider } from '@/contexts/auth';
-import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,13 +20,15 @@ export default function RootLayout({
 }>) {
   return (
     <AuthProvider>
-      <html lang="en">
-        <body className={inter.className}>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
-          </ThemeProvider>
-        </body>
-      </html>
+      <AudioPlayerProvider>
+        <html lang="en">
+          <body className={inter.className}>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            {children}
+            </ThemeProvider>
+          </body>
+        </html>
+      </AudioPlayerProvider>
       
         
     </AuthProvider>
