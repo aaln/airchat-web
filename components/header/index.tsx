@@ -3,10 +3,10 @@ import Link from "next/link"
 import { ThemeToggle } from "../navbar/theme-toggle"
 export const Header = () => {
     return (
-        <header className="w-full bg-black text-gray-50 py-2 max-h-[100px]">
-            <nav className="container px-4 md:px-6 gap-4 flex justify-center">
-                    <Link
-                    className="flex items-center justify-center gap-2 flex-1 hover:bg-gray-800 px-4 py-2 rounded-md transition-colors"
+        <header className="w-full bg-black text-gray-50 py-2 max-h-[120px]">
+             
+            <nav className="container px-4 md:px-6 gap-4 flex justify-between items-center">
+                   <Link
                     href="/"
                     >
                         <img
@@ -20,28 +20,8 @@ export const Header = () => {
             
                     </Link>
                     
-                    {/* <Link
-                        className="flex flex-row justify-center items-center gap-2 flex-1 hover:bg-gray-800 px-4 py-2 rounded-md transition-colors"
-                        href="#"
-                    >
-                        <PuzzleIcon className="h-6 w-6" />
-                        <span className="text-sm font-medium">Feed</span>
-                    </Link>
-                
-                    <Link
-                    className="flex flex-row justify-center items-center gap-2 flex-1 hover:bg-gray-800 px-4 py-2 rounded-md transition-colors"
-                    href="#"
-                    >
-                    <Search className="h-6 w-6" />
-                    <span className="text-sm font-medium">Discover</span>
-                    </Link> */}
-                    
-                    <Link
-                        className="flex flex-col justify-center items-center gap-2 flex-1 hover:bg-gray-800 px-4 py-2 rounded-md transition-colors"
-                        href="#"
-                    >
+              
                     <ThemeToggle />
-                    </Link>
             </nav>
         </header>
       )

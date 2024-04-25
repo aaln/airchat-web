@@ -5,6 +5,7 @@ import { airchatCDNUrl } from "@/constants";
 import { EyeIcon, ListTree, Repeat, ThumbsUp } from "lucide-react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
 export function MessageThread({ messageThread }: any) {
+    console.log("messageThread", messageThread)
     const referenceMessage = messageThread?.referenceMessage;
     if(!referenceMessage) {
         console.log("No reference message", messageThread)
@@ -22,6 +23,9 @@ export function MessageThread({ messageThread }: any) {
                 <CardTitle className="text-md">
                     {
                         `${fromUser?.name}(${fromUser?.username})`
+                    }
+                    {
+                        messageThread?.channel && <p>in {messageThread?.channel?.name}</p>
                     }
                 </CardTitle>
             </CardHeader>
