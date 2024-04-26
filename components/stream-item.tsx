@@ -134,7 +134,6 @@ export function StreamItem({ item }) {
                 const result = await response.json();
                 setThreadDetails(result.messageThreadDetailsList);
             }
-            
           }
         });
       },
