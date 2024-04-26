@@ -3,7 +3,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { airchatCDNUrl } from "@/constants";
 import { useAuth } from "@/contexts/auth";
-import { EyeIcon, Heart, Repeat } from "lucide-react";
+import { EarIcon, Heart, Repeat } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from 'react';
 import Zoom from 'react-medium-image-zoom';
@@ -102,7 +102,7 @@ export const renderMessage = ({item, message}: {item: any, message: any}) => {
                                 <span className="text-xs">{message.messageAnalytics.repostCount}</span>
                             </div>
                             <div className="flex gap-1 items-center px-1 rounded-full dark:text-black">
-                                <EyeIcon className="h-3 w-3" />
+                                <EarIcon className="h-3 w-3" />
                                 <span className="text-xs">{message.messageAnalytics.viewCount}</span>
                             </div>
                         </div>
