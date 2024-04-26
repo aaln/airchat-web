@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { airchatCDNUrl } from "@/constants";
 import { useAuth } from "@/contexts/auth";
 import { EyeIcon, Heart, Repeat } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useRef, useState } from 'react';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
@@ -13,7 +14,7 @@ import TranscriptionWrapper from "./transcription-wrapper";
 
 
 export const renderMessage = ({item, message}: {item: any, message: any}) => {
-      
+ 
     return (
         <div className="flex flex-row gap-6 z-10">
             <div className="flex flex-col items-center gap-4">
@@ -43,6 +44,7 @@ export const renderMessage = ({item, message}: {item: any, message: any}) => {
                         {/* <Link href={`/thread/${item?.messageThread?.referenceRecordingId || message?.referenceMessageThreadId}`} target="_blank"> */}
                             <TranscriptionWrapper message={message} />
                         {/* </Link> */}
+                        
                         {message?.imageReferenceIdsList.length > 0 && (
                         <div className="flex flex-wrap gap-2 mt-2">
                             {message?.imageReferencesList.map((imageRef, idx) => (
@@ -61,7 +63,33 @@ export const renderMessage = ({item, message}: {item: any, message: any}) => {
                                 </Zoom>
                             ))}
                         </div>
+                       
                     )}
+                     {
+                            message?.linkMetadataList?.length > 0 && 
+                                <div className="flex flex-row gap-2">
+                                    {message.linkMetadataList.map((linkMeta, index) => {
+                                        return (
+                                    
+                                        <Link key={index} href={linkMeta.url} target="_blank" className="flex flex-col items-start gap-2 p-4 border border-gray-200 rounded-lg hover:bg-gray-100">
+                                            {linkMeta?.imagePath && (
+                                                <img
+                                                    src={`${airchatCDNUrl}/${linkMeta.imagePath}`}
+                                                    alt={`Preview for ${linkMeta.title}`}
+                                                    className="w-full h-42 object-cover rounded-md"
+                                                />
+                                            )}
+                                            <div className="flex flex-col w-full">
+                                                <span className="text-lg font-medium text-gray-900">{linkMeta.title}</span>
+                                                <span className="text-sm text-gray-700">{linkMeta.summary}</span>
+                                            </div>
+                                        </Link>
+                                    )})}
+
+                                </div>
+                                
+                                
+                            }
 
                     <div className="absolute right-[-0px] bottom-[-20px]">
                         <div className="flex justify-between gap-4 px-4 py-2 rounded-full bg-white border-1-black shadow-md">

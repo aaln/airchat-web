@@ -16,6 +16,7 @@ export default function StreamContainer() {
         try {
             const response = await fetch(`/api/messagefeed?token=${accessToken}${pageKey ? `&nextPageKey=${pageKey}` : ''}`);
             const results = await response.json();
+            console.log("results.itemsList", results?.itemsList)
             setFeed(prevFeed => [...prevFeed, ...results.itemsList]);
             setNextPageKey(results.nextPageKey);
         } catch (e) {
