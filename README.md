@@ -4,6 +4,10 @@ An unofficial web client for the innovative Airchat app, designed to integrate w
 
 Explore the demo: [Airchat Web Client Demo](https://airchat-web.vercel.app/)
 
+![Desktop](/public/desktop_github.png)
+![Mobile](/public/mobile_github.png)
+
+
 ## Current Features
 
 - Login via SMS
