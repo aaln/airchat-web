@@ -4,8 +4,11 @@ An unofficial web client for the innovative Airchat app, designed to integrate w
 
 Explore the demo: [Airchat Web Client Demo](https://airchat-web.vercel.app/)
 
-![Desktop](/public/desktop_github.png)
-![Mobile](/public/mobile_github.png)
+<p align="start">
+  <img src="/public/desktop_github.png" alt="Desktop" height="240px" />
+  <img src="/public/mobile_github.png" alt="Mobile" height="240px" />
+</p>
+
 
 
 ## Current Features
