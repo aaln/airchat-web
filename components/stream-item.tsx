@@ -128,12 +128,10 @@ export function StreamItem({ item }) {
       (entries) => {
         entries.forEach(async (entry) => {
           if (entry.isIntersecting) {
-            
-            if(!threadDetails) {
+            if(!threadDetails?.length) {
                 const url = `/api/thread/details?id=${item?.messageThread?.referenceRecordingId}&token=${accessToken}`
                 const response = await fetch(url);
                 const result = await response.json();
-                console.log("threadDetails result", result)
                 setThreadDetails(result.messageThreadDetailsList);
             }
             
