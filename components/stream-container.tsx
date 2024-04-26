@@ -24,8 +24,9 @@ export default function StreamContainer() {
         };
         fetchData();
     }, []);
+    console.log("feed", feed)
     const item = feed?.[0];
-    console.log({item})
+    console.log("first", {item})
     return (
         <>
             <Header />

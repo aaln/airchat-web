@@ -1,4 +1,7 @@
 "use client"
+import { accessTokenCookieName } from '@/constants';
+import { setCookie } from 'cookies-next';
+
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 // Define the shape of your context data
@@ -58,7 +61,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
     const newAccessToken = data?.credential?.accessToken?.token;
     const newRefreshToken = data?.credential?.refreshToken?.token;
-  
+
+    setCookie(accessTokenCookieName, newAccessToken);
+    
     setAccessToken(newAccessToken);
     setRefreshToken(newRefreshToken);
     setTokenInSessionStorage('accessToken', newAccessToken);

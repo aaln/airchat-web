@@ -1,10 +1,10 @@
-import { RealtimeSearch } from "@/components/realtime-search";
-export default function Home() {
+import ThreadContainer from "@/components/thread-container";
+
+export default function Page({ params: { id } }) {
+
   return (
-    <main className="flex w-full min-h-screen flex-col gap-6 items-center justify-center">
         
-        <RealtimeSearch />
+        <ThreadContainer threadId={id} />
       
-    </main>
   );
 }

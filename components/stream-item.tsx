@@ -2,14 +2,17 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { airchatCDNUrl } from "@/constants";
+import { useAuth } from "@/contexts/auth";
 import { EyeIcon, Heart, Repeat } from "lucide-react";
+import { useEffect, useRef, useState } from 'react';
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
 import Moment from 'react-moment';
 import AudioWrapper from "./audio-wrapper";
 import TranscriptionWrapper from "./transcription-wrapper";
 
 
-
-const renderMessage = ({item, message}: {item: any, message: any}) => {
+export const renderMessage = ({item, message}: {item: any, message: any}) => {
       
     return (
         <div className="flex flex-row gap-6 z-10">
@@ -22,7 +25,7 @@ const renderMessage = ({item, message}: {item: any, message: any}) => {
             </div>
             <div className="flex flex-col w-full">
                 <div className="relative flex flex-col rounded-lg p-2.5 gap-2 bg-white dark:bg-gray-800 w-full shadow-lg">
-                    <div className="flex flex-row    gap-2 items-center">
+                    <div className="flex flex-row  gap-2 items-center">
                         <div className="font-bold">
                         {message.fromUser.name}
                             {item?.channel &&
@@ -37,25 +40,26 @@ const renderMessage = ({item, message}: {item: any, message: any}) => {
                         </Moment>
                         </span>
                     </div>
-
-                        
-                        <TranscriptionWrapper message={message} />
+                        {/* <Link href={`/thread/${item?.messageThread?.referenceRecordingId || message?.referenceMessageThreadId}`} target="_blank"> */}
+                            <TranscriptionWrapper message={message} />
+                        {/* </Link> */}
                         {message?.imageReferenceIdsList.length > 0 && (
                         <div className="flex flex-wrap gap-2 mt-2">
-                            {/* {message?.imageReferencesList.map((imageRef, idx) => (
+                            {message?.imageReferencesList.map((imageRef, idx) => (
+                                <Zoom key={idx}>
                                 <img
-                                    key={idx}
                                     src={`${airchatCDNUrl}/images/${imageRef.imageReferenceId}`}
                                     alt={`Attached image ${idx + 1}`}
                                     style={{
-                                        maxHeight: '180px',
+                                        maxHeight: '200px',
                                         width: 'auto',
                                         height: 'auto',
-                                        maxWidth: `${180 * (imageRef.resolution.resolutionWidth / imageRef.resolution.resolutionHeight)}px`
+                                        maxWidth: `${200 * (imageRef.resolution.resolutionWidth / imageRef.resolution.resolutionHeight)}px`
                                     }}
                                     className="rounded-lg shadow-md"
                                 />
-                            ))} */}
+                                </Zoom>
+                            ))}
                         </div>
                     )}
 
@@ -84,32 +88,81 @@ const renderMessage = ({item, message}: {item: any, message: any}) => {
     )
 }
 
-export function StreamItem({item}) {
 
-//   if(item.type === 1) {
-//     return (
-//             renderMessage({item, message: item.messagesList[0]})
-//     )
-//   }
+export function StreamItem({ item }) {
+  const [threadDetails, setThreadDetails] = useState([]);
+  const [selectedDetails, setSelectedDetails] = useState(null);
+  const { accessToken } = useAuth();
+  const itemRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(async (entry) => {
+          if (entry.isIntersecting) {
+            
+            if(!threadDetails) {
+                const url = `/api/thread/details?id=${item?.messageThread?.referenceRecordingId}&token=${accessToken}`
+                const response = await fetch(url);
+                const result = await response.json();
+                console.log("threadDetails result", result)
+                setThreadDetails(result.messageThreadDetailsList);
+            }
+            
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (itemRef.current) {
+      observer.observe(itemRef.current);
+    }
+
+    return () => {
+      if (itemRef.current) {
+        observer.unobserve(itemRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log("selectedDetails", selectedDetails)
+  }, [selectedDetails])
+
   return (
-    <div className="relative flex flex-col gap-14 pt-6 w-full justify-center max-w-2xl">
-        {
-            item?.referenceMessage && renderMessage({item, message: item?.referenceMessage})
-        }
-        {
-            item.messagesList.map((message, index) => (
-                
-                renderMessage({item, message})
-            ))
-        }
-        <div className="w-full h-2 bg-[#F7F8FA]">
-
+    <div ref={itemRef} className="relative flex flex-col gap-14 pt-6 w-full justify-center max-w-2xl">
+      {item?.referenceMessage && renderMessage({ item, message: item?.referenceMessage || item?.firstMessage })}
+       {
+        threadDetails?.length > 1 && 
+        <div className="ml-16 flex flex-col gap-2">
+            <div>
+                {threadDetails?.length} Responses
+            </div>
+            <div className="flex flex-row flex-wrap gap-2 items-center">
+                {
+                    threadDetails?.map((detail, index) => (
+                        <Avatar 
+                            className="cursor-pointer hover:scale-110 hover:border hover:border-gray-300 transition-transform duration-300"
+                            onClick={() => {
+                                setSelectedDetails(detail);
+                            }}
+                            key={index}
+                        >
+                            <AvatarImage src={`${airchatCDNUrl}/${detail?.firstMessage?.fromUser?.avatar}`} alt={detail?.firstMessage?.fromUser?.name} />
+                            <AvatarFallback delayMs={600}>{detail?.firstMessage?.fromUser?.name.charAt(0)}</AvatarFallback>
+                        </Avatar>
+                    ))
+                }
+            </div>
         </div>
-        {
-            item.type !== 1 && <div className="absolute left-[20px] z-0 h-full w-0.5 bg-gray-300"></div>
-        }
-        
+      }
+      {
+        selectedDetails && renderMessage({item, message: selectedDetails?.firstMessage})
+      }
+      {!selectedDetails && item?.messagesList?.map((message, index) => renderMessage({ item, message }))}
+      <div className="w-full h-2 bg-[#F7F8FA]"></div>
+      {item.type !== 1 && <div className="absolute left-[20px] z-0 h-full w-0.5 bg-gray-300"></div>}
     </div>
-  )
+  );
 }
-

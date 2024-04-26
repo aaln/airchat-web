@@ -1,7 +1,16 @@
 import { FAQ } from "@/components/faq";
+import { OTPForm } from "@/components/otp-form";
+import { accessTokenCookieName } from "@/constants";
+import { cookies } from 'next/headers';
 import Image from "next/image";
-import { OTPForm } from "../components/otp-form";
+import { redirect } from "next/navigation";
+
 export default function Home() {
+  const cookieStore = cookies()
+  const accessTokenCookie = cookieStore.get(accessTokenCookieName)
+  if(accessTokenCookie) {
+    return redirect("/stream");
+  }
   
   return (
     <main className="flex min-h-screen flex-col gap-6 items-center justify-start pt-24 px-6 bg-black">
@@ -11,11 +20,6 @@ export default function Home() {
       </div>
       <OTPForm />
       <FAQ />
-      {/* <div className="fixed top-4 right-4 flex items-center rounded-md bg-blue-500 px-4 py-2 text-white shadow-md">
-        <ShieldIcon className="mr-2 h-5 w-5" />
-        <span>We do not send any secret keys to the server</span>
-      </div>
-       */}
     </main>
   );
 }
