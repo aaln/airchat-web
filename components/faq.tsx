@@ -4,6 +4,8 @@
 * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
 */
 
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
+
 /** Add fonts into your Next.js project:
 
 import { Inter } from 'next/font/google'
@@ -29,9 +31,15 @@ export function FAQ() {
         </div>
       
         <div>
-          <h3 className="text-lg font-bold">Is this an official Airchat web client?</h3>
+          <h3 className="text-lg font-bold">Is this the official Airchat web client?</h3>
           <p className="mt-2 text-base">
             No, this is an unofficial web client for the Airchat app, created as an open-source project which can be contributed to or used as an example for how to use the airchat api. The official Airchat app does not have a web client nor a public API. You can contribute to this project at <a href="https://github.com/aaln/airchat-web" className="text-blue-500 hover:underline">https://github.com/aaln/airchat-web</a>.
+          </p>
+        </div>
+        <div>
+          <h3 className="text-lg font-bold">How do I contribute to this project?</h3>
+          <p className="mt-2 text-base">
+            <GitHubLogoIcon className="inline-block" /> Create a pull request at <a href="https://github.com/aaln/airchat-web" className="text-blue-500 hover:underline">https://github.com/aaln/airchat-web</a>.
           </p>
         </div>
       </div>
