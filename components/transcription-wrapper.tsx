@@ -3,8 +3,13 @@ import React, { useState } from "react";
 
 export default function TranscriptionWrapper({ message }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  
+  let transcriptionText = message?.transcription?.transcriptionText;
+  if(!transcriptionText.includes(".") && !transcriptionText.includes("?")) {
+     transcriptionText =  transcriptionText + "."
+  }
+  const sentences = transcriptionText.match(/[^\.!\?]+[\.!\?]+|[^\.!\?\s]+/g) || [];
 
-  const sentences = message?.transcription?.transcriptionText.match(/[^\.!\?]+[\.!\?]+|\S+/g) || [];
   const sentenceGroups = sentences.reduce((acc, sentence, index) => {
     if (index % 3 === 0) acc.push([]);
     acc[acc.length - 1].push(sentence.trim());

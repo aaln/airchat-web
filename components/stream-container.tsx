@@ -4,29 +4,44 @@ import { Header } from "@/components/header";
 import { StreamItem } from "@/components/stream-item";
 import { useAuth } from "@/contexts/auth";
 import { useEffect, useState } from "react";
+import { Loader } from "./loader";
 
 export default function StreamContainer() {
     const { accessToken, refreshTokens } = useAuth();
     const [feed, setFeed] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [nextPageKey, setNextPageKey] = useState(null);
+
+    const fetchFeed = async (pageKey) => {
+        try {
+            const response = await fetch(`/api/messagefeed?token=${accessToken}${pageKey ? `&nextPageKey=${pageKey}` : ''}`);
+            const results = await response.json();
+            setFeed(prevFeed => [...prevFeed, ...results.itemsList]);
+            setNextPageKey(results.nextPageKey);
+        } catch (e) {
+            refreshTokens();
+        } finally {
+            setLoading(false);
+        }
+    };
+
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(`/api/messagefeed?token=${accessToken}`);
-                const results = await response.json();
-                setFeed(results.itemsList);
-                console.log("results.itemsList", results.itemsList)
-            } catch(e) {
-                refreshTokens();
-            } finally {
-                setLoading(false);
+        fetchFeed(null);
+    }, []);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
+            if (!loading && nextPageKey) {
+                setLoading(true);
+                fetchFeed(nextPageKey);
             }
         };
-        fetchData();
-    }, []);
-    console.log("feed", feed)
-    const item = feed?.[0];
-    console.log("first", {item})
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [loading, nextPageKey]);
+
     return (
         <>
             <Header />
@@ -37,6 +52,7 @@ export default function StreamContainer() {
                     ))
                 }
             </div>
+            {loading && <Loader/>}
         </>
     )
 }

@@ -8,15 +8,15 @@ import { NextResponse } from 'next/server';
 export async function GET(request: Request) {
     const url = new URL(request.url);
     const token = url.searchParams.get('token');
-    const pageKey = url.searchParams.get('pageKey'); // Assuming 'pageKey' is used for pagination
+    const nextPageKey = url.searchParams.get('nextPageKey');
 
     const messageClient = new MessageAPIClient(airchatHostUrl, grpc.credentials.createSsl());
     const metadata = new grpc.Metadata();
     metadata.add('authorization', `Bearer ${token}`);
 
     const messageFeedReq = new GetMessageFeedRequest();
-    if (pageKey) {
-        messageFeedReq.setPageKey(pageKey);
+    if (nextPageKey) {
+        messageFeedReq.setPageKey(nextPageKey);
     }
 
     return new Promise<Response>((resolve, reject) => {
