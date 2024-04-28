@@ -5,6 +5,8 @@ import { AuthProvider } from '@/contexts/auth';
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { CSPostHogProvider } from './providers';
+
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,12 +25,14 @@ export default function RootLayout({
     <AuthProvider>
       <AudioPlayerProvider>
         <html lang="en">
-          <body className={inter.className}>
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            {children}
-            <Analytics/>
-            </ThemeProvider>
-          </body>
+          <CSPostHogProvider>
+            <body className={inter.className}>
+              <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              {children}
+              <Analytics/>
+              </ThemeProvider>
+            </body>
+          </CSPostHogProvider>
         </html>
       </AudioPlayerProvider>
       
