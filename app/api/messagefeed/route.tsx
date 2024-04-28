@@ -27,6 +27,8 @@ export async function GET(request: Request) {
             } else {
                 const respObj = response.toObject();
                 console.log('Message Feed Response:', respObj);
+                console.log("nextPageKey", nextPageKey)
+                console.log("token", token)
                 resolve(NextResponse.json(respObj));
             }
         });
