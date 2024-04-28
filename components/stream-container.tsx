@@ -4,6 +4,7 @@ import { Header } from "@/components/header";
 import { StreamItem } from "@/components/stream-item";
 import { useAuth } from "@/contexts/auth";
 import { useEffect, useState } from "react";
+import { FloatingAudioStatusButton } from "./floating-audio-status-tracker";
 import { Loader } from "./loader";
 
 export default function StreamContainer() {
@@ -16,7 +17,6 @@ export default function StreamContainer() {
         try {
             const response = await fetch(`/api/messagefeed?token=${accessToken}${pageKey ? `&nextPageKey=${pageKey}` : ''}`);
             const results = await response.json();
-            console.log("results.itemsList", results?.itemsList)
             setFeed(prevFeed => [...prevFeed, ...results.itemsList]);
             setNextPageKey(results.nextPageKey);
         } catch (e) {
@@ -52,6 +52,7 @@ export default function StreamContainer() {
                         <StreamItem item={item} key={index} />
                     ))
                 }
+                <FloatingAudioStatusButton />
             </div>
             {loading && <Loader/>}
         </>

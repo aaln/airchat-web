@@ -9,9 +9,11 @@ export const useAudioPlayer = () => useContext(AudioPlayerContext);
 
 export const AudioPlayerProvider = ({ children }) => {
   const [currentPlaying, setCurrentPlaying] = useState<string | null>(null);
+  const [lastPlayed, setLastPlayed] = useState<string | null>(null);
   const playersRef = useRef(new Map<string, HTMLAudioElement>());
 
   const play = (id: string) => {
+   
     // Pause any currently playing audio
     if (currentPlaying) {
       const currentPlayer = playersRef.current.get(currentPlaying);
@@ -19,9 +21,16 @@ export const AudioPlayerProvider = ({ children }) => {
         currentPlayer.pause();
       }
     }
+
+    
     // Play the new audio and set it as the current playing
     const newPlayer = playersRef.current.get(id);
+     console.log({
+      id, currentPlaying, newPlayer,
+      lastPlayed
+    });
     if (newPlayer) {
+      setLastPlayed(currentPlaying);
       setCurrentPlaying(id);
       newPlayer.play();
     }
@@ -33,6 +42,7 @@ export const AudioPlayerProvider = ({ children }) => {
       player.pause();
       if (currentPlaying === id) {
         setCurrentPlaying(null);
+        setLastPlayed(id);
       }
     }
   };
@@ -62,7 +72,7 @@ export const AudioPlayerProvider = ({ children }) => {
   }, [currentPlaying]);
 
   return (
-    <AudioPlayerContext.Provider value={{ play, pause, registerPlayer, unregisterPlayer, currentPlaying }}>
+    <AudioPlayerContext.Provider value={{ play, pause, registerPlayer, unregisterPlayer, currentPlaying, lastPlayed }}>
       {children}
     </AudioPlayerContext.Provider>
   );
