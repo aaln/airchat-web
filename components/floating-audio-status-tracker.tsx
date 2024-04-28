@@ -1,5 +1,6 @@
 "use client"
 
+import { PauseIcon, PlayIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useAudioPlayer } from '../contexts/audio-player';
 
@@ -23,13 +24,17 @@ export const FloatingAudioStatusButton = () => {
   return (
     <button
       onClick={togglePlayPause}
-      className="z-20 fixed justify-center items-center h-20 w-20 bottom-6 right-6 dark:bg-white dark:text-black bg-white text-block font-bold py-2 px-4 rounded-full"
+      className="fixed flex justify-center items-center z-20  h-16 w-16 bottom-6 right-6 dark:bg-white dark:text-black bg-white text-block font-bold rounded-full"
       style={{
         boxShadow: "0px 0px 8px 4px rgba(0,0,0,0.15)"
       }}
     
     >
-      {isPlaying ? 'Pause' : 'Play'}
+      {isPlaying ? 
+        <PauseIcon className="h-6 w-6"/>
+      
+      : <PlayIcon className="h-6 w-6"/>}
+      
     </button>
   );
 };
