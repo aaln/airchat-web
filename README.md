@@ -1,6 +1,6 @@
 # Airchat Web Client
 
-An unofficial web client for the innovative Airchat app, designed to integrate with the Airchat API. This project serves as an open-source initiative, providing a reference for developers interested in interfacing with Airchat's capabilities. While the official Airchat app currently lacks a web client and a public API, this project aims to fill that gap and invites contributions from the community.
+An unofficial web client for the innovative Airchat app, designed to integrate with the unofficial internal Airchat API. This project serves as an open-source initiative, providing a reference for developers interested in interfacing with Airchat's capabilities. While the official Airchat app currently lacks a web client and a public API, this project aims to fill that gap and invites contributions from the community.
 
 Explore the demo: [Airchat Web Client Demo](https://airchat-web.vercel.app/)
 
