@@ -10,7 +10,6 @@ export function SingleMessage({ message }) {
   // const [selectedDetails, setSelectedDetails] = useState(null);
   // const { accessToken } = useAuth();
   const messageRef = useRef(null);
-
 //   useEffect(() => {
 //     const observer = new IntersectionObserver(
 //       (entries) => {
