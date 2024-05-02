@@ -10,6 +10,7 @@ export const useAudioPlayer = () => useContext(AudioPlayerContext);
 export const AudioPlayerProvider = ({ children }) => {
   const [currentPlaying, setCurrentPlaying] = useState<string | null>(null);
   const [lastPlayed, setLastPlayed] = useState<string | null>(null);
+  const [playbackSpeed, setPlaybackSpeed] = useState(1);
   const playersRef = useRef(new Map<string, HTMLAudioElement>());
 
   const play = (id: string) => {
@@ -32,6 +33,7 @@ export const AudioPlayerProvider = ({ children }) => {
     if (newPlayer) {
       setLastPlayed(currentPlaying);
       setCurrentPlaying(id);
+      newPlayer.playbackRate = playbackSpeed;
       newPlayer.play();
     }
   };
@@ -59,6 +61,7 @@ export const AudioPlayerProvider = ({ children }) => {
     playersRef.current.delete(id);
   };
 
+  
     // Ensure that when the current playing audio is unmounted, it gets paused
   useEffect(() => {
     return () => {
@@ -71,8 +74,16 @@ export const AudioPlayerProvider = ({ children }) => {
     };
   }, [currentPlaying]);
 
+  useEffect(() => {
+   const currentPlayer = playersRef.current.get(currentPlaying);
+    if (currentPlayer) {
+      currentPlayer.playbackRate = playbackSpeed;
+    }
+
+  }, [playbackSpeed]);
+
   return (
-    <AudioPlayerContext.Provider value={{ play, pause, registerPlayer, unregisterPlayer, currentPlaying, lastPlayed }}>
+    <AudioPlayerContext.Provider value={{ play, pause, registerPlayer, unregisterPlayer, currentPlaying, lastPlayed, playbackSpeed, setPlaybackSpeed }}>
       {children}
     </AudioPlayerContext.Provider>
   );

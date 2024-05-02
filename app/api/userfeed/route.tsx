@@ -1,6 +1,8 @@
+
 import { MessageAPIClient } from "@/airchat/message/v2/message_api_grpc_pb";
 // @ts-ignore
-import { GetMessageFeedRequest } from "@/airchat/message/v2/message_api_pb";
+import { GetUserFeedRequest } from "@/airchat/message/v2/message_api_pb";
+import { saveOrUpdateMessages } from "@/collect/ingest";
 import { accessTokenCookieName, airchatHostUrl } from '@/constants';
 import * as grpc from '@grpc/grpc-js';
 import { cookies } from "next/headers";
@@ -11,33 +13,32 @@ export async function GET(request: Request) {
     const url = new URL(request.url);
     const token = url.searchParams.get('token') || cookieStore.get(accessTokenCookieName).value;
     const nextPageKey = url.searchParams.get('nextPageKey');
+    const userId = url.searchParams.get('userId');
 
     const messageClient = new MessageAPIClient(airchatHostUrl, grpc.credentials.createSsl());
     const metadata = new grpc.Metadata();
     metadata.add('authorization', `Bearer ${token}`);
 
-    const messageFeedReq = new GetMessageFeedRequest();
+    const userFeedReq = new GetUserFeedRequest();
+    userFeedReq.setUserId(userId);
     if (nextPageKey) {
-        messageFeedReq.setPageKey(nextPageKey);
+        userFeedReq.setPageKey(nextPageKey);
     }
 
     return new Promise<Response>((resolve, reject) => {
-        messageClient.getMessageFeed(messageFeedReq, metadata, (error, response) => {
+        messageClient.getUserFeed(userFeedReq, metadata, (error, response) => {
             
             if (error) {
                 console.error('Error:', error);
                 reject(new Response('Internal Server Error', { status: 500 }));
             } else {
                 const respObj = response.toObject();
-                console.log('Message Feed Response:', respObj);
-                console.log("nextPageKey", nextPageKey)
-                console.log("token", token)
                 let messagesToUpdate = respObj.itemsList.reduce((prev, item) => {
                     prev.push(item.referenceMessage, ...item.messagesList);
                     return prev;
                 }, []);
                 messagesToUpdate = messagesToUpdate.filter(message => message !== null);
-                // saveOrUpdateMessages(messagesToUpdate)
+                saveOrUpdateMessages(messagesToUpdate)
                 resolve(NextResponse.json(respObj));
             }
         });

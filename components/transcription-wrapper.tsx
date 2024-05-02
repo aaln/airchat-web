@@ -5,6 +5,7 @@ export default function TranscriptionWrapper({ message }) {
   const [isExpanded, setIsExpanded] = useState(false);
   
   let transcriptionText = message?.transcription?.transcriptionText;
+  if(!transcriptionText) return;
   if(!transcriptionText.includes(".") && !transcriptionText.includes("?")) {
      transcriptionText =  transcriptionText + "."
   }

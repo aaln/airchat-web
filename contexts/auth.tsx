@@ -1,6 +1,6 @@
 "use client"
 import { accessTokenCookieName } from '@/constants';
-import { setCookie } from 'cookies-next';
+import { deleteCookie, setCookie } from 'cookies-next';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
@@ -11,6 +11,7 @@ interface AuthContextType {
   setAccessToken: (token: string) => void;
   setRefreshToken: (token: string) => void;
   refreshTokens: () => void;
+  logout: () => void;
 }
 
 // Create the context with a default value
@@ -20,6 +21,7 @@ const AuthContext = createContext<AuthContextType>({
   setAccessToken: () => {},
   setRefreshToken: () => {},
   refreshTokens: () => {},
+  logout: () => {}
 });
 
 // Function to retrieve tokens from session storage
@@ -43,11 +45,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [accessToken, setAccessToken] = useState<string | null>(getTokenFromSessionStorage('accessToken'));
   const [refreshToken, setRefreshToken] = useState<string | null>(getTokenFromSessionStorage('refreshToken'));
 
+ 
+  const publicRoutes = ["/", "/top"]
   // Function to refresh tokens
   const refreshTokens = async () => {
     
     if(!refreshToken) {
-      if (typeof window !== 'undefined' && window.location.pathname !== '/') {
+      if (typeof window !== 'undefined' && !publicRoutes.includes(window.location.pathname)) {
         window.location.href = '/';
       }
       return;
@@ -88,8 +92,17 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     };
   }, []);
 
+  const logout = () => {
+    deleteCookie(accessTokenCookieName);
+    setTokenInSessionStorage('accessToken', null);
+    setTokenInSessionStorage('refreshToken', null);
+
+    setAccessToken(null);
+    setRefreshToken(null);
+  }
+
   return (
-    <AuthContext.Provider value={{ accessToken, refreshToken, setAccessToken, setRefreshToken, refreshTokens }}>
+    <AuthContext.Provider value={{ accessToken, refreshToken, setAccessToken, setRefreshToken, refreshTokens, logout }}>
       {children}
     </AuthContext.Provider>
   );

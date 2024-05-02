@@ -7,14 +7,14 @@ import { MessageThread } from "../message-thread";
 
 export const ChannelsContainer = () => {
     const { accessToken, refreshTokens } = useAuth();
-    const [feed, setFeed] = useState([]);
+    const [channelFeed, setChannelFeed] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await fetch(`/api/messagefeed?token=${accessToken}`);
                 const results = await response.json();
-                setFeed(results.itemsList);
+                setChannelFeed(results.itemsList);
             } catch(e) {
                 refreshTokens();
             } finally {
@@ -40,7 +40,7 @@ export const ChannelsContainer = () => {
                 <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-2">
                 
                 {
-                    feed?.map((messageThread: any, index: number) => {
+                    channelFeed?.map((messageThread: any, index: number) => {
                             return (
                                 <MessageThread messageThread={messageThread} key={index}/>
                             

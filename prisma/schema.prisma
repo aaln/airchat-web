@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "mongodb"
+  url       = env("DATABASE_URL")
+  directUrl = env("MONGODB_URL")
+}
+type messageAnalytics {
+  recordingId  String
+  viewCount    Int
+  listenCount  Int
+  likeCount    Int
+  repostCount  Int
+  threadCount  Int
+}
+
+model messages {
+  recordingId          String  @id @map("_id")
+  messageThreadId      String?
+  fromUserId           String
+  mediaType            Int
+  index                Int
+  createdDate          Json
+  messageUrl           String
+  hlsUrl               String
+  duration             Float
+  transcription        Json
+  fromUser             Json
+  eventsList           Json[]
+  messageAnalytics     messageAnalytics?
+  continuedMessageThreadId String?
+  mentionedUserIdsList String[]
+  mentionedUsersList   Json[]
+  referenceMessageThreadId String?
+  isReferenceMessageThreadCreated Boolean
+  privateRoomId        String?
+  imageReferenceIdsList String[]
+  linkMetadataList     Json[]
+  previousThreadRecordingId String?
+  participantOnlyVisibility Boolean
+  imageReferencesList  Json[]
+  repostUserList       Json[]
+  thumbnailImagePath   String?
+  channelId            String?
+  isBookmarked         Boolean
+  isHighlighted        Boolean
+  hiddenInChannel      Boolean
+  transcriptionEmbedding Json?
+}
+
+model embeddings_cache {
+  id        String   @id @map("_id")
+  createdAt DateTime @db.Date
+  embedding Json
+  input     String
+  model     String
+  updatedAt DateTime @db.Date
+}

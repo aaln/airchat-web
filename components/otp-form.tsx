@@ -67,7 +67,7 @@ export function OTPForm() {
         <div className="text-center font-helvetica">You’ll be sent a one time verification code.</div>
       </CardHeader>
       <CardContent className="w-full flex flex-col gap-8">
-        <div className="w-full flex flex-wrap gap-4">
+        <div className="w-full flex flex-col md:flex-row flex-wrap gap-4">
           <Label className="text-sm flex-1 min-w-[200px] text-black">
             Phone number (including area code):
           </Label>

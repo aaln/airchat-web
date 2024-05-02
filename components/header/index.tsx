@@ -1,7 +1,13 @@
-import { siteSettings } from "@/config/site"
-import Link from "next/link"
-import { ThemeToggle } from "../navbar/theme-toggle"
+"use client";
+
+import { siteSettings } from "@/config/site";
+import { useAuth } from "@/contexts/auth";
+import Link from "next/link";
+import { ThemeToggle } from "../navbar/theme-toggle";
+import { Button } from "../ui/button";
 export const Header = () => {
+    const { logout } = useAuth();
+
     return (
         <header className="w-full bg-black text-gray-50 py-2 max-h-[120px]">
              
@@ -13,16 +19,19 @@ export const Header = () => {
                             className="max-h-[40px]" 
                             src={siteSettings.logo.url} height={20}
                         />
-                        {/* <img
-                            className="max-h-[40px]" 
-                            src={siteSettings.logo_icon.url}
-                            height={20}
-                        /> */}
-            
                     </Link>
                     
-              
-                    <ThemeToggle />
+                    <div className="flex flex-row gap-4 items-center justify-center">
+                        <Button 
+                            variant="ghost"
+                        onClick={() => {
+                            logout();
+                            window.location.href = '/';
+                        }}>
+                            Logout
+                        </Button>
+                        <ThemeToggle />
+                    </div>
             </nav>
         </header>
       )
