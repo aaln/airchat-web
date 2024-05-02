@@ -48,7 +48,7 @@ export default function StreamContainer({userAnalytics}: {userAnalytics?: any}) 
             if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
             if (!loading && nextPageKey) {
                 setLoading(true);
-                fetchFeed(nextPageKey);
+                fetchFeed(nextPageKey, accessToken);
             }
         };
 

@@ -30,8 +30,6 @@ export async function GET(request: Request) {
             } else {
                 const respObj = response.toObject();
                 console.log('Message Feed Response:', respObj);
-                console.log("nextPageKey", nextPageKey)
-                console.log("token", token)
                 let messagesToUpdate = respObj.itemsList.reduce((prev, item) => {
                     prev.push(item.referenceMessage, ...item.messagesList);
                     return prev;

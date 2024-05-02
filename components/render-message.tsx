@@ -121,10 +121,10 @@ export const RenderMessage = ({item, message}: {item?: any, message: any}) => {
                             >
                                 {
                                     isLiked
-                                        ? <HeartFilledIcon className="h-3 w-3 text-red-600" /> :
-                                         <Heart className="h-3 w-3" />
+                                        ? <HeartFilledIcon className="h-4 w-4 text-red-600" /> :
+                                         <Heart className="h-4 w-4" />
                                 }
-                                <span className="text-xs">{message?.messageAnalytics?.likeCount}</span>
+                                <span className="text-md font-semibold">{message?.messageAnalytics?.likeCount}</span>
                             </div>
                             <div className="flex gap-1 items-center p-0 rounded-full dark:text-black"
                                 onClick={async () => {
@@ -133,15 +133,15 @@ export const RenderMessage = ({item, message}: {item?: any, message: any}) => {
                             >
                                  {
                                     isReposted
-                                        ? <Repeat className="h-3 w-3 text-green-600" /> :
-                                         <Repeat className="h-3 w-3" />
+                                        ? <Repeat className="h-4 w-4 text-green-600" /> :
+                                         <Repeat className="h-4 w-4" />
                                 }
                                 
-                                <span className="text-xs">{message?.messageAnalytics?.repostCount}</span>
+                                <span className="text-md font-semibold">{message?.messageAnalytics?.repostCount}</span>
                             </div>
                             <div className="flex gap-1 items-center px-1 rounded-full dark:text-black">
-                                <EarIcon className="h-3 w-3" />
-                                <span className="text-xs">{message?.messageAnalytics?.viewCount}</span>
+                                <EarIcon className="h-4 w-4" />
+                                <span className="text-md font-semibold">{message?.messageAnalytics?.viewCount}</span>
                             </div>
                         </div>
 
