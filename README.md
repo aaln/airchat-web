@@ -17,6 +17,7 @@ Explore the demo: [Airchat Web Client Demo](https://airchat-web.vercel.app/)
 - View Airchat Stream
 - Listen to Audio with custom playrate speeds
 - View feeds of other users
+- Like and repost chits
 - Page for all time most liked chits
 
 ## Roadmap
