@@ -47,7 +47,7 @@ export const RenderMessage = ({item, message}: {item?: any, message: any}) => {
                 <AudioWrapper message={message}/>
             </div>
             <div className="flex flex-col w-full">
-                <div className="relative flex flex-col rounded-lg p-2.5 gap-2 bg-white dark:bg-gray-800 w-full shadow-lg">
+                <div className="w-full relative flex flex-col rounded-lg p-2.5 gap-2 bg-white dark:bg-gray-800 w-full shadow-lg">
                     <div className="flex flex-row  gap-2 items-center">
                         <Link href={`/user/${message?.fromUser?.id}`} className="font-bold">
                             {message?.fromUser?.name}

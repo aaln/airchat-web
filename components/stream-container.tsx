@@ -14,14 +14,14 @@ export default function StreamContainer({userAnalytics}: {userAnalytics?: any}) 
     const [loading, setLoading] = useState(true);
     const [nextPageKey, setNextPageKey] = useState(null);
 
-    const fetchFeed = async (pageKey) => {
+    const fetchFeed = async (pageKey, token) => {
         try {
             let endpoint = userAnalytics ? `/api/userfeed` : `/api/messagefeed`;
             let url = new URL(endpoint, window.location.origin);
             if (userAnalytics) {
                 url.searchParams.append('userId', userAnalytics?.user?.id);
             }
-            url.searchParams.append('token', accessToken);
+            url.searchParams.append('token', token);
             if (pageKey) {
                 url.searchParams.append('nextPageKey', pageKey);
             }
@@ -30,8 +30,9 @@ export default function StreamContainer({userAnalytics}: {userAnalytics?: any}) 
             setFeed(prevFeed => [...prevFeed, ...results.itemsList]);
             setNextPageKey(results.nextPageKey);
         } catch (e) {
+            const newAccessToken = await refreshTokens();
+            await fetchFeed(pageKey, newAccessToken);
             console.error('Error:', e);
-            refreshTokens();
         } finally {
             console.error('Error:finall');
             setLoading(false);
@@ -39,7 +40,7 @@ export default function StreamContainer({userAnalytics}: {userAnalytics?: any}) 
     };
 
     useEffect(() => {
-        fetchFeed(null);
+        fetchFeed(null, accessToken);
     }, []);
 
     useEffect(() => {

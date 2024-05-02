@@ -32,7 +32,7 @@ export default function MessagesContainer({messages}) {
                     messages.map((message, index) => (
                         <div 
                             key={index}
-                            className="flex flex-row gap-4 items-center"
+                            className="flex flex-row gap-2 items-center"
                         >
                             <div className="text-2xl text-bold">
                                 {index === 0 && <span>🥇</span>} 

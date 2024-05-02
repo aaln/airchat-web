@@ -56,22 +56,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
       return;
     };
-
     const response = await fetch(`/api/auth/refresh?token=${refreshToken}`);
     const data = await response.json();
     if(data.error !== 0) {
-
       return;
     }
     const newAccessToken = data?.credential?.accessToken?.token;
     const newRefreshToken = data?.credential?.refreshToken?.token;
 
-    setCookie(accessTokenCookieName, newAccessToken);
-    
-    setAccessToken(newAccessToken);
-    setRefreshToken(newRefreshToken);
-    setTokenInSessionStorage('accessToken', newAccessToken);
-    setTokenInSessionStorage('refreshToken', newRefreshToken);
+    await setCookie(accessTokenCookieName, newAccessToken);
+    await setAccessToken(newAccessToken);
+    await setRefreshToken(newRefreshToken);
+    await setTokenInSessionStorage('accessToken', newAccessToken);
+    await setTokenInSessionStorage('refreshToken', newRefreshToken);
+    return newAccessToken;
   };
 
   // Effect to handle token refresh logic
