@@ -1,9 +1,9 @@
 "use client";
 
 import { useAudioPlayer } from "@/contexts/audio-player";
+import ReactHlsPlayer from '@gumlet/react-hls-player';
 import { PauseIcon, PlayIcon } from "lucide-react";
 import { useCallback, useEffect, useRef } from "react";
-import ReactHlsPlayer from "react-hls-player";
 
 export default function AudioWrapper({message}) {
     const playerRef = useRef<HTMLAudioElement>(null);
@@ -45,9 +45,6 @@ export default function AudioWrapper({message}) {
         }
     }, [play, pause, currentPlaying, message.recordingId]);
 
-    if(!message.recordingId) {
-        console.log("message", message);
-    }
     return (
         <div className="cursor-pointer" onClick={toggleSound}>
             {isPlaying ? <PauseIcon /> : <PlayIcon />}

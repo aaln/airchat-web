@@ -29,7 +29,6 @@ export async function GET(request: Request) {
                 reject(new Response('Internal Server Error', { status: 500 }));
             } else {
                 const respObj = response.toObject();
-                console.log('Message Feed Response:', respObj);
                 let messagesToUpdate = respObj.itemsList.reduce((prev, item) => {
                     prev.push(item.referenceMessage, ...item.messagesList);
                     return prev;

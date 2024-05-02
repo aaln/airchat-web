@@ -12,14 +12,27 @@ export const Header = () => {
         <header className="w-full bg-black text-gray-50 py-2 max-h-[120px]">
              
             <nav className="container px-4 md:px-6 gap-4 flex justify-between items-center">
-                   <Link
-                    href="/"
-                    >
-                        <img
-                            className="max-h-[40px]" 
-                            src={siteSettings.logo.url} height={20}
-                        />
+                    <div className="flex flex-row gap-6 items-center justify-center">
+                    <Link
+                        href="/"
+                        >
+                            <img
+                                className="max-h-[40px]" 
+                                src={siteSettings.logo.url} height={20}
+                            />
                     </Link>
+                    <Link href="/top">
+                        <Button 
+                            variant="ghost"
+                            onClick={() => {
+                                logout();
+                                window.location.href = '/';
+                            }}>
+                            Top Chits
+                        </Button>
+                    </Link>
+                    </div>
+                    
                     
                     <div className="flex flex-row gap-4 items-center justify-center">
                         <Button 

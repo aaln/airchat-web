@@ -9,10 +9,10 @@ export default async function Page({
   params: { username: string };
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-    const search = searchParams.search;
+    // const search = searchParams.search;
     // @ts-ignore
     const results = await prisma.messages.findMany({
-      take: 150,
+      take: 100,
       orderBy: {
         messageAnalytics: {
           likeCount: 'desc',

@@ -79,7 +79,6 @@ export const AudioPlayerProvider = ({ children }) => {
     if (currentPlayer) {
       currentPlayer.playbackRate = playbackSpeed;
     }
-
   }, [playbackSpeed]);
 
   return (

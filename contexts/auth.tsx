@@ -44,18 +44,18 @@ export const setTokenInSessionStorage = (key: string, value: string) => {
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [accessToken, setAccessToken] = useState<string | null>(getTokenFromSessionStorage('accessToken'));
   const [refreshToken, setRefreshToken] = useState<string | null>(getTokenFromSessionStorage('refreshToken'));
-
+  const [loggedOut, setLoggedOut] = useState<boolean>(false);
  
   const publicRoutes = ["/", "/top"]
   // Function to refresh tokens
   const refreshTokens = async () => {
-    
     if(!refreshToken) {
       if (typeof window !== 'undefined' && !publicRoutes.includes(window.location.pathname)) {
         window.location.href = '/';
       }
       return;
     };
+    setLoggedOut(false);
     const response = await fetch(`/api/auth/refresh?token=${refreshToken}`);
     const data = await response.json();
     if(data.error !== 0) {
@@ -74,8 +74,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   // Effect to handle token refresh logic
   useEffect(() => {
+    if(loggedOut) return;
     const fiveMinutes = 5 * 60 * 1000;
     const interval = typeof window !== 'undefined' ? setInterval(() => {
+      if(loggedOut) clearInterval(interval);
       const lastRefreshTime = getTokenFromSessionStorage('lastRefreshTime');
       const currentAccessToken = getTokenFromSessionStorage('accessToken');
       const currentTime = new Date().getTime();
@@ -90,13 +92,17 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     };
   }, []);
 
-  const logout = () => {
-    deleteCookie(accessTokenCookieName);
-    setTokenInSessionStorage('accessToken', null);
-    setTokenInSessionStorage('refreshToken', null);
+  const logout = async () => {
+    await deleteCookie(accessTokenCookieName);
+    await setTokenInSessionStorage('accessToken', null);
+    await setTokenInSessionStorage('refreshToken', null);
 
-    setAccessToken(null);
-    setRefreshToken(null);
+    await setAccessToken(null);
+    await setRefreshToken(null);
+    setLoggedOut(true);
+    if (typeof window !== 'undefined') {
+      window.location.href = '/';
+    }
   }
 
   return (

@@ -1,3 +1,5 @@
+"use client";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { MESSAGE_EVENT_LIKE, MESSAGE_EVENT_REPOST, MESSAGE_EVENT_UNLIKE, MESSAGE_EVENT_UNREPOST, airchatCDNUrl } from "@/constants";
 import { sendEventAction } from "@/lib/actions";
@@ -124,7 +126,7 @@ export const RenderMessage = ({item, message}: {item?: any, message: any}) => {
                                         ? <HeartFilledIcon className="h-4 w-4 text-red-600" /> :
                                          <Heart className="h-4 w-4" />
                                 }
-                                <span className="text-md font-semibold">{message?.messageAnalytics?.likeCount}</span>
+                                <span className="text-sm font-medium">{message?.messageAnalytics?.likeCount}</span>
                             </div>
                             <div className="flex gap-1 items-center p-0 rounded-full dark:text-black"
                                 onClick={async () => {
@@ -137,11 +139,11 @@ export const RenderMessage = ({item, message}: {item?: any, message: any}) => {
                                          <Repeat className="h-4 w-4" />
                                 }
                                 
-                                <span className="text-md font-semibold">{message?.messageAnalytics?.repostCount}</span>
+                                <span className="text-sm font-medium">{message?.messageAnalytics?.repostCount}</span>
                             </div>
                             <div className="flex gap-1 items-center px-1 rounded-full dark:text-black">
                                 <EarIcon className="h-4 w-4" />
-                                <span className="text-md font-semibold">{message?.messageAnalytics?.viewCount}</span>
+                                <span className="text-sm font-medium">{message?.messageAnalytics?.viewCount}</span>
                             </div>
                         </div>
 
