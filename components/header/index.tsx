@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ThemeToggle } from "../navbar/theme-toggle";
 import { Button } from "../ui/button";
 export const Header = () => {
-    const { logout } = useAuth();
+    const { refreshToken, logout } = useAuth();
 
     return (
         <header className="w-full bg-black text-gray-50 py-2 max-h-[120px]">
@@ -21,6 +21,7 @@ export const Header = () => {
                                 src={siteSettings.logo.url} height={20}
                             />
                     </Link>
+                    
                     <Link href="/top">
                         <Button 
                             variant="ghost"
@@ -33,8 +34,8 @@ export const Header = () => {
                     </Link>
                     </div>
                     
-                    
-                    <div className="flex flex-row gap-4 items-center justify-center">
+                    {
+                        refreshToken && <div className="flex flex-row gap-4 items-center justify-center">
                         <Button 
                             variant="ghost"
                         onClick={() => {
@@ -45,6 +46,8 @@ export const Header = () => {
                         </Button>
                         <ThemeToggle />
                     </div>
+                    }
+                    
             </nav>
         </header>
       )

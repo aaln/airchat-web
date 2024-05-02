@@ -14,7 +14,7 @@ import AudioWrapper from "./audio-wrapper";
 import TranscriptionWrapper from "./transcription-wrapper";
 
 
-export const RenderMessage = ({item, message}: {item?: any, message: any}) => {
+export const RenderMessage = ({item, message, charLimit}: {item?: any, message: any, charLimit: number}) => {
     const [isLiked, setIsLiked] = useState(message?.eventsList.includes(2));
     const [isReposted, setIsReposted] = useState(message?.eventsList.includes(4));
     const toggleLike = async () => {
@@ -66,7 +66,7 @@ export const RenderMessage = ({item, message}: {item?: any, message: any}) => {
                         </span>
                     </div>
                     
-                        <TranscriptionWrapper message={message} />
+                        <TranscriptionWrapper message={message} charLimit={charLimit} />
                         
                         {message?.imageReferenceIdsList.length > 0 && (
                         <div className="flex flex-wrap gap-2 mt-2">

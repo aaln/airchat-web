@@ -27,21 +27,14 @@ export default function MessagesContainer({messages}) {
                     </Select>
                 </div>
             </div>
-            <div className="flex flex-col gap-8 items-center">
+            <div className="flex flex-col gap-8 p-4 items-center">
                 {
                     messages.map((message, index) => (
                         <div 
                             key={index}
                             className="flex flex-row gap-2 items-center"
                         >
-                            <div className="text-2xl text-bold">
-                                {index === 0 && <span>🥇</span>} 
-                                {index === 1 && <span>🥈</span>} 
-                                {index === 2 && <span>🥉</span>} 
-                                {" "}
-                                #{index + 1}
-                                
-                            </div>
+                           
                             <SingleMessage message={message}  />
                         </div>
                     ))

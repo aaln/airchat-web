@@ -11,14 +11,15 @@ export default async function Page({
 }) {
     // const search = searchParams.search;
     // @ts-ignore
-    const results = await prisma.messages.findMany({
-      take: 100,
+    let results = await prisma.messages.findMany({
+      take: 150,
       orderBy: {
         messageAnalytics: {
           likeCount: 'desc',
         },
       },
     } as any);
+    // results = results.filter(message => message.fromUser.username !== "naval" && message.fromUser.username !== "norgard");
     return (
         <MessagesContainer messages={results} />
     );

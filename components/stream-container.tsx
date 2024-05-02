@@ -34,7 +34,6 @@ export default function StreamContainer({userAnalytics}: {userAnalytics?: any}) 
             await fetchFeed(pageKey, newAccessToken);
             console.error('Error:', e);
         } finally {
-            console.error('Error:finall');
             setLoading(false);
         }
     };

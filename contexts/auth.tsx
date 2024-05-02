@@ -46,15 +46,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [refreshToken, setRefreshToken] = useState<string | null>(getTokenFromSessionStorage('refreshToken'));
   const [loggedOut, setLoggedOut] = useState<boolean>(false);
  
-  const publicRoutes = ["/", "/top"]
+  // const publicRoutes = ["/", "/top"]
   // Function to refresh tokens
   const refreshTokens = async () => {
-    if(!refreshToken) {
-      if (typeof window !== 'undefined' && !publicRoutes.includes(window.location.pathname)) {
-        window.location.href = '/';
-      }
-      return;
-    };
+    // if(!refreshToken) {
+    //   if (typeof window !== 'undefined' && !publicRoutes.includes(window.location.pathname)) {
+    //     window.location.href = '/';
+    //   }
+    //   return;
+    // };
     setLoggedOut(false);
     const response = await fetch(`/api/auth/refresh?token=${refreshToken}`);
     const data = await response.json();

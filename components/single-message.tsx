@@ -40,7 +40,7 @@ export function SingleMessage({ message }) {
 
   return (
     <div ref={messageRef} className="relative flex flex-col gap-14 pt-6 w-full justify-center max-w-2xl">
-      <RenderMessage message={message} />
+      <RenderMessage message={message} charLimit={280} />
        {/* {
         threadDetails?.length > 1 && 
         <div className="ml-16 flex flex-col gap-2">
