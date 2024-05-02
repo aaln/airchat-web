@@ -15,7 +15,9 @@ Explore the demo: [Airchat Web Client Demo](https://airchat-web.vercel.app/)
 
 - Login via SMS
 - View Airchat Stream
-- Listen to Audio
+- Listen to Audio with custom playrate speeds
+- View feeds of other users
+- Page for all time most liked chits
 
 ## Roadmap
 
@@ -23,11 +25,10 @@ Explore the demo: [Airchat Web Client Demo](https://airchat-web.vercel.app/)
 - Ability to upload audio, create threads, and respond to threads.
 
 
-
 ## Acknowledgements
 
 Special thanks to:
-- The Airchat team for their groundbreaking work in communication technology.
+- The Airchat team for their groundbreaking work in communication.
 - [@elie222](https://www.github.com/elie222) for his contributions to the open-source community and guidance.
 
 ## Contributing
@@ -42,9 +43,9 @@ Interested in contributing? Great! Here's how you can help:
 
 For more detailed instructions, check out the contribution guidelines.
 
-## Authors
+## Author
 
-- [@aaln](https://www.github.com/aaln) - For initiating and maintaining this project.
+- [@aaln](https://www.github.com/aaln)
 
 ## Installation and Local Development
 
