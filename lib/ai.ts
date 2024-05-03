@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
-import prisma from "./prisma";
 
 
 const openai_embedding_model = "text-embedding-3-small";
@@ -11,13 +9,13 @@ export const newEmbeddingWithCache = async ({
   query: string;
   withCache?: boolean;
 }) => {
-  if (withCache) {
-    // @ts-ignore
-    const cachedEmbedding = await prisma.embeddings_cache.findUnique({
-      where: { input: query },
-    });
-    if (cachedEmbedding) return cachedEmbedding.embedding;
-  }
+  // if (withCache) {
+  //   // @ts-ignore
+  //   const cachedEmbedding = await prisma.embeddings_cache.findUnique({
+  //     where: { input: query },
+  //   });
+  //   if (cachedEmbedding) return cachedEmbedding.embedding;
+  // }
 
   const response = await fetch("https://api.openai.com/v1/embeddings", {
     method: "POST",
@@ -38,16 +36,16 @@ export const newEmbeddingWithCache = async ({
   const { data } = await response.json();
   const embedding = data[0].embedding;
     // @ts-ignore
-  await prisma.embeddings_cache.create({
-    data: {
-      id: uuidv4(),
-      input: query,
-      model: openai_embedding_model,
-      embedding,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-  });
+  // await prisma.embeddings_cache.create({
+  //   data: {
+  //     id: uuidv4(),
+  //     input: query,
+  //     model: openai_embedding_model,
+  //     embedding,
+  //     createdAt: new Date(),
+  //     updatedAt: new Date(),
+  //   },
+  // });
 
   return embedding;
 };

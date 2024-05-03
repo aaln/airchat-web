@@ -3,6 +3,9 @@
 import { Header } from "@/components/header";
 import { useAuth } from "@/contexts/auth";
 import { useEffect, useState } from "react";
+import { FloatingAudioStatusButton } from "./floating-audio-status-tracker";
+import { Loader } from "./loader";
+import { StreamItem } from "./stream-item";
 
 export default function ThreadContainer({threadId}) {
     const { accessToken, refreshTokens } = useAuth();
@@ -14,8 +17,7 @@ export default function ThreadContainer({threadId}) {
                 console
                 const response = await fetch(`/api/thread/details?id=${threadId}&token=${accessToken}`);
                 const results = await response.json();
-                setFullThread(results);
-                console.log(results);
+                setFullThread(results.messageThreadDetailsList);
             } catch(e) {
                 refreshTokens();
             } finally {
@@ -27,35 +29,17 @@ export default function ThreadContainer({threadId}) {
     return (
         <>
             <Header />
-            {loading && <div>Loading...</div>}
             <div className="flex flex-col gap-8 p-6 items-center">
-                <div className="relative flex flex-col gap-14 pt-6 w-full justify-center max-w-2xl">
-
-                </div>
-                {/* <StreamItem item={fullThread} /> */}
-                {/* {
-                    fullThread?.messageThreadDetailsList?.map((item, index) => (
-                        
-                            {
-                                item?.referenceMessage && renderMessage({item, message: item?.referenceMessage || item?.firstMessage})
-                            }
-                            {
-                                item?.messagesList?.map((message, index) => (
-                                    
-                                    renderMessage({item, message})
-                                ))
-                            }
-                            <div className="w-full h-2 bg-[#F7F8FA]">
-
-                            </div>
-                            {
-                                item.type !== 1 && <div className="absolute left-[20px] z-0 h-full w-0.5 bg-gray-300"></div>
-                            }
-                            
-                        </div>
+                {
+                    fullThread.map((item, index) => (
+                        <StreamItem item={item} key={index} />
                     ))
-                } */}
+                }
+                <FloatingAudioStatusButton />
             </div>
+            {loading && <Loader/>}
+
+            
         </>
     )
 }

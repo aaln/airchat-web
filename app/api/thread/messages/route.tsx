@@ -1,6 +1,6 @@
 import { MessageAPIClient } from "@/airchat/message/v2/message_api_grpc_pb";
 // @ts-ignore
-import { GetMessageThreadsByReferenceRequest } from "@/airchat/message/v2/message_api_pb";
+import { GetThreadMessagesByIndexRequest } from "@/airchat/message/v2/message_api_pb";
 import { accessTokenCookieName, airchatHostUrl } from '@/constants';
 import * as grpc from '@grpc/grpc-js';
 import { cookies } from "next/headers";
@@ -11,23 +11,27 @@ export async function GET(request: Request) {
     const cookieStore = cookies()
     const accessTokenCookie = cookieStore.get(accessTokenCookieName)
     const token = url.searchParams.get('token') || accessTokenCookie.value;
-    const referenceId = url.searchParams.get('id');
+    const threadId = url.searchParams.get('id');
+    const startIndex = parseInt(url.searchParams.get('startIndex') || "0", 10);
+    const endIndex = parseInt(url.searchParams.get('endIndex') || "0", 10);
 
     const messageClient = new MessageAPIClient(airchatHostUrl, grpc.credentials.createSsl());
     const metadata = new grpc.Metadata();
     metadata.add('authorization', `Bearer ${token}`);
 
-    const threadsByReferenceReq = new GetMessageThreadsByReferenceRequest();
-    threadsByReferenceReq.setReferenceRecordingId(referenceId);
+    const messagesReq = new GetThreadMessagesByIndexRequest();
+    messagesReq.setMessageThreadId(threadId);
+    messagesReq.setStartIndex(startIndex);
+    messagesReq.setEndIndex(endIndex);
 
     return new Promise<Response>((resolve, reject) => {
-        messageClient.getMessageThreadsByReference(threadsByReferenceReq, metadata, (error, response) => {
+        messageClient.getThreadMessagesByIndex(messagesReq, metadata, (error, response) => {
             if (error) {
-                console.error('Error fetching message threads by reference:', error);
+                console.error('Error fetching thread messages by index:', error);
                 reject(new Response('Internal Server Error', { status: 500 }));
             } else {
                 const respObj = response.toObject();
-                console.log('Fetched message threads by reference successfully:', respObj);
+                console.log('Fetched thread messages by index successfully:', respObj);
                 resolve(NextResponse.json(respObj));
             }
         });

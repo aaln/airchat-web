@@ -1,5 +1,5 @@
 "use client"
-import { accessTokenCookieName } from '@/constants';
+import { accessTokenCookieName, refreshTokenCookieName } from '@/constants';
 import { deleteCookie, setCookie } from 'cookies-next';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
@@ -46,15 +46,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [refreshToken, setRefreshToken] = useState<string | null>(getTokenFromSessionStorage('refreshToken'));
   const [loggedOut, setLoggedOut] = useState<boolean>(false);
  
-  // const publicRoutes = ["/", "/top"]
   // Function to refresh tokens
   const refreshTokens = async () => {
-    // if(!refreshToken) {
-    //   if (typeof window !== 'undefined' && !publicRoutes.includes(window.location.pathname)) {
-    //     window.location.href = '/';
-    //   }
-    //   return;
-    // };
+    if(!refreshToken) {
+      logout()
+      return;
+    };
     setLoggedOut(false);
     const response = await fetch(`/api/auth/refresh?token=${refreshToken}`);
     const data = await response.json();
@@ -65,6 +62,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const newRefreshToken = data?.credential?.refreshToken?.token;
 
     await setCookie(accessTokenCookieName, newAccessToken);
+    await setCookie(refreshTokenCookieName, newRefreshToken);
     await setAccessToken(newAccessToken);
     await setRefreshToken(newRefreshToken);
     await setTokenInSessionStorage('accessToken', newAccessToken);
@@ -100,9 +98,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     await setAccessToken(null);
     await setRefreshToken(null);
     setLoggedOut(true);
-    if (typeof window !== 'undefined') {
-      window.location.href = '/';
-    }
+    // if (typeof window !== 'undefined') {
+    //   window.location.href = '/';
+    // }
   }
 
   return (

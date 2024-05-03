@@ -14,29 +14,7 @@ import AudioWrapper from "./audio-wrapper";
 import TranscriptionWrapper from "./transcription-wrapper";
 
 
-export const RenderMessage = ({item, message, charLimit}: {item?: any, message: any, charLimit: number}) => {
-    const [isLiked, setIsLiked] = useState(message?.eventsList.includes(2));
-    const [isReposted, setIsReposted] = useState(message?.eventsList.includes(4));
-    const toggleLike = async () => {
-        const event = isLiked ? MESSAGE_EVENT_UNLIKE : MESSAGE_EVENT_LIKE;
-        const actionResp = await sendEventAction(event, message.recordingId);
-        if(!isLiked) {
-            message.messageAnalytics.likeCount += 1;
-        } else {
-            message.messageAnalytics.likeCount -= 1;
-        }
-        setIsLiked(!isLiked);        
-    }
-    const toggleRepost = async () => {
-        const event = isReposted ? MESSAGE_EVENT_UNREPOST : MESSAGE_EVENT_REPOST;
-        const actionResp = await sendEventAction(event, message.recordingId);
-        if(!isReposted) {
-            message.messageAnalytics.repostCount += 1;
-        } else {
-            message.messageAnalytics.repostCount -= 1;
-        }
-        setIsReposted(!isReposted);        
-    }
+export const RenderMessage = ({item, message, charLimit}: {item?: any, message: any, charLimit?: number}) => {
     return (
         <div className="flex flex-row gap-6 z-10">
             <div className="flex flex-col items-center gap-4">
@@ -66,9 +44,35 @@ export const RenderMessage = ({item, message, charLimit}: {item?: any, message: 
                         </span>
                     </div>
                     
+                    <Link 
+                        href={`https://www.air.chat/${message?.fromUser?.username}/post/${item?.messageThread?.referenceRecordingId || message?.recordingId}`}
+                        target="_blank"
+                        title="View on airchat"
+                    >
                         <TranscriptionWrapper message={message} charLimit={charLimit} />
+                    </Link>
                         
-                        {message?.imageReferenceIdsList.length > 0 && (
+                    <ImageReferences message={message} />
+                    <LinkMetadata message={message} />
+
+                     
+                    <BottomMessageAnalytics message={message} />
+                </div>
+
+            </div>
+        </div>
+        
+    )
+}
+
+
+export const RenderSingleMessage = () => {
+
+}
+export const ImageReferences = ({message}) => {
+    return (
+        <>
+            {message?.imageReferenceIdsList.length > 0 && (
                         <div className="flex flex-wrap gap-2 mt-2">
                             {message?.imageReferencesList.map((imageRef, idx) => (
                                 <Zoom key={idx}>
@@ -76,10 +80,10 @@ export const RenderMessage = ({item, message, charLimit}: {item?: any, message: 
                                     src={`${airchatCDNUrl}/images/${imageRef.imageReferenceId}`}
                                     alt={`Attached image ${idx + 1}`}
                                     style={{
-                                        maxHeight: '200px',
+                                        maxHeight: '140px',
                                         width: 'auto',
                                         height: 'auto',
-                                        maxWidth: `${200 * (imageRef.resolution.resolutionWidth / imageRef.resolution.resolutionHeight)}px`
+                                        maxWidth: `${140 * (imageRef.resolution.resolutionWidth / imageRef.resolution.resolutionHeight)}px`
                                     }}
                                     className="rounded-lg shadow-md"
                                 />
@@ -88,7 +92,14 @@ export const RenderMessage = ({item, message, charLimit}: {item?: any, message: 
                         </div>
                        
                     )}
-                     {
+        
+        </>
+    )
+}
+export const LinkMetadata = ({message}) => {
+    return (
+        <>
+            {
                             message?.linkMetadataList?.length > 0 && 
                                 <div className="flex flex-row gap-2">
                                     {message.linkMetadataList.map((linkMeta, index) => {
@@ -113,45 +124,65 @@ export const RenderMessage = ({item, message, charLimit}: {item?: any, message: 
                                 
                                 
                             }
-
-                    <div className="absolute right-[-0px] bottom-[-20px]">
-                        <div className="cursor-pointer flex justify-between gap-4 px-4 py-2 rounded-full bg-white border-1-black shadow-md">
-                            <div className="flex gap-1 items-center p-0 rounded-full dark:text-black"
-                                onClick={async () => {
-                                    toggleLike();
-                                }}
-                            >
-                                {
-                                    isLiked
-                                        ? <HeartFilledIcon className="h-4 w-4 text-red-600" /> :
-                                         <Heart className="h-4 w-4" />
-                                }
-                                <span className="text-sm font-medium">{message?.messageAnalytics?.likeCount}</span>
-                            </div>
-                            <div className="flex gap-1 items-center p-0 rounded-full dark:text-black"
-                                onClick={async () => {
-                                    toggleRepost();
-                                }}
-                            >
-                                 {
-                                    isReposted
-                                        ? <Repeat className="h-4 w-4 text-green-600" /> :
-                                         <Repeat className="h-4 w-4" />
-                                }
-                                
-                                <span className="text-sm font-medium">{message?.messageAnalytics?.repostCount}</span>
-                            </div>
-                            <div className="flex gap-1 items-center px-1 rounded-full dark:text-black">
-                                <EarIcon className="h-4 w-4" />
-                                <span className="text-sm font-medium">{message?.messageAnalytics?.viewCount}</span>
-                            </div>
-                        </div>
-
-                    </div>
+        </>
+    )
+}
+export const BottomMessageAnalytics = ({message}) => {
+    const [isLiked, setIsLiked] = useState(message?.eventsList.includes(2));
+    const [isReposted, setIsReposted] = useState(message?.eventsList.includes(4));
+    const toggleLike = async () => {
+        const event = isLiked ? MESSAGE_EVENT_UNLIKE : MESSAGE_EVENT_LIKE;
+        const actionResp = await sendEventAction(event, message.recordingId);
+        if(!isLiked) {
+            message.messageAnalytics.likeCount += 1;
+        } else {
+            message.messageAnalytics.likeCount -= 1;
+        }
+        setIsLiked(!isLiked);        
+    }
+    const toggleRepost = async () => {
+        const event = isReposted ? MESSAGE_EVENT_UNREPOST : MESSAGE_EVENT_REPOST;
+        const actionResp = await sendEventAction(event, message.recordingId);
+        if(!isReposted) {
+            message.messageAnalytics.repostCount += 1;
+        } else {
+            message.messageAnalytics.repostCount -= 1;
+        }
+        setIsReposted(!isReposted);        
+    }
+    return (
+        <div className="absolute right-[-0px] bottom-[-28px]">
+            <div className="cursor-pointer flex justify-between gap-4 px-4 py-2 rounded-full bg-white border-1-black shadow-md">
+                <div className="flex gap-1 items-center p-0 rounded-full dark:text-black"
+                    onClick={async () => {
+                        toggleLike();
+                    }}
+                >
+                    {
+                        isLiked
+                            ? <HeartFilledIcon className="h-4 w-4 text-red-600" /> :
+                                <Heart className="h-4 w-4" />
+                    }
+                    <span className="text-sm font-medium">{message?.messageAnalytics?.likeCount}</span>
                 </div>
-
+                <div className="flex gap-1 items-center p-0 rounded-full dark:text-black"
+                    onClick={async () => {
+                        toggleRepost();
+                    }}
+                >
+                        {
+                        isReposted
+                            ? <Repeat className="h-4 w-4 text-green-600" /> :
+                                <Repeat className="h-4 w-4" />
+                    }
+                    
+                    <span className="text-sm font-medium">{message?.messageAnalytics?.repostCount}</span>
+                </div>
+                <div className="flex gap-1 items-center px-1 rounded-full dark:text-black">
+                    <EarIcon className="h-4 w-4" />
+                    <span className="text-sm font-medium">{message?.messageAnalytics?.viewCount}</span>
+                </div>
             </div>
         </div>
-        
     )
 }

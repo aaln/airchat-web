@@ -15,6 +15,9 @@ export default function StreamContainer({userAnalytics}: {userAnalytics?: any}) 
     const [nextPageKey, setNextPageKey] = useState(null);
 
     const fetchFeed = async (pageKey, token) => {
+        if(!token) {
+            window.location.href = '/';
+        }
         try {
             let endpoint = userAnalytics ? `/api/userfeed` : `/api/messagefeed`;
             let url = new URL(endpoint, window.location.origin);

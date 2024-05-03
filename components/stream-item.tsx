@@ -43,7 +43,7 @@ export function StreamItem({ item }) {
 
   return (
     <div ref={itemRef} className="relative flex flex-col gap-14 pt-6 w-full justify-center max-w-2xl">
-      {item?.referenceMessage && RenderMessage({ item, message: item?.referenceMessage || item?.firstMessage })}
+      {item?.referenceMessage && <RenderMessage item={item} message={item?.referenceMessage || item?.firstMessage } />}
        {
         threadDetails?.length > 1 && 
         <div className="ml-16 flex flex-col gap-2">

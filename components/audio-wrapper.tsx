@@ -6,6 +6,7 @@ import { PauseIcon, PlayIcon } from "lucide-react";
 import { useCallback, useEffect, useRef } from "react";
 
 export default function AudioWrapper({message}) {
+    message.recordingId = message?.transcription?.recordingId;
     const playerRef = useRef<HTMLAudioElement>(null);
     const { play, pause, registerPlayer, unregisterPlayer, currentPlaying } = useAudioPlayer();
 
