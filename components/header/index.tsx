@@ -2,6 +2,7 @@
 
 import { siteSettings } from "@/config/site";
 import { useAuth } from "@/contexts/auth";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { ThemeToggle } from "../navbar/theme-toggle";
 import { Button } from "../ui/button";
@@ -72,6 +73,9 @@ export const Header = () => {
                         </Button> 
                     }
                      <ThemeToggle />
+                     <Link href={"https://github.com/aaln/airchat-web"}>
+                        <GitHubLogoIcon className="text-2xl" />
+                     </Link>
                     </div>
                     
                     

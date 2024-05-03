@@ -19,7 +19,7 @@ export default function TopContainer({messages}) {
                         >
                            
                             <SingleMessage message={message}  />
-                            <div className="absolute top-8 right-4 z-30 font-semibold">
+                            <div className="absolute top-8 right-4 z-20 font-semibold">
                                 #{index + 1}
                             </div>
                         </div>

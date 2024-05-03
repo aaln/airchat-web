@@ -18,8 +18,12 @@ export async function GET(request: Request) {
                 "numCandidates": 1000,
                 "limit": 20
             }
-        
         },
+        {
+            "$sort": {
+                "messageAnalytics.likeCount": -1
+            }
+        }
     ];
     const results = await prisma.$runCommandRaw({
         aggregate: "messages",
