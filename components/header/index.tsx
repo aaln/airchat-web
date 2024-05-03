@@ -33,13 +33,6 @@ export const Header = () => {
                             </Button>
                         </Link>
                     }
-                    
-                    {/* <Link href="/top">
-                        <Button 
-                            variant="ghost">
-                            Top Chits
-                        </Button>
-                    </Link> */}
                      <Link href="/search">
                         <Button 
                             variant="ghost">
@@ -49,7 +42,7 @@ export const Header = () => {
                     </div>
                     <div className="flex flex-row gap-4 items-center justify-center">
                     {
-                        refreshToken && 
+                        refreshToken ?
                         <Button 
                             variant="ghost"
                             onClick={() => {
@@ -57,20 +50,18 @@ export const Header = () => {
                                 window.location.href = '/';
                             }}>
                             Logout
-                        </Button>
-                       
-                        
-                    
-                    }
-
-                    {
-                        !refreshToken && <Button 
+                        </Button> :
+                        <Button 
                             variant="ghost"
                             onClick={() => {
                                 window.location.href = '/login';
                             }}>
                             Login
                         </Button> 
+
+                       
+                        
+                    
                     }
                      <ThemeToggle />
                      <Link href={"https://github.com/aaln/airchat-web"}>

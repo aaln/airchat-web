@@ -29,6 +29,9 @@ export default function RootLayout({
     <AuthProvider>
       <AudioPlayerProvider>
         <html lang="en">
+          <head>
+            <meta property="og:image" content="https://airchat-web.vercel.app/screenshots/search.png"/>
+          </head>
           <CSPostHogProvider>
             <body className={inter.className}>
               <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
