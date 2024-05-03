@@ -9,7 +9,7 @@ export default async function Page({
 }) {
     const search = searchParams.search;
     let results = await prisma.messages.findMany({
-      take: 150,
+      take: 75,
       orderBy: {
         messageAnalytics: {
           likeCount: 'desc',
