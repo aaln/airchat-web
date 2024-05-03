@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   title: "Airchat Web Unofficial",
   description: "Unofficial Airchat Web Client by Aaron Landy, designed to integrate with the unofficial internal Airchat API.",
   openGraph: {
+    
     images: ['/screenshots/top.png', '/screenshots/search.png', '/screenshots/stream.png'],
   },
 };
