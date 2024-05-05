@@ -16,12 +16,12 @@ export async function GET(request: Request) {
                 "queryVector": embedding,
                 "path": "transcriptionEmbedding",
                 "numCandidates": 1000,
-                "limit": 20
+                "limit": 30
             }
         },
         {
             "$sort": {
-                "messageAnalytics.likeCount": -1
+                "createdDate.seconds": -1
             }
         }
     ];
