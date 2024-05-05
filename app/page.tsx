@@ -17,7 +17,6 @@ export default async function Page({
       },
     } as any);
   return (
-   
 
     <main className="flex min-h-screen flex-col gap-6 items-center justify-start">
         <Header />

@@ -40,11 +40,13 @@ export const FloatingAudioStatusButton = () => {
      
       <button
         onClick={togglePlayPause}
-        className="flex justify-center items-center z-20 h-16 w-16 bottom-6 right-6 dark:bg-white dark:text-black bg-white text-block font-bold rounded-full"
+        className="flex justify-center items-center z-20 h-16 w-16 bottom-6 right-6 dark:bg-white dark:text-black bg-white text-block font-bold rounded-full transition-transform duration-150 ease-in-out"
         style={{
           boxShadow: "0px 0px 8px 4px rgba(0,0,0,0.15)"
         }}
-      
+        onMouseDown={e => e.currentTarget.style.transform = 'scale(0.95)'}
+        onMouseUp={e => e.currentTarget.style.transform = 'scale(1)'}
+        onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
       >
         {isPlaying ? 
           <PauseIcon className="h-6 w-6"/>
