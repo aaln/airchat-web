@@ -98,9 +98,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     await setAccessToken(null);
     await setRefreshToken(null);
     setLoggedOut(true);
-    // if (typeof window !== 'undefined') {
-    //   window.location.href = '/';
-    // }
+    if (typeof window !== 'undefined') {
+      window.location.href = '/login';
+    }
   }
 
   return (

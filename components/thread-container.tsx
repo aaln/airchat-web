@@ -82,10 +82,10 @@ export default function ThreadContainer({threadId}) {
     const [loading, setLoading] = useState(true);
     const [originMessageId, setOriginMessageId] = useState(null);
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchData = async (accessToken) => {
             try {
                 setLoading(true);
-                const response = await fetch(`/api/thread/${threadId}`);
+                const response = await fetch(`/api/thread/${threadId}?token=${accessToken}`);
                 const results = await response.json();
                 setFullThread(results);
 
@@ -95,12 +95,13 @@ export default function ThreadContainer({threadId}) {
                 setOriginMessageId(originId[0]);
                 setLoading(false);
             } catch(e) {
-                refreshTokens();
+                const newAccessToken = await refreshTokens();
+                await fetchData(newAccessToken);
             } finally {
                 setLoading(false);
             }
         };
-        fetchData();
+        fetchData(accessToken);
     }, []);
 
     return (
