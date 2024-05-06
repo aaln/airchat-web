@@ -39,7 +39,7 @@ export const RenderMessage = ({item, message, charLimit}: {item?: any, message: 
                         </Link>
                         <span className="text-xs">
                         <Moment fromNow>
-                            {new Date(message.createdDate.seconds * 1000).toLocaleString()}
+                            {new Date((message?.createdDate?.seconds || message?.createdTime?.seconds) * 1000).toLocaleString()}
                         </Moment>
                         </span>
                     </div>

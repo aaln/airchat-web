@@ -40,3 +40,5 @@ next-env.d.ts
 
 app/collect
 app/backlog
+
+scraping
