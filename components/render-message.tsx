@@ -45,7 +45,8 @@ export const RenderMessage = ({item, message, charLimit}: {item?: any, message: 
                     </div>
                     
                     <Link 
-                        href={`https://www.air.chat/${message?.fromUser?.username}/post/${item?.messageThread?.referenceRecordingId || message?.recordingId || message?.messageAnalytics?.recordingId}`}
+                        // href={`https://www.air.chat/${message?.fromUser?.username}/post/${item?.messageThread?.referenceRecordingId || message?.recordingId || message?.messageAnalytics?.recordingId}`}
+                        href={`/thread/${item?.messageThread?.referenceRecordingId || message?.recordingId || message?.messageAnalytics?.recordingId}`}
                         target="_blank"
                         title="View on airchat"
                     >
