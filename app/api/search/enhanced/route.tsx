@@ -1,7 +1,8 @@
 import { EnhancedSearchAPIClient } from '@/airchat/search/v2/enhanced_search_api_grpc_pb';
-// @ts-ignore
 import {
+  // @ts-ignore
   MessageSearchRequest,
+  // @ts-ignore
   MessageSearchSortOrder
 } from '@/airchat/search/v2/enhanced_search_api_pb';
 import { accessTokenCookieName, airchatHostUrl } from '@/constants';

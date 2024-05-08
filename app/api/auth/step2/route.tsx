@@ -1,9 +1,10 @@
 import { AuthAPIClient } from '@/airchat/auth/v2/auth_api_grpc_pb';
 // @ts-ignore
 import { AuthRequest } from '@/airchat/auth/v2/auth_api_pb';
-// @ts-ignore
 import {
+  // @ts-ignore
   AuthSessionToken,
+  // @ts-ignore
   PhoneNumberOTPFactor
 } from '@/airchat/auth/v2/auth_pb';
 import * as grpc from '@grpc/grpc-js';

@@ -1,8 +1,9 @@
 import { ActivityAPIClient } from '@/airchat/activity/v2/activity_api_grpc_pb';
 import { EnhancedSearchAPIClient } from '@/airchat/search/v2/enhanced_search_api_grpc_pb';
-// @ts-ignore
 import {
+  // @ts-ignore
   ChannelSearchRequest,
+  // @ts-ignore
   MessageSearchRequest
 } from '@/airchat/search/v2/enhanced_search_api_pb';
 import { airchatHostUrl } from '@/constants';

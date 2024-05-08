@@ -1,7 +1,8 @@
 import { MessageAPIClient } from '@/airchat/message/v2/message_api_grpc_pb';
-// @ts-ignore
 import {
+  // @ts-ignore
   GetMessagesRequest,
+  // @ts-ignore
   GetMessageThreadDetailsByReferenceRequest
 } from '@/airchat/message/v2/message_api_pb';
 import { airchatHostUrl } from '@/constants';

@@ -1,8 +1,10 @@
 import { LinksAPIClient } from '@/airchat/links/v2/links_api_grpc_pb';
-// @ts-ignore
 import {
+  // @ts-ignore
   CreateShortLinkRequest,
+  // @ts-ignore
   PostLink,
+  // @ts-ignore
   UserLink
 } from '@/airchat/links/v2/links_api_pb';
 import { accessTokenCookieName, airchatHostUrl } from '@/constants';

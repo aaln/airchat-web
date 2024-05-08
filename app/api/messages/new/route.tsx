@@ -1,6 +1,5 @@
 import * as grpc from '@grpc/grpc-js';
 // @ts-ignore
-// @ts-ignore
 import { NextResponse } from 'next/server';
 
 // Assuming we have the necessary information to create a message and upload audio
