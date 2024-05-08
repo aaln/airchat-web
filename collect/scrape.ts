@@ -1,11 +1,13 @@
-import { saveOrUpdateMessages } from "./ingest";
+import { saveOrUpdateMessages } from './ingest';
 
-export const scrapeMessagesByKeyword = async ({keyword, token}) => {
+export const scrapeMessagesByKeyword = async ({ keyword, token }) => {
   let allResults = [];
   let pageKey = null;
 
   for (let i = 0; i < 150; i++) {
-    const url = new URL(`${process.env.NEXT_PUBLIC_CURRENT_URL}/api/search/enhanced`);
+    const url = new URL(
+      `${process.env.NEXT_PUBLIC_CURRENT_URL}/api/search/enhanced`
+    );
     url.searchParams.append('token', token);
     url.searchParams.append('query', keyword);
     if (pageKey) {
@@ -14,12 +16,11 @@ export const scrapeMessagesByKeyword = async ({keyword, token}) => {
 
     try {
       const response = await fetch(url.toString(), {
-        method: 'GET',
+        method: 'GET'
       });
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      
 
       const data = await response.json();
       await saveOrUpdateMessages(data?.results);
@@ -35,9 +36,8 @@ export const scrapeMessagesByKeyword = async ({keyword, token}) => {
     }
 
     // Wait for 2 seconds before making the next call
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
   }
-    
-  
+
   return allResults;
 };

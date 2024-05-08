@@ -1,8 +1,4 @@
-import MessagesContainer from "@/components/messages-container";
+import MessagesContainer from '@/components/messages-container';
 export default function Home() {
-  return (
-    
-      <MessagesContainer  />
- 
-  );
+  return <MessagesContainer />;
 }

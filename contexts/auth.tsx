@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import { accessTokenCookieName, refreshTokenCookieName } from '@/constants';
 import { deleteCookie, setCookie } from 'cookies-next';
 
@@ -41,21 +41,27 @@ export const setTokenInSessionStorage = (key: string, value: string) => {
 };
 
 // Create a provider component
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [accessToken, setAccessToken] = useState<string | null>(getTokenFromSessionStorage('accessToken'));
-  const [refreshToken, setRefreshToken] = useState<string | null>(getTokenFromSessionStorage('refreshToken'));
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
+  children
+}) => {
+  const [accessToken, setAccessToken] = useState<string | null>(
+    getTokenFromSessionStorage('accessToken')
+  );
+  const [refreshToken, setRefreshToken] = useState<string | null>(
+    getTokenFromSessionStorage('refreshToken')
+  );
   const [loggedOut, setLoggedOut] = useState<boolean>(false);
- 
+
   // Function to refresh tokens
   const refreshTokens = async () => {
-    if(!refreshToken) {
-      logout()
+    if (!refreshToken) {
+      logout();
       return;
-    };
+    }
     setLoggedOut(false);
     const response = await fetch(`/api/auth/refresh?token=${refreshToken}`);
     const data = await response.json();
-    if(data.error !== 0) {
+    if (data.error !== 0) {
       return;
     }
     const newAccessToken = data?.credential?.accessToken?.token;
@@ -72,18 +78,30 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   // Effect to handle token refresh logic
   useEffect(() => {
-    if(loggedOut) return;
+    if (loggedOut) return;
     const fiveMinutes = 5 * 60 * 1000;
-    const interval = typeof window !== 'undefined' ? setInterval(() => {
-      if(loggedOut) clearInterval(interval);
-      const lastRefreshTime = getTokenFromSessionStorage('lastRefreshTime');
-      const currentAccessToken = getTokenFromSessionStorage('accessToken');
-      const currentTime = new Date().getTime();
-      if (!currentAccessToken || !lastRefreshTime || currentTime - parseInt(lastRefreshTime) > fiveMinutes) {
-        refreshTokens();
-        setTokenInSessionStorage('lastRefreshTime', currentTime.toString());
-      }
-    }, 3000) : null;
+    const interval =
+      typeof window !== 'undefined'
+        ? setInterval(() => {
+            if (loggedOut) clearInterval(interval);
+            const lastRefreshTime =
+              getTokenFromSessionStorage('lastRefreshTime');
+            const currentAccessToken =
+              getTokenFromSessionStorage('accessToken');
+            const currentTime = new Date().getTime();
+            if (
+              !currentAccessToken ||
+              !lastRefreshTime ||
+              currentTime - parseInt(lastRefreshTime) > fiveMinutes
+            ) {
+              refreshTokens();
+              setTokenInSessionStorage(
+                'lastRefreshTime',
+                currentTime.toString()
+              );
+            }
+          }, 3000)
+        : null;
 
     return () => {
       if (interval) clearInterval(interval);
@@ -101,10 +119,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if (typeof window !== 'undefined') {
       window.location.href = '/login';
     }
-  }
+  };
 
   return (
-    <AuthContext.Provider value={{ accessToken, refreshToken, setAccessToken, setRefreshToken, refreshTokens, logout }}>
+    <AuthContext.Provider
+      value={{
+        accessToken,
+        refreshToken,
+        setAccessToken,
+        setRefreshToken,
+        refreshTokens,
+        logout
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

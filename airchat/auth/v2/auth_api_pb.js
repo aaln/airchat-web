@@ -13,49 +13,141 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = (function() {
-  if (this) { return this; }
-  if (typeof window !== 'undefined') { return window; }
-  if (typeof global !== 'undefined') { return global; }
-  if (typeof self !== 'undefined') { return self; }
+var global = function () {
+  if (this) {
+    return this;
+  }
+  if (typeof window !== 'undefined') {
+    return window;
+  }
+  if (typeof global !== 'undefined') {
+    return global;
+  }
+  if (typeof self !== 'undefined') {
+    return self;
+  }
   return Function('return this')();
-}.call(null));
+}.call(null);
 
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 goog.object.extend(proto, google_protobuf_timestamp_pb);
 var airchat_auth_v2_auth_pb = require('../../../airchat/auth/v2/auth_pb.js');
 goog.object.extend(proto, airchat_auth_v2_auth_pb);
 goog.exportSymbol('proto.airchat.auth.v2.AuthRequest', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.AuthRequest.RequestCase', null, global);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.AuthRequest.RequestCase',
+  null,
+  global
+);
 goog.exportSymbol('proto.airchat.auth.v2.AuthResponse', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.AuthResponse.ResponseCase', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.CheckUserIsInvitedRequest', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.CheckUserIsInvitedResponse', null, global);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.AuthResponse.ResponseCase',
+  null,
+  global
+);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.CheckUserIsInvitedRequest',
+  null,
+  global
+);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.CheckUserIsInvitedResponse',
+  null,
+  global
+);
 goog.exportSymbol('proto.airchat.auth.v2.DeleteSubjectRequest', null, global);
 goog.exportSymbol('proto.airchat.auth.v2.DeleteSubjectResponse', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.FetchUserInvitesRequest', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.FetchUserInvitesResponse', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.GenerateAttestationChallengeRequest', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.GenerateAttestationChallengeResponse', null, global);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.FetchUserInvitesRequest',
+  null,
+  global
+);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.FetchUserInvitesResponse',
+  null,
+  global
+);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.GenerateAttestationChallengeRequest',
+  null,
+  global
+);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.GenerateAttestationChallengeResponse',
+  null,
+  global
+);
 goog.exportSymbol('proto.airchat.auth.v2.GetInviteCodeRequest', null, global);
 goog.exportSymbol('proto.airchat.auth.v2.GetInviteCodeResponse', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.GetVerifiedFactorsRequest', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.GetVerifiedFactorsResponse', null, global);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest',
+  null,
+  global
+);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse',
+  null,
+  global
+);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.GetVerifiedFactorsRequest',
+  null,
+  global
+);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.GetVerifiedFactorsResponse',
+  null,
+  global
+);
 goog.exportSymbol('proto.airchat.auth.v2.LogoutRequest', null, global);
 goog.exportSymbol('proto.airchat.auth.v2.LogoutResponse', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.PreApplyInviteCodeRequest', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.PreApplyInviteCodeResponse', null, global);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.PreApplyInviteCodeRequest',
+  null,
+  global
+);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.PreApplyInviteCodeResponse',
+  null,
+  global
+);
 goog.exportSymbol('proto.airchat.auth.v2.RefreshRequest', null, global);
 goog.exportSymbol('proto.airchat.auth.v2.RefreshResponse', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.RefreshResponse.ResponseCase', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.UpdateSubjectStatusRequest', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.UpdateSubjectStatusResponse', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.ValidateAccessTokenRequest', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.ValidateAccessTokenResponse', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.VerifyAttestationRequest', null, global);
-goog.exportSymbol('proto.airchat.auth.v2.VerifyAttestationResponse', null, global);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.RefreshResponse.ResponseCase',
+  null,
+  global
+);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.UpdateSubjectStatusRequest',
+  null,
+  global
+);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.UpdateSubjectStatusResponse',
+  null,
+  global
+);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.ValidateAccessTokenRequest',
+  null,
+  global
+);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.ValidateAccessTokenResponse',
+  null,
+  global
+);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.VerifyAttestationRequest',
+  null,
+  global
+);
+goog.exportSymbol(
+  'proto.airchat.auth.v2.VerifyAttestationResponse',
+  null,
+  global
+);
 /**
  * Generated by JsPbCodeGenerator.
  * @param {Array=} opt_data Optional initial data array, typically from a
@@ -66,8 +158,15 @@ goog.exportSymbol('proto.airchat.auth.v2.VerifyAttestationResponse', null, globa
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.AuthRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, proto.airchat.auth.v2.AuthRequest.oneofGroups_);
+proto.airchat.auth.v2.AuthRequest = function (opt_data) {
+  jspb.Message.initialize(
+    this,
+    opt_data,
+    0,
+    -1,
+    null,
+    proto.airchat.auth.v2.AuthRequest.oneofGroups_
+  );
 };
 goog.inherits(proto.airchat.auth.v2.AuthRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -75,7 +174,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.AuthRequest.displayName = 'proto.airchat.auth.v2.AuthRequest';
+  proto.airchat.auth.v2.AuthRequest.displayName =
+    'proto.airchat.auth.v2.AuthRequest';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -87,8 +187,15 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.AuthResponse = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, proto.airchat.auth.v2.AuthResponse.oneofGroups_);
+proto.airchat.auth.v2.AuthResponse = function (opt_data) {
+  jspb.Message.initialize(
+    this,
+    opt_data,
+    0,
+    -1,
+    null,
+    proto.airchat.auth.v2.AuthResponse.oneofGroups_
+  );
 };
 goog.inherits(proto.airchat.auth.v2.AuthResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -96,7 +203,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.AuthResponse.displayName = 'proto.airchat.auth.v2.AuthResponse';
+  proto.airchat.auth.v2.AuthResponse.displayName =
+    'proto.airchat.auth.v2.AuthResponse';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -108,7 +216,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.RefreshRequest = function(opt_data) {
+proto.airchat.auth.v2.RefreshRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.airchat.auth.v2.RefreshRequest, jspb.Message);
@@ -117,7 +225,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.RefreshRequest.displayName = 'proto.airchat.auth.v2.RefreshRequest';
+  proto.airchat.auth.v2.RefreshRequest.displayName =
+    'proto.airchat.auth.v2.RefreshRequest';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -129,8 +238,15 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.RefreshResponse = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, proto.airchat.auth.v2.RefreshResponse.oneofGroups_);
+proto.airchat.auth.v2.RefreshResponse = function (opt_data) {
+  jspb.Message.initialize(
+    this,
+    opt_data,
+    0,
+    -1,
+    null,
+    proto.airchat.auth.v2.RefreshResponse.oneofGroups_
+  );
 };
 goog.inherits(proto.airchat.auth.v2.RefreshResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -138,7 +254,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.RefreshResponse.displayName = 'proto.airchat.auth.v2.RefreshResponse';
+  proto.airchat.auth.v2.RefreshResponse.displayName =
+    'proto.airchat.auth.v2.RefreshResponse';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -150,7 +267,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.GetVerifiedFactorsRequest = function(opt_data) {
+proto.airchat.auth.v2.GetVerifiedFactorsRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.airchat.auth.v2.GetVerifiedFactorsRequest, jspb.Message);
@@ -159,7 +276,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.GetVerifiedFactorsRequest.displayName = 'proto.airchat.auth.v2.GetVerifiedFactorsRequest';
+  proto.airchat.auth.v2.GetVerifiedFactorsRequest.displayName =
+    'proto.airchat.auth.v2.GetVerifiedFactorsRequest';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -171,8 +289,15 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.GetVerifiedFactorsResponse = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.airchat.auth.v2.GetVerifiedFactorsResponse.repeatedFields_, null);
+proto.airchat.auth.v2.GetVerifiedFactorsResponse = function (opt_data) {
+  jspb.Message.initialize(
+    this,
+    opt_data,
+    0,
+    -1,
+    proto.airchat.auth.v2.GetVerifiedFactorsResponse.repeatedFields_,
+    null
+  );
 };
 goog.inherits(proto.airchat.auth.v2.GetVerifiedFactorsResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -180,7 +305,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.GetVerifiedFactorsResponse.displayName = 'proto.airchat.auth.v2.GetVerifiedFactorsResponse';
+  proto.airchat.auth.v2.GetVerifiedFactorsResponse.displayName =
+    'proto.airchat.auth.v2.GetVerifiedFactorsResponse';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -192,7 +318,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.LogoutRequest = function(opt_data) {
+proto.airchat.auth.v2.LogoutRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.airchat.auth.v2.LogoutRequest, jspb.Message);
@@ -201,7 +327,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.LogoutRequest.displayName = 'proto.airchat.auth.v2.LogoutRequest';
+  proto.airchat.auth.v2.LogoutRequest.displayName =
+    'proto.airchat.auth.v2.LogoutRequest';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -213,7 +340,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.LogoutResponse = function(opt_data) {
+proto.airchat.auth.v2.LogoutResponse = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.airchat.auth.v2.LogoutResponse, jspb.Message);
@@ -222,7 +349,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.LogoutResponse.displayName = 'proto.airchat.auth.v2.LogoutResponse';
+  proto.airchat.auth.v2.LogoutResponse.displayName =
+    'proto.airchat.auth.v2.LogoutResponse';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -234,7 +362,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.DeleteSubjectRequest = function(opt_data) {
+proto.airchat.auth.v2.DeleteSubjectRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.airchat.auth.v2.DeleteSubjectRequest, jspb.Message);
@@ -243,7 +371,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.DeleteSubjectRequest.displayName = 'proto.airchat.auth.v2.DeleteSubjectRequest';
+  proto.airchat.auth.v2.DeleteSubjectRequest.displayName =
+    'proto.airchat.auth.v2.DeleteSubjectRequest';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -255,7 +384,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.DeleteSubjectResponse = function(opt_data) {
+proto.airchat.auth.v2.DeleteSubjectResponse = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.airchat.auth.v2.DeleteSubjectResponse, jspb.Message);
@@ -264,7 +393,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.DeleteSubjectResponse.displayName = 'proto.airchat.auth.v2.DeleteSubjectResponse';
+  proto.airchat.auth.v2.DeleteSubjectResponse.displayName =
+    'proto.airchat.auth.v2.DeleteSubjectResponse';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -276,7 +406,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.UpdateSubjectStatusRequest = function(opt_data) {
+proto.airchat.auth.v2.UpdateSubjectStatusRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.airchat.auth.v2.UpdateSubjectStatusRequest, jspb.Message);
@@ -285,7 +415,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.UpdateSubjectStatusRequest.displayName = 'proto.airchat.auth.v2.UpdateSubjectStatusRequest';
+  proto.airchat.auth.v2.UpdateSubjectStatusRequest.displayName =
+    'proto.airchat.auth.v2.UpdateSubjectStatusRequest';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -297,8 +428,15 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.UpdateSubjectStatusResponse = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.airchat.auth.v2.UpdateSubjectStatusResponse.repeatedFields_, null);
+proto.airchat.auth.v2.UpdateSubjectStatusResponse = function (opt_data) {
+  jspb.Message.initialize(
+    this,
+    opt_data,
+    0,
+    -1,
+    proto.airchat.auth.v2.UpdateSubjectStatusResponse.repeatedFields_,
+    null
+  );
 };
 goog.inherits(proto.airchat.auth.v2.UpdateSubjectStatusResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -306,7 +444,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.UpdateSubjectStatusResponse.displayName = 'proto.airchat.auth.v2.UpdateSubjectStatusResponse';
+  proto.airchat.auth.v2.UpdateSubjectStatusResponse.displayName =
+    'proto.airchat.auth.v2.UpdateSubjectStatusResponse';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -318,7 +457,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.GetInviteCodeRequest = function(opt_data) {
+proto.airchat.auth.v2.GetInviteCodeRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.airchat.auth.v2.GetInviteCodeRequest, jspb.Message);
@@ -327,7 +466,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.GetInviteCodeRequest.displayName = 'proto.airchat.auth.v2.GetInviteCodeRequest';
+  proto.airchat.auth.v2.GetInviteCodeRequest.displayName =
+    'proto.airchat.auth.v2.GetInviteCodeRequest';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -339,7 +479,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.GetInviteCodeResponse = function(opt_data) {
+proto.airchat.auth.v2.GetInviteCodeResponse = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.airchat.auth.v2.GetInviteCodeResponse, jspb.Message);
@@ -348,7 +488,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.GetInviteCodeResponse.displayName = 'proto.airchat.auth.v2.GetInviteCodeResponse';
+  proto.airchat.auth.v2.GetInviteCodeResponse.displayName =
+    'proto.airchat.auth.v2.GetInviteCodeResponse';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -360,7 +501,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.PreApplyInviteCodeRequest = function(opt_data) {
+proto.airchat.auth.v2.PreApplyInviteCodeRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.airchat.auth.v2.PreApplyInviteCodeRequest, jspb.Message);
@@ -369,7 +510,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.PreApplyInviteCodeRequest.displayName = 'proto.airchat.auth.v2.PreApplyInviteCodeRequest';
+  proto.airchat.auth.v2.PreApplyInviteCodeRequest.displayName =
+    'proto.airchat.auth.v2.PreApplyInviteCodeRequest';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -381,7 +523,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.PreApplyInviteCodeResponse = function(opt_data) {
+proto.airchat.auth.v2.PreApplyInviteCodeResponse = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.airchat.auth.v2.PreApplyInviteCodeResponse, jspb.Message);
@@ -390,7 +532,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.PreApplyInviteCodeResponse.displayName = 'proto.airchat.auth.v2.PreApplyInviteCodeResponse';
+  proto.airchat.auth.v2.PreApplyInviteCodeResponse.displayName =
+    'proto.airchat.auth.v2.PreApplyInviteCodeResponse';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -402,7 +545,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.ValidateAccessTokenRequest = function(opt_data) {
+proto.airchat.auth.v2.ValidateAccessTokenRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.airchat.auth.v2.ValidateAccessTokenRequest, jspb.Message);
@@ -411,7 +554,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.ValidateAccessTokenRequest.displayName = 'proto.airchat.auth.v2.ValidateAccessTokenRequest';
+  proto.airchat.auth.v2.ValidateAccessTokenRequest.displayName =
+    'proto.airchat.auth.v2.ValidateAccessTokenRequest';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -423,8 +567,15 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.ValidateAccessTokenResponse = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.airchat.auth.v2.ValidateAccessTokenResponse.repeatedFields_, null);
+proto.airchat.auth.v2.ValidateAccessTokenResponse = function (opt_data) {
+  jspb.Message.initialize(
+    this,
+    opt_data,
+    0,
+    -1,
+    proto.airchat.auth.v2.ValidateAccessTokenResponse.repeatedFields_,
+    null
+  );
 };
 goog.inherits(proto.airchat.auth.v2.ValidateAccessTokenResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -432,7 +583,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.ValidateAccessTokenResponse.displayName = 'proto.airchat.auth.v2.ValidateAccessTokenResponse';
+  proto.airchat.auth.v2.ValidateAccessTokenResponse.displayName =
+    'proto.airchat.auth.v2.ValidateAccessTokenResponse';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -444,16 +596,22 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.GenerateAttestationChallengeRequest = function(opt_data) {
+proto.airchat.auth.v2.GenerateAttestationChallengeRequest = function (
+  opt_data
+) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.airchat.auth.v2.GenerateAttestationChallengeRequest, jspb.Message);
+goog.inherits(
+  proto.airchat.auth.v2.GenerateAttestationChallengeRequest,
+  jspb.Message
+);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.airchat.auth.v2.GenerateAttestationChallengeRequest.displayName = 'proto.airchat.auth.v2.GenerateAttestationChallengeRequest';
+  proto.airchat.auth.v2.GenerateAttestationChallengeRequest.displayName =
+    'proto.airchat.auth.v2.GenerateAttestationChallengeRequest';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -465,16 +623,22 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.GenerateAttestationChallengeResponse = function(opt_data) {
+proto.airchat.auth.v2.GenerateAttestationChallengeResponse = function (
+  opt_data
+) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.airchat.auth.v2.GenerateAttestationChallengeResponse, jspb.Message);
+goog.inherits(
+  proto.airchat.auth.v2.GenerateAttestationChallengeResponse,
+  jspb.Message
+);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.airchat.auth.v2.GenerateAttestationChallengeResponse.displayName = 'proto.airchat.auth.v2.GenerateAttestationChallengeResponse';
+  proto.airchat.auth.v2.GenerateAttestationChallengeResponse.displayName =
+    'proto.airchat.auth.v2.GenerateAttestationChallengeResponse';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -486,7 +650,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.VerifyAttestationRequest = function(opt_data) {
+proto.airchat.auth.v2.VerifyAttestationRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.airchat.auth.v2.VerifyAttestationRequest, jspb.Message);
@@ -495,7 +659,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.VerifyAttestationRequest.displayName = 'proto.airchat.auth.v2.VerifyAttestationRequest';
+  proto.airchat.auth.v2.VerifyAttestationRequest.displayName =
+    'proto.airchat.auth.v2.VerifyAttestationRequest';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -507,7 +672,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.VerifyAttestationResponse = function(opt_data) {
+proto.airchat.auth.v2.VerifyAttestationResponse = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.airchat.auth.v2.VerifyAttestationResponse, jspb.Message);
@@ -516,7 +681,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.VerifyAttestationResponse.displayName = 'proto.airchat.auth.v2.VerifyAttestationResponse';
+  proto.airchat.auth.v2.VerifyAttestationResponse.displayName =
+    'proto.airchat.auth.v2.VerifyAttestationResponse';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -528,16 +694,22 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest = function(opt_data) {
+proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest = function (
+  opt_data
+) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest, jspb.Message);
+goog.inherits(
+  proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest,
+  jspb.Message
+);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.displayName = 'proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest';
+  proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.displayName =
+    'proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -549,16 +721,30 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.repeatedFields_, null);
+proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse = function (
+  opt_data
+) {
+  jspb.Message.initialize(
+    this,
+    opt_data,
+    0,
+    -1,
+    proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse
+      .repeatedFields_,
+    null
+  );
 };
-goog.inherits(proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse, jspb.Message);
+goog.inherits(
+  proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse,
+  jspb.Message
+);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.displayName = 'proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse';
+  proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.displayName =
+    'proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -570,7 +756,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.CheckUserIsInvitedRequest = function(opt_data) {
+proto.airchat.auth.v2.CheckUserIsInvitedRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.airchat.auth.v2.CheckUserIsInvitedRequest, jspb.Message);
@@ -579,7 +765,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.CheckUserIsInvitedRequest.displayName = 'proto.airchat.auth.v2.CheckUserIsInvitedRequest';
+  proto.airchat.auth.v2.CheckUserIsInvitedRequest.displayName =
+    'proto.airchat.auth.v2.CheckUserIsInvitedRequest';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -591,7 +778,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.CheckUserIsInvitedResponse = function(opt_data) {
+proto.airchat.auth.v2.CheckUserIsInvitedResponse = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.airchat.auth.v2.CheckUserIsInvitedResponse, jspb.Message);
@@ -600,7 +787,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.CheckUserIsInvitedResponse.displayName = 'proto.airchat.auth.v2.CheckUserIsInvitedResponse';
+  proto.airchat.auth.v2.CheckUserIsInvitedResponse.displayName =
+    'proto.airchat.auth.v2.CheckUserIsInvitedResponse';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -612,7 +800,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.FetchUserInvitesRequest = function(opt_data) {
+proto.airchat.auth.v2.FetchUserInvitesRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.airchat.auth.v2.FetchUserInvitesRequest, jspb.Message);
@@ -621,7 +809,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.FetchUserInvitesRequest.displayName = 'proto.airchat.auth.v2.FetchUserInvitesRequest';
+  proto.airchat.auth.v2.FetchUserInvitesRequest.displayName =
+    'proto.airchat.auth.v2.FetchUserInvitesRequest';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -633,7 +822,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.auth.v2.FetchUserInvitesResponse = function(opt_data) {
+proto.airchat.auth.v2.FetchUserInvitesResponse = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.airchat.auth.v2.FetchUserInvitesResponse, jspb.Message);
@@ -642,7 +831,8 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.auth.v2.FetchUserInvitesResponse.displayName = 'proto.airchat.auth.v2.FetchUserInvitesResponse';
+  proto.airchat.auth.v2.FetchUserInvitesResponse.displayName =
+    'proto.airchat.auth.v2.FetchUserInvitesResponse';
 }
 
 /**
@@ -653,7 +843,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.airchat.auth.v2.AuthRequest.oneofGroups_ = [[2,3,4,5,6,7,8,9]];
+proto.airchat.auth.v2.AuthRequest.oneofGroups_ = [[2, 3, 4, 5, 6, 7, 8, 9]];
 
 /**
  * @enum {number}
@@ -673,71 +863,110 @@ proto.airchat.auth.v2.AuthRequest.RequestCase = {
 /**
  * @return {proto.airchat.auth.v2.AuthRequest.RequestCase}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.getRequestCase = function() {
-  return /** @type {proto.airchat.auth.v2.AuthRequest.RequestCase} */(jspb.Message.computeOneofCase(this, proto.airchat.auth.v2.AuthRequest.oneofGroups_[0]));
+proto.airchat.auth.v2.AuthRequest.prototype.getRequestCase = function () {
+  return /** @type {proto.airchat.auth.v2.AuthRequest.RequestCase} */ (
+    jspb.Message.computeOneofCase(
+      this,
+      proto.airchat.auth.v2.AuthRequest.oneofGroups_[0]
+    )
+  );
 };
-
-
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.AuthRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.AuthRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.AuthRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.AuthRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    authSessionToken: (f = msg.getAuthSessionToken()) && airchat_auth_v2_auth_pb.AuthSessionToken.toObject(includeInstance, f),
-    phoneNumberFactor: (f = msg.getPhoneNumberFactor()) && airchat_auth_v2_auth_pb.PhoneNumberFactor.toObject(includeInstance, f),
-    phoneNumberOtpFactor: (f = msg.getPhoneNumberOtpFactor()) && airchat_auth_v2_auth_pb.PhoneNumberOTPFactor.toObject(includeInstance, f),
-    emailFactor: (f = msg.getEmailFactor()) && airchat_auth_v2_auth_pb.EmailFactor.toObject(includeInstance, f),
-    emailOtpFactor: (f = msg.getEmailOtpFactor()) && airchat_auth_v2_auth_pb.EmailOTPFactor.toObject(includeInstance, f),
-    inviteCodeFactor: (f = msg.getInviteCodeFactor()) && airchat_auth_v2_auth_pb.InviteCodeFactor.toObject(includeInstance, f),
-    appleIdentityFactor: (f = msg.getAppleIdentityFactor()) && airchat_auth_v2_auth_pb.AppleIdentityFactor.toObject(includeInstance, f),
-    signupRequest: (f = msg.getSignupRequest()) && airchat_auth_v2_auth_pb.SignupRequest.toObject(includeInstance, f),
-    googleIdentityFactor: (f = msg.getGoogleIdentityFactor()) && airchat_auth_v2_auth_pb.GoogleIdentityFactor.toObject(includeInstance, f)
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.AuthRequest.prototype.toObject = function (
+    opt_includeInstance
+  ) {
+    return proto.airchat.auth.v2.AuthRequest.toObject(
+      opt_includeInstance,
+      this
+    );
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.AuthRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.AuthRequest.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {
+        authSessionToken:
+          (f = msg.getAuthSessionToken()) &&
+          airchat_auth_v2_auth_pb.AuthSessionToken.toObject(includeInstance, f),
+        phoneNumberFactor:
+          (f = msg.getPhoneNumberFactor()) &&
+          airchat_auth_v2_auth_pb.PhoneNumberFactor.toObject(
+            includeInstance,
+            f
+          ),
+        phoneNumberOtpFactor:
+          (f = msg.getPhoneNumberOtpFactor()) &&
+          airchat_auth_v2_auth_pb.PhoneNumberOTPFactor.toObject(
+            includeInstance,
+            f
+          ),
+        emailFactor:
+          (f = msg.getEmailFactor()) &&
+          airchat_auth_v2_auth_pb.EmailFactor.toObject(includeInstance, f),
+        emailOtpFactor:
+          (f = msg.getEmailOtpFactor()) &&
+          airchat_auth_v2_auth_pb.EmailOTPFactor.toObject(includeInstance, f),
+        inviteCodeFactor:
+          (f = msg.getInviteCodeFactor()) &&
+          airchat_auth_v2_auth_pb.InviteCodeFactor.toObject(includeInstance, f),
+        appleIdentityFactor:
+          (f = msg.getAppleIdentityFactor()) &&
+          airchat_auth_v2_auth_pb.AppleIdentityFactor.toObject(
+            includeInstance,
+            f
+          ),
+        signupRequest:
+          (f = msg.getSignupRequest()) &&
+          airchat_auth_v2_auth_pb.SignupRequest.toObject(includeInstance, f),
+        googleIdentityFactor:
+          (f = msg.getGoogleIdentityFactor()) &&
+          airchat_auth_v2_auth_pb.GoogleIdentityFactor.toObject(
+            includeInstance,
+            f
+          )
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.AuthRequest}
  */
-proto.airchat.auth.v2.AuthRequest.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.AuthRequest.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.AuthRequest;
-  return proto.airchat.auth.v2.AuthRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.AuthRequest();
+  return proto.airchat.auth.v2.AuthRequest.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -746,77 +975,108 @@ proto.airchat.auth.v2.AuthRequest.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.AuthRequest}
  */
-proto.airchat.auth.v2.AuthRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.airchat.auth.v2.AuthRequest.deserializeBinaryFromReader = function (
+  msg,
+  reader
+) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = new airchat_auth_v2_auth_pb.AuthSessionToken;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.AuthSessionToken.deserializeBinaryFromReader);
-      msg.setAuthSessionToken(value);
-      break;
-    case 2:
-      var value = new airchat_auth_v2_auth_pb.PhoneNumberFactor;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.PhoneNumberFactor.deserializeBinaryFromReader);
-      msg.setPhoneNumberFactor(value);
-      break;
-    case 3:
-      var value = new airchat_auth_v2_auth_pb.PhoneNumberOTPFactor;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.PhoneNumberOTPFactor.deserializeBinaryFromReader);
-      msg.setPhoneNumberOtpFactor(value);
-      break;
-    case 4:
-      var value = new airchat_auth_v2_auth_pb.EmailFactor;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.EmailFactor.deserializeBinaryFromReader);
-      msg.setEmailFactor(value);
-      break;
-    case 5:
-      var value = new airchat_auth_v2_auth_pb.EmailOTPFactor;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.EmailOTPFactor.deserializeBinaryFromReader);
-      msg.setEmailOtpFactor(value);
-      break;
-    case 6:
-      var value = new airchat_auth_v2_auth_pb.InviteCodeFactor;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.InviteCodeFactor.deserializeBinaryFromReader);
-      msg.setInviteCodeFactor(value);
-      break;
-    case 7:
-      var value = new airchat_auth_v2_auth_pb.AppleIdentityFactor;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.AppleIdentityFactor.deserializeBinaryFromReader);
-      msg.setAppleIdentityFactor(value);
-      break;
-    case 8:
-      var value = new airchat_auth_v2_auth_pb.SignupRequest;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.SignupRequest.deserializeBinaryFromReader);
-      msg.setSignupRequest(value);
-      break;
-    case 9:
-      var value = new airchat_auth_v2_auth_pb.GoogleIdentityFactor;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.GoogleIdentityFactor.deserializeBinaryFromReader);
-      msg.setGoogleIdentityFactor(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = new airchat_auth_v2_auth_pb.AuthSessionToken();
+        reader.readMessage(
+          value,
+          airchat_auth_v2_auth_pb.AuthSessionToken.deserializeBinaryFromReader
+        );
+        msg.setAuthSessionToken(value);
+        break;
+      case 2:
+        var value = new airchat_auth_v2_auth_pb.PhoneNumberFactor();
+        reader.readMessage(
+          value,
+          airchat_auth_v2_auth_pb.PhoneNumberFactor.deserializeBinaryFromReader
+        );
+        msg.setPhoneNumberFactor(value);
+        break;
+      case 3:
+        var value = new airchat_auth_v2_auth_pb.PhoneNumberOTPFactor();
+        reader.readMessage(
+          value,
+          airchat_auth_v2_auth_pb.PhoneNumberOTPFactor
+            .deserializeBinaryFromReader
+        );
+        msg.setPhoneNumberOtpFactor(value);
+        break;
+      case 4:
+        var value = new airchat_auth_v2_auth_pb.EmailFactor();
+        reader.readMessage(
+          value,
+          airchat_auth_v2_auth_pb.EmailFactor.deserializeBinaryFromReader
+        );
+        msg.setEmailFactor(value);
+        break;
+      case 5:
+        var value = new airchat_auth_v2_auth_pb.EmailOTPFactor();
+        reader.readMessage(
+          value,
+          airchat_auth_v2_auth_pb.EmailOTPFactor.deserializeBinaryFromReader
+        );
+        msg.setEmailOtpFactor(value);
+        break;
+      case 6:
+        var value = new airchat_auth_v2_auth_pb.InviteCodeFactor();
+        reader.readMessage(
+          value,
+          airchat_auth_v2_auth_pb.InviteCodeFactor.deserializeBinaryFromReader
+        );
+        msg.setInviteCodeFactor(value);
+        break;
+      case 7:
+        var value = new airchat_auth_v2_auth_pb.AppleIdentityFactor();
+        reader.readMessage(
+          value,
+          airchat_auth_v2_auth_pb.AppleIdentityFactor
+            .deserializeBinaryFromReader
+        );
+        msg.setAppleIdentityFactor(value);
+        break;
+      case 8:
+        var value = new airchat_auth_v2_auth_pb.SignupRequest();
+        reader.readMessage(
+          value,
+          airchat_auth_v2_auth_pb.SignupRequest.deserializeBinaryFromReader
+        );
+        msg.setSignupRequest(value);
+        break;
+      case 9:
+        var value = new airchat_auth_v2_auth_pb.GoogleIdentityFactor();
+        reader.readMessage(
+          value,
+          airchat_auth_v2_auth_pb.GoogleIdentityFactor
+            .deserializeBinaryFromReader
+        );
+        msg.setGoogleIdentityFactor(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.serializeBinary = function() {
+proto.airchat.auth.v2.AuthRequest.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.airchat.auth.v2.AuthRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -825,7 +1085,10 @@ proto.airchat.auth.v2.AuthRequest.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.AuthRequest.serializeBinaryToWriter = function(message, writer) {
+proto.airchat.auth.v2.AuthRequest.serializeBinaryToWriter = function (
+  message,
+  writer
+) {
   var f = undefined;
   f = message.getAuthSessionToken();
   if (f != null) {
@@ -901,340 +1164,407 @@ proto.airchat.auth.v2.AuthRequest.serializeBinaryToWriter = function(message, wr
   }
 };
 
-
 /**
  * optional AuthSessionToken auth_session_token = 1;
  * @return {?proto.airchat.auth.v2.AuthSessionToken}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.getAuthSessionToken = function() {
+proto.airchat.auth.v2.AuthRequest.prototype.getAuthSessionToken = function () {
   return /** @type{?proto.airchat.auth.v2.AuthSessionToken} */ (
-    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.AuthSessionToken, 1));
+    jspb.Message.getWrapperField(
+      this,
+      airchat_auth_v2_auth_pb.AuthSessionToken,
+      1
+    )
+  );
 };
-
 
 /**
  * @param {?proto.airchat.auth.v2.AuthSessionToken|undefined} value
  * @return {!proto.airchat.auth.v2.AuthRequest} returns this
-*/
-proto.airchat.auth.v2.AuthRequest.prototype.setAuthSessionToken = function(value) {
+ */
+proto.airchat.auth.v2.AuthRequest.prototype.setAuthSessionToken = function (
+  value
+) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.AuthRequest} returns this
  */
-proto.airchat.auth.v2.AuthRequest.prototype.clearAuthSessionToken = function() {
-  return this.setAuthSessionToken(undefined);
-};
-
+proto.airchat.auth.v2.AuthRequest.prototype.clearAuthSessionToken =
+  function () {
+    return this.setAuthSessionToken(undefined);
+  };
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.hasAuthSessionToken = function() {
+proto.airchat.auth.v2.AuthRequest.prototype.hasAuthSessionToken = function () {
   return jspb.Message.getField(this, 1) != null;
 };
-
 
 /**
  * optional PhoneNumberFactor phone_number_factor = 2;
  * @return {?proto.airchat.auth.v2.PhoneNumberFactor}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.getPhoneNumberFactor = function() {
+proto.airchat.auth.v2.AuthRequest.prototype.getPhoneNumberFactor = function () {
   return /** @type{?proto.airchat.auth.v2.PhoneNumberFactor} */ (
-    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.PhoneNumberFactor, 2));
+    jspb.Message.getWrapperField(
+      this,
+      airchat_auth_v2_auth_pb.PhoneNumberFactor,
+      2
+    )
+  );
 };
-
 
 /**
  * @param {?proto.airchat.auth.v2.PhoneNumberFactor|undefined} value
  * @return {!proto.airchat.auth.v2.AuthRequest} returns this
-*/
-proto.airchat.auth.v2.AuthRequest.prototype.setPhoneNumberFactor = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 2, proto.airchat.auth.v2.AuthRequest.oneofGroups_[0], value);
+ */
+proto.airchat.auth.v2.AuthRequest.prototype.setPhoneNumberFactor = function (
+  value
+) {
+  return jspb.Message.setOneofWrapperField(
+    this,
+    2,
+    proto.airchat.auth.v2.AuthRequest.oneofGroups_[0],
+    value
+  );
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.AuthRequest} returns this
  */
-proto.airchat.auth.v2.AuthRequest.prototype.clearPhoneNumberFactor = function() {
-  return this.setPhoneNumberFactor(undefined);
-};
-
+proto.airchat.auth.v2.AuthRequest.prototype.clearPhoneNumberFactor =
+  function () {
+    return this.setPhoneNumberFactor(undefined);
+  };
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.hasPhoneNumberFactor = function() {
+proto.airchat.auth.v2.AuthRequest.prototype.hasPhoneNumberFactor = function () {
   return jspb.Message.getField(this, 2) != null;
 };
-
 
 /**
  * optional PhoneNumberOTPFactor phone_number_otp_factor = 3;
  * @return {?proto.airchat.auth.v2.PhoneNumberOTPFactor}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.getPhoneNumberOtpFactor = function() {
-  return /** @type{?proto.airchat.auth.v2.PhoneNumberOTPFactor} */ (
-    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.PhoneNumberOTPFactor, 3));
-};
-
+proto.airchat.auth.v2.AuthRequest.prototype.getPhoneNumberOtpFactor =
+  function () {
+    return /** @type{?proto.airchat.auth.v2.PhoneNumberOTPFactor} */ (
+      jspb.Message.getWrapperField(
+        this,
+        airchat_auth_v2_auth_pb.PhoneNumberOTPFactor,
+        3
+      )
+    );
+  };
 
 /**
  * @param {?proto.airchat.auth.v2.PhoneNumberOTPFactor|undefined} value
  * @return {!proto.airchat.auth.v2.AuthRequest} returns this
-*/
-proto.airchat.auth.v2.AuthRequest.prototype.setPhoneNumberOtpFactor = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 3, proto.airchat.auth.v2.AuthRequest.oneofGroups_[0], value);
+ */
+proto.airchat.auth.v2.AuthRequest.prototype.setPhoneNumberOtpFactor = function (
+  value
+) {
+  return jspb.Message.setOneofWrapperField(
+    this,
+    3,
+    proto.airchat.auth.v2.AuthRequest.oneofGroups_[0],
+    value
+  );
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.AuthRequest} returns this
  */
-proto.airchat.auth.v2.AuthRequest.prototype.clearPhoneNumberOtpFactor = function() {
-  return this.setPhoneNumberOtpFactor(undefined);
-};
-
+proto.airchat.auth.v2.AuthRequest.prototype.clearPhoneNumberOtpFactor =
+  function () {
+    return this.setPhoneNumberOtpFactor(undefined);
+  };
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.hasPhoneNumberOtpFactor = function() {
-  return jspb.Message.getField(this, 3) != null;
-};
-
+proto.airchat.auth.v2.AuthRequest.prototype.hasPhoneNumberOtpFactor =
+  function () {
+    return jspb.Message.getField(this, 3) != null;
+  };
 
 /**
  * optional EmailFactor email_factor = 4;
  * @return {?proto.airchat.auth.v2.EmailFactor}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.getEmailFactor = function() {
+proto.airchat.auth.v2.AuthRequest.prototype.getEmailFactor = function () {
   return /** @type{?proto.airchat.auth.v2.EmailFactor} */ (
-    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.EmailFactor, 4));
+    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.EmailFactor, 4)
+  );
 };
-
 
 /**
  * @param {?proto.airchat.auth.v2.EmailFactor|undefined} value
  * @return {!proto.airchat.auth.v2.AuthRequest} returns this
-*/
-proto.airchat.auth.v2.AuthRequest.prototype.setEmailFactor = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 4, proto.airchat.auth.v2.AuthRequest.oneofGroups_[0], value);
+ */
+proto.airchat.auth.v2.AuthRequest.prototype.setEmailFactor = function (value) {
+  return jspb.Message.setOneofWrapperField(
+    this,
+    4,
+    proto.airchat.auth.v2.AuthRequest.oneofGroups_[0],
+    value
+  );
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.AuthRequest} returns this
  */
-proto.airchat.auth.v2.AuthRequest.prototype.clearEmailFactor = function() {
+proto.airchat.auth.v2.AuthRequest.prototype.clearEmailFactor = function () {
   return this.setEmailFactor(undefined);
 };
-
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.hasEmailFactor = function() {
+proto.airchat.auth.v2.AuthRequest.prototype.hasEmailFactor = function () {
   return jspb.Message.getField(this, 4) != null;
 };
-
 
 /**
  * optional EmailOTPFactor email_otp_factor = 5;
  * @return {?proto.airchat.auth.v2.EmailOTPFactor}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.getEmailOtpFactor = function() {
+proto.airchat.auth.v2.AuthRequest.prototype.getEmailOtpFactor = function () {
   return /** @type{?proto.airchat.auth.v2.EmailOTPFactor} */ (
-    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.EmailOTPFactor, 5));
+    jspb.Message.getWrapperField(
+      this,
+      airchat_auth_v2_auth_pb.EmailOTPFactor,
+      5
+    )
+  );
 };
-
 
 /**
  * @param {?proto.airchat.auth.v2.EmailOTPFactor|undefined} value
  * @return {!proto.airchat.auth.v2.AuthRequest} returns this
-*/
-proto.airchat.auth.v2.AuthRequest.prototype.setEmailOtpFactor = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 5, proto.airchat.auth.v2.AuthRequest.oneofGroups_[0], value);
+ */
+proto.airchat.auth.v2.AuthRequest.prototype.setEmailOtpFactor = function (
+  value
+) {
+  return jspb.Message.setOneofWrapperField(
+    this,
+    5,
+    proto.airchat.auth.v2.AuthRequest.oneofGroups_[0],
+    value
+  );
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.AuthRequest} returns this
  */
-proto.airchat.auth.v2.AuthRequest.prototype.clearEmailOtpFactor = function() {
+proto.airchat.auth.v2.AuthRequest.prototype.clearEmailOtpFactor = function () {
   return this.setEmailOtpFactor(undefined);
 };
-
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.hasEmailOtpFactor = function() {
+proto.airchat.auth.v2.AuthRequest.prototype.hasEmailOtpFactor = function () {
   return jspb.Message.getField(this, 5) != null;
 };
-
 
 /**
  * optional InviteCodeFactor invite_code_factor = 6;
  * @return {?proto.airchat.auth.v2.InviteCodeFactor}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.getInviteCodeFactor = function() {
+proto.airchat.auth.v2.AuthRequest.prototype.getInviteCodeFactor = function () {
   return /** @type{?proto.airchat.auth.v2.InviteCodeFactor} */ (
-    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.InviteCodeFactor, 6));
+    jspb.Message.getWrapperField(
+      this,
+      airchat_auth_v2_auth_pb.InviteCodeFactor,
+      6
+    )
+  );
 };
-
 
 /**
  * @param {?proto.airchat.auth.v2.InviteCodeFactor|undefined} value
  * @return {!proto.airchat.auth.v2.AuthRequest} returns this
-*/
-proto.airchat.auth.v2.AuthRequest.prototype.setInviteCodeFactor = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 6, proto.airchat.auth.v2.AuthRequest.oneofGroups_[0], value);
+ */
+proto.airchat.auth.v2.AuthRequest.prototype.setInviteCodeFactor = function (
+  value
+) {
+  return jspb.Message.setOneofWrapperField(
+    this,
+    6,
+    proto.airchat.auth.v2.AuthRequest.oneofGroups_[0],
+    value
+  );
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.AuthRequest} returns this
  */
-proto.airchat.auth.v2.AuthRequest.prototype.clearInviteCodeFactor = function() {
-  return this.setInviteCodeFactor(undefined);
-};
-
+proto.airchat.auth.v2.AuthRequest.prototype.clearInviteCodeFactor =
+  function () {
+    return this.setInviteCodeFactor(undefined);
+  };
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.hasInviteCodeFactor = function() {
+proto.airchat.auth.v2.AuthRequest.prototype.hasInviteCodeFactor = function () {
   return jspb.Message.getField(this, 6) != null;
 };
-
 
 /**
  * optional AppleIdentityFactor apple_identity_factor = 7;
  * @return {?proto.airchat.auth.v2.AppleIdentityFactor}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.getAppleIdentityFactor = function() {
-  return /** @type{?proto.airchat.auth.v2.AppleIdentityFactor} */ (
-    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.AppleIdentityFactor, 7));
-};
-
+proto.airchat.auth.v2.AuthRequest.prototype.getAppleIdentityFactor =
+  function () {
+    return /** @type{?proto.airchat.auth.v2.AppleIdentityFactor} */ (
+      jspb.Message.getWrapperField(
+        this,
+        airchat_auth_v2_auth_pb.AppleIdentityFactor,
+        7
+      )
+    );
+  };
 
 /**
  * @param {?proto.airchat.auth.v2.AppleIdentityFactor|undefined} value
  * @return {!proto.airchat.auth.v2.AuthRequest} returns this
-*/
-proto.airchat.auth.v2.AuthRequest.prototype.setAppleIdentityFactor = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 7, proto.airchat.auth.v2.AuthRequest.oneofGroups_[0], value);
+ */
+proto.airchat.auth.v2.AuthRequest.prototype.setAppleIdentityFactor = function (
+  value
+) {
+  return jspb.Message.setOneofWrapperField(
+    this,
+    7,
+    proto.airchat.auth.v2.AuthRequest.oneofGroups_[0],
+    value
+  );
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.AuthRequest} returns this
  */
-proto.airchat.auth.v2.AuthRequest.prototype.clearAppleIdentityFactor = function() {
-  return this.setAppleIdentityFactor(undefined);
-};
-
+proto.airchat.auth.v2.AuthRequest.prototype.clearAppleIdentityFactor =
+  function () {
+    return this.setAppleIdentityFactor(undefined);
+  };
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.hasAppleIdentityFactor = function() {
-  return jspb.Message.getField(this, 7) != null;
-};
-
+proto.airchat.auth.v2.AuthRequest.prototype.hasAppleIdentityFactor =
+  function () {
+    return jspb.Message.getField(this, 7) != null;
+  };
 
 /**
  * optional SignupRequest signup_request = 8;
  * @return {?proto.airchat.auth.v2.SignupRequest}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.getSignupRequest = function() {
+proto.airchat.auth.v2.AuthRequest.prototype.getSignupRequest = function () {
   return /** @type{?proto.airchat.auth.v2.SignupRequest} */ (
-    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.SignupRequest, 8));
+    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.SignupRequest, 8)
+  );
 };
-
 
 /**
  * @param {?proto.airchat.auth.v2.SignupRequest|undefined} value
  * @return {!proto.airchat.auth.v2.AuthRequest} returns this
-*/
-proto.airchat.auth.v2.AuthRequest.prototype.setSignupRequest = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 8, proto.airchat.auth.v2.AuthRequest.oneofGroups_[0], value);
+ */
+proto.airchat.auth.v2.AuthRequest.prototype.setSignupRequest = function (
+  value
+) {
+  return jspb.Message.setOneofWrapperField(
+    this,
+    8,
+    proto.airchat.auth.v2.AuthRequest.oneofGroups_[0],
+    value
+  );
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.AuthRequest} returns this
  */
-proto.airchat.auth.v2.AuthRequest.prototype.clearSignupRequest = function() {
+proto.airchat.auth.v2.AuthRequest.prototype.clearSignupRequest = function () {
   return this.setSignupRequest(undefined);
 };
-
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.hasSignupRequest = function() {
+proto.airchat.auth.v2.AuthRequest.prototype.hasSignupRequest = function () {
   return jspb.Message.getField(this, 8) != null;
 };
-
 
 /**
  * optional GoogleIdentityFactor google_identity_factor = 9;
  * @return {?proto.airchat.auth.v2.GoogleIdentityFactor}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.getGoogleIdentityFactor = function() {
-  return /** @type{?proto.airchat.auth.v2.GoogleIdentityFactor} */ (
-    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.GoogleIdentityFactor, 9));
-};
-
+proto.airchat.auth.v2.AuthRequest.prototype.getGoogleIdentityFactor =
+  function () {
+    return /** @type{?proto.airchat.auth.v2.GoogleIdentityFactor} */ (
+      jspb.Message.getWrapperField(
+        this,
+        airchat_auth_v2_auth_pb.GoogleIdentityFactor,
+        9
+      )
+    );
+  };
 
 /**
  * @param {?proto.airchat.auth.v2.GoogleIdentityFactor|undefined} value
  * @return {!proto.airchat.auth.v2.AuthRequest} returns this
-*/
-proto.airchat.auth.v2.AuthRequest.prototype.setGoogleIdentityFactor = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 9, proto.airchat.auth.v2.AuthRequest.oneofGroups_[0], value);
+ */
+proto.airchat.auth.v2.AuthRequest.prototype.setGoogleIdentityFactor = function (
+  value
+) {
+  return jspb.Message.setOneofWrapperField(
+    this,
+    9,
+    proto.airchat.auth.v2.AuthRequest.oneofGroups_[0],
+    value
+  );
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.AuthRequest} returns this
  */
-proto.airchat.auth.v2.AuthRequest.prototype.clearGoogleIdentityFactor = function() {
-  return this.setGoogleIdentityFactor(undefined);
-};
-
+proto.airchat.auth.v2.AuthRequest.prototype.clearGoogleIdentityFactor =
+  function () {
+    return this.setGoogleIdentityFactor(undefined);
+  };
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.AuthRequest.prototype.hasGoogleIdentityFactor = function() {
-  return jspb.Message.getField(this, 9) != null;
-};
-
-
+proto.airchat.auth.v2.AuthRequest.prototype.hasGoogleIdentityFactor =
+  function () {
+    return jspb.Message.getField(this, 9) != null;
+  };
 
 /**
  * Oneof group definitions for this message. Each group defines the field
@@ -1244,7 +1574,7 @@ proto.airchat.auth.v2.AuthRequest.prototype.hasGoogleIdentityFactor = function()
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.airchat.auth.v2.AuthResponse.oneofGroups_ = [[2,3,4,5,6,7,8,9]];
+proto.airchat.auth.v2.AuthResponse.oneofGroups_ = [[2, 3, 4, 5, 6, 7, 8, 9]];
 
 /**
  * @enum {number}
@@ -1264,71 +1594,102 @@ proto.airchat.auth.v2.AuthResponse.ResponseCase = {
 /**
  * @return {proto.airchat.auth.v2.AuthResponse.ResponseCase}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.getResponseCase = function() {
-  return /** @type {proto.airchat.auth.v2.AuthResponse.ResponseCase} */(jspb.Message.computeOneofCase(this, proto.airchat.auth.v2.AuthResponse.oneofGroups_[0]));
+proto.airchat.auth.v2.AuthResponse.prototype.getResponseCase = function () {
+  return /** @type {proto.airchat.auth.v2.AuthResponse.ResponseCase} */ (
+    jspb.Message.computeOneofCase(
+      this,
+      proto.airchat.auth.v2.AuthResponse.oneofGroups_[0]
+    )
+  );
 };
-
-
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.AuthResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.AuthResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.AuthResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.AuthResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    authSessionToken: (f = msg.getAuthSessionToken()) && airchat_auth_v2_auth_pb.AuthSessionToken.toObject(includeInstance, f),
-    error: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    credential: (f = msg.getCredential()) && airchat_auth_v2_auth_pb.Credential.toObject(includeInstance, f),
-    phoneNumberStep: (f = msg.getPhoneNumberStep()) && airchat_auth_v2_auth_pb.PhoneNumberStep.toObject(includeInstance, f),
-    phoneOtpStep: (f = msg.getPhoneOtpStep()) && airchat_auth_v2_auth_pb.PhoneNumberOTPStep.toObject(includeInstance, f),
-    emailStep: (f = msg.getEmailStep()) && airchat_auth_v2_auth_pb.EmailStep.toObject(includeInstance, f),
-    emailOtpStep: (f = msg.getEmailOtpStep()) && airchat_auth_v2_auth_pb.EmailOTPStep.toObject(includeInstance, f),
-    inviteCodeStep: (f = msg.getInviteCodeStep()) && airchat_auth_v2_auth_pb.InviteCodeStep.toObject(includeInstance, f),
-    linkAccountStep: (f = msg.getLinkAccountStep()) && airchat_auth_v2_auth_pb.LinkAccountStep.toObject(includeInstance, f)
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.AuthResponse.prototype.toObject = function (
+    opt_includeInstance
+  ) {
+    return proto.airchat.auth.v2.AuthResponse.toObject(
+      opt_includeInstance,
+      this
+    );
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.AuthResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.AuthResponse.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {
+        authSessionToken:
+          (f = msg.getAuthSessionToken()) &&
+          airchat_auth_v2_auth_pb.AuthSessionToken.toObject(includeInstance, f),
+        error: jspb.Message.getFieldWithDefault(msg, 2, 0),
+        credential:
+          (f = msg.getCredential()) &&
+          airchat_auth_v2_auth_pb.Credential.toObject(includeInstance, f),
+        phoneNumberStep:
+          (f = msg.getPhoneNumberStep()) &&
+          airchat_auth_v2_auth_pb.PhoneNumberStep.toObject(includeInstance, f),
+        phoneOtpStep:
+          (f = msg.getPhoneOtpStep()) &&
+          airchat_auth_v2_auth_pb.PhoneNumberOTPStep.toObject(
+            includeInstance,
+            f
+          ),
+        emailStep:
+          (f = msg.getEmailStep()) &&
+          airchat_auth_v2_auth_pb.EmailStep.toObject(includeInstance, f),
+        emailOtpStep:
+          (f = msg.getEmailOtpStep()) &&
+          airchat_auth_v2_auth_pb.EmailOTPStep.toObject(includeInstance, f),
+        inviteCodeStep:
+          (f = msg.getInviteCodeStep()) &&
+          airchat_auth_v2_auth_pb.InviteCodeStep.toObject(includeInstance, f),
+        linkAccountStep:
+          (f = msg.getLinkAccountStep()) &&
+          airchat_auth_v2_auth_pb.LinkAccountStep.toObject(includeInstance, f)
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.AuthResponse}
  */
-proto.airchat.auth.v2.AuthResponse.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.AuthResponse.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.AuthResponse;
-  return proto.airchat.auth.v2.AuthResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.AuthResponse();
+  return proto.airchat.auth.v2.AuthResponse.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -1337,76 +1698,103 @@ proto.airchat.auth.v2.AuthResponse.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.AuthResponse}
  */
-proto.airchat.auth.v2.AuthResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.airchat.auth.v2.AuthResponse.deserializeBinaryFromReader = function (
+  msg,
+  reader
+) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = new airchat_auth_v2_auth_pb.AuthSessionToken;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.AuthSessionToken.deserializeBinaryFromReader);
-      msg.setAuthSessionToken(value);
-      break;
-    case 2:
-      var value = /** @type {!proto.airchat.auth.v2.AuthError} */ (reader.readEnum());
-      msg.setError(value);
-      break;
-    case 3:
-      var value = new airchat_auth_v2_auth_pb.Credential;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.Credential.deserializeBinaryFromReader);
-      msg.setCredential(value);
-      break;
-    case 4:
-      var value = new airchat_auth_v2_auth_pb.PhoneNumberStep;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.PhoneNumberStep.deserializeBinaryFromReader);
-      msg.setPhoneNumberStep(value);
-      break;
-    case 5:
-      var value = new airchat_auth_v2_auth_pb.PhoneNumberOTPStep;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.PhoneNumberOTPStep.deserializeBinaryFromReader);
-      msg.setPhoneOtpStep(value);
-      break;
-    case 6:
-      var value = new airchat_auth_v2_auth_pb.EmailStep;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.EmailStep.deserializeBinaryFromReader);
-      msg.setEmailStep(value);
-      break;
-    case 7:
-      var value = new airchat_auth_v2_auth_pb.EmailOTPStep;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.EmailOTPStep.deserializeBinaryFromReader);
-      msg.setEmailOtpStep(value);
-      break;
-    case 8:
-      var value = new airchat_auth_v2_auth_pb.InviteCodeStep;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.InviteCodeStep.deserializeBinaryFromReader);
-      msg.setInviteCodeStep(value);
-      break;
-    case 9:
-      var value = new airchat_auth_v2_auth_pb.LinkAccountStep;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.LinkAccountStep.deserializeBinaryFromReader);
-      msg.setLinkAccountStep(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = new airchat_auth_v2_auth_pb.AuthSessionToken();
+        reader.readMessage(
+          value,
+          airchat_auth_v2_auth_pb.AuthSessionToken.deserializeBinaryFromReader
+        );
+        msg.setAuthSessionToken(value);
+        break;
+      case 2:
+        var value = /** @type {!proto.airchat.auth.v2.AuthError} */ (
+          reader.readEnum()
+        );
+        msg.setError(value);
+        break;
+      case 3:
+        var value = new airchat_auth_v2_auth_pb.Credential();
+        reader.readMessage(
+          value,
+          airchat_auth_v2_auth_pb.Credential.deserializeBinaryFromReader
+        );
+        msg.setCredential(value);
+        break;
+      case 4:
+        var value = new airchat_auth_v2_auth_pb.PhoneNumberStep();
+        reader.readMessage(
+          value,
+          airchat_auth_v2_auth_pb.PhoneNumberStep.deserializeBinaryFromReader
+        );
+        msg.setPhoneNumberStep(value);
+        break;
+      case 5:
+        var value = new airchat_auth_v2_auth_pb.PhoneNumberOTPStep();
+        reader.readMessage(
+          value,
+          airchat_auth_v2_auth_pb.PhoneNumberOTPStep.deserializeBinaryFromReader
+        );
+        msg.setPhoneOtpStep(value);
+        break;
+      case 6:
+        var value = new airchat_auth_v2_auth_pb.EmailStep();
+        reader.readMessage(
+          value,
+          airchat_auth_v2_auth_pb.EmailStep.deserializeBinaryFromReader
+        );
+        msg.setEmailStep(value);
+        break;
+      case 7:
+        var value = new airchat_auth_v2_auth_pb.EmailOTPStep();
+        reader.readMessage(
+          value,
+          airchat_auth_v2_auth_pb.EmailOTPStep.deserializeBinaryFromReader
+        );
+        msg.setEmailOtpStep(value);
+        break;
+      case 8:
+        var value = new airchat_auth_v2_auth_pb.InviteCodeStep();
+        reader.readMessage(
+          value,
+          airchat_auth_v2_auth_pb.InviteCodeStep.deserializeBinaryFromReader
+        );
+        msg.setInviteCodeStep(value);
+        break;
+      case 9:
+        var value = new airchat_auth_v2_auth_pb.LinkAccountStep();
+        reader.readMessage(
+          value,
+          airchat_auth_v2_auth_pb.LinkAccountStep.deserializeBinaryFromReader
+        );
+        msg.setLinkAccountStep(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.serializeBinary = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.airchat.auth.v2.AuthResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -1415,7 +1803,10 @@ proto.airchat.auth.v2.AuthResponse.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.AuthResponse.serializeBinaryToWriter = function(message, writer) {
+proto.airchat.auth.v2.AuthResponse.serializeBinaryToWriter = function (
+  message,
+  writer
+) {
   var f = undefined;
   f = message.getAuthSessionToken();
   if (f != null) {
@@ -1425,12 +1816,11 @@ proto.airchat.auth.v2.AuthResponse.serializeBinaryToWriter = function(message, w
       airchat_auth_v2_auth_pb.AuthSessionToken.serializeBinaryToWriter
     );
   }
-  f = /** @type {!proto.airchat.auth.v2.AuthError} */ (jspb.Message.getField(message, 2));
+  f = /** @type {!proto.airchat.auth.v2.AuthError} */ (
+    jspb.Message.getField(message, 2)
+  );
   if (f != null) {
-    writer.writeEnum(
-      2,
-      f
-    );
+    writer.writeEnum(2, f);
   }
   f = message.getCredential();
   if (f != null) {
@@ -1490,393 +1880,454 @@ proto.airchat.auth.v2.AuthResponse.serializeBinaryToWriter = function(message, w
   }
 };
 
-
 /**
  * optional AuthSessionToken auth_session_token = 1;
  * @return {?proto.airchat.auth.v2.AuthSessionToken}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.getAuthSessionToken = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.getAuthSessionToken = function () {
   return /** @type{?proto.airchat.auth.v2.AuthSessionToken} */ (
-    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.AuthSessionToken, 1));
+    jspb.Message.getWrapperField(
+      this,
+      airchat_auth_v2_auth_pb.AuthSessionToken,
+      1
+    )
+  );
 };
-
 
 /**
  * @param {?proto.airchat.auth.v2.AuthSessionToken|undefined} value
  * @return {!proto.airchat.auth.v2.AuthResponse} returns this
-*/
-proto.airchat.auth.v2.AuthResponse.prototype.setAuthSessionToken = function(value) {
+ */
+proto.airchat.auth.v2.AuthResponse.prototype.setAuthSessionToken = function (
+  value
+) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.AuthResponse} returns this
  */
-proto.airchat.auth.v2.AuthResponse.prototype.clearAuthSessionToken = function() {
-  return this.setAuthSessionToken(undefined);
-};
-
+proto.airchat.auth.v2.AuthResponse.prototype.clearAuthSessionToken =
+  function () {
+    return this.setAuthSessionToken(undefined);
+  };
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.hasAuthSessionToken = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.hasAuthSessionToken = function () {
   return jspb.Message.getField(this, 1) != null;
 };
-
 
 /**
  * optional AuthError error = 2;
  * @return {!proto.airchat.auth.v2.AuthError}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.getError = function() {
-  return /** @type {!proto.airchat.auth.v2.AuthError} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+proto.airchat.auth.v2.AuthResponse.prototype.getError = function () {
+  return /** @type {!proto.airchat.auth.v2.AuthError} */ (
+    jspb.Message.getFieldWithDefault(this, 2, 0)
+  );
 };
-
 
 /**
  * @param {!proto.airchat.auth.v2.AuthError} value
  * @return {!proto.airchat.auth.v2.AuthResponse} returns this
  */
-proto.airchat.auth.v2.AuthResponse.prototype.setError = function(value) {
-  return jspb.Message.setOneofField(this, 2, proto.airchat.auth.v2.AuthResponse.oneofGroups_[0], value);
+proto.airchat.auth.v2.AuthResponse.prototype.setError = function (value) {
+  return jspb.Message.setOneofField(
+    this,
+    2,
+    proto.airchat.auth.v2.AuthResponse.oneofGroups_[0],
+    value
+  );
 };
-
 
 /**
  * Clears the field making it undefined.
  * @return {!proto.airchat.auth.v2.AuthResponse} returns this
  */
-proto.airchat.auth.v2.AuthResponse.prototype.clearError = function() {
-  return jspb.Message.setOneofField(this, 2, proto.airchat.auth.v2.AuthResponse.oneofGroups_[0], undefined);
+proto.airchat.auth.v2.AuthResponse.prototype.clearError = function () {
+  return jspb.Message.setOneofField(
+    this,
+    2,
+    proto.airchat.auth.v2.AuthResponse.oneofGroups_[0],
+    undefined
+  );
 };
-
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.hasError = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.hasError = function () {
   return jspb.Message.getField(this, 2) != null;
 };
-
 
 /**
  * optional Credential credential = 3;
  * @return {?proto.airchat.auth.v2.Credential}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.getCredential = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.getCredential = function () {
   return /** @type{?proto.airchat.auth.v2.Credential} */ (
-    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.Credential, 3));
+    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.Credential, 3)
+  );
 };
-
 
 /**
  * @param {?proto.airchat.auth.v2.Credential|undefined} value
  * @return {!proto.airchat.auth.v2.AuthResponse} returns this
-*/
-proto.airchat.auth.v2.AuthResponse.prototype.setCredential = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 3, proto.airchat.auth.v2.AuthResponse.oneofGroups_[0], value);
+ */
+proto.airchat.auth.v2.AuthResponse.prototype.setCredential = function (value) {
+  return jspb.Message.setOneofWrapperField(
+    this,
+    3,
+    proto.airchat.auth.v2.AuthResponse.oneofGroups_[0],
+    value
+  );
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.AuthResponse} returns this
  */
-proto.airchat.auth.v2.AuthResponse.prototype.clearCredential = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.clearCredential = function () {
   return this.setCredential(undefined);
 };
-
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.hasCredential = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.hasCredential = function () {
   return jspb.Message.getField(this, 3) != null;
 };
-
 
 /**
  * optional PhoneNumberStep phone_number_step = 4;
  * @return {?proto.airchat.auth.v2.PhoneNumberStep}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.getPhoneNumberStep = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.getPhoneNumberStep = function () {
   return /** @type{?proto.airchat.auth.v2.PhoneNumberStep} */ (
-    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.PhoneNumberStep, 4));
+    jspb.Message.getWrapperField(
+      this,
+      airchat_auth_v2_auth_pb.PhoneNumberStep,
+      4
+    )
+  );
 };
-
 
 /**
  * @param {?proto.airchat.auth.v2.PhoneNumberStep|undefined} value
  * @return {!proto.airchat.auth.v2.AuthResponse} returns this
-*/
-proto.airchat.auth.v2.AuthResponse.prototype.setPhoneNumberStep = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 4, proto.airchat.auth.v2.AuthResponse.oneofGroups_[0], value);
+ */
+proto.airchat.auth.v2.AuthResponse.prototype.setPhoneNumberStep = function (
+  value
+) {
+  return jspb.Message.setOneofWrapperField(
+    this,
+    4,
+    proto.airchat.auth.v2.AuthResponse.oneofGroups_[0],
+    value
+  );
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.AuthResponse} returns this
  */
-proto.airchat.auth.v2.AuthResponse.prototype.clearPhoneNumberStep = function() {
-  return this.setPhoneNumberStep(undefined);
-};
-
+proto.airchat.auth.v2.AuthResponse.prototype.clearPhoneNumberStep =
+  function () {
+    return this.setPhoneNumberStep(undefined);
+  };
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.hasPhoneNumberStep = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.hasPhoneNumberStep = function () {
   return jspb.Message.getField(this, 4) != null;
 };
-
 
 /**
  * optional PhoneNumberOTPStep phone_otp_step = 5;
  * @return {?proto.airchat.auth.v2.PhoneNumberOTPStep}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.getPhoneOtpStep = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.getPhoneOtpStep = function () {
   return /** @type{?proto.airchat.auth.v2.PhoneNumberOTPStep} */ (
-    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.PhoneNumberOTPStep, 5));
+    jspb.Message.getWrapperField(
+      this,
+      airchat_auth_v2_auth_pb.PhoneNumberOTPStep,
+      5
+    )
+  );
 };
-
 
 /**
  * @param {?proto.airchat.auth.v2.PhoneNumberOTPStep|undefined} value
  * @return {!proto.airchat.auth.v2.AuthResponse} returns this
-*/
-proto.airchat.auth.v2.AuthResponse.prototype.setPhoneOtpStep = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 5, proto.airchat.auth.v2.AuthResponse.oneofGroups_[0], value);
+ */
+proto.airchat.auth.v2.AuthResponse.prototype.setPhoneOtpStep = function (
+  value
+) {
+  return jspb.Message.setOneofWrapperField(
+    this,
+    5,
+    proto.airchat.auth.v2.AuthResponse.oneofGroups_[0],
+    value
+  );
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.AuthResponse} returns this
  */
-proto.airchat.auth.v2.AuthResponse.prototype.clearPhoneOtpStep = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.clearPhoneOtpStep = function () {
   return this.setPhoneOtpStep(undefined);
 };
-
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.hasPhoneOtpStep = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.hasPhoneOtpStep = function () {
   return jspb.Message.getField(this, 5) != null;
 };
-
 
 /**
  * optional EmailStep email_step = 6;
  * @return {?proto.airchat.auth.v2.EmailStep}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.getEmailStep = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.getEmailStep = function () {
   return /** @type{?proto.airchat.auth.v2.EmailStep} */ (
-    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.EmailStep, 6));
+    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.EmailStep, 6)
+  );
 };
-
 
 /**
  * @param {?proto.airchat.auth.v2.EmailStep|undefined} value
  * @return {!proto.airchat.auth.v2.AuthResponse} returns this
-*/
-proto.airchat.auth.v2.AuthResponse.prototype.setEmailStep = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 6, proto.airchat.auth.v2.AuthResponse.oneofGroups_[0], value);
+ */
+proto.airchat.auth.v2.AuthResponse.prototype.setEmailStep = function (value) {
+  return jspb.Message.setOneofWrapperField(
+    this,
+    6,
+    proto.airchat.auth.v2.AuthResponse.oneofGroups_[0],
+    value
+  );
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.AuthResponse} returns this
  */
-proto.airchat.auth.v2.AuthResponse.prototype.clearEmailStep = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.clearEmailStep = function () {
   return this.setEmailStep(undefined);
 };
-
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.hasEmailStep = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.hasEmailStep = function () {
   return jspb.Message.getField(this, 6) != null;
 };
-
 
 /**
  * optional EmailOTPStep email_otp_step = 7;
  * @return {?proto.airchat.auth.v2.EmailOTPStep}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.getEmailOtpStep = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.getEmailOtpStep = function () {
   return /** @type{?proto.airchat.auth.v2.EmailOTPStep} */ (
-    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.EmailOTPStep, 7));
+    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.EmailOTPStep, 7)
+  );
 };
-
 
 /**
  * @param {?proto.airchat.auth.v2.EmailOTPStep|undefined} value
  * @return {!proto.airchat.auth.v2.AuthResponse} returns this
-*/
-proto.airchat.auth.v2.AuthResponse.prototype.setEmailOtpStep = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 7, proto.airchat.auth.v2.AuthResponse.oneofGroups_[0], value);
+ */
+proto.airchat.auth.v2.AuthResponse.prototype.setEmailOtpStep = function (
+  value
+) {
+  return jspb.Message.setOneofWrapperField(
+    this,
+    7,
+    proto.airchat.auth.v2.AuthResponse.oneofGroups_[0],
+    value
+  );
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.AuthResponse} returns this
  */
-proto.airchat.auth.v2.AuthResponse.prototype.clearEmailOtpStep = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.clearEmailOtpStep = function () {
   return this.setEmailOtpStep(undefined);
 };
-
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.hasEmailOtpStep = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.hasEmailOtpStep = function () {
   return jspb.Message.getField(this, 7) != null;
 };
-
 
 /**
  * optional InviteCodeStep invite_code_step = 8;
  * @return {?proto.airchat.auth.v2.InviteCodeStep}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.getInviteCodeStep = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.getInviteCodeStep = function () {
   return /** @type{?proto.airchat.auth.v2.InviteCodeStep} */ (
-    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.InviteCodeStep, 8));
+    jspb.Message.getWrapperField(
+      this,
+      airchat_auth_v2_auth_pb.InviteCodeStep,
+      8
+    )
+  );
 };
-
 
 /**
  * @param {?proto.airchat.auth.v2.InviteCodeStep|undefined} value
  * @return {!proto.airchat.auth.v2.AuthResponse} returns this
-*/
-proto.airchat.auth.v2.AuthResponse.prototype.setInviteCodeStep = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 8, proto.airchat.auth.v2.AuthResponse.oneofGroups_[0], value);
+ */
+proto.airchat.auth.v2.AuthResponse.prototype.setInviteCodeStep = function (
+  value
+) {
+  return jspb.Message.setOneofWrapperField(
+    this,
+    8,
+    proto.airchat.auth.v2.AuthResponse.oneofGroups_[0],
+    value
+  );
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.AuthResponse} returns this
  */
-proto.airchat.auth.v2.AuthResponse.prototype.clearInviteCodeStep = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.clearInviteCodeStep = function () {
   return this.setInviteCodeStep(undefined);
 };
-
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.hasInviteCodeStep = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.hasInviteCodeStep = function () {
   return jspb.Message.getField(this, 8) != null;
 };
-
 
 /**
  * optional LinkAccountStep link_account_step = 9;
  * @return {?proto.airchat.auth.v2.LinkAccountStep}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.getLinkAccountStep = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.getLinkAccountStep = function () {
   return /** @type{?proto.airchat.auth.v2.LinkAccountStep} */ (
-    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.LinkAccountStep, 9));
+    jspb.Message.getWrapperField(
+      this,
+      airchat_auth_v2_auth_pb.LinkAccountStep,
+      9
+    )
+  );
 };
-
 
 /**
  * @param {?proto.airchat.auth.v2.LinkAccountStep|undefined} value
  * @return {!proto.airchat.auth.v2.AuthResponse} returns this
-*/
-proto.airchat.auth.v2.AuthResponse.prototype.setLinkAccountStep = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 9, proto.airchat.auth.v2.AuthResponse.oneofGroups_[0], value);
+ */
+proto.airchat.auth.v2.AuthResponse.prototype.setLinkAccountStep = function (
+  value
+) {
+  return jspb.Message.setOneofWrapperField(
+    this,
+    9,
+    proto.airchat.auth.v2.AuthResponse.oneofGroups_[0],
+    value
+  );
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.AuthResponse} returns this
  */
-proto.airchat.auth.v2.AuthResponse.prototype.clearLinkAccountStep = function() {
-  return this.setLinkAccountStep(undefined);
-};
-
+proto.airchat.auth.v2.AuthResponse.prototype.clearLinkAccountStep =
+  function () {
+    return this.setLinkAccountStep(undefined);
+  };
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.AuthResponse.prototype.hasLinkAccountStep = function() {
+proto.airchat.auth.v2.AuthResponse.prototype.hasLinkAccountStep = function () {
   return jspb.Message.getField(this, 9) != null;
 };
 
-
-
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.RefreshRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.RefreshRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.RefreshRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.RefreshRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    refreshToken: (f = msg.getRefreshToken()) && airchat_auth_v2_auth_pb.RefreshToken.toObject(includeInstance, f)
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.RefreshRequest.prototype.toObject = function (
+    opt_includeInstance
+  ) {
+    return proto.airchat.auth.v2.RefreshRequest.toObject(
+      opt_includeInstance,
+      this
+    );
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.RefreshRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.RefreshRequest.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {
+        refreshToken:
+          (f = msg.getRefreshToken()) &&
+          airchat_auth_v2_auth_pb.RefreshToken.toObject(includeInstance, f)
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.RefreshRequest}
  */
-proto.airchat.auth.v2.RefreshRequest.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.RefreshRequest.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.RefreshRequest;
-  return proto.airchat.auth.v2.RefreshRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.RefreshRequest();
+  return proto.airchat.auth.v2.RefreshRequest.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -1885,37 +2336,41 @@ proto.airchat.auth.v2.RefreshRequest.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.RefreshRequest}
  */
-proto.airchat.auth.v2.RefreshRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.airchat.auth.v2.RefreshRequest.deserializeBinaryFromReader = function (
+  msg,
+  reader
+) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = new airchat_auth_v2_auth_pb.RefreshToken;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.RefreshToken.deserializeBinaryFromReader);
-      msg.setRefreshToken(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = new airchat_auth_v2_auth_pb.RefreshToken();
+        reader.readMessage(
+          value,
+          airchat_auth_v2_auth_pb.RefreshToken.deserializeBinaryFromReader
+        );
+        msg.setRefreshToken(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.RefreshRequest.prototype.serializeBinary = function() {
+proto.airchat.auth.v2.RefreshRequest.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.airchat.auth.v2.RefreshRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -1924,7 +2379,10 @@ proto.airchat.auth.v2.RefreshRequest.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.RefreshRequest.serializeBinaryToWriter = function(message, writer) {
+proto.airchat.auth.v2.RefreshRequest.serializeBinaryToWriter = function (
+  message,
+  writer
+) {
   var f = undefined;
   f = message.getRefreshToken();
   if (f != null) {
@@ -1936,44 +2394,41 @@ proto.airchat.auth.v2.RefreshRequest.serializeBinaryToWriter = function(message,
   }
 };
 
-
 /**
  * optional RefreshToken refresh_token = 1;
  * @return {?proto.airchat.auth.v2.RefreshToken}
  */
-proto.airchat.auth.v2.RefreshRequest.prototype.getRefreshToken = function() {
+proto.airchat.auth.v2.RefreshRequest.prototype.getRefreshToken = function () {
   return /** @type{?proto.airchat.auth.v2.RefreshToken} */ (
-    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.RefreshToken, 1));
+    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.RefreshToken, 1)
+  );
 };
-
 
 /**
  * @param {?proto.airchat.auth.v2.RefreshToken|undefined} value
  * @return {!proto.airchat.auth.v2.RefreshRequest} returns this
-*/
-proto.airchat.auth.v2.RefreshRequest.prototype.setRefreshToken = function(value) {
+ */
+proto.airchat.auth.v2.RefreshRequest.prototype.setRefreshToken = function (
+  value
+) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.RefreshRequest} returns this
  */
-proto.airchat.auth.v2.RefreshRequest.prototype.clearRefreshToken = function() {
+proto.airchat.auth.v2.RefreshRequest.prototype.clearRefreshToken = function () {
   return this.setRefreshToken(undefined);
 };
-
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.RefreshRequest.prototype.hasRefreshToken = function() {
+proto.airchat.auth.v2.RefreshRequest.prototype.hasRefreshToken = function () {
   return jspb.Message.getField(this, 1) != null;
 };
-
-
 
 /**
  * Oneof group definitions for this message. Each group defines the field
@@ -1983,7 +2438,7 @@ proto.airchat.auth.v2.RefreshRequest.prototype.hasRefreshToken = function() {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.airchat.auth.v2.RefreshResponse.oneofGroups_ = [[1,2]];
+proto.airchat.auth.v2.RefreshResponse.oneofGroups_ = [[1, 2]];
 
 /**
  * @enum {number}
@@ -1997,64 +2452,78 @@ proto.airchat.auth.v2.RefreshResponse.ResponseCase = {
 /**
  * @return {proto.airchat.auth.v2.RefreshResponse.ResponseCase}
  */
-proto.airchat.auth.v2.RefreshResponse.prototype.getResponseCase = function() {
-  return /** @type {proto.airchat.auth.v2.RefreshResponse.ResponseCase} */(jspb.Message.computeOneofCase(this, proto.airchat.auth.v2.RefreshResponse.oneofGroups_[0]));
+proto.airchat.auth.v2.RefreshResponse.prototype.getResponseCase = function () {
+  return /** @type {proto.airchat.auth.v2.RefreshResponse.ResponseCase} */ (
+    jspb.Message.computeOneofCase(
+      this,
+      proto.airchat.auth.v2.RefreshResponse.oneofGroups_[0]
+    )
+  );
 };
-
-
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.RefreshResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.RefreshResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.RefreshResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.RefreshResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    error: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    credential: (f = msg.getCredential()) && airchat_auth_v2_auth_pb.Credential.toObject(includeInstance, f)
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.RefreshResponse.prototype.toObject = function (
+    opt_includeInstance
+  ) {
+    return proto.airchat.auth.v2.RefreshResponse.toObject(
+      opt_includeInstance,
+      this
+    );
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.RefreshResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.RefreshResponse.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {
+        error: jspb.Message.getFieldWithDefault(msg, 1, 0),
+        credential:
+          (f = msg.getCredential()) &&
+          airchat_auth_v2_auth_pb.Credential.toObject(includeInstance, f)
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.RefreshResponse}
  */
-proto.airchat.auth.v2.RefreshResponse.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.RefreshResponse.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.RefreshResponse;
-  return proto.airchat.auth.v2.RefreshResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.RefreshResponse();
+  return proto.airchat.auth.v2.RefreshResponse.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -2063,41 +2532,47 @@ proto.airchat.auth.v2.RefreshResponse.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.RefreshResponse}
  */
-proto.airchat.auth.v2.RefreshResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.airchat.auth.v2.RefreshResponse.deserializeBinaryFromReader = function (
+  msg,
+  reader
+) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {!proto.airchat.auth.v2.AuthError} */ (reader.readEnum());
-      msg.setError(value);
-      break;
-    case 2:
-      var value = new airchat_auth_v2_auth_pb.Credential;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.Credential.deserializeBinaryFromReader);
-      msg.setCredential(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = /** @type {!proto.airchat.auth.v2.AuthError} */ (
+          reader.readEnum()
+        );
+        msg.setError(value);
+        break;
+      case 2:
+        var value = new airchat_auth_v2_auth_pb.Credential();
+        reader.readMessage(
+          value,
+          airchat_auth_v2_auth_pb.Credential.deserializeBinaryFromReader
+        );
+        msg.setCredential(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.RefreshResponse.prototype.serializeBinary = function() {
+proto.airchat.auth.v2.RefreshResponse.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.airchat.auth.v2.RefreshResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -2106,14 +2581,16 @@ proto.airchat.auth.v2.RefreshResponse.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.RefreshResponse.serializeBinaryToWriter = function(message, writer) {
+proto.airchat.auth.v2.RefreshResponse.serializeBinaryToWriter = function (
+  message,
+  writer
+) {
   var f = undefined;
-  f = /** @type {!proto.airchat.auth.v2.AuthError} */ (jspb.Message.getField(message, 1));
+  f = /** @type {!proto.airchat.auth.v2.AuthError} */ (
+    jspb.Message.getField(message, 1)
+  );
   if (f != null) {
-    writer.writeEnum(
-      1,
-      f
-    );
+    writer.writeEnum(1, f);
   }
   f = message.getCredential();
   if (f != null) {
@@ -2125,134 +2602,152 @@ proto.airchat.auth.v2.RefreshResponse.serializeBinaryToWriter = function(message
   }
 };
 
-
 /**
  * optional AuthError error = 1;
  * @return {!proto.airchat.auth.v2.AuthError}
  */
-proto.airchat.auth.v2.RefreshResponse.prototype.getError = function() {
-  return /** @type {!proto.airchat.auth.v2.AuthError} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+proto.airchat.auth.v2.RefreshResponse.prototype.getError = function () {
+  return /** @type {!proto.airchat.auth.v2.AuthError} */ (
+    jspb.Message.getFieldWithDefault(this, 1, 0)
+  );
 };
-
 
 /**
  * @param {!proto.airchat.auth.v2.AuthError} value
  * @return {!proto.airchat.auth.v2.RefreshResponse} returns this
  */
-proto.airchat.auth.v2.RefreshResponse.prototype.setError = function(value) {
-  return jspb.Message.setOneofField(this, 1, proto.airchat.auth.v2.RefreshResponse.oneofGroups_[0], value);
+proto.airchat.auth.v2.RefreshResponse.prototype.setError = function (value) {
+  return jspb.Message.setOneofField(
+    this,
+    1,
+    proto.airchat.auth.v2.RefreshResponse.oneofGroups_[0],
+    value
+  );
 };
-
 
 /**
  * Clears the field making it undefined.
  * @return {!proto.airchat.auth.v2.RefreshResponse} returns this
  */
-proto.airchat.auth.v2.RefreshResponse.prototype.clearError = function() {
-  return jspb.Message.setOneofField(this, 1, proto.airchat.auth.v2.RefreshResponse.oneofGroups_[0], undefined);
+proto.airchat.auth.v2.RefreshResponse.prototype.clearError = function () {
+  return jspb.Message.setOneofField(
+    this,
+    1,
+    proto.airchat.auth.v2.RefreshResponse.oneofGroups_[0],
+    undefined
+  );
 };
-
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.RefreshResponse.prototype.hasError = function() {
+proto.airchat.auth.v2.RefreshResponse.prototype.hasError = function () {
   return jspb.Message.getField(this, 1) != null;
 };
-
 
 /**
  * optional Credential credential = 2;
  * @return {?proto.airchat.auth.v2.Credential}
  */
-proto.airchat.auth.v2.RefreshResponse.prototype.getCredential = function() {
+proto.airchat.auth.v2.RefreshResponse.prototype.getCredential = function () {
   return /** @type{?proto.airchat.auth.v2.Credential} */ (
-    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.Credential, 2));
+    jspb.Message.getWrapperField(this, airchat_auth_v2_auth_pb.Credential, 2)
+  );
 };
-
 
 /**
  * @param {?proto.airchat.auth.v2.Credential|undefined} value
  * @return {!proto.airchat.auth.v2.RefreshResponse} returns this
-*/
-proto.airchat.auth.v2.RefreshResponse.prototype.setCredential = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 2, proto.airchat.auth.v2.RefreshResponse.oneofGroups_[0], value);
+ */
+proto.airchat.auth.v2.RefreshResponse.prototype.setCredential = function (
+  value
+) {
+  return jspb.Message.setOneofWrapperField(
+    this,
+    2,
+    proto.airchat.auth.v2.RefreshResponse.oneofGroups_[0],
+    value
+  );
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.RefreshResponse} returns this
  */
-proto.airchat.auth.v2.RefreshResponse.prototype.clearCredential = function() {
+proto.airchat.auth.v2.RefreshResponse.prototype.clearCredential = function () {
   return this.setCredential(undefined);
 };
-
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.RefreshResponse.prototype.hasCredential = function() {
+proto.airchat.auth.v2.RefreshResponse.prototype.hasCredential = function () {
   return jspb.Message.getField(this, 2) != null;
 };
 
-
-
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.GetVerifiedFactorsRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.GetVerifiedFactorsRequest.toObject(opt_includeInstance, this);
-};
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.GetVerifiedFactorsRequest.prototype.toObject =
+    function (opt_includeInstance) {
+      return proto.airchat.auth.v2.GetVerifiedFactorsRequest.toObject(
+        opt_includeInstance,
+        this
+      );
+    };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.GetVerifiedFactorsRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.GetVerifiedFactorsRequest.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {
+        userId: jspb.Message.getFieldWithDefault(msg, 1, '')
+      };
 
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.GetVerifiedFactorsRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.GetVerifiedFactorsRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    userId: jspb.Message.getFieldWithDefault(msg, 1, "")
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
   };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
 }
-
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.GetVerifiedFactorsRequest}
  */
-proto.airchat.auth.v2.GetVerifiedFactorsRequest.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.GetVerifiedFactorsRequest.deserializeBinary = function (
+  bytes
+) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.GetVerifiedFactorsRequest;
-  return proto.airchat.auth.v2.GetVerifiedFactorsRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.GetVerifiedFactorsRequest();
+  return proto.airchat.auth.v2.GetVerifiedFactorsRequest.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -2261,36 +2756,39 @@ proto.airchat.auth.v2.GetVerifiedFactorsRequest.deserializeBinary = function(byt
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.GetVerifiedFactorsRequest}
  */
-proto.airchat.auth.v2.GetVerifiedFactorsRequest.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.GetVerifiedFactorsRequest.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        case 1:
+          var value = /** @type {string} */ (reader.readString());
+          msg.setUserId(value);
+          break;
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setUserId(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.GetVerifiedFactorsRequest.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.GetVerifiedFactorsRequest.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.GetVerifiedFactorsRequest.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.GetVerifiedFactorsRequest.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -2299,36 +2797,35 @@ proto.airchat.auth.v2.GetVerifiedFactorsRequest.prototype.serializeBinary = func
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.GetVerifiedFactorsRequest.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getUserId();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-};
-
+proto.airchat.auth.v2.GetVerifiedFactorsRequest.serializeBinaryToWriter =
+  function (message, writer) {
+    var f = undefined;
+    f = message.getUserId();
+    if (f.length > 0) {
+      writer.writeString(1, f);
+    }
+  };
 
 /**
  * optional string user_id = 1;
  * @return {string}
  */
-proto.airchat.auth.v2.GetVerifiedFactorsRequest.prototype.getUserId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
+proto.airchat.auth.v2.GetVerifiedFactorsRequest.prototype.getUserId =
+  function () {
+    return /** @type {string} */ (
+      jspb.Message.getFieldWithDefault(this, 1, '')
+    );
+  };
 
 /**
  * @param {string} value
  * @return {!proto.airchat.auth.v2.GetVerifiedFactorsRequest} returns this
  */
-proto.airchat.auth.v2.GetVerifiedFactorsRequest.prototype.setUserId = function(value) {
+proto.airchat.auth.v2.GetVerifiedFactorsRequest.prototype.setUserId = function (
+  value
+) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
-
-
 
 /**
  * List of repeated fields within this message type.
@@ -2337,61 +2834,72 @@ proto.airchat.auth.v2.GetVerifiedFactorsRequest.prototype.setUserId = function(v
  */
 proto.airchat.auth.v2.GetVerifiedFactorsResponse.repeatedFields_ = [2];
 
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.GetVerifiedFactorsResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.GetVerifiedFactorsResponse.toObject(opt_includeInstance, this);
-};
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.GetVerifiedFactorsResponse.prototype.toObject =
+    function (opt_includeInstance) {
+      return proto.airchat.auth.v2.GetVerifiedFactorsResponse.toObject(
+        opt_includeInstance,
+        this
+      );
+    };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.GetVerifiedFactorsResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.GetVerifiedFactorsResponse.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {
+        userId: jspb.Message.getFieldWithDefault(msg, 1, ''),
+        factorsList: jspb.Message.toObjectList(
+          msg.getFactorsList(),
+          airchat_auth_v2_auth_pb.AuthenticationFactor.toObject,
+          includeInstance
+        )
+      };
 
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.GetVerifiedFactorsResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.GetVerifiedFactorsResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    factorsList: jspb.Message.toObjectList(msg.getFactorsList(),
-    airchat_auth_v2_auth_pb.AuthenticationFactor.toObject, includeInstance)
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
   };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
 }
-
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.GetVerifiedFactorsResponse}
  */
-proto.airchat.auth.v2.GetVerifiedFactorsResponse.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.GetVerifiedFactorsResponse.deserializeBinary = function (
+  bytes
+) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.GetVerifiedFactorsResponse;
-  return proto.airchat.auth.v2.GetVerifiedFactorsResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.GetVerifiedFactorsResponse();
+  return proto.airchat.auth.v2.GetVerifiedFactorsResponse.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -2400,41 +2908,48 @@ proto.airchat.auth.v2.GetVerifiedFactorsResponse.deserializeBinary = function(by
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.GetVerifiedFactorsResponse}
  */
-proto.airchat.auth.v2.GetVerifiedFactorsResponse.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.GetVerifiedFactorsResponse.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        case 1:
+          var value = /** @type {string} */ (reader.readString());
+          msg.setUserId(value);
+          break;
+        case 2:
+          var value = new airchat_auth_v2_auth_pb.AuthenticationFactor();
+          reader.readMessage(
+            value,
+            airchat_auth_v2_auth_pb.AuthenticationFactor
+              .deserializeBinaryFromReader
+          );
+          msg.addFactors(value);
+          break;
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setUserId(value);
-      break;
-    case 2:
-      var value = new airchat_auth_v2_auth_pb.AuthenticationFactor;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.AuthenticationFactor.deserializeBinaryFromReader);
-      msg.addFactors(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.GetVerifiedFactorsResponse.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.GetVerifiedFactorsResponse.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.GetVerifiedFactorsResponse.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.GetVerifiedFactorsResponse.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -2443,136 +2958,150 @@ proto.airchat.auth.v2.GetVerifiedFactorsResponse.prototype.serializeBinary = fun
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.GetVerifiedFactorsResponse.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getUserId();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-  f = message.getFactorsList();
-  if (f.length > 0) {
-    writer.writeRepeatedMessage(
-      2,
-      f,
-      airchat_auth_v2_auth_pb.AuthenticationFactor.serializeBinaryToWriter
-    );
-  }
-};
-
+proto.airchat.auth.v2.GetVerifiedFactorsResponse.serializeBinaryToWriter =
+  function (message, writer) {
+    var f = undefined;
+    f = message.getUserId();
+    if (f.length > 0) {
+      writer.writeString(1, f);
+    }
+    f = message.getFactorsList();
+    if (f.length > 0) {
+      writer.writeRepeatedMessage(
+        2,
+        f,
+        airchat_auth_v2_auth_pb.AuthenticationFactor.serializeBinaryToWriter
+      );
+    }
+  };
 
 /**
  * optional string user_id = 1;
  * @return {string}
  */
-proto.airchat.auth.v2.GetVerifiedFactorsResponse.prototype.getUserId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
+proto.airchat.auth.v2.GetVerifiedFactorsResponse.prototype.getUserId =
+  function () {
+    return /** @type {string} */ (
+      jspb.Message.getFieldWithDefault(this, 1, '')
+    );
+  };
 
 /**
  * @param {string} value
  * @return {!proto.airchat.auth.v2.GetVerifiedFactorsResponse} returns this
  */
-proto.airchat.auth.v2.GetVerifiedFactorsResponse.prototype.setUserId = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
-};
-
+proto.airchat.auth.v2.GetVerifiedFactorsResponse.prototype.setUserId =
+  function (value) {
+    return jspb.Message.setProto3StringField(this, 1, value);
+  };
 
 /**
  * repeated AuthenticationFactor factors = 2;
  * @return {!Array<!proto.airchat.auth.v2.AuthenticationFactor>}
  */
-proto.airchat.auth.v2.GetVerifiedFactorsResponse.prototype.getFactorsList = function() {
-  return /** @type{!Array<!proto.airchat.auth.v2.AuthenticationFactor>} */ (
-    jspb.Message.getRepeatedWrapperField(this, airchat_auth_v2_auth_pb.AuthenticationFactor, 2));
-};
-
+proto.airchat.auth.v2.GetVerifiedFactorsResponse.prototype.getFactorsList =
+  function () {
+    return /** @type{!Array<!proto.airchat.auth.v2.AuthenticationFactor>} */ (
+      jspb.Message.getRepeatedWrapperField(
+        this,
+        airchat_auth_v2_auth_pb.AuthenticationFactor,
+        2
+      )
+    );
+  };
 
 /**
  * @param {!Array<!proto.airchat.auth.v2.AuthenticationFactor>} value
  * @return {!proto.airchat.auth.v2.GetVerifiedFactorsResponse} returns this
-*/
-proto.airchat.auth.v2.GetVerifiedFactorsResponse.prototype.setFactorsList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 2, value);
-};
-
+ */
+proto.airchat.auth.v2.GetVerifiedFactorsResponse.prototype.setFactorsList =
+  function (value) {
+    return jspb.Message.setRepeatedWrapperField(this, 2, value);
+  };
 
 /**
  * @param {!proto.airchat.auth.v2.AuthenticationFactor=} opt_value
  * @param {number=} opt_index
  * @return {!proto.airchat.auth.v2.AuthenticationFactor}
  */
-proto.airchat.auth.v2.GetVerifiedFactorsResponse.prototype.addFactors = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.airchat.auth.v2.AuthenticationFactor, opt_index);
-};
-
+proto.airchat.auth.v2.GetVerifiedFactorsResponse.prototype.addFactors =
+  function (opt_value, opt_index) {
+    return jspb.Message.addToRepeatedWrapperField(
+      this,
+      2,
+      opt_value,
+      proto.airchat.auth.v2.AuthenticationFactor,
+      opt_index
+    );
+  };
 
 /**
  * Clears the list making it empty but non-null.
  * @return {!proto.airchat.auth.v2.GetVerifiedFactorsResponse} returns this
  */
-proto.airchat.auth.v2.GetVerifiedFactorsResponse.prototype.clearFactorsList = function() {
-  return this.setFactorsList([]);
-};
-
-
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.LogoutRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.LogoutRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.LogoutRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.LogoutRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-
+proto.airchat.auth.v2.GetVerifiedFactorsResponse.prototype.clearFactorsList =
+  function () {
+    return this.setFactorsList([]);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+if (jspb.Message.GENERATE_TO_OBJECT) {
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.LogoutRequest.prototype.toObject = function (
+    opt_includeInstance
+  ) {
+    return proto.airchat.auth.v2.LogoutRequest.toObject(
+      opt_includeInstance,
+      this
+    );
+  };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.LogoutRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.LogoutRequest.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {};
+
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.LogoutRequest}
  */
-proto.airchat.auth.v2.LogoutRequest.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.LogoutRequest.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.LogoutRequest;
-  return proto.airchat.auth.v2.LogoutRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.LogoutRequest();
+  return proto.airchat.auth.v2.LogoutRequest.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -2581,32 +3110,33 @@ proto.airchat.auth.v2.LogoutRequest.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.LogoutRequest}
  */
-proto.airchat.auth.v2.LogoutRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.airchat.auth.v2.LogoutRequest.deserializeBinaryFromReader = function (
+  msg,
+  reader
+) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    default:
-      reader.skipField();
-      break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.LogoutRequest.prototype.serializeBinary = function() {
+proto.airchat.auth.v2.LogoutRequest.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.airchat.auth.v2.LogoutRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -2615,65 +3145,71 @@ proto.airchat.auth.v2.LogoutRequest.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.LogoutRequest.serializeBinaryToWriter = function(message, writer) {
+proto.airchat.auth.v2.LogoutRequest.serializeBinaryToWriter = function (
+  message,
+  writer
+) {
   var f = undefined;
 };
 
-
-
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.LogoutResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.LogoutResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.LogoutResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.LogoutResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.LogoutResponse.prototype.toObject = function (
+    opt_includeInstance
+  ) {
+    return proto.airchat.auth.v2.LogoutResponse.toObject(
+      opt_includeInstance,
+      this
+    );
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.LogoutResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.LogoutResponse.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {};
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.LogoutResponse}
  */
-proto.airchat.auth.v2.LogoutResponse.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.LogoutResponse.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.LogoutResponse;
-  return proto.airchat.auth.v2.LogoutResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.LogoutResponse();
+  return proto.airchat.auth.v2.LogoutResponse.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -2682,32 +3218,33 @@ proto.airchat.auth.v2.LogoutResponse.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.LogoutResponse}
  */
-proto.airchat.auth.v2.LogoutResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.airchat.auth.v2.LogoutResponse.deserializeBinaryFromReader = function (
+  msg,
+  reader
+) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    default:
-      reader.skipField();
-      break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.LogoutResponse.prototype.serializeBinary = function() {
+proto.airchat.auth.v2.LogoutResponse.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.airchat.auth.v2.LogoutResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -2716,65 +3253,73 @@ proto.airchat.auth.v2.LogoutResponse.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.LogoutResponse.serializeBinaryToWriter = function(message, writer) {
+proto.airchat.auth.v2.LogoutResponse.serializeBinaryToWriter = function (
+  message,
+  writer
+) {
   var f = undefined;
 };
 
-
-
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.DeleteSubjectRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.DeleteSubjectRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.DeleteSubjectRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.DeleteSubjectRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.DeleteSubjectRequest.prototype.toObject = function (
+    opt_includeInstance
+  ) {
+    return proto.airchat.auth.v2.DeleteSubjectRequest.toObject(
+      opt_includeInstance,
+      this
+    );
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.DeleteSubjectRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.DeleteSubjectRequest.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {};
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.DeleteSubjectRequest}
  */
-proto.airchat.auth.v2.DeleteSubjectRequest.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.DeleteSubjectRequest.deserializeBinary = function (
+  bytes
+) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.DeleteSubjectRequest;
-  return proto.airchat.auth.v2.DeleteSubjectRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.DeleteSubjectRequest();
+  return proto.airchat.auth.v2.DeleteSubjectRequest.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -2783,32 +3328,35 @@ proto.airchat.auth.v2.DeleteSubjectRequest.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.DeleteSubjectRequest}
  */
-proto.airchat.auth.v2.DeleteSubjectRequest.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.DeleteSubjectRequest.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.DeleteSubjectRequest.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.DeleteSubjectRequest.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.DeleteSubjectRequest.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.DeleteSubjectRequest.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -2817,65 +3365,73 @@ proto.airchat.auth.v2.DeleteSubjectRequest.prototype.serializeBinary = function(
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.DeleteSubjectRequest.serializeBinaryToWriter = function(message, writer) {
+proto.airchat.auth.v2.DeleteSubjectRequest.serializeBinaryToWriter = function (
+  message,
+  writer
+) {
   var f = undefined;
 };
 
-
-
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.DeleteSubjectResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.DeleteSubjectResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.DeleteSubjectResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.DeleteSubjectResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.DeleteSubjectResponse.prototype.toObject = function (
+    opt_includeInstance
+  ) {
+    return proto.airchat.auth.v2.DeleteSubjectResponse.toObject(
+      opt_includeInstance,
+      this
+    );
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.DeleteSubjectResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.DeleteSubjectResponse.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {};
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.DeleteSubjectResponse}
  */
-proto.airchat.auth.v2.DeleteSubjectResponse.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.DeleteSubjectResponse.deserializeBinary = function (
+  bytes
+) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.DeleteSubjectResponse;
-  return proto.airchat.auth.v2.DeleteSubjectResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.DeleteSubjectResponse();
+  return proto.airchat.auth.v2.DeleteSubjectResponse.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -2884,32 +3440,35 @@ proto.airchat.auth.v2.DeleteSubjectResponse.deserializeBinary = function(bytes) 
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.DeleteSubjectResponse}
  */
-proto.airchat.auth.v2.DeleteSubjectResponse.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.DeleteSubjectResponse.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.DeleteSubjectResponse.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.DeleteSubjectResponse.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.DeleteSubjectResponse.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.DeleteSubjectResponse.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -2918,65 +3477,74 @@ proto.airchat.auth.v2.DeleteSubjectResponse.prototype.serializeBinary = function
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.DeleteSubjectResponse.serializeBinaryToWriter = function(message, writer) {
+proto.airchat.auth.v2.DeleteSubjectResponse.serializeBinaryToWriter = function (
+  message,
+  writer
+) {
   var f = undefined;
 };
 
-
-
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.UpdateSubjectStatusRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.UpdateSubjectStatusRequest.toObject(opt_includeInstance, this);
-};
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.UpdateSubjectStatusRequest.prototype.toObject =
+    function (opt_includeInstance) {
+      return proto.airchat.auth.v2.UpdateSubjectStatusRequest.toObject(
+        opt_includeInstance,
+        this
+      );
+    };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.UpdateSubjectStatusRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.UpdateSubjectStatusRequest.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {
+        status: jspb.Message.getFieldWithDefault(msg, 1, 0)
+      };
 
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.UpdateSubjectStatusRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.UpdateSubjectStatusRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    status: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
   };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
 }
-
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.UpdateSubjectStatusRequest}
  */
-proto.airchat.auth.v2.UpdateSubjectStatusRequest.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.UpdateSubjectStatusRequest.deserializeBinary = function (
+  bytes
+) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.UpdateSubjectStatusRequest;
-  return proto.airchat.auth.v2.UpdateSubjectStatusRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.UpdateSubjectStatusRequest();
+  return proto.airchat.auth.v2.UpdateSubjectStatusRequest.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -2985,36 +3553,42 @@ proto.airchat.auth.v2.UpdateSubjectStatusRequest.deserializeBinary = function(by
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.UpdateSubjectStatusRequest}
  */
-proto.airchat.auth.v2.UpdateSubjectStatusRequest.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.UpdateSubjectStatusRequest.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        case 1:
+          var value =
+            /** @type {!proto.airchat.auth.v2.SubjectAccountStatus} */ (
+              reader.readEnum()
+            );
+          msg.setStatus(value);
+          break;
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {!proto.airchat.auth.v2.SubjectAccountStatus} */ (reader.readEnum());
-      msg.setStatus(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.UpdateSubjectStatusRequest.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.UpdateSubjectStatusRequest.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.UpdateSubjectStatusRequest.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.UpdateSubjectStatusRequest.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -3023,36 +3597,34 @@ proto.airchat.auth.v2.UpdateSubjectStatusRequest.prototype.serializeBinary = fun
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.UpdateSubjectStatusRequest.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getStatus();
-  if (f !== 0.0) {
-    writer.writeEnum(
-      1,
-      f
-    );
-  }
-};
-
+proto.airchat.auth.v2.UpdateSubjectStatusRequest.serializeBinaryToWriter =
+  function (message, writer) {
+    var f = undefined;
+    f = message.getStatus();
+    if (f !== 0.0) {
+      writer.writeEnum(1, f);
+    }
+  };
 
 /**
  * optional SubjectAccountStatus status = 1;
  * @return {!proto.airchat.auth.v2.SubjectAccountStatus}
  */
-proto.airchat.auth.v2.UpdateSubjectStatusRequest.prototype.getStatus = function() {
-  return /** @type {!proto.airchat.auth.v2.SubjectAccountStatus} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
-};
-
+proto.airchat.auth.v2.UpdateSubjectStatusRequest.prototype.getStatus =
+  function () {
+    return /** @type {!proto.airchat.auth.v2.SubjectAccountStatus} */ (
+      jspb.Message.getFieldWithDefault(this, 1, 0)
+    );
+  };
 
 /**
  * @param {!proto.airchat.auth.v2.SubjectAccountStatus} value
  * @return {!proto.airchat.auth.v2.UpdateSubjectStatusRequest} returns this
  */
-proto.airchat.auth.v2.UpdateSubjectStatusRequest.prototype.setStatus = function(value) {
-  return jspb.Message.setProto3EnumField(this, 1, value);
-};
-
-
+proto.airchat.auth.v2.UpdateSubjectStatusRequest.prototype.setStatus =
+  function (value) {
+    return jspb.Message.setProto3EnumField(this, 1, value);
+  };
 
 /**
  * List of repeated fields within this message type.
@@ -3061,60 +3633,71 @@ proto.airchat.auth.v2.UpdateSubjectStatusRequest.prototype.setStatus = function(
  */
 proto.airchat.auth.v2.UpdateSubjectStatusResponse.repeatedFields_ = [1];
 
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.UpdateSubjectStatusResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.UpdateSubjectStatusResponse.toObject(opt_includeInstance, this);
-};
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.UpdateSubjectStatusResponse.prototype.toObject =
+    function (opt_includeInstance) {
+      return proto.airchat.auth.v2.UpdateSubjectStatusResponse.toObject(
+        opt_includeInstance,
+        this
+      );
+    };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.UpdateSubjectStatusResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.UpdateSubjectStatusResponse.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {
+        factorsList: jspb.Message.toObjectList(
+          msg.getFactorsList(),
+          airchat_auth_v2_auth_pb.AuthenticationFactor.toObject,
+          includeInstance
+        )
+      };
 
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.UpdateSubjectStatusResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.UpdateSubjectStatusResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    factorsList: jspb.Message.toObjectList(msg.getFactorsList(),
-    airchat_auth_v2_auth_pb.AuthenticationFactor.toObject, includeInstance)
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
   };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
 }
-
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.UpdateSubjectStatusResponse}
  */
-proto.airchat.auth.v2.UpdateSubjectStatusResponse.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.UpdateSubjectStatusResponse.deserializeBinary = function (
+  bytes
+) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.UpdateSubjectStatusResponse;
-  return proto.airchat.auth.v2.UpdateSubjectStatusResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.UpdateSubjectStatusResponse();
+  return proto.airchat.auth.v2.UpdateSubjectStatusResponse.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -3123,37 +3706,44 @@ proto.airchat.auth.v2.UpdateSubjectStatusResponse.deserializeBinary = function(b
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.UpdateSubjectStatusResponse}
  */
-proto.airchat.auth.v2.UpdateSubjectStatusResponse.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.UpdateSubjectStatusResponse.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        case 1:
+          var value = new airchat_auth_v2_auth_pb.AuthenticationFactor();
+          reader.readMessage(
+            value,
+            airchat_auth_v2_auth_pb.AuthenticationFactor
+              .deserializeBinaryFromReader
+          );
+          msg.addFactors(value);
+          break;
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = new airchat_auth_v2_auth_pb.AuthenticationFactor;
-      reader.readMessage(value,airchat_auth_v2_auth_pb.AuthenticationFactor.deserializeBinaryFromReader);
-      msg.addFactors(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.UpdateSubjectStatusResponse.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.UpdateSubjectStatusResponse.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.UpdateSubjectStatusResponse.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.UpdateSubjectStatusResponse.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -3162,111 +3752,128 @@ proto.airchat.auth.v2.UpdateSubjectStatusResponse.prototype.serializeBinary = fu
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.UpdateSubjectStatusResponse.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getFactorsList();
-  if (f.length > 0) {
-    writer.writeRepeatedMessage(
-      1,
-      f,
-      airchat_auth_v2_auth_pb.AuthenticationFactor.serializeBinaryToWriter
-    );
-  }
-};
-
+proto.airchat.auth.v2.UpdateSubjectStatusResponse.serializeBinaryToWriter =
+  function (message, writer) {
+    var f = undefined;
+    f = message.getFactorsList();
+    if (f.length > 0) {
+      writer.writeRepeatedMessage(
+        1,
+        f,
+        airchat_auth_v2_auth_pb.AuthenticationFactor.serializeBinaryToWriter
+      );
+    }
+  };
 
 /**
  * repeated AuthenticationFactor factors = 1;
  * @return {!Array<!proto.airchat.auth.v2.AuthenticationFactor>}
  */
-proto.airchat.auth.v2.UpdateSubjectStatusResponse.prototype.getFactorsList = function() {
-  return /** @type{!Array<!proto.airchat.auth.v2.AuthenticationFactor>} */ (
-    jspb.Message.getRepeatedWrapperField(this, airchat_auth_v2_auth_pb.AuthenticationFactor, 1));
-};
-
+proto.airchat.auth.v2.UpdateSubjectStatusResponse.prototype.getFactorsList =
+  function () {
+    return /** @type{!Array<!proto.airchat.auth.v2.AuthenticationFactor>} */ (
+      jspb.Message.getRepeatedWrapperField(
+        this,
+        airchat_auth_v2_auth_pb.AuthenticationFactor,
+        1
+      )
+    );
+  };
 
 /**
  * @param {!Array<!proto.airchat.auth.v2.AuthenticationFactor>} value
  * @return {!proto.airchat.auth.v2.UpdateSubjectStatusResponse} returns this
-*/
-proto.airchat.auth.v2.UpdateSubjectStatusResponse.prototype.setFactorsList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 1, value);
-};
-
+ */
+proto.airchat.auth.v2.UpdateSubjectStatusResponse.prototype.setFactorsList =
+  function (value) {
+    return jspb.Message.setRepeatedWrapperField(this, 1, value);
+  };
 
 /**
  * @param {!proto.airchat.auth.v2.AuthenticationFactor=} opt_value
  * @param {number=} opt_index
  * @return {!proto.airchat.auth.v2.AuthenticationFactor}
  */
-proto.airchat.auth.v2.UpdateSubjectStatusResponse.prototype.addFactors = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.airchat.auth.v2.AuthenticationFactor, opt_index);
-};
-
+proto.airchat.auth.v2.UpdateSubjectStatusResponse.prototype.addFactors =
+  function (opt_value, opt_index) {
+    return jspb.Message.addToRepeatedWrapperField(
+      this,
+      1,
+      opt_value,
+      proto.airchat.auth.v2.AuthenticationFactor,
+      opt_index
+    );
+  };
 
 /**
  * Clears the list making it empty but non-null.
  * @return {!proto.airchat.auth.v2.UpdateSubjectStatusResponse} returns this
  */
-proto.airchat.auth.v2.UpdateSubjectStatusResponse.prototype.clearFactorsList = function() {
-  return this.setFactorsList([]);
-};
-
-
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.GetInviteCodeRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.GetInviteCodeRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.GetInviteCodeRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.GetInviteCodeRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-
+proto.airchat.auth.v2.UpdateSubjectStatusResponse.prototype.clearFactorsList =
+  function () {
+    return this.setFactorsList([]);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+if (jspb.Message.GENERATE_TO_OBJECT) {
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.GetInviteCodeRequest.prototype.toObject = function (
+    opt_includeInstance
+  ) {
+    return proto.airchat.auth.v2.GetInviteCodeRequest.toObject(
+      opt_includeInstance,
+      this
+    );
+  };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.GetInviteCodeRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.GetInviteCodeRequest.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {};
+
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.GetInviteCodeRequest}
  */
-proto.airchat.auth.v2.GetInviteCodeRequest.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.GetInviteCodeRequest.deserializeBinary = function (
+  bytes
+) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.GetInviteCodeRequest;
-  return proto.airchat.auth.v2.GetInviteCodeRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.GetInviteCodeRequest();
+  return proto.airchat.auth.v2.GetInviteCodeRequest.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -3275,32 +3882,35 @@ proto.airchat.auth.v2.GetInviteCodeRequest.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.GetInviteCodeRequest}
  */
-proto.airchat.auth.v2.GetInviteCodeRequest.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.GetInviteCodeRequest.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.GetInviteCodeRequest.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.GetInviteCodeRequest.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.GetInviteCodeRequest.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.GetInviteCodeRequest.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -3309,68 +3919,80 @@ proto.airchat.auth.v2.GetInviteCodeRequest.prototype.serializeBinary = function(
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.GetInviteCodeRequest.serializeBinaryToWriter = function(message, writer) {
+proto.airchat.auth.v2.GetInviteCodeRequest.serializeBinaryToWriter = function (
+  message,
+  writer
+) {
   var f = undefined;
 };
 
-
-
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.GetInviteCodeResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.GetInviteCodeResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.GetInviteCodeResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.GetInviteCodeResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    code: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    remainingUses: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    expirationTime: (f = msg.getExpirationTime()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    maxUses: jspb.Message.getFieldWithDefault(msg, 4, 0)
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.GetInviteCodeResponse.prototype.toObject = function (
+    opt_includeInstance
+  ) {
+    return proto.airchat.auth.v2.GetInviteCodeResponse.toObject(
+      opt_includeInstance,
+      this
+    );
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.GetInviteCodeResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.GetInviteCodeResponse.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {
+        code: jspb.Message.getFieldWithDefault(msg, 1, ''),
+        remainingUses: jspb.Message.getFieldWithDefault(msg, 2, 0),
+        expirationTime:
+          (f = msg.getExpirationTime()) &&
+          google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
+        maxUses: jspb.Message.getFieldWithDefault(msg, 4, 0)
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.GetInviteCodeResponse}
  */
-proto.airchat.auth.v2.GetInviteCodeResponse.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.GetInviteCodeResponse.deserializeBinary = function (
+  bytes
+) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.GetInviteCodeResponse;
-  return proto.airchat.auth.v2.GetInviteCodeResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.GetInviteCodeResponse();
+  return proto.airchat.auth.v2.GetInviteCodeResponse.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -3379,49 +4001,55 @@ proto.airchat.auth.v2.GetInviteCodeResponse.deserializeBinary = function(bytes) 
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.GetInviteCodeResponse}
  */
-proto.airchat.auth.v2.GetInviteCodeResponse.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.GetInviteCodeResponse.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        case 1:
+          var value = /** @type {string} */ (reader.readString());
+          msg.setCode(value);
+          break;
+        case 2:
+          var value = /** @type {number} */ (reader.readInt32());
+          msg.setRemainingUses(value);
+          break;
+        case 3:
+          var value = new google_protobuf_timestamp_pb.Timestamp();
+          reader.readMessage(
+            value,
+            google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader
+          );
+          msg.setExpirationTime(value);
+          break;
+        case 4:
+          var value = /** @type {number} */ (reader.readInt32());
+          msg.setMaxUses(value);
+          break;
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setCode(value);
-      break;
-    case 2:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setRemainingUses(value);
-      break;
-    case 3:
-      var value = new google_protobuf_timestamp_pb.Timestamp;
-      reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
-      msg.setExpirationTime(value);
-      break;
-    case 4:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setMaxUses(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.GetInviteCodeResponse.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.GetInviteCodeResponse.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.GetInviteCodeResponse.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.GetInviteCodeResponse.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -3430,21 +4058,18 @@ proto.airchat.auth.v2.GetInviteCodeResponse.prototype.serializeBinary = function
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.GetInviteCodeResponse.serializeBinaryToWriter = function(message, writer) {
+proto.airchat.auth.v2.GetInviteCodeResponse.serializeBinaryToWriter = function (
+  message,
+  writer
+) {
   var f = undefined;
   f = message.getCode();
   if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
+    writer.writeString(1, f);
   }
   f = message.getRemainingUses();
   if (f !== 0) {
-    writer.writeInt32(
-      2,
-      f
-    );
+    writer.writeInt32(2, f);
   }
   f = message.getExpirationTime();
   if (f != null) {
@@ -3456,160 +4081,168 @@ proto.airchat.auth.v2.GetInviteCodeResponse.serializeBinaryToWriter = function(m
   }
   f = message.getMaxUses();
   if (f !== 0) {
-    writer.writeInt32(
-      4,
-      f
-    );
+    writer.writeInt32(4, f);
   }
 };
-
 
 /**
  * optional string code = 1;
  * @return {string}
  */
-proto.airchat.auth.v2.GetInviteCodeResponse.prototype.getCode = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.airchat.auth.v2.GetInviteCodeResponse.prototype.getCode = function () {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ''));
 };
-
 
 /**
  * @param {string} value
  * @return {!proto.airchat.auth.v2.GetInviteCodeResponse} returns this
  */
-proto.airchat.auth.v2.GetInviteCodeResponse.prototype.setCode = function(value) {
+proto.airchat.auth.v2.GetInviteCodeResponse.prototype.setCode = function (
+  value
+) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
-
 
 /**
  * optional int32 remaining_uses = 2;
  * @return {number}
  */
-proto.airchat.auth.v2.GetInviteCodeResponse.prototype.getRemainingUses = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
-};
-
+proto.airchat.auth.v2.GetInviteCodeResponse.prototype.getRemainingUses =
+  function () {
+    return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+  };
 
 /**
  * @param {number} value
  * @return {!proto.airchat.auth.v2.GetInviteCodeResponse} returns this
  */
-proto.airchat.auth.v2.GetInviteCodeResponse.prototype.setRemainingUses = function(value) {
-  return jspb.Message.setProto3IntField(this, 2, value);
-};
-
+proto.airchat.auth.v2.GetInviteCodeResponse.prototype.setRemainingUses =
+  function (value) {
+    return jspb.Message.setProto3IntField(this, 2, value);
+  };
 
 /**
  * optional google.protobuf.Timestamp expiration_time = 3;
  * @return {?proto.google.protobuf.Timestamp}
  */
-proto.airchat.auth.v2.GetInviteCodeResponse.prototype.getExpirationTime = function() {
-  return /** @type{?proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 3));
-};
-
+proto.airchat.auth.v2.GetInviteCodeResponse.prototype.getExpirationTime =
+  function () {
+    return /** @type{?proto.google.protobuf.Timestamp} */ (
+      jspb.Message.getWrapperField(
+        this,
+        google_protobuf_timestamp_pb.Timestamp,
+        3
+      )
+    );
+  };
 
 /**
  * @param {?proto.google.protobuf.Timestamp|undefined} value
  * @return {!proto.airchat.auth.v2.GetInviteCodeResponse} returns this
-*/
-proto.airchat.auth.v2.GetInviteCodeResponse.prototype.setExpirationTime = function(value) {
-  return jspb.Message.setWrapperField(this, 3, value);
-};
-
+ */
+proto.airchat.auth.v2.GetInviteCodeResponse.prototype.setExpirationTime =
+  function (value) {
+    return jspb.Message.setWrapperField(this, 3, value);
+  };
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.GetInviteCodeResponse} returns this
  */
-proto.airchat.auth.v2.GetInviteCodeResponse.prototype.clearExpirationTime = function() {
-  return this.setExpirationTime(undefined);
-};
-
+proto.airchat.auth.v2.GetInviteCodeResponse.prototype.clearExpirationTime =
+  function () {
+    return this.setExpirationTime(undefined);
+  };
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.GetInviteCodeResponse.prototype.hasExpirationTime = function() {
-  return jspb.Message.getField(this, 3) != null;
-};
-
+proto.airchat.auth.v2.GetInviteCodeResponse.prototype.hasExpirationTime =
+  function () {
+    return jspb.Message.getField(this, 3) != null;
+  };
 
 /**
  * optional int32 max_uses = 4;
  * @return {number}
  */
-proto.airchat.auth.v2.GetInviteCodeResponse.prototype.getMaxUses = function() {
+proto.airchat.auth.v2.GetInviteCodeResponse.prototype.getMaxUses = function () {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
-
 
 /**
  * @param {number} value
  * @return {!proto.airchat.auth.v2.GetInviteCodeResponse} returns this
  */
-proto.airchat.auth.v2.GetInviteCodeResponse.prototype.setMaxUses = function(value) {
+proto.airchat.auth.v2.GetInviteCodeResponse.prototype.setMaxUses = function (
+  value
+) {
   return jspb.Message.setProto3IntField(this, 4, value);
 };
 
-
-
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.PreApplyInviteCodeRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.PreApplyInviteCodeRequest.toObject(opt_includeInstance, this);
-};
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.PreApplyInviteCodeRequest.prototype.toObject =
+    function (opt_includeInstance) {
+      return proto.airchat.auth.v2.PreApplyInviteCodeRequest.toObject(
+        opt_includeInstance,
+        this
+      );
+    };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.PreApplyInviteCodeRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.PreApplyInviteCodeRequest.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {
+        inviteCode: jspb.Message.getFieldWithDefault(msg, 1, ''),
+        phoneNumber: jspb.Message.getFieldWithDefault(msg, 2, '')
+      };
 
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.PreApplyInviteCodeRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.PreApplyInviteCodeRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    inviteCode: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    phoneNumber: jspb.Message.getFieldWithDefault(msg, 2, "")
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
   };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
 }
-
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.PreApplyInviteCodeRequest}
  */
-proto.airchat.auth.v2.PreApplyInviteCodeRequest.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.PreApplyInviteCodeRequest.deserializeBinary = function (
+  bytes
+) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.PreApplyInviteCodeRequest;
-  return proto.airchat.auth.v2.PreApplyInviteCodeRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.PreApplyInviteCodeRequest();
+  return proto.airchat.auth.v2.PreApplyInviteCodeRequest.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -3618,40 +4251,43 @@ proto.airchat.auth.v2.PreApplyInviteCodeRequest.deserializeBinary = function(byt
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.PreApplyInviteCodeRequest}
  */
-proto.airchat.auth.v2.PreApplyInviteCodeRequest.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.PreApplyInviteCodeRequest.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        case 1:
+          var value = /** @type {string} */ (reader.readString());
+          msg.setInviteCode(value);
+          break;
+        case 2:
+          var value = /** @type {string} */ (reader.readString());
+          msg.setPhoneNumber(value);
+          break;
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setInviteCode(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setPhoneNumber(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.PreApplyInviteCodeRequest.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.PreApplyInviteCodeRequest.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.PreApplyInviteCodeRequest.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.PreApplyInviteCodeRequest.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -3660,117 +4296,124 @@ proto.airchat.auth.v2.PreApplyInviteCodeRequest.prototype.serializeBinary = func
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.PreApplyInviteCodeRequest.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getInviteCode();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-  f = message.getPhoneNumber();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
-};
-
+proto.airchat.auth.v2.PreApplyInviteCodeRequest.serializeBinaryToWriter =
+  function (message, writer) {
+    var f = undefined;
+    f = message.getInviteCode();
+    if (f.length > 0) {
+      writer.writeString(1, f);
+    }
+    f = message.getPhoneNumber();
+    if (f.length > 0) {
+      writer.writeString(2, f);
+    }
+  };
 
 /**
  * optional string invite_code = 1;
  * @return {string}
  */
-proto.airchat.auth.v2.PreApplyInviteCodeRequest.prototype.getInviteCode = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
+proto.airchat.auth.v2.PreApplyInviteCodeRequest.prototype.getInviteCode =
+  function () {
+    return /** @type {string} */ (
+      jspb.Message.getFieldWithDefault(this, 1, '')
+    );
+  };
 
 /**
  * @param {string} value
  * @return {!proto.airchat.auth.v2.PreApplyInviteCodeRequest} returns this
  */
-proto.airchat.auth.v2.PreApplyInviteCodeRequest.prototype.setInviteCode = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
-};
-
+proto.airchat.auth.v2.PreApplyInviteCodeRequest.prototype.setInviteCode =
+  function (value) {
+    return jspb.Message.setProto3StringField(this, 1, value);
+  };
 
 /**
  * optional string phone_number = 2;
  * @return {string}
  */
-proto.airchat.auth.v2.PreApplyInviteCodeRequest.prototype.getPhoneNumber = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
+proto.airchat.auth.v2.PreApplyInviteCodeRequest.prototype.getPhoneNumber =
+  function () {
+    return /** @type {string} */ (
+      jspb.Message.getFieldWithDefault(this, 2, '')
+    );
+  };
 
 /**
  * @param {string} value
  * @return {!proto.airchat.auth.v2.PreApplyInviteCodeRequest} returns this
  */
-proto.airchat.auth.v2.PreApplyInviteCodeRequest.prototype.setPhoneNumber = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.PreApplyInviteCodeResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.PreApplyInviteCodeResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.PreApplyInviteCodeResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    code: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    remainingUses: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    expirationTime: (f = msg.getExpirationTime()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
+proto.airchat.auth.v2.PreApplyInviteCodeRequest.prototype.setPhoneNumber =
+  function (value) {
+    return jspb.Message.setProto3StringField(this, 2, value);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+if (jspb.Message.GENERATE_TO_OBJECT) {
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.toObject =
+    function (opt_includeInstance) {
+      return proto.airchat.auth.v2.PreApplyInviteCodeResponse.toObject(
+        opt_includeInstance,
+        this
+      );
+    };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.PreApplyInviteCodeResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.PreApplyInviteCodeResponse.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {
+        code: jspb.Message.getFieldWithDefault(msg, 1, ''),
+        remainingUses: jspb.Message.getFieldWithDefault(msg, 2, 0),
+        expirationTime:
+          (f = msg.getExpirationTime()) &&
+          google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
+      };
+
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.PreApplyInviteCodeResponse}
  */
-proto.airchat.auth.v2.PreApplyInviteCodeResponse.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.PreApplyInviteCodeResponse.deserializeBinary = function (
+  bytes
+) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.PreApplyInviteCodeResponse;
-  return proto.airchat.auth.v2.PreApplyInviteCodeResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.PreApplyInviteCodeResponse();
+  return proto.airchat.auth.v2.PreApplyInviteCodeResponse.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -3779,45 +4422,51 @@ proto.airchat.auth.v2.PreApplyInviteCodeResponse.deserializeBinary = function(by
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.PreApplyInviteCodeResponse}
  */
-proto.airchat.auth.v2.PreApplyInviteCodeResponse.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.PreApplyInviteCodeResponse.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        case 1:
+          var value = /** @type {string} */ (reader.readString());
+          msg.setCode(value);
+          break;
+        case 2:
+          var value = /** @type {number} */ (reader.readInt32());
+          msg.setRemainingUses(value);
+          break;
+        case 3:
+          var value = new google_protobuf_timestamp_pb.Timestamp();
+          reader.readMessage(
+            value,
+            google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader
+          );
+          msg.setExpirationTime(value);
+          break;
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setCode(value);
-      break;
-    case 2:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setRemainingUses(value);
-      break;
-    case 3:
-      var value = new google_protobuf_timestamp_pb.Timestamp;
-      reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
-      msg.setExpirationTime(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.PreApplyInviteCodeResponse.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.PreApplyInviteCodeResponse.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -3826,160 +4475,167 @@ proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.serializeBinary = fun
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.PreApplyInviteCodeResponse.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getCode();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-  f = message.getRemainingUses();
-  if (f !== 0) {
-    writer.writeInt32(
-      2,
-      f
-    );
-  }
-  f = message.getExpirationTime();
-  if (f != null) {
-    writer.writeMessage(
-      3,
-      f,
-      google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
-    );
-  }
-};
-
+proto.airchat.auth.v2.PreApplyInviteCodeResponse.serializeBinaryToWriter =
+  function (message, writer) {
+    var f = undefined;
+    f = message.getCode();
+    if (f.length > 0) {
+      writer.writeString(1, f);
+    }
+    f = message.getRemainingUses();
+    if (f !== 0) {
+      writer.writeInt32(2, f);
+    }
+    f = message.getExpirationTime();
+    if (f != null) {
+      writer.writeMessage(
+        3,
+        f,
+        google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
+      );
+    }
+  };
 
 /**
  * optional string code = 1;
  * @return {string}
  */
-proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.getCode = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
+proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.getCode =
+  function () {
+    return /** @type {string} */ (
+      jspb.Message.getFieldWithDefault(this, 1, '')
+    );
+  };
 
 /**
  * @param {string} value
  * @return {!proto.airchat.auth.v2.PreApplyInviteCodeResponse} returns this
  */
-proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.setCode = function(value) {
+proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.setCode = function (
+  value
+) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
-
 
 /**
  * optional int32 remaining_uses = 2;
  * @return {number}
  */
-proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.getRemainingUses = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
-};
-
+proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.getRemainingUses =
+  function () {
+    return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+  };
 
 /**
  * @param {number} value
  * @return {!proto.airchat.auth.v2.PreApplyInviteCodeResponse} returns this
  */
-proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.setRemainingUses = function(value) {
-  return jspb.Message.setProto3IntField(this, 2, value);
-};
-
+proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.setRemainingUses =
+  function (value) {
+    return jspb.Message.setProto3IntField(this, 2, value);
+  };
 
 /**
  * optional google.protobuf.Timestamp expiration_time = 3;
  * @return {?proto.google.protobuf.Timestamp}
  */
-proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.getExpirationTime = function() {
-  return /** @type{?proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 3));
-};
-
+proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.getExpirationTime =
+  function () {
+    return /** @type{?proto.google.protobuf.Timestamp} */ (
+      jspb.Message.getWrapperField(
+        this,
+        google_protobuf_timestamp_pb.Timestamp,
+        3
+      )
+    );
+  };
 
 /**
  * @param {?proto.google.protobuf.Timestamp|undefined} value
  * @return {!proto.airchat.auth.v2.PreApplyInviteCodeResponse} returns this
-*/
-proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.setExpirationTime = function(value) {
-  return jspb.Message.setWrapperField(this, 3, value);
-};
-
+ */
+proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.setExpirationTime =
+  function (value) {
+    return jspb.Message.setWrapperField(this, 3, value);
+  };
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.auth.v2.PreApplyInviteCodeResponse} returns this
  */
-proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.clearExpirationTime = function() {
-  return this.setExpirationTime(undefined);
-};
-
+proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.clearExpirationTime =
+  function () {
+    return this.setExpirationTime(undefined);
+  };
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.hasExpirationTime = function() {
-  return jspb.Message.getField(this, 3) != null;
-};
-
-
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.ValidateAccessTokenRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.ValidateAccessTokenRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.ValidateAccessTokenRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.ValidateAccessTokenRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-
+proto.airchat.auth.v2.PreApplyInviteCodeResponse.prototype.hasExpirationTime =
+  function () {
+    return jspb.Message.getField(this, 3) != null;
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+if (jspb.Message.GENERATE_TO_OBJECT) {
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.ValidateAccessTokenRequest.prototype.toObject =
+    function (opt_includeInstance) {
+      return proto.airchat.auth.v2.ValidateAccessTokenRequest.toObject(
+        opt_includeInstance,
+        this
+      );
+    };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.ValidateAccessTokenRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.ValidateAccessTokenRequest.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {};
+
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.ValidateAccessTokenRequest}
  */
-proto.airchat.auth.v2.ValidateAccessTokenRequest.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.ValidateAccessTokenRequest.deserializeBinary = function (
+  bytes
+) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.ValidateAccessTokenRequest;
-  return proto.airchat.auth.v2.ValidateAccessTokenRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.ValidateAccessTokenRequest();
+  return proto.airchat.auth.v2.ValidateAccessTokenRequest.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -3988,32 +4644,35 @@ proto.airchat.auth.v2.ValidateAccessTokenRequest.deserializeBinary = function(by
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.ValidateAccessTokenRequest}
  */
-proto.airchat.auth.v2.ValidateAccessTokenRequest.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.ValidateAccessTokenRequest.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.ValidateAccessTokenRequest.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.ValidateAccessTokenRequest.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.ValidateAccessTokenRequest.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.ValidateAccessTokenRequest.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -4022,11 +4681,10 @@ proto.airchat.auth.v2.ValidateAccessTokenRequest.prototype.serializeBinary = fun
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.ValidateAccessTokenRequest.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-};
-
-
+proto.airchat.auth.v2.ValidateAccessTokenRequest.serializeBinaryToWriter =
+  function (message, writer) {
+    var f = undefined;
+  };
 
 /**
  * List of repeated fields within this message type.
@@ -4035,59 +4693,68 @@ proto.airchat.auth.v2.ValidateAccessTokenRequest.serializeBinaryToWriter = funct
  */
 proto.airchat.auth.v2.ValidateAccessTokenResponse.repeatedFields_ = [1];
 
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.ValidateAccessTokenResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.ValidateAccessTokenResponse.toObject(opt_includeInstance, this);
-};
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.ValidateAccessTokenResponse.prototype.toObject =
+    function (opt_includeInstance) {
+      return proto.airchat.auth.v2.ValidateAccessTokenResponse.toObject(
+        opt_includeInstance,
+        this
+      );
+    };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.ValidateAccessTokenResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.ValidateAccessTokenResponse.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {
+        errorList:
+          (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f
+      };
 
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.ValidateAccessTokenResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.ValidateAccessTokenResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    errorList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
   };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
 }
-
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.ValidateAccessTokenResponse}
  */
-proto.airchat.auth.v2.ValidateAccessTokenResponse.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.ValidateAccessTokenResponse.deserializeBinary = function (
+  bytes
+) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.ValidateAccessTokenResponse;
-  return proto.airchat.auth.v2.ValidateAccessTokenResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.ValidateAccessTokenResponse();
+  return proto.airchat.auth.v2.ValidateAccessTokenResponse.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -4096,36 +4763,39 @@ proto.airchat.auth.v2.ValidateAccessTokenResponse.deserializeBinary = function(b
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.ValidateAccessTokenResponse}
  */
-proto.airchat.auth.v2.ValidateAccessTokenResponse.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.ValidateAccessTokenResponse.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        case 1:
+          var value = /** @type {string} */ (reader.readString());
+          msg.addError(value);
+          break;
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.addError(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.ValidateAccessTokenResponse.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.ValidateAccessTokenResponse.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.ValidateAccessTokenResponse.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.ValidateAccessTokenResponse.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -4134,109 +4804,112 @@ proto.airchat.auth.v2.ValidateAccessTokenResponse.prototype.serializeBinary = fu
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.ValidateAccessTokenResponse.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getErrorList();
-  if (f.length > 0) {
-    writer.writeRepeatedString(
-      1,
-      f
-    );
-  }
-};
-
+proto.airchat.auth.v2.ValidateAccessTokenResponse.serializeBinaryToWriter =
+  function (message, writer) {
+    var f = undefined;
+    f = message.getErrorList();
+    if (f.length > 0) {
+      writer.writeRepeatedString(1, f);
+    }
+  };
 
 /**
  * repeated string error = 1;
  * @return {!Array<string>}
  */
-proto.airchat.auth.v2.ValidateAccessTokenResponse.prototype.getErrorList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 1));
-};
-
+proto.airchat.auth.v2.ValidateAccessTokenResponse.prototype.getErrorList =
+  function () {
+    return /** @type {!Array<string>} */ (
+      jspb.Message.getRepeatedField(this, 1)
+    );
+  };
 
 /**
  * @param {!Array<string>} value
  * @return {!proto.airchat.auth.v2.ValidateAccessTokenResponse} returns this
  */
-proto.airchat.auth.v2.ValidateAccessTokenResponse.prototype.setErrorList = function(value) {
-  return jspb.Message.setField(this, 1, value || []);
-};
-
+proto.airchat.auth.v2.ValidateAccessTokenResponse.prototype.setErrorList =
+  function (value) {
+    return jspb.Message.setField(this, 1, value || []);
+  };
 
 /**
  * @param {string} value
  * @param {number=} opt_index
  * @return {!proto.airchat.auth.v2.ValidateAccessTokenResponse} returns this
  */
-proto.airchat.auth.v2.ValidateAccessTokenResponse.prototype.addError = function(value, opt_index) {
-  return jspb.Message.addToRepeatedField(this, 1, value, opt_index);
-};
-
+proto.airchat.auth.v2.ValidateAccessTokenResponse.prototype.addError =
+  function (value, opt_index) {
+    return jspb.Message.addToRepeatedField(this, 1, value, opt_index);
+  };
 
 /**
  * Clears the list making it empty but non-null.
  * @return {!proto.airchat.auth.v2.ValidateAccessTokenResponse} returns this
  */
-proto.airchat.auth.v2.ValidateAccessTokenResponse.prototype.clearErrorList = function() {
-  return this.setErrorList([]);
-};
-
-
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.GenerateAttestationChallengeRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.GenerateAttestationChallengeRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.GenerateAttestationChallengeRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.GenerateAttestationChallengeRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    keyId: jspb.Message.getFieldWithDefault(msg, 1, "")
+proto.airchat.auth.v2.ValidateAccessTokenResponse.prototype.clearErrorList =
+  function () {
+    return this.setErrorList([]);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+if (jspb.Message.GENERATE_TO_OBJECT) {
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.GenerateAttestationChallengeRequest.prototype.toObject =
+    function (opt_includeInstance) {
+      return proto.airchat.auth.v2.GenerateAttestationChallengeRequest.toObject(
+        opt_includeInstance,
+        this
+      );
+    };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.GenerateAttestationChallengeRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.GenerateAttestationChallengeRequest.toObject =
+    function (includeInstance, msg) {
+      var f,
+        obj = {
+          keyId: jspb.Message.getFieldWithDefault(msg, 1, '')
+        };
+
+      if (includeInstance) {
+        obj.$jspbMessageInstance = msg;
+      }
+      return obj;
+    };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.GenerateAttestationChallengeRequest}
  */
-proto.airchat.auth.v2.GenerateAttestationChallengeRequest.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.GenerateAttestationChallengeRequest;
-  return proto.airchat.auth.v2.GenerateAttestationChallengeRequest.deserializeBinaryFromReader(msg, reader);
-};
-
+proto.airchat.auth.v2.GenerateAttestationChallengeRequest.deserializeBinary =
+  function (bytes) {
+    var reader = new jspb.BinaryReader(bytes);
+    var msg = new proto.airchat.auth.v2.GenerateAttestationChallengeRequest();
+    return proto.airchat.auth.v2.GenerateAttestationChallengeRequest.deserializeBinaryFromReader(
+      msg,
+      reader
+    );
+  };
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -4245,36 +4918,39 @@ proto.airchat.auth.v2.GenerateAttestationChallengeRequest.deserializeBinary = fu
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.GenerateAttestationChallengeRequest}
  */
-proto.airchat.auth.v2.GenerateAttestationChallengeRequest.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.GenerateAttestationChallengeRequest.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        case 1:
+          var value = /** @type {string} */ (reader.readString());
+          msg.setKeyId(value);
+          break;
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setKeyId(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.GenerateAttestationChallengeRequest.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.GenerateAttestationChallengeRequest.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.GenerateAttestationChallengeRequest.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.GenerateAttestationChallengeRequest.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -4283,90 +4959,93 @@ proto.airchat.auth.v2.GenerateAttestationChallengeRequest.prototype.serializeBin
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.GenerateAttestationChallengeRequest.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getKeyId();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-};
-
+proto.airchat.auth.v2.GenerateAttestationChallengeRequest.serializeBinaryToWriter =
+  function (message, writer) {
+    var f = undefined;
+    f = message.getKeyId();
+    if (f.length > 0) {
+      writer.writeString(1, f);
+    }
+  };
 
 /**
  * optional string key_id = 1;
  * @return {string}
  */
-proto.airchat.auth.v2.GenerateAttestationChallengeRequest.prototype.getKeyId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
+proto.airchat.auth.v2.GenerateAttestationChallengeRequest.prototype.getKeyId =
+  function () {
+    return /** @type {string} */ (
+      jspb.Message.getFieldWithDefault(this, 1, '')
+    );
+  };
 
 /**
  * @param {string} value
  * @return {!proto.airchat.auth.v2.GenerateAttestationChallengeRequest} returns this
  */
-proto.airchat.auth.v2.GenerateAttestationChallengeRequest.prototype.setKeyId = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.GenerateAttestationChallengeResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.GenerateAttestationChallengeResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.GenerateAttestationChallengeResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.GenerateAttestationChallengeResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    challenge: jspb.Message.getFieldWithDefault(msg, 1, "")
+proto.airchat.auth.v2.GenerateAttestationChallengeRequest.prototype.setKeyId =
+  function (value) {
+    return jspb.Message.setProto3StringField(this, 1, value);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+if (jspb.Message.GENERATE_TO_OBJECT) {
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.GenerateAttestationChallengeResponse.prototype.toObject =
+    function (opt_includeInstance) {
+      return proto.airchat.auth.v2.GenerateAttestationChallengeResponse.toObject(
+        opt_includeInstance,
+        this
+      );
+    };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.GenerateAttestationChallengeResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.GenerateAttestationChallengeResponse.toObject =
+    function (includeInstance, msg) {
+      var f,
+        obj = {
+          challenge: jspb.Message.getFieldWithDefault(msg, 1, '')
+        };
+
+      if (includeInstance) {
+        obj.$jspbMessageInstance = msg;
+      }
+      return obj;
+    };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.GenerateAttestationChallengeResponse}
  */
-proto.airchat.auth.v2.GenerateAttestationChallengeResponse.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.GenerateAttestationChallengeResponse;
-  return proto.airchat.auth.v2.GenerateAttestationChallengeResponse.deserializeBinaryFromReader(msg, reader);
-};
-
+proto.airchat.auth.v2.GenerateAttestationChallengeResponse.deserializeBinary =
+  function (bytes) {
+    var reader = new jspb.BinaryReader(bytes);
+    var msg = new proto.airchat.auth.v2.GenerateAttestationChallengeResponse();
+    return proto.airchat.auth.v2.GenerateAttestationChallengeResponse.deserializeBinaryFromReader(
+      msg,
+      reader
+    );
+  };
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -4375,36 +5054,39 @@ proto.airchat.auth.v2.GenerateAttestationChallengeResponse.deserializeBinary = f
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.GenerateAttestationChallengeResponse}
  */
-proto.airchat.auth.v2.GenerateAttestationChallengeResponse.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.GenerateAttestationChallengeResponse.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        case 1:
+          var value = /** @type {string} */ (reader.readString());
+          msg.setChallenge(value);
+          break;
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setChallenge(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.GenerateAttestationChallengeResponse.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.GenerateAttestationChallengeResponse.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.GenerateAttestationChallengeResponse.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.GenerateAttestationChallengeResponse.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -4413,91 +5095,98 @@ proto.airchat.auth.v2.GenerateAttestationChallengeResponse.prototype.serializeBi
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.GenerateAttestationChallengeResponse.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getChallenge();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-};
-
+proto.airchat.auth.v2.GenerateAttestationChallengeResponse.serializeBinaryToWriter =
+  function (message, writer) {
+    var f = undefined;
+    f = message.getChallenge();
+    if (f.length > 0) {
+      writer.writeString(1, f);
+    }
+  };
 
 /**
  * optional string challenge = 1;
  * @return {string}
  */
-proto.airchat.auth.v2.GenerateAttestationChallengeResponse.prototype.getChallenge = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
+proto.airchat.auth.v2.GenerateAttestationChallengeResponse.prototype.getChallenge =
+  function () {
+    return /** @type {string} */ (
+      jspb.Message.getFieldWithDefault(this, 1, '')
+    );
+  };
 
 /**
  * @param {string} value
  * @return {!proto.airchat.auth.v2.GenerateAttestationChallengeResponse} returns this
  */
-proto.airchat.auth.v2.GenerateAttestationChallengeResponse.prototype.setChallenge = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.VerifyAttestationRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.VerifyAttestationRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.VerifyAttestationRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.VerifyAttestationRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    challenge: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    attestation: msg.getAttestation_asB64()
+proto.airchat.auth.v2.GenerateAttestationChallengeResponse.prototype.setChallenge =
+  function (value) {
+    return jspb.Message.setProto3StringField(this, 1, value);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+if (jspb.Message.GENERATE_TO_OBJECT) {
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.VerifyAttestationRequest.prototype.toObject = function (
+    opt_includeInstance
+  ) {
+    return proto.airchat.auth.v2.VerifyAttestationRequest.toObject(
+      opt_includeInstance,
+      this
+    );
+  };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.VerifyAttestationRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.VerifyAttestationRequest.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {
+        challenge: jspb.Message.getFieldWithDefault(msg, 1, ''),
+        attestation: msg.getAttestation_asB64()
+      };
+
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.VerifyAttestationRequest}
  */
-proto.airchat.auth.v2.VerifyAttestationRequest.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.VerifyAttestationRequest.deserializeBinary = function (
+  bytes
+) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.VerifyAttestationRequest;
-  return proto.airchat.auth.v2.VerifyAttestationRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.VerifyAttestationRequest();
+  return proto.airchat.auth.v2.VerifyAttestationRequest.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -4506,40 +5195,43 @@ proto.airchat.auth.v2.VerifyAttestationRequest.deserializeBinary = function(byte
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.VerifyAttestationRequest}
  */
-proto.airchat.auth.v2.VerifyAttestationRequest.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.VerifyAttestationRequest.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        case 1:
+          var value = /** @type {string} */ (reader.readString());
+          msg.setChallenge(value);
+          break;
+        case 2:
+          var value = /** @type {!Uint8Array} */ (reader.readBytes());
+          msg.setAttestation(value);
+          break;
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setChallenge(value);
-      break;
-    case 2:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.setAttestation(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.VerifyAttestationRequest.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.VerifyAttestationRequest.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.VerifyAttestationRequest.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.VerifyAttestationRequest.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -4548,62 +5240,61 @@ proto.airchat.auth.v2.VerifyAttestationRequest.prototype.serializeBinary = funct
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.VerifyAttestationRequest.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getChallenge();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-  f = message.getAttestation_asU8();
-  if (f.length > 0) {
-    writer.writeBytes(
-      2,
-      f
-    );
-  }
-};
-
+proto.airchat.auth.v2.VerifyAttestationRequest.serializeBinaryToWriter =
+  function (message, writer) {
+    var f = undefined;
+    f = message.getChallenge();
+    if (f.length > 0) {
+      writer.writeString(1, f);
+    }
+    f = message.getAttestation_asU8();
+    if (f.length > 0) {
+      writer.writeBytes(2, f);
+    }
+  };
 
 /**
  * optional string challenge = 1;
  * @return {string}
  */
-proto.airchat.auth.v2.VerifyAttestationRequest.prototype.getChallenge = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
+proto.airchat.auth.v2.VerifyAttestationRequest.prototype.getChallenge =
+  function () {
+    return /** @type {string} */ (
+      jspb.Message.getFieldWithDefault(this, 1, '')
+    );
+  };
 
 /**
  * @param {string} value
  * @return {!proto.airchat.auth.v2.VerifyAttestationRequest} returns this
  */
-proto.airchat.auth.v2.VerifyAttestationRequest.prototype.setChallenge = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
-};
-
+proto.airchat.auth.v2.VerifyAttestationRequest.prototype.setChallenge =
+  function (value) {
+    return jspb.Message.setProto3StringField(this, 1, value);
+  };
 
 /**
  * optional bytes attestation = 2;
  * @return {!(string|Uint8Array)}
  */
-proto.airchat.auth.v2.VerifyAttestationRequest.prototype.getAttestation = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
+proto.airchat.auth.v2.VerifyAttestationRequest.prototype.getAttestation =
+  function () {
+    return /** @type {!(string|Uint8Array)} */ (
+      jspb.Message.getFieldWithDefault(this, 2, '')
+    );
+  };
 
 /**
  * optional bytes attestation = 2;
  * This is a type-conversion wrapper around `getAttestation()`
  * @return {string}
  */
-proto.airchat.auth.v2.VerifyAttestationRequest.prototype.getAttestation_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getAttestation()));
-};
-
+proto.airchat.auth.v2.VerifyAttestationRequest.prototype.getAttestation_asB64 =
+  function () {
+    return /** @type {string} */ (
+      jspb.Message.bytesAsB64(this.getAttestation())
+    );
+  };
 
 /**
  * optional bytes attestation = 2;
@@ -4612,75 +5303,81 @@ proto.airchat.auth.v2.VerifyAttestationRequest.prototype.getAttestation_asB64 = 
  * This is a type-conversion wrapper around `getAttestation()`
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.VerifyAttestationRequest.prototype.getAttestation_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getAttestation()));
-};
-
+proto.airchat.auth.v2.VerifyAttestationRequest.prototype.getAttestation_asU8 =
+  function () {
+    return /** @type {!Uint8Array} */ (
+      jspb.Message.bytesAsU8(this.getAttestation())
+    );
+  };
 
 /**
  * @param {!(string|Uint8Array)} value
  * @return {!proto.airchat.auth.v2.VerifyAttestationRequest} returns this
  */
-proto.airchat.auth.v2.VerifyAttestationRequest.prototype.setAttestation = function(value) {
-  return jspb.Message.setProto3BytesField(this, 2, value);
-};
-
-
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.VerifyAttestationResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.VerifyAttestationResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.VerifyAttestationResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.VerifyAttestationResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-
+proto.airchat.auth.v2.VerifyAttestationRequest.prototype.setAttestation =
+  function (value) {
+    return jspb.Message.setProto3BytesField(this, 2, value);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+if (jspb.Message.GENERATE_TO_OBJECT) {
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.VerifyAttestationResponse.prototype.toObject =
+    function (opt_includeInstance) {
+      return proto.airchat.auth.v2.VerifyAttestationResponse.toObject(
+        opt_includeInstance,
+        this
+      );
+    };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.VerifyAttestationResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.VerifyAttestationResponse.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {};
+
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.VerifyAttestationResponse}
  */
-proto.airchat.auth.v2.VerifyAttestationResponse.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.VerifyAttestationResponse.deserializeBinary = function (
+  bytes
+) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.VerifyAttestationResponse;
-  return proto.airchat.auth.v2.VerifyAttestationResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.VerifyAttestationResponse();
+  return proto.airchat.auth.v2.VerifyAttestationResponse.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -4689,32 +5386,35 @@ proto.airchat.auth.v2.VerifyAttestationResponse.deserializeBinary = function(byt
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.VerifyAttestationResponse}
  */
-proto.airchat.auth.v2.VerifyAttestationResponse.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.VerifyAttestationResponse.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.VerifyAttestationResponse.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.VerifyAttestationResponse.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.VerifyAttestationResponse.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.VerifyAttestationResponse.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -4723,65 +5423,69 @@ proto.airchat.auth.v2.VerifyAttestationResponse.prototype.serializeBinary = func
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.VerifyAttestationResponse.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-};
-
-
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    inviteCode: jspb.Message.getFieldWithDefault(msg, 1, "")
+proto.airchat.auth.v2.VerifyAttestationResponse.serializeBinaryToWriter =
+  function (message, writer) {
+    var f = undefined;
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+if (jspb.Message.GENERATE_TO_OBJECT) {
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.prototype.toObject =
+    function (opt_includeInstance) {
+      return proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.toObject(
+        opt_includeInstance,
+        this
+      );
+    };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.toObject =
+    function (includeInstance, msg) {
+      var f,
+        obj = {
+          inviteCode: jspb.Message.getFieldWithDefault(msg, 1, '')
+        };
+
+      if (includeInstance) {
+        obj.$jspbMessageInstance = msg;
+      }
+      return obj;
+    };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest}
  */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest;
-  return proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.deserializeBinaryFromReader(msg, reader);
-};
-
+proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.deserializeBinary =
+  function (bytes) {
+    var reader = new jspb.BinaryReader(bytes);
+    var msg = new proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest();
+    return proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.deserializeBinaryFromReader(
+      msg,
+      reader
+    );
+  };
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -4790,36 +5494,39 @@ proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.deserializeBinary = 
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest}
  */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        case 1:
+          var value = /** @type {string} */ (reader.readString());
+          msg.setInviteCode(value);
+          break;
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setInviteCode(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -4828,97 +5535,104 @@ proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.prototype.serializeB
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getInviteCode();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-};
-
+proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.serializeBinaryToWriter =
+  function (message, writer) {
+    var f = undefined;
+    f = message.getInviteCode();
+    if (f.length > 0) {
+      writer.writeString(1, f);
+    }
+  };
 
 /**
  * optional string invite_code = 1;
  * @return {string}
  */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.prototype.getInviteCode = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
+proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.prototype.getInviteCode =
+  function () {
+    return /** @type {string} */ (
+      jspb.Message.getFieldWithDefault(this, 1, '')
+    );
+  };
 
 /**
  * @param {string} value
  * @return {!proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest} returns this
  */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.prototype.setInviteCode = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
+proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesRequest.prototype.setInviteCode =
+  function (value) {
+    return jspb.Message.setProto3StringField(this, 1, value);
+  };
 
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.repeatedFields_ = [1];
-
-
+proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.repeatedFields_ = [
+  1
+];
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.toObject(opt_includeInstance, this);
-};
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.prototype.toObject =
+    function (opt_includeInstance) {
+      return proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.toObject(
+        opt_includeInstance,
+        this
+      );
+    };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.toObject =
+    function (includeInstance, msg) {
+      var f,
+        obj = {
+          phoneNumberHashList:
+            (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f
+        };
 
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    phoneNumberHashList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
+      if (includeInstance) {
+        obj.$jspbMessageInstance = msg;
+      }
+      return obj;
+    };
 }
-
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse}
  */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse;
-  return proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.deserializeBinaryFromReader(msg, reader);
-};
-
+proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.deserializeBinary =
+  function (bytes) {
+    var reader = new jspb.BinaryReader(bytes);
+    var msg =
+      new proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse();
+    return proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.deserializeBinaryFromReader(
+      msg,
+      reader
+    );
+  };
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -4927,36 +5641,39 @@ proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.deserializeBinary =
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse}
  */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        case 1:
+          var value = /** @type {string} */ (reader.readString());
+          msg.addPhoneNumberHash(value);
+          break;
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.addPhoneNumberHash(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -4965,109 +5682,113 @@ proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.prototype.serialize
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getPhoneNumberHashList();
-  if (f.length > 0) {
-    writer.writeRepeatedString(
-      1,
-      f
-    );
-  }
-};
-
+proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.serializeBinaryToWriter =
+  function (message, writer) {
+    var f = undefined;
+    f = message.getPhoneNumberHashList();
+    if (f.length > 0) {
+      writer.writeRepeatedString(1, f);
+    }
+  };
 
 /**
  * repeated string phone_number_hash = 1;
  * @return {!Array<string>}
  */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.prototype.getPhoneNumberHashList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 1));
-};
-
+proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.prototype.getPhoneNumberHashList =
+  function () {
+    return /** @type {!Array<string>} */ (
+      jspb.Message.getRepeatedField(this, 1)
+    );
+  };
 
 /**
  * @param {!Array<string>} value
  * @return {!proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse} returns this
  */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.prototype.setPhoneNumberHashList = function(value) {
-  return jspb.Message.setField(this, 1, value || []);
-};
-
+proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.prototype.setPhoneNumberHashList =
+  function (value) {
+    return jspb.Message.setField(this, 1, value || []);
+  };
 
 /**
  * @param {string} value
  * @param {number=} opt_index
  * @return {!proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse} returns this
  */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.prototype.addPhoneNumberHash = function(value, opt_index) {
-  return jspb.Message.addToRepeatedField(this, 1, value, opt_index);
-};
-
+proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.prototype.addPhoneNumberHash =
+  function (value, opt_index) {
+    return jspb.Message.addToRepeatedField(this, 1, value, opt_index);
+  };
 
 /**
  * Clears the list making it empty but non-null.
  * @return {!proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse} returns this
  */
-proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.prototype.clearPhoneNumberHashList = function() {
-  return this.setPhoneNumberHashList([]);
-};
-
-
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.CheckUserIsInvitedRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.CheckUserIsInvitedRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.CheckUserIsInvitedRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.CheckUserIsInvitedRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-
+proto.airchat.auth.v2.GetPreAppliedPhoneNumberHashesResponse.prototype.clearPhoneNumberHashList =
+  function () {
+    return this.setPhoneNumberHashList([]);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+if (jspb.Message.GENERATE_TO_OBJECT) {
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.CheckUserIsInvitedRequest.prototype.toObject =
+    function (opt_includeInstance) {
+      return proto.airchat.auth.v2.CheckUserIsInvitedRequest.toObject(
+        opt_includeInstance,
+        this
+      );
+    };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.CheckUserIsInvitedRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.CheckUserIsInvitedRequest.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {};
+
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.CheckUserIsInvitedRequest}
  */
-proto.airchat.auth.v2.CheckUserIsInvitedRequest.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.CheckUserIsInvitedRequest.deserializeBinary = function (
+  bytes
+) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.CheckUserIsInvitedRequest;
-  return proto.airchat.auth.v2.CheckUserIsInvitedRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.CheckUserIsInvitedRequest();
+  return proto.airchat.auth.v2.CheckUserIsInvitedRequest.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -5076,32 +5797,35 @@ proto.airchat.auth.v2.CheckUserIsInvitedRequest.deserializeBinary = function(byt
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.CheckUserIsInvitedRequest}
  */
-proto.airchat.auth.v2.CheckUserIsInvitedRequest.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.CheckUserIsInvitedRequest.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.CheckUserIsInvitedRequest.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.CheckUserIsInvitedRequest.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.CheckUserIsInvitedRequest.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.CheckUserIsInvitedRequest.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -5110,65 +5834,70 @@ proto.airchat.auth.v2.CheckUserIsInvitedRequest.prototype.serializeBinary = func
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.CheckUserIsInvitedRequest.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-};
-
-
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.CheckUserIsInvitedResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.CheckUserIsInvitedResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.CheckUserIsInvitedResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.CheckUserIsInvitedResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-
+proto.airchat.auth.v2.CheckUserIsInvitedRequest.serializeBinaryToWriter =
+  function (message, writer) {
+    var f = undefined;
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+if (jspb.Message.GENERATE_TO_OBJECT) {
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.CheckUserIsInvitedResponse.prototype.toObject =
+    function (opt_includeInstance) {
+      return proto.airchat.auth.v2.CheckUserIsInvitedResponse.toObject(
+        opt_includeInstance,
+        this
+      );
+    };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.CheckUserIsInvitedResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.CheckUserIsInvitedResponse.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {};
+
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.CheckUserIsInvitedResponse}
  */
-proto.airchat.auth.v2.CheckUserIsInvitedResponse.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.CheckUserIsInvitedResponse.deserializeBinary = function (
+  bytes
+) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.CheckUserIsInvitedResponse;
-  return proto.airchat.auth.v2.CheckUserIsInvitedResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.CheckUserIsInvitedResponse();
+  return proto.airchat.auth.v2.CheckUserIsInvitedResponse.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -5177,32 +5906,35 @@ proto.airchat.auth.v2.CheckUserIsInvitedResponse.deserializeBinary = function(by
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.CheckUserIsInvitedResponse}
  */
-proto.airchat.auth.v2.CheckUserIsInvitedResponse.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.CheckUserIsInvitedResponse.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.CheckUserIsInvitedResponse.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.CheckUserIsInvitedResponse.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.CheckUserIsInvitedResponse.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.CheckUserIsInvitedResponse.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -5211,65 +5943,71 @@ proto.airchat.auth.v2.CheckUserIsInvitedResponse.prototype.serializeBinary = fun
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.CheckUserIsInvitedResponse.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-};
-
-
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.FetchUserInvitesRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.FetchUserInvitesRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.FetchUserInvitesRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.FetchUserInvitesRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-
+proto.airchat.auth.v2.CheckUserIsInvitedResponse.serializeBinaryToWriter =
+  function (message, writer) {
+    var f = undefined;
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+if (jspb.Message.GENERATE_TO_OBJECT) {
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.FetchUserInvitesRequest.prototype.toObject = function (
+    opt_includeInstance
+  ) {
+    return proto.airchat.auth.v2.FetchUserInvitesRequest.toObject(
+      opt_includeInstance,
+      this
+    );
+  };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.FetchUserInvitesRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.FetchUserInvitesRequest.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {};
+
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.FetchUserInvitesRequest}
  */
-proto.airchat.auth.v2.FetchUserInvitesRequest.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.FetchUserInvitesRequest.deserializeBinary = function (
+  bytes
+) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.FetchUserInvitesRequest;
-  return proto.airchat.auth.v2.FetchUserInvitesRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.FetchUserInvitesRequest();
+  return proto.airchat.auth.v2.FetchUserInvitesRequest.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -5278,32 +6016,35 @@ proto.airchat.auth.v2.FetchUserInvitesRequest.deserializeBinary = function(bytes
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.FetchUserInvitesRequest}
  */
-proto.airchat.auth.v2.FetchUserInvitesRequest.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.FetchUserInvitesRequest.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.FetchUserInvitesRequest.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.FetchUserInvitesRequest.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.FetchUserInvitesRequest.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.FetchUserInvitesRequest.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -5312,65 +6053,73 @@ proto.airchat.auth.v2.FetchUserInvitesRequest.prototype.serializeBinary = functi
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.FetchUserInvitesRequest.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-};
-
-
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.auth.v2.FetchUserInvitesResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.auth.v2.FetchUserInvitesResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.auth.v2.FetchUserInvitesResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.auth.v2.FetchUserInvitesResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    invitesLeft: jspb.Message.getFieldWithDefault(msg, 1, 0)
+proto.airchat.auth.v2.FetchUserInvitesRequest.serializeBinaryToWriter =
+  function (message, writer) {
+    var f = undefined;
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+if (jspb.Message.GENERATE_TO_OBJECT) {
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.auth.v2.FetchUserInvitesResponse.prototype.toObject = function (
+    opt_includeInstance
+  ) {
+    return proto.airchat.auth.v2.FetchUserInvitesResponse.toObject(
+      opt_includeInstance,
+      this
+    );
+  };
 
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.auth.v2.FetchUserInvitesResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.auth.v2.FetchUserInvitesResponse.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {
+        invitesLeft: jspb.Message.getFieldWithDefault(msg, 1, 0)
+      };
+
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.auth.v2.FetchUserInvitesResponse}
  */
-proto.airchat.auth.v2.FetchUserInvitesResponse.deserializeBinary = function(bytes) {
+proto.airchat.auth.v2.FetchUserInvitesResponse.deserializeBinary = function (
+  bytes
+) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.auth.v2.FetchUserInvitesResponse;
-  return proto.airchat.auth.v2.FetchUserInvitesResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.auth.v2.FetchUserInvitesResponse();
+  return proto.airchat.auth.v2.FetchUserInvitesResponse.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -5379,36 +6128,39 @@ proto.airchat.auth.v2.FetchUserInvitesResponse.deserializeBinary = function(byte
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.auth.v2.FetchUserInvitesResponse}
  */
-proto.airchat.auth.v2.FetchUserInvitesResponse.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.auth.v2.FetchUserInvitesResponse.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        case 1:
+          var value = /** @type {number} */ (reader.readInt32());
+          msg.setInvitesLeft(value);
+          break;
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setInvitesLeft(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.auth.v2.FetchUserInvitesResponse.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.auth.v2.FetchUserInvitesResponse.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.auth.v2.FetchUserInvitesResponse.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.auth.v2.FetchUserInvitesResponse.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -5417,34 +6169,31 @@ proto.airchat.auth.v2.FetchUserInvitesResponse.prototype.serializeBinary = funct
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.auth.v2.FetchUserInvitesResponse.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getInvitesLeft();
-  if (f !== 0) {
-    writer.writeInt32(
-      1,
-      f
-    );
-  }
-};
-
+proto.airchat.auth.v2.FetchUserInvitesResponse.serializeBinaryToWriter =
+  function (message, writer) {
+    var f = undefined;
+    f = message.getInvitesLeft();
+    if (f !== 0) {
+      writer.writeInt32(1, f);
+    }
+  };
 
 /**
  * optional int32 invites_left = 1;
  * @return {number}
  */
-proto.airchat.auth.v2.FetchUserInvitesResponse.prototype.getInvitesLeft = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
-};
-
+proto.airchat.auth.v2.FetchUserInvitesResponse.prototype.getInvitesLeft =
+  function () {
+    return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+  };
 
 /**
  * @param {number} value
  * @return {!proto.airchat.auth.v2.FetchUserInvitesResponse} returns this
  */
-proto.airchat.auth.v2.FetchUserInvitesResponse.prototype.setInvitesLeft = function(value) {
-  return jspb.Message.setProto3IntField(this, 1, value);
-};
-
+proto.airchat.auth.v2.FetchUserInvitesResponse.prototype.setInvitesLeft =
+  function (value) {
+    return jspb.Message.setProto3IntField(this, 1, value);
+  };
 
 goog.object.extend(exports, proto.airchat.auth.v2);

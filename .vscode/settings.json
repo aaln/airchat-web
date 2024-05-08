@@ -1,12 +1,11 @@
 {
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "files.autoSave": "onFocusChange",
-    "vs-code-prettier-eslint.prettierLast": false,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit",
-      "source.addMissingImports": "explicit"
-    }
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "vs-code-prettier-eslint.prettierLast": false,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.addMissingImports": "explicit"
   }
-  
+}

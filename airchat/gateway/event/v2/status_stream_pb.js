@@ -13,13 +13,21 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = (function() {
-  if (this) { return this; }
-  if (typeof window !== 'undefined') { return window; }
-  if (typeof global !== 'undefined') { return global; }
-  if (typeof self !== 'undefined') { return self; }
+var global = function () {
+  if (this) {
+    return this;
+  }
+  if (typeof window !== 'undefined') {
+    return window;
+  }
+  if (typeof global !== 'undefined') {
+    return global;
+  }
+  if (typeof self !== 'undefined') {
+    return self;
+  }
   return Function('return this')();
-}.call(null));
+}.call(null);
 
 var airchat_gateway_v2_gateway_pb = require('../../../../airchat/gateway/v2/gateway_pb.js');
 goog.object.extend(proto, airchat_gateway_v2_gateway_pb);
@@ -36,7 +44,7 @@ goog.exportSymbol('proto.airchat.gateway.event.v2.StatusEvent', null, global);
  * @extends {jspb.Message}
  * @constructor
  */
-proto.airchat.gateway.event.v2.StatusEvent = function(opt_data) {
+proto.airchat.gateway.event.v2.StatusEvent = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.airchat.gateway.event.v2.StatusEvent, jspb.Message);
@@ -45,63 +53,83 @@ if (goog.DEBUG && !COMPILED) {
    * @public
    * @override
    */
-  proto.airchat.gateway.event.v2.StatusEvent.displayName = 'proto.airchat.gateway.event.v2.StatusEvent';
+  proto.airchat.gateway.event.v2.StatusEvent.displayName =
+    'proto.airchat.gateway.event.v2.StatusEvent';
 }
-
-
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.airchat.gateway.event.v2.StatusEvent.prototype.toObject = function(opt_includeInstance) {
-  return proto.airchat.gateway.event.v2.StatusEvent.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.airchat.gateway.event.v2.StatusEvent} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.airchat.gateway.event.v2.StatusEvent.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    streamId: (f = msg.getStreamId()) && airchat_gateway_v2_gateway_pb.StreamIdentifier.toObject(includeInstance, f),
-    status: (f = msg.getStatus()) && airchat_gateway_v2_status_stream_pb.Status.toObject(includeInstance, f)
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.airchat.gateway.event.v2.StatusEvent.prototype.toObject = function (
+    opt_includeInstance
+  ) {
+    return proto.airchat.gateway.event.v2.StatusEvent.toObject(
+      opt_includeInstance,
+      this
+    );
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.airchat.gateway.event.v2.StatusEvent} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.airchat.gateway.event.v2.StatusEvent.toObject = function (
+    includeInstance,
+    msg
+  ) {
+    var f,
+      obj = {
+        streamId:
+          (f = msg.getStreamId()) &&
+          airchat_gateway_v2_gateway_pb.StreamIdentifier.toObject(
+            includeInstance,
+            f
+          ),
+        status:
+          (f = msg.getStatus()) &&
+          airchat_gateway_v2_status_stream_pb.Status.toObject(
+            includeInstance,
+            f
+          )
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.airchat.gateway.event.v2.StatusEvent}
  */
-proto.airchat.gateway.event.v2.StatusEvent.deserializeBinary = function(bytes) {
+proto.airchat.gateway.event.v2.StatusEvent.deserializeBinary = function (
+  bytes
+) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.airchat.gateway.event.v2.StatusEvent;
-  return proto.airchat.gateway.event.v2.StatusEvent.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.airchat.gateway.event.v2.StatusEvent();
+  return proto.airchat.gateway.event.v2.StatusEvent.deserializeBinaryFromReader(
+    msg,
+    reader
+  );
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -110,42 +138,53 @@ proto.airchat.gateway.event.v2.StatusEvent.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.airchat.gateway.event.v2.StatusEvent}
  */
-proto.airchat.gateway.event.v2.StatusEvent.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.airchat.gateway.event.v2.StatusEvent.deserializeBinaryFromReader =
+  function (msg, reader) {
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) {
+        break;
+      }
+      var field = reader.getFieldNumber();
+      switch (field) {
+        case 1:
+          var value = new airchat_gateway_v2_gateway_pb.StreamIdentifier();
+          reader.readMessage(
+            value,
+            airchat_gateway_v2_gateway_pb.StreamIdentifier
+              .deserializeBinaryFromReader
+          );
+          msg.setStreamId(value);
+          break;
+        case 2:
+          var value = new airchat_gateway_v2_status_stream_pb.Status();
+          reader.readMessage(
+            value,
+            airchat_gateway_v2_status_stream_pb.Status
+              .deserializeBinaryFromReader
+          );
+          msg.setStatus(value);
+          break;
+        default:
+          reader.skipField();
+          break;
+      }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = new airchat_gateway_v2_gateway_pb.StreamIdentifier;
-      reader.readMessage(value,airchat_gateway_v2_gateway_pb.StreamIdentifier.deserializeBinaryFromReader);
-      msg.setStreamId(value);
-      break;
-    case 2:
-      var value = new airchat_gateway_v2_status_stream_pb.Status;
-      reader.readMessage(value,airchat_gateway_v2_status_stream_pb.Status.deserializeBinaryFromReader);
-      msg.setStatus(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
+    return msg;
+  };
 
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.airchat.gateway.event.v2.StatusEvent.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.airchat.gateway.event.v2.StatusEvent.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
+proto.airchat.gateway.event.v2.StatusEvent.prototype.serializeBinary =
+  function () {
+    var writer = new jspb.BinaryWriter();
+    proto.airchat.gateway.event.v2.StatusEvent.serializeBinaryToWriter(
+      this,
+      writer
+    );
+    return writer.getResultBuffer();
+  };
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -154,7 +193,10 @@ proto.airchat.gateway.event.v2.StatusEvent.prototype.serializeBinary = function(
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.airchat.gateway.event.v2.StatusEvent.serializeBinaryToWriter = function(message, writer) {
+proto.airchat.gateway.event.v2.StatusEvent.serializeBinaryToWriter = function (
+  message,
+  writer
+) {
   var f = undefined;
   f = message.getStreamId();
   if (f != null) {
@@ -174,79 +216,85 @@ proto.airchat.gateway.event.v2.StatusEvent.serializeBinaryToWriter = function(me
   }
 };
 
-
 /**
  * optional airchat.gateway.v2.StreamIdentifier stream_id = 1;
  * @return {?proto.airchat.gateway.v2.StreamIdentifier}
  */
-proto.airchat.gateway.event.v2.StatusEvent.prototype.getStreamId = function() {
+proto.airchat.gateway.event.v2.StatusEvent.prototype.getStreamId = function () {
   return /** @type{?proto.airchat.gateway.v2.StreamIdentifier} */ (
-    jspb.Message.getWrapperField(this, airchat_gateway_v2_gateway_pb.StreamIdentifier, 1));
+    jspb.Message.getWrapperField(
+      this,
+      airchat_gateway_v2_gateway_pb.StreamIdentifier,
+      1
+    )
+  );
 };
-
 
 /**
  * @param {?proto.airchat.gateway.v2.StreamIdentifier|undefined} value
  * @return {!proto.airchat.gateway.event.v2.StatusEvent} returns this
-*/
-proto.airchat.gateway.event.v2.StatusEvent.prototype.setStreamId = function(value) {
+ */
+proto.airchat.gateway.event.v2.StatusEvent.prototype.setStreamId = function (
+  value
+) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.gateway.event.v2.StatusEvent} returns this
  */
-proto.airchat.gateway.event.v2.StatusEvent.prototype.clearStreamId = function() {
-  return this.setStreamId(undefined);
-};
-
+proto.airchat.gateway.event.v2.StatusEvent.prototype.clearStreamId =
+  function () {
+    return this.setStreamId(undefined);
+  };
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.gateway.event.v2.StatusEvent.prototype.hasStreamId = function() {
+proto.airchat.gateway.event.v2.StatusEvent.prototype.hasStreamId = function () {
   return jspb.Message.getField(this, 1) != null;
 };
-
 
 /**
  * optional airchat.gateway.v2.Status status = 2;
  * @return {?proto.airchat.gateway.v2.Status}
  */
-proto.airchat.gateway.event.v2.StatusEvent.prototype.getStatus = function() {
+proto.airchat.gateway.event.v2.StatusEvent.prototype.getStatus = function () {
   return /** @type{?proto.airchat.gateway.v2.Status} */ (
-    jspb.Message.getWrapperField(this, airchat_gateway_v2_status_stream_pb.Status, 2));
+    jspb.Message.getWrapperField(
+      this,
+      airchat_gateway_v2_status_stream_pb.Status,
+      2
+    )
+  );
 };
-
 
 /**
  * @param {?proto.airchat.gateway.v2.Status|undefined} value
  * @return {!proto.airchat.gateway.event.v2.StatusEvent} returns this
-*/
-proto.airchat.gateway.event.v2.StatusEvent.prototype.setStatus = function(value) {
+ */
+proto.airchat.gateway.event.v2.StatusEvent.prototype.setStatus = function (
+  value
+) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
-
 
 /**
  * Clears the message field making it undefined.
  * @return {!proto.airchat.gateway.event.v2.StatusEvent} returns this
  */
-proto.airchat.gateway.event.v2.StatusEvent.prototype.clearStatus = function() {
+proto.airchat.gateway.event.v2.StatusEvent.prototype.clearStatus = function () {
   return this.setStatus(undefined);
 };
-
 
 /**
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.airchat.gateway.event.v2.StatusEvent.prototype.hasStatus = function() {
+proto.airchat.gateway.event.v2.StatusEvent.prototype.hasStatus = function () {
   return jspb.Message.getField(this, 2) != null;
 };
-
 
 goog.object.extend(exports, proto.airchat.gateway.event.v2);

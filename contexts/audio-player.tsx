@@ -1,7 +1,6 @@
-"use client";
+'use client';
 
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
-
 
 const AudioPlayerContext = createContext(null);
 
@@ -14,7 +13,6 @@ export const AudioPlayerProvider = ({ children }) => {
   const playersRef = useRef(new Map<string, HTMLAudioElement>());
 
   const play = (id: string) => {
-   
     // Pause any currently playing audio
     if (currentPlaying) {
       const currentPlayer = playersRef.current.get(currentPlaying);
@@ -23,11 +21,12 @@ export const AudioPlayerProvider = ({ children }) => {
       }
     }
 
-    
     // Play the new audio and set it as the current playing
     const newPlayer = playersRef.current.get(id);
-     console.log({
-      id, currentPlaying, newPlayer,
+    console.log({
+      id,
+      currentPlaying,
+      newPlayer,
       lastPlayed
     });
     if (newPlayer) {
@@ -61,8 +60,7 @@ export const AudioPlayerProvider = ({ children }) => {
     playersRef.current.delete(id);
   };
 
-  
-    // Ensure that when the current playing audio is unmounted, it gets paused
+  // Ensure that when the current playing audio is unmounted, it gets paused
   useEffect(() => {
     return () => {
       if (currentPlaying) {
@@ -75,14 +73,25 @@ export const AudioPlayerProvider = ({ children }) => {
   }, [currentPlaying]);
 
   useEffect(() => {
-   const currentPlayer = playersRef.current.get(currentPlaying);
+    const currentPlayer = playersRef.current.get(currentPlaying);
     if (currentPlayer) {
       currentPlayer.playbackRate = playbackSpeed;
     }
   }, [playbackSpeed]);
 
   return (
-    <AudioPlayerContext.Provider value={{ play, pause, registerPlayer, unregisterPlayer, currentPlaying, lastPlayed, playbackSpeed, setPlaybackSpeed }}>
+    <AudioPlayerContext.Provider
+      value={{
+        play,
+        pause,
+        registerPlayer,
+        unregisterPlayer,
+        currentPlaying,
+        lastPlayed,
+        playbackSpeed,
+        setPlaybackSpeed
+      }}
+    >
       {children}
     </AudioPlayerContext.Provider>
   );

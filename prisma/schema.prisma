@@ -54,6 +54,7 @@ model messages {
   isHighlighted        Boolean
   hiddenInChannel      Boolean
   transcriptionEmbedding Json?
+  updatedAt            DateTime? @db.Date
 }
 
 model embeddings_cache {

@@ -1,6 +1,4 @@
-
-
-const openai_embedding_model = "text-embedding-3-small";
+const openai_embedding_model = 'text-embedding-3-small';
 
 export const newEmbeddingWithCache = async ({
   query,
@@ -17,16 +15,16 @@ export const newEmbeddingWithCache = async ({
   //   if (cachedEmbedding) return cachedEmbedding.embedding;
   // }
 
-  const response = await fetch("https://api.openai.com/v1/embeddings", {
-    method: "POST",
+  const response = await fetch('https://api.openai.com/v1/embeddings', {
+    method: 'POST',
     headers: {
       Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       input: query,
-      model: openai_embedding_model,
-    }),
+      model: openai_embedding_model
+    })
   });
 
   if (!response.ok) {
@@ -35,7 +33,7 @@ export const newEmbeddingWithCache = async ({
 
   const { data } = await response.json();
   const embedding = data[0].embedding;
-    // @ts-ignore
+  // @ts-ignore
   // await prisma.embeddings_cache.create({
   //   data: {
   //     id: uuidv4(),

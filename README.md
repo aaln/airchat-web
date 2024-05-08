@@ -10,8 +10,6 @@ Explore the demo: [Airchat Web Client Demo](https://airchat-web.vercel.app/)
   <img src="/public/screenshots/stream.png" alt="User Stream" height="240px" />
 </p>
 
-
-
 ## Current Features
 
 - Login via SMS
@@ -26,16 +24,17 @@ Explore the demo: [Airchat Web Client Demo](https://airchat-web.vercel.app/)
 - Page to view a full thread and it's tree of subthreads
 - Ability to upload audio, create threads, and respond to threads.
 
-
 ## Acknowledgements
 
 Special thanks to:
+
 - The Airchat team for their groundbreaking work in communication.
 - [@elie222](https://www.github.com/elie222) for his contributions to the open-source community and guidance.
 
 ## Contributing
 
 Interested in contributing? Great! Here's how you can help:
+
 - Fork the repository on GitHub.
 - Clone your fork locally.
 - Create a new branch for your feature or fix.
@@ -53,12 +52,10 @@ For more detailed instructions, check out the contribution guidelines.
 
 To set up this project for development:
 
-
 ```bash
   npm run build
   npm run dev
 ```
-    
 
 This will install all necessary dependencies, build the project, and start the development server.
 
