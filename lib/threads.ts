@@ -1,4 +1,6 @@
 import { GetMessageThreadDetailsByReference, GetMessages } from "@/gateways/messages";
+import { kv } from "@vercel/kv";
+
 
 class AirchatMessageThreadBuilder {
     accessToken: string;
@@ -20,22 +22,35 @@ class AirchatMessageThreadBuilder {
         if(this.messagesCache[recordingId]) {
             return this.messagesCache[recordingId];
         }
+
+        const messageInKV = await kv.get(`message_${recordingId}`);
+        if(messageInKV) {
+            this.messagesCache[recordingId] = messageInKV;
+            return messageInKV;
+        }
+
         let message = await GetMessages({
             token: this.accessToken,
             recordingIds: [recordingId]
         }) as any;
         message = message?.messageList?.[0];
         this.messagesCache[recordingId] = message;
+        await kv.set(`message_${recordingId}`, message, { ex: 600, nx: true });
         return message;
     }
 
+
     // this retrieves all direct children and 1 grandchild of each child (if exists)
     getMessageChildrenThreads = async (recordingId) => {
-        console.log("getMessageChildrenThreads 1", recordingId);
+        const messageChildrenInKV = await kv.get(`message_thread_details_${recordingId}`);
+        if(messageChildrenInKV) {
+            return messageChildrenInKV;
+        }
         let messageChildren = await GetMessageThreadDetailsByReference({
             token: this.accessToken,
             recordingId,
         }) as any;
+        await kv.set(`message_thread_details_${recordingId}`, messageChildren.messageThreadDetailsList, { ex: 600, nx: true });
         return messageChildren.messageThreadDetailsList;
     }
 
@@ -66,10 +81,6 @@ class AirchatMessageThreadBuilder {
             console.log("message?.previousThreadRecordingId", message?.previousThreadRecordingId)
             this.saveInTree(message?.previousThreadRecordingId, recordingId);
             this.addToQueue(message?.previousThreadRecordingId);
-            // const parentMessage = await this.getMessage(message?.previousThreadRecordingId);
-            // if(parentMessage.previousThreadRecordingId) {
-            //     this.addToQueue(parentMessage.previousThreadRecordingId);
-            // }
         }
 
         const childrenThreads = await this.getMessageChildrenThreads(recordingId);

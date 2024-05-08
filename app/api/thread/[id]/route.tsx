@@ -1,4 +1,5 @@
 // @ts-ignore
+import { saveOrUpdateMessages } from '@/collect/ingest';
 import { accessTokenCookieName } from '@/constants';
 import { getFullMessageThreadFromRecordingId } from '@/lib/threads';
 import { cookies } from 'next/headers';
@@ -15,6 +16,8 @@ export async function GET(request: Request, context) {
     }
 
     const fullMessageThread = await getFullMessageThreadFromRecordingId({ recordingId, accessToken: token });
+    await saveOrUpdateMessages(Object.values(fullMessageThread.messagesCache))
+    
     return new Response(JSON.stringify(fullMessageThread), { status: 200 });
 
 }

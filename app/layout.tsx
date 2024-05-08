@@ -30,6 +30,8 @@ export default function RootLayout({
       <AudioPlayerProvider>
         <html lang="en">
           <head>
+            <link rel="icon" href="/favicon.png" type="image/png" sizes="any" />
+
             <meta property="og:image" content="https://airchat-web.vercel.app/screenshots/search.png"/>
           </head>
           <CSPostHogProvider>
