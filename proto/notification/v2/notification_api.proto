@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package airchat.notification.v2;
+option java_package = "com.airchat.notification.v2";
+option java_outer_classname = "NotificationApiProto";
+option java_multiple_files = true;
+option swift_prefix = "NotificationV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/notification/v2";
+
+import "airchat/notification/v2/notification.proto";
+
+// A service for configuring notification data.
+service NotificationAPI {
+  // Allows the setting of a push token for the current user.
+  rpc SetPushToken (SetPushTokenRequest) returns (SetPushTokenResponse);
+  // Clears the currently set push tokens for the current user.
+  rpc ClearPushToken (ClearPushTokenRequest) returns (ClearPushTokenResponse);
+  // Returns the currently state of push token for the current user.
+  rpc GetPushTokenState (GetPushTokenStateRequest) returns (GetPushTokenStateResponse);
+}
+
+message SetPushTokenRequest {
+  // Only one token type can be set at a time.
+  oneof token {
+    // Apple Push Notification service token registration.
+    ApnToken apn_token = 1;
+    // Firebase Cloud Messaging push notification token registration.
+    FcmToken fcm_token = 2;
+  }
+}
+
+message SetPushTokenResponse {
+  // EMPTY
+}
+
+message ClearPushTokenRequest {
+  // EMPTY
+}
+
+message ClearPushTokenResponse {
+  // EMPTY
+}
+
+message GetPushTokenStateRequest {
+  // EMPTY
+}
+
+message GetPushTokenStateResponse {
+  // The current state of user's push token.
+  PushTokenState state = 1;
+}

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package airchat.gateway.v2;
+option java_package = "com.airchat.gateway.v2";
+option java_outer_classname = "NotificationStreamApiProto";
+option java_multiple_files = true;
+option swift_prefix = "NotificationStreamV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/gateway/v2";
+
+import "airchat/gateway/v2/notification_stream.proto";
+
+// A service for handling client subscriptions to notifications relevant to the user.
+service NotificationStreamAPI {
+  // Stream notifications relevant to the current user
+  rpc NotificationStream (stream NotificationStreamRequest) returns (stream NotificationStreamResponse);
+}
+
+message NotificationStreamRequest {
+  oneof request {
+    // Ping the server to keep the connection alive.
+    PingRequest ping = 1;
+  }
+}
+
+message NotificationStreamResponse {
+  // A new notification relevant to the current user.
+  gateway.v2.Envelope envelope = 1;
+}
+
+message PingRequest {}

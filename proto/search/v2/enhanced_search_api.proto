@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package airchat.search.v2;
+option java_package = "com.airchat.search.v2";
+option java_outer_classname = "EnhancedSearchApiProto";
+option java_multiple_files = true;
+option swift_prefix = "SearchV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/search/v2";
+
+import "airchat/search/v2/search.proto";
+
+service EnhancedSearchAPI {
+  // The full text message search.
+  rpc MessageSearch (MessageSearchRequest) returns (MessageSearchResponse);
+  // The channel search.
+  rpc ChannelSearch (ChannelSearchRequest) returns (ChannelSearchResponse);
+}
+
+message MessageSearchRequest {
+  // The query to search by.
+  string query = 1;
+  // A key used to determine the pagination location. If no key is provided, the first page will be returned.
+  string page_key = 2;
+  // Sort order for the search results.
+  MessageSearchSortOrder sort_order = 3;
+}
+
+message MessageSearchResponse {
+  // The list of message search results.
+  repeated MessageSearchResult message_search_result = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+message ChannelSearchRequest {
+  // The query to search by.
+  string query = 1;
+  // A key used to determine the pagination location. If no key is provided, the first page will be returned.
+  string page_key = 2;
+}
+
+message ChannelSearchResponse {
+  // The list of message search results.
+  repeated ChannelSearchResult channel_search_result = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+enum MessageSearchSortOrder {
+  // Invalid sort order.
+  MESSAGE_SEARCH_SORT_ORDER_INVALID = 0;
+  // Sort by relevance.
+  MESSAGE_SEARCH_SORT_ORDER_RELEVANCE = 1;
+  // Sort by message creation date.
+  MESSAGE_SEARCH_SORT_ORDER_LATEST = 2;
+}

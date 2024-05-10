@@ -1,0 +1,430 @@
+syntax = "proto3";
+
+package airchat.message.v2;
+option java_package = "com.airchat.message.v2";
+option java_outer_classname = "MessageProto";
+option java_multiple_files = true;
+option swift_prefix = "MessageV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/message/v2";
+
+import "airchat/user/v2/user.proto";
+import "airchat/channel/v2/channel.proto";
+
+import "google/protobuf/timestamp.proto";
+
+// The message.
+message Message {
+  // The ID of the message.
+  string recording_id = 1;
+  // The optional ID of the message thread the message belongs to.
+  string message_thread_id = 2;
+  // The ID of the user who sent the message.
+  string from_user_id = 3;
+  // The type of media contained in the message.
+  MessageMediaType media_type = 4;
+  // The index of the message in the thread.
+  int64 index = 5;
+  // The time the message was created.
+  google.protobuf.Timestamp created_date = 6;
+  // The URL for the media in the message.
+  string message_url = 7;
+  // The HLS URL for the media in the message.
+  string hls_url = 8;
+  // The duration of the media in the message.
+  double duration = 9;
+  // The message transcription. Added on hydration.
+  Transcription transcription = 10;
+  // The user who sent the message. Added on hydration.
+  user.v2.User from_user = 11;
+  // The events the current user has performed on this message (if applicable). Added on hydration.
+  repeated MessageEventType events = 13;
+  // The analytics for this message. Added on hydration.
+  MessageAnalytics message_analytics = 14;
+  // The optional ID of the thread used for continued messages/replies by the original message's author.
+  string continued_message_thread_id = 15;
+  // The list of user IDs mentioned in the message.
+  repeated string mentioned_user_ids = 16;
+  // The list of users mentioned in the message. Added on hydration.
+  repeated user.v2.User mentioned_users = 17;
+  // The optional thread id between the message author and the current user.
+  // Added even if the thread isn't created yet. Added on hydration.
+  string reference_message_thread_id = 18;
+  // Indicates whether the reference message thread has been created. Added on hydration.
+  bool is_reference_message_thread_created = 19;
+  // The optional ID of the private room the message belongs to.
+  string private_room_id = 20;
+  // The optional list of image references in the message.
+  repeated string image_reference_ids = 21;
+  // The optional list of link references in the message.
+  repeated LinkMetadata link_metadata = 22;
+  // The optional ID of the previous message in the thread.
+  string previous_thread_recording_id = 23;
+  // The message is visible only to the thread participants.
+  bool participant_only_visibility = 24;
+  // The optional user restrictions. Added on hydration if requested.
+  airchat.user.v2.UserRestriction user_restriction = 25;
+  // The optional list of image references. Added on hydration.
+  repeated ImageReference image_references = 26;
+  // The optional list of users who reposted this message. Added during the feed hydration.
+  repeated user.v2.User repost_user = 27;
+  // The optional thumbnail image path.
+  string thumbnail_image_path = 28;
+  // The optional channel ID the message belongs to.
+  string channel_id = 29;
+  // Indicates whether the message is bookmarked. Added on hydration.
+  bool is_bookmarked = 30;
+  // Indicates whether the message is highlighted. Added on hydration.
+  bool is_highlighted = 31;
+  // Indicates whether the message is hidden in the channel.
+  bool hidden_in_channel = 32;
+}
+
+// Metadata of a particular playlist.
+message Playlist {
+  // The type of the message media being transmitted.
+  MessageMediaType media_type = 1;
+  // The expected peak bandwidth in bits per second need to play the playlist.
+  int64 bandwidth = 2;
+  // A comma separated list of formats contained in the playlist.
+  string codecs = 3;
+  // The target segment length in the playlist.
+  // All segment lengths should be equal to or less than this value.
+  int32 target_duration = 4;
+  // An optional field for video playlists indicating the resolution for the video.
+  Resolution resolution = 5;
+  // An optional field for video playlists indicating the number of frames per second.
+  double frame_rate = 6;
+  // The file extension for the segments.
+  string file_extension = 7;
+}
+
+// The resolution for video playlists or image references.
+message Resolution {
+  // The width of the resolution for the video or image.
+  int32 resolution_width = 1;
+  // The height of the resolution for the video or image.
+  int32 resolution_height = 2;
+}
+
+message PlaylistHeader {
+  // The contents of the playlist's header file.
+  bytes contents = 1;
+  // The file extension for the playlist's header file.
+  string file_extension = 2;
+  // The MIME type for the playlist's header file.
+  string content_type = 3;
+}
+
+// A segment within a playlist.
+message Segment {
+  // The index of the segment in the playlist.
+  int32 index = 1;
+  // The actual duration of the segment in decimal seconds.
+  double duration = 2;
+  // Indicates if the server has fully registered the segment as uploaded yet.
+  bool uploaded = 3;
+}
+
+// A list of segments within a playlist.
+message Segments {
+  // The list of segments.
+  repeated Segment segment = 1;
+}
+
+// The message thread.
+message MessageThread {
+  // The ID of the message thread.
+  string id = 1;
+  // The participants in the message thread. Added on hydration.
+  repeated airchat.user.v2.User participants = 2;
+  // Index of the most recently created message.
+  int64 index = 3;
+  // The optional reference message in the thread.
+  string reference_recording_id = 4;
+  // The time the thread was created.
+  google.protobuf.Timestamp created_date = 5;
+  // The number of messages in the thread.
+  int64 message_count = 6;
+  // The optional ID of the thread used for continued messages/replies by the author of the reference message.
+  string continued_message_thread_id = 7;
+  // The number of messages in the continued thread. Only messages created before the thread's creation are counted.
+  int64 continued_message_count = 8;
+  // The last index in the continued message thread, captured at the moment of the thread's creation.
+  int64 continued_message_index = 9;
+  // The time of the last message in the thread.
+  google.protobuf.Timestamp last_message_time = 10;
+  // The thread is visible only to the participants.
+  bool participant_only_visibility = 11;
+  // The optional list of user restrictions. Added on hydration if requested.
+  repeated airchat.user.v2.UserRestriction user_restriction = 12;
+  // The optional channel ID the thread belongs to.
+  string channel_id = 13;
+  // Indicates whether the thread is bookmarked. Added on hydration.
+  bool is_bookmarked = 14;
+  // Indicates whether the thread is highlighted. Added on hydration.
+  bool is_highlighted = 15;
+  // Indicates whether the reference message author interacted with the thread.
+  bool is_interacted = 16;
+}
+
+message MessageThreadDeletedIndex {
+  // The ID of the message thread the deleted message belongs to.
+  string message_thread_id = 1;
+  // The index of the deleted message.
+  int64 index = 2;
+  // The recording ID of the deleted message.
+  string recording_id = 3;
+}
+
+// A transcription for a particular message.
+message Transcription {
+  // The recording ID of the message this transcription is for.
+  string recording_id = 1;
+  // Transcription segments
+  repeated TranscriptionSegment transcription_segments = 2;
+  // Transcription language
+  string language = 3;
+  // Transcription status
+  TranscriptionStatus transcription_status = 4;
+  // The transcription text, it could be different from the text in the segments if edited
+  string transcription_text = 5;
+  // Indicates whether the transcription has been edited
+  bool is_edited = 6;
+}
+
+// The transcription text segments with timestamps.
+message TranscriptionSegment {
+  // Transcription text
+  string text = 1;
+  // Start time in seconds
+  double start_time = 2;
+  // End time in seconds
+  double end_time = 3;
+  // Log probability
+  double log_probability = 4;
+}
+
+// A single item in the message feed.
+message MessageFeedItem {
+  // The message thread the item belongs to.
+  MessageThread message_thread = 1;
+  // The type of the feed item.
+  MessageFeedItemType type = 2;
+  // The time associated with this feed item.
+  google.protobuf.Timestamp item_time = 3;
+  // The optional message this thread is associated with.
+  Message reference_message = 4;
+  // The messages relevant to this feed item.
+  repeated Message messages = 5;
+  // The number of messages in the thread.
+  int64 message_count = 6;
+  // The number of messages between the most recent participant messages in the thread.
+  int64 participant_message_gap = 7;
+  // The optional list of users who have performed actions on this feed item.
+  repeated user.v2.User action_user = 8;
+  // The number of messages in the thread continued by the original author.
+  // Note that this number only includes messages created before the fork to which this item belongs.
+  int64 continued_message_count = 9;
+  // The list of clustered message threads.
+  repeated MessageThread clustered_message_threads = 10;
+  // The optional attribution in case we backfilled the feed item from an external feed.
+  MessageFeedItemAttribution attribution = 11;
+  // The optional previous message in the thread.
+  Message previous_message = 12;
+  // The optional channel the feed item belongs to.
+  channel.v2.Channel channel = 13;
+}
+
+// The message analytics.
+message MessageAnalytics {
+  // The message recording ID.
+  string recording_id = 1;
+  // The view count.
+  int64 view_count = 2;
+  // The listen count.
+  int64 listen_count = 3;
+  // The like count.
+  int64 like_count = 4;
+  // The repost count.
+  int64 repost_count = 5;
+  // The thread count (only the non-empty threads are counted).
+  int64 thread_count = 6;
+}
+
+// A message event item in the event log.
+message MessageEventItem {
+  airchat.user.v2.User user = 1;
+  // The type of event this item represents.
+  MessageEventType event_type = 2;
+  // The time that the event occurred.
+  google.protobuf.Timestamp event_time = 3;
+}
+
+// A message thread with additional data.
+message MessageThreadDetails {
+  // The message thread.
+  MessageThread message_thread = 1;
+  // The first message in the thread.
+  Message first_message = 2;
+  // The last message in the thread.
+  Message last_message = 3;
+  // Indicates whether the thread follows the feed visibility rules.
+  bool following = 4;
+  // Indicates whether the context user is following the thread participant who replied to the reference message.
+  bool is_user_following = 5;
+  // Indicates whether the reference message author interacted with the thread.
+  bool is_interacted = 6;
+}
+
+// The private room.
+message PrivateRoom {
+  // The ID of the private room.
+  string id = 1;
+  // Index of the most recently created message.
+  int64 index = 2;
+  // The time the room was created.
+  google.protobuf.Timestamp created_date = 3;
+  // The participants in the private room. Added on hydration.
+  repeated airchat.user.v2.User participants = 4;
+  // The number of messages in the room.
+  int64 message_count = 5;
+  // The optional last message in the room. Added on hydration.
+  Message last_message = 6;
+  // The number of unread messages in the room for the context user. Added on hydration.
+  int64 unread_count = 7;
+  // Indicates whether the room is a personal room.
+  bool is_personal_room = 8;
+}
+
+message PrivateRoomDeletedIndex {
+  // The ID of the private room the deleted message belongs to.
+  string private_room_id = 1;
+  // The index of the deleted message.
+  int64 index = 2;
+  // The recording ID of the deleted message.
+  string recording_id = 3;
+}
+
+message LinkMetadata {
+  // The URL for the link.
+  string url = 1;
+  // The title of the link.
+  string title = 2;
+  // The summary of the link.
+  string summary = 3;
+  // The image path of the link.
+  string image_path = 4;
+}
+
+message LinkMetadataUpload {
+  // The metadata for the link.
+  LinkMetadata link_metadata = 1;
+  // The raw bytes of an image.
+  bytes image_data = 2;
+}
+
+message MessageFeedItemAttribution {
+  // The type of attribution.
+  MessageFeedItemAttributionType type = 1;
+  // The user to attribute the feed item to.
+  airchat.user.v2.User user = 2;
+}
+
+message ImageReference {
+  // The ID of the image reference.
+  string image_reference_id = 1;
+  // The resolution of the original image.
+  Resolution resolution = 2;
+}
+
+message MentionCandidate {
+  airchat.user.v2.User user = 1;
+  MentionCandidateMatchStrength strength = 2;
+}
+
+// How strong a mention candidate is of a match
+enum MentionCandidateMatchStrength {
+  // Invalid value
+  MENTION_CANDIDATE_MATCH_STRENGTH_INVALID = 0;
+  // If all the candidates keep the tray closed, don't even open it
+  MENTION_CANDIDATE_MATCH_STRENGTH_KEEP_TRAY_CLOSED = 1;
+  // If there's an open tray candidate open it for them.
+  MENTION_CANDIDATE_MATCH_STRENGTH_OPEN_TRAY = 2;
+  // Open the tray and autoselect these candidates
+  MENTION_CANDIDATE_MATCH_STRENGTH_AUTOSELECT = 3;
+}
+
+// The type of media contained in the message.
+enum MessageMediaType {
+  // An unset value as the default value. This value should only be seen when no other value was set.
+  MESSAGE_MEDIA_TYPE_INVALID = 0;
+  // The media for this message is audio.
+  MESSAGE_MEDIA_TYPE_AUDIO = 1;
+  // The media for this message is video.
+  MESSAGE_MEDIA_TYPE_VIDEO = 2;
+}
+
+// The type of a message event.
+enum MessageEventType {
+  // This is an unset value. Receiving this value is always an error.
+  MESSAGE_EVENT_TYPE_INVALID = 0;
+  // A user has listened to a message.
+  MESSAGE_EVENT_TYPE_LISTEN = 1;
+  // A user has liked a message.
+  MESSAGE_EVENT_TYPE_LIKE = 2;
+  // A user has unliked a message.
+  MESSAGE_EVENT_TYPE_UNLIKE = 3;
+  // A user has reposted a message.
+  MESSAGE_EVENT_TYPE_REPOST = 4;
+  // A user has removed a repost from a message.
+  MESSAGE_EVENT_TYPE_UN_REPOST = 5;
+  // A user has viewed a message.
+  MESSAGE_EVENT_TYPE_VIEW = 6;
+}
+
+// Transcription clients.
+enum TranscriptionClient {
+  // Invalid value
+  TRANSCRIPTION_CLIENT_INVALID = 0;
+  // Whisper
+  TRANSCRIPTION_CLIENT_WHISPER = 1;
+  // Whisper API
+  TRANSCRIPTION_CLIENT_WHISPER_API = 2;
+  // Deepgram
+  TRANSCRIPTION_CLIENT_DEEPGRAM = 3;
+  // On-device model
+  TRANSCRIPTION_CLIENT_ON_DEVICE = 4;
+  // Whisper running on Replicate
+  TRANSCRIPTION_CLIENT_WHISPER_REPLICATE = 5;
+}
+
+// The status of a transcription.
+enum TranscriptionStatus {
+  // Invalid value
+  TRANSCRIPTION_STATUS_INVALID = 0;
+  // The transcription is pending
+  TRANSCRIPTION_STATUS_PENDING = 1;
+  // The transcription is complete
+  TRANSCRIPTION_STATUS_COMPLETED = 2;
+  // The transcription is complete using a lower quality index
+  TRANSCRIPTION_STATUS_PARTIALLY_COMPLETED = 3;
+}
+
+// The type of a message feed item.
+enum MessageFeedItemType {
+  // This is an unset value. Receiving this value is always an error.
+  MESSAGE_FEED_ITEM_TYPE_INVALID = 0;
+  // The post was created.
+  MESSAGE_FEED_ITEM_TYPE_POST = 1;
+  // The thread was initiated or received a new message.
+  MESSAGE_FEED_ITEM_TYPE_THREAD = 2;
+  // The post was re-chitted.
+  MESSAGE_FEED_ITEM_TYPE_REPOST = 3;
+}
+
+enum MessageFeedItemAttributionType {
+  // This is an unset value. Receiving this value is always an error.
+  MESSAGE_FEED_ITEM_ATTRIBUTION_TYPE_INVALID = 0;
+  // The feed item was attributed to the user who invited the current user.
+  MESSAGE_FEED_ITEM_ATTRIBUTION_TYPE_INVITED_BY = 1;
+}

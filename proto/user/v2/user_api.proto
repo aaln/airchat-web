@@ -1,0 +1,326 @@
+syntax = "proto3";
+
+package airchat.user.v2;
+option java_package = "com.airchat.user.v2";
+option java_outer_classname = "UserApiProto";
+option java_multiple_files = true;
+option swift_prefix = "UserV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/user/v2";
+
+import "airchat/user/v2/user.proto";
+
+// A service for updating and viewing user data.
+service UserAPI {
+  // Updates the metadata of an existing user.
+  rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
+  // Get a user's data with user perspective.
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+  // Get multiple user's data with user perspective.
+  rpc GetMultipleUsers(GetMultipleUsersRequest) returns (GetMultipleUsersResponse);
+  // Gets user restrictions between other users than the current user.
+  rpc GetUserRestrictions(GetUserRestrictionsRequest) returns (GetUserRestrictionsResponse);
+  // Checks to see if a username is available.
+  rpc CheckUsernameAvailable(CheckUsernameAvailableRequest) returns (CheckUsernameAvailableResponse);
+  // Checks to see if a user is blocked
+  rpc GetCurrentUserRestrictions(GetCurrentUserRestrictionsRequest) returns (GetCurrentUserRestrictionsResponse);
+  // Reports a user.
+  rpc ReportUser(ReportUserRequest) returns (ReportUserResponse);
+  // Subscribes the current user as a follower of a particular user.
+  rpc FollowUser (FollowUserRequest) returns (FollowUserResponse);
+  // Unsubscribes the current user as a follower of a particular user.
+  rpc UnfollowUser (UnfollowUserRequest) returns (UnfollowUserResponse);
+  // Fetches a pageable list of followers of a user.
+  rpc GetFollowers (GetFollowersRequest) returns (GetFollowersResponse);
+  // Fetches a pageable following list of a user.
+  rpc GetFollowing (GetFollowingRequest) returns (GetFollowingResponse);
+  // Deletes the current user with confirmation.
+  rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse);
+  // Blocks a user.
+  rpc BlockUser (BlockUserRequest) returns (BlockUserResponse);
+  // Unblocks a user.
+  rpc UnblockUser (UnblockUserRequest) returns (UnblockUserResponse);
+  // Fetch the list of blocked users.
+  rpc GetBlockedUsers (GetBlockedUsersRequest) returns (GetBlockedUsersResponse);
+  // Mute a user.
+  rpc MuteUser (MuteUserRequest) returns (MuteUserResponse);
+  // Unmute a user.
+  rpc UnmuteUser (UnmuteUserRequest) returns (UnmuteUserResponse);
+  // Fetch the list of muted users.
+  rpc GetMutedUsers (GetMutedUsersRequest) returns (GetMutedUsersResponse);
+  // Suspend/Unsuspend a user
+  rpc SuspendUser (SuspendUserRequest) returns (SuspendUserResponse);
+  // Get a user's data with user perspective and analytics.
+  rpc GetUserWithAnalytics (GetUserWithAnalyticsRequest) returns (GetUserWithAnalyticsResponse);
+  // Get a list of global suggested interests/topics
+  rpc GetInterests (GetInterestsRequest) returns (GetInterestsResponse);
+  // Set the user's selected interests
+  rpc SetUserInterests (SetUserInterestsRequest) returns (SetUserInterestsResponse);
+  // Get a list of featured users given the context user's selected interests
+  rpc GetFeaturedUsers (GetFeaturedUsersRequest) returns (GetFeaturedUsersResponse);
+  // Sets Invite Attribution for Contact
+  rpc InviteContactWithAttribution(InviteContactWithAttributionRequest) returns (InviteContactWithAttributionResponse);
+}
+
+message UpdateUserRequest {
+  // A list of metadata items to update for the user.
+  repeated UpdateUserItem item = 1;
+}
+
+message UpdateUserResponse {
+  // The updated user data.
+  User user = 1;
+}
+
+message GetUserRequest {
+  oneof identifier {
+    // The ID of the user to fetch.
+    string user_id = 1;
+    // The username of the user to fetch.
+    string username = 2;
+  }
+}
+
+message GetUserResponse {
+  // The user's data.
+  User user = 1;
+}
+
+message GetMultipleUsersRequest {
+  // user ids to load.
+  repeated string user_id = 1;
+  // usernames to load.
+  repeated string username = 2;
+  // don't load user perspectives if true
+  bool omit_perspective = 3;
+}
+
+message GetMultipleUsersResponse {
+  repeated User user = 1;
+}
+
+message GetUserRestrictionsRequest {
+  // A list of queries for restrictions between one user and many other users.
+  repeated UserRestrictionQuery restriction_query = 1;
+}
+
+message GetUserRestrictionsResponse {
+  // The list of user restrictions.
+  repeated UserRestriction user_restrictions = 1;
+}
+
+message CheckUsernameAvailableRequest {
+  // The username to check for availability.
+  string username = 1;
+}
+
+message CheckUsernameAvailableResponse {
+  // TRUE if the username is available, FALSE if it is not.
+  bool available = 1;
+}
+
+message GetCurrentUserRestrictionsRequest {
+  // The ID of the user for whom to check restrictions relative to the current user.
+  string user_id = 1;
+}
+
+message GetCurrentUserRestrictionsResponse {
+  // Indicates whether the current user has blocked the specified user.
+  bool blocked = 1;
+  // Indicates whether the current user is blocked by the specified user.
+  bool blocked_by = 2;
+  // Indicates whether the current user has muted the specified user.
+  bool muted = 3;
+  // Indicates whether the target user is suspended.
+  bool suspended = 4;
+}
+
+message ReportUserRequest {
+  // The ID of the user to report.
+  string user_id = 1;
+  // The fulltext reason why the user is being reported.
+  string reason = 2;
+}
+
+message ReportUserResponse {
+  // Empty
+}
+
+message FollowUserRequest {
+  // One of these identifiers will determine which user the current user wants to follow.
+  oneof identifier {
+    // The ID of the user to follow.
+    string user_id = 1;
+    // The username of the user to follow.
+    string username = 3;
+  }
+}
+
+message FollowUserResponse {
+  // The user's data.
+  User user = 1;
+}
+
+message UnfollowUserRequest {
+  // The ID of the user to unfollow.
+  string user_id = 1;
+}
+
+message UnfollowUserResponse {
+  // Empty
+}
+
+message GetFollowersRequest {
+  // A key used to determine the pagination location.
+  // If no key is provided, the first page will be returned.
+  string page_key = 1;
+  // The field used to look up the user.
+  oneof request_by {
+    // Look up the user by their user ID.
+    string user_id = 2;
+    // Look up the user by their username.
+    string username = 3;
+  }
+}
+
+message GetFollowersResponse {
+  // A list of followers.
+  repeated user.v2.User user = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+
+message GetFollowingRequest {
+  // A key used to determine the pagination location.
+  // If no key is provided, the first page will be returned.
+  string page_key = 1;
+  // The field used to look up the user.
+  oneof request_by {
+    // Look up the user by their user ID.
+    string user_id = 2;
+    // Look up the user by their username.
+    string username = 3;
+  }
+}
+
+message GetFollowingResponse {
+  // A list of followed users.
+  repeated user.v2.User user = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+message DeleteUserRequest {
+  // EMPTY
+}
+
+message DeleteUserResponse {
+  // EMPTY
+}
+
+message BlockUserRequest {
+  string user_id = 1;
+}
+
+message BlockUserResponse {
+  // EMPTY
+}
+
+message UnblockUserRequest {
+  string user_id = 1;
+}
+
+message UnblockUserResponse {
+  // EMPTY
+}
+
+message GetBlockedUsersRequest {
+  // EMPTY
+}
+
+message GetBlockedUsersResponse {
+  repeated user.v2.User user = 1;
+}
+
+message MuteUserRequest {
+  string user_id = 1;
+}
+
+message MuteUserResponse {
+  // EMPTY
+}
+
+message UnmuteUserRequest {
+  string user_id = 1;
+}
+
+message UnmuteUserResponse {
+  // EMPTY
+}
+
+message GetMutedUsersRequest {
+  // EMPTY
+}
+
+message GetMutedUsersResponse {
+  repeated user.v2.User user = 1;
+}
+
+message SuspendUserRequest {
+  // The ID of the user to suspend/unsuspend.
+  string user_id = 1;
+  // Whether to suspend or unsuspend the user.
+  bool is_suspension = 2;
+}
+
+message SuspendUserResponse {
+  // EMPTY
+}
+
+message GetUserWithAnalyticsRequest {
+  // The ID of the user to fetch.
+  string user_id = 1;
+}
+
+message GetUserWithAnalyticsResponse {
+  // The user's data.
+  User user = 1;
+  // User analytics data.
+  UserAnalytics analytics = 2;
+}
+
+message GetInterestsRequest {
+  // EMPTY
+}
+
+message GetInterestsResponse {
+  // the list of interests
+  repeated UserInterest interest = 1;
+}
+
+message SetUserInterestsRequest {
+  // The list of interests that the user has selected
+  repeated string interest_id = 1;
+}
+
+message SetUserInterestsResponse {
+  // EMPTY
+}
+
+message GetFeaturedUsersRequest {
+  // EMPTY
+}
+
+message GetFeaturedUsersResponse {
+  // The list of featured users, along with the interest they are featured for.
+  repeated FeaturedUser user = 1;
+}
+
+message InviteContactWithAttributionRequest {
+  // Phone hash of contact to invite
+  string phone_hash = 1;
+}
+
+message InviteContactWithAttributionResponse {
+  // EMPTY
+}

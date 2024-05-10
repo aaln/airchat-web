@@ -1,0 +1,236 @@
+syntax = "proto3";
+
+package airchat.auth.v2;
+option java_package = "com.airchat.auth.v2";
+option java_outer_classname = "AuthApiProto";
+option java_multiple_files = true;
+option swift_prefix = "AuthV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/auth/v2";
+
+import "google/protobuf/timestamp.proto";
+
+import "airchat/auth/v2/auth.proto";
+
+// A service for authenticating users with Airchat.
+service AuthAPI {
+  // Pass a user's identity factor or challenge response to receive the next step or a credential if complete.
+  rpc Auth(AuthRequest) returns (AuthResponse);
+  // Exchange a refresh token for an access token.
+  rpc Refresh(RefreshRequest) returns (RefreshResponse);
+  // Find verified authentication factors associated with the current authenticated UserId.
+  rpc GetVerifiedFactors(GetVerifiedFactorsRequest) returns (GetVerifiedFactorsResponse);
+  // Revokes the authorization credentials used in the current context.
+  rpc Logout(LogoutRequest) returns (LogoutResponse);
+  // Deletes the user's entire auth. This is intended only to be used internally!
+  rpc DeleteSubject(DeleteSubjectRequest) returns (DeleteSubjectResponse);
+  // Updates the user's auth status. This is intended only to be used internally!
+  rpc UpdateSubjectStatus(UpdateSubjectStatusRequest) returns (UpdateSubjectStatusResponse);
+  // Gets a unique app invite code for the user, along with some metadata.
+  rpc GetInviteCode(GetInviteCodeRequest) returns (GetInviteCodeResponse);
+  // Applies an invite code for a particular phone number ahead of time so it isn't needed by a user when they sign up
+  // with that phone number.
+  rpc PreApplyInviteCode(PreApplyInviteCodeRequest) returns (PreApplyInviteCodeResponse);
+  // Validates the token beyond just the expiration and the signature.
+  // This should be called for extremely sensitive actions, such as user deletion.
+  rpc ValidateAccessToken(ValidateAccessTokenRequest) returns (ValidateAccessTokenResponse);
+  // Generate the attestation challenge
+  rpc GenerateAttestationChallenge(GenerateAttestationChallengeRequest) returns (GenerateAttestationChallengeResponse);
+  // Verify the app attestation
+  rpc VerifyAttestation(VerifyAttestationRequest) returns (VerifyAttestationResponse);
+  // Get list of phone number hashes from pre-applied invite codes
+  rpc GetPreAppliedPhoneNumberHashes(GetPreAppliedPhoneNumberHashesRequest) returns (GetPreAppliedPhoneNumberHashesResponse);
+  // Check if user is invited
+  rpc CheckUserIsInvited(CheckUserIsInvitedRequest) returns (CheckUserIsInvitedResponse);
+  // Fetches number of invites
+  rpc FetchUserInvites(FetchUserInvitesRequest) returns (FetchUserInvitesResponse);
+}
+
+// An identity factor or challenge request, requests can be correlated using an AuthSession.
+message AuthRequest {
+  // Correlation token, used to keep context between steps in the authentication flow, a new flow should start as empty.
+  AuthSessionToken auth_session_token = 1;
+  // Request data payload for the current step of the authentication flow
+  oneof request {
+    // The phone number identity factor
+    PhoneNumberFactor phone_number_factor = 2;
+    // The one-time password for phone number validation
+    PhoneNumberOTPFactor phone_number_otp_factor = 3;
+    // The email identity factor
+    EmailFactor email_factor = 4;
+    // The one-time password for email validation
+    EmailOTPFactor email_otp_factor = 5;
+    // A multiple use invite code used to restrict or slow down access to account creation
+    InviteCodeFactor invite_code_factor = 6;
+    // Apple Identity Token
+    AppleIdentityFactor apple_identity_factor = 7;
+    // Signup from the data on the current session
+    SignupRequest signup_request = 8;
+    // Google Identity Token
+    GoogleIdentityFactor google_identity_factor = 9;
+  }
+}
+
+// A response to a auth request, response will always have a auth session token that should be passed in subsequent requests.
+message AuthResponse {
+  // Correlation token to link additional factors to the same auth session.
+  AuthSessionToken auth_session_token = 1;
+  // Data payload in response to an AuthRequest with the next step or a credential if complete.
+  oneof response {
+    // Error details, case of a problem during the authentication flow.
+    AuthError error = 2;
+    // Credential details, after a successful authentication flow.
+    Credential credential = 3;
+    // Next step option: Phone number details.
+    PhoneNumberStep phone_number_step = 4;
+    // Next step option: OTP sent by a given phone number.
+    PhoneNumberOTPStep phone_otp_step = 5;
+    // Next step option: Email address.
+    EmailStep email_step = 6;
+    // Next step option: OTP sent by email.
+    EmailOTPStep email_otp_step = 7;
+    // Next step option: Invite code provided by another user or admin
+    InviteCodeStep invite_code_step = 8;
+    // Next step option: Link existing account or signup with current factors.
+    LinkAccountStep link_account_step = 9;
+  }
+}
+
+// A refresh request to used to obtain access tokens.
+message RefreshRequest {
+  // Private refresh token to retrieve new access tokens.
+  RefreshToken refresh_token = 1;
+}
+
+// A refresh token response with the credentials, or error details.
+message RefreshResponse {
+  // Data payload in response to an RefreshResponse with the next step or a credential if complete.
+  oneof response {
+    // Error details, case of a problem during the authentication flow.
+    AuthError error = 1;
+    // Credential details, after a successful authentication flow.
+    Credential credential = 2;
+  }
+}
+
+// A request to retrieve verified factors related with a given UserId.
+message GetVerifiedFactorsRequest {
+  // Unique User Id that should match the one from authentication token.
+  string user_id = 1;
+}
+
+// Response entity for the request of the list of related authentication factors for a given UserId.
+message GetVerifiedFactorsResponse {
+  // User Id to which all factors are related.
+  string user_id = 1;
+  // List of authentication factors.
+  repeated AuthenticationFactor factors = 2;
+}
+
+message LogoutRequest {
+  // EMPTY
+}
+
+message LogoutResponse {
+  // EMPTY
+}
+
+message DeleteSubjectRequest {
+  // EMPTY
+}
+
+message DeleteSubjectResponse {
+  // EMPTY
+}
+
+message UpdateSubjectStatusRequest {
+  // The new status to apply to the user in context.
+  SubjectAccountStatus status = 1;
+}
+
+message UpdateSubjectStatusResponse {
+  // The factors associated with the user.
+  repeated AuthenticationFactor factors = 1;
+}
+
+message GetInviteCodeRequest {
+  // EMPTY
+}
+
+message GetInviteCodeResponse {
+  // The text of the invite code allocated to the current user.
+  string code = 1;
+  // How many more times this invite code can be used to sign up a new user.
+  int32 remaining_uses = 2;
+  // The time when this invite code expires.
+  google.protobuf.Timestamp expiration_time = 3;
+  // How many times this invite code can be used in total.
+  int32 max_uses = 4;
+}
+
+message PreApplyInviteCodeRequest {
+  // The invite code owned by the requesting user, to pre-apply to the given phone number.
+  string invite_code = 1;
+  // The E.164 formatted phone number to apply the invite code to.
+  string phone_number = 2;
+}
+
+message PreApplyInviteCodeResponse {
+  // The text of the invite code allocated to the current user.
+  string code = 1;
+  // How many more times this invite code can be used to sign up a new user.
+  int32 remaining_uses = 2;
+  // The time when this invite code expires.
+  google.protobuf.Timestamp expiration_time = 3;
+}
+
+message ValidateAccessTokenRequest {
+  // EMPTY
+}
+
+message ValidateAccessTokenResponse {
+  repeated string error = 1;
+}
+
+message GenerateAttestationChallengeRequest {
+  string key_id = 1;
+}
+
+message GenerateAttestationChallengeResponse {
+  string challenge = 1;
+}
+
+message VerifyAttestationRequest {
+  string challenge = 1;
+  bytes attestation = 2;
+}
+
+message VerifyAttestationResponse {
+  // EMPTY
+}
+
+message GetPreAppliedPhoneNumberHashesRequest {
+  // The invite code, owned by the requesting user
+  string invite_code = 1;
+}
+
+message GetPreAppliedPhoneNumberHashesResponse {
+  // The list of pre-applied phone number hashes
+  repeated string phone_number_hash = 1;
+}
+
+message CheckUserIsInvitedRequest {
+  // EMPTY
+}
+
+message CheckUserIsInvitedResponse {
+  // EMPTY
+}
+
+message FetchUserInvitesRequest {
+  // EMPTY
+}
+
+message FetchUserInvitesResponse {
+  // Number of invites left
+  int32 invites_left = 1;
+}

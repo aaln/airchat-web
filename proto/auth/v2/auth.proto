@@ -1,0 +1,220 @@
+syntax = "proto3";
+
+package airchat.auth.v2;
+option java_package = "com.airchat.auth.v2";
+option java_outer_classname = "AuthProto";
+option java_multiple_files = true;
+option swift_prefix = "AuthV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/auth/v2";
+
+// A session token that makes the correlation between authentication flow and their multiple steps.
+message AuthSessionToken {
+  // Unique token used for Auth Session flow.
+  string token = 1;
+}
+
+// An access token used in token-based authentication to allow an application to access an server side services.
+message AccessToken {
+  // Unique token used for requests authentication.
+  string token = 1;
+}
+
+// A Refresh token is used to obtain access tokens when the current access token becomes invalid or expires.
+message RefreshToken {
+  // Unique token used to obtain new access tokens.
+  string token = 1;
+}
+
+// API credential is an unique identifier that must be added to any call to the servers.
+message Credential {
+  // JWT token used in token-based authentication.
+  AccessToken access_token = 1;
+  // Refresh Token to obtain new access tokens.
+  RefreshToken refresh_token = 2;
+}
+
+// Phone number factor that can be used to receive verification codes by text message.
+message PhoneNumberFactor {
+  // Phone number in e.164 format [+][country code][subscriber number including area code] with a maximum of fifteen digits.
+  string phone_number = 1;
+  // Country/region code uppercase ISO 3166 2-letter code, or a UN M.49 3-digit code.
+  string locale = 2;
+  // Transport method to be use for verification. (e.g. sms or call).
+  PhoneNumberFactorTransport transport = 3;
+}
+
+// The method for phone number verification.
+enum PhoneNumberFactorTransport {
+  PHONE_NUMBER_FACTOR_TRANSPORT_INVALID = 0;
+  PHONE_NUMBER_FACTOR_TRANSPORT_SMS = 1;
+  PHONE_NUMBER_FACTOR_TRANSPORT_CALL = 2;
+}
+
+// One-time password factor used for phone number validation.
+message PhoneNumberOTPFactor {
+  // Phone number in e.164 format [+][country code][subscriber number including area code] with a maximum of fifteen digits.
+  string phone_number = 1;
+  // A one-time password received by text in the given phone number.
+  string otp = 2;
+}
+
+// Step option: Authentication flow step to request a Phone Number.
+message PhoneNumberStep {
+  // Phone number in e.164 format [+][country code][subscriber number including area code] with a maximum of fifteen digits.
+  string phone_number = 1;
+}
+
+// Step option: Authentication flow step to request a one-time password sent by phone number.
+message PhoneNumberOTPStep {
+  // Phone number in e.164 format, may or may not be masked
+  string phone_number = 1;
+  // Whether phone_number was returned with all digits, or masked for 2FA
+  bool is_masked = 2;
+  // Number of characters for OTP.
+  uint32 otp_length = 3;
+}
+
+// Email factor in a valid format to be used for verification codes.
+message EmailFactor {
+  // Email address with a maximum of 254 digits.
+  string email = 1;
+}
+
+// One-time password factor used for Email validation.
+message EmailOTPFactor {
+  // Email address with a maximum of 254 digits.
+  string email = 1;
+  // A one-time password received by correspondent email.
+  string otp = 2;
+}
+
+// A multiple use invite code used for restricting or pacing access to account registration.
+message InviteCodeFactor {
+  // The multiple use invitation code.
+  string invite_code = 1;
+}
+
+// A apple JWT Token for sign in with apple.
+message AppleIdentityFactor {
+  string apple_identity_token = 1;
+}
+
+// A Apple ID. -  Used on get user's factors list.
+message AppleIdentity {
+  string sub = 1;
+}
+
+// A Google JWT Token
+message GoogleIdentityFactor {
+  string google_identity_token = 1;
+}
+
+// A Google ID - unique identifier for the user.
+message GoogleIdentity {
+  string sub = 1;
+}
+
+// Request to sign up using data from the current session. Use when the user want's to sign up instead of linking an existing account.
+message SignupRequest {
+  //empty.
+}
+
+// Step option: Authentication flow step to request a email.
+message EmailStep {
+  // Email address with a maximum of 254 digits.
+  string email = 1;
+}
+
+// Step option: Authentication flow step to request a one-time password sent by email.
+message EmailOTPStep {
+  // Email address with a maximum of 254 digits, may or may not be masked
+  string email = 1;
+  // Whether email was returned or masked for 2FA
+  bool is_masked = 2;
+  // Number of characters for OTP sent by email.
+  uint32 otp_length = 3;
+}
+
+// Step option: Invite code provided to the user by another user or admin, created and configured manually by an admin.
+message InviteCodeStep {
+  // Empty
+}
+
+// Step option: Let the client know that the previous auth succeed and give it a change to link an existing account by using an existing factor.
+message LinkAccountStep {
+  // Empty.
+}
+
+// Authentication Factor item for the list of factors in FactorsResponse.
+message AuthenticationFactor {
+  oneof factor {
+    // The phone number identity factor
+    PhoneNumberFactor phone_number = 1;
+    // The email identity factor
+    EmailFactor email = 2;
+    // The invite code factor
+    InviteCodeFactor invite_code = 3;
+    // The Apple ID factor
+    AppleIdentity apple_identity = 4;
+    // The Google ID factor
+    GoogleIdentity google_identity = 5;
+  }
+}
+
+// Authentication flow possible error details.
+enum AuthError {
+  // An unknown value was passed in the request. Check that you are using the latest version of this protocol.
+  AUTH_ERROR_INVALID = 0;
+  // The application has made too many requests and is asked to perform a back off.
+  AUTH_ERROR_RATE_LIMITED = 1;
+  // The user provided an invalid or incorrectly formatted phone number.
+  AUTH_ERROR_PHONE_NUMBER_FORMATTING = 2;
+  // The user is banned or otherwise blocked from registering.
+  AUTH_ERROR_PHONE_NUMBER_BLOCKED_CARRIER = 3;
+  // The user has entered an incorrect phone OTP.
+  AUTH_ERROR_PHONE_NUMBER_INCORRECT_OTP = 4;
+  // The user has entered an expired phone OTP.
+  AUTH_ERROR_PHONE_NUMBER_EXPIRED_OTP = 5;
+  // The user has entered an incorrect phone OTP too many times. A back off should be applied.
+  AUTH_ERROR_PHONE_NUMBER_MAX_ATTEMPTS_OTP = 6;
+  // The same phone OTP has been sent to the phone number too many times. The app should perform a back off.
+  AUTH_ERROR_PHONE_NUMBER_MAX_RESENDS_OTP = 7;
+  // The provided transport type for phone OTP delivery is invalid.
+  AUTH_ERROR_PHONE_NUMBER_INVALID_TRANSPORT = 8;
+  // The provided session token has expired and is no longer valid.
+  AUTH_ERROR_SESSION_TOKEN_EXPIRED = 9;
+  // The provided session token is invalid.
+  AUTH_ERROR_SESSION_TOKEN_INVALID = 10;
+  // The provided auth token has expired and is no longer valid.
+  AUTH_ERROR_AUTH_TOKEN_EXPIRED = 11;
+  // The provided auth token is invalid.
+  AUTH_ERROR_AUTH_TOKEN_INVALID = 12;
+  // The provided refresh token has expired and is no longer valid.
+  AUTH_ERROR_REFRESH_TOKEN_EXPIRED = 13;
+  // The provided refresh token is invalid.
+  AUTH_ERROR_REFRESH_TOKEN_INVALID = 14;
+  // The provided step was not expected.
+  AUTH_ERROR_UNEXPECTED_STEP = 15;
+  // There was an error processing the request.
+  AUTH_ERROR_UNEXPECTED_INTERNAL_ERROR = 16;
+  // The provided invite code is unknown.
+  AUTH_ERROR_INVITE_CODE_UNKNOWN = 17;
+  // The provided invite code has been used too many times.
+  AUTH_ERROR_INVITE_CODE_MAXIMUM_USED = 18;
+  // The provided invite code has passed the expiration date.
+  AUTH_ERROR_INVITE_CODE_EXPIRED = 19;
+}
+
+// The state of a user's account.
+enum SubjectAccountStatus {
+  // This is an unset value and receiving it is always an error.
+  SUBJECT_ACCOUNT_STATUS_INVALID = 0;
+  // The user has just created a new account and is not yet active.
+  SUBJECT_ACCOUNT_STATUS_NEW = 1;
+  // The user's account is fully active.
+  SUBJECT_ACCOUNT_STATUS_ACTIVE = 2;
+  // The user's account has been suspended.
+  SUBJECT_ACCOUNT_STATUS_SUSPENDED = 3;
+  // The user's account has been locked out.
+  SUBJECT_ACCOUNT_STATUS_LOCKED_OUT = 4;
+}

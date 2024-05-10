@@ -1,0 +1,180 @@
+syntax = "proto3";
+
+package airchat.activity.v2;
+option java_package = "com.airchat.activity.v2";
+option java_outer_classname = "ActivityProto";
+option java_multiple_files = true;
+option swift_prefix = "ActivityV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/activity/v2";
+
+import "google/protobuf/timestamp.proto";
+import "airchat/message/v2/message.proto";
+import "airchat/user/v2/user.proto";
+
+// A single event item in the activity log.
+message ActivityItem {
+  // The time that the event occurred.
+  google.protobuf.Timestamp event_time = 1;
+  // The ID of the recording the activity is related to, if relevant.
+  string recording_id = 2;
+  // The type of activity this item represents.
+  ActivityType type = 3;
+  // The user who performed the activity.
+  airchat.user.v2.User user = 4;
+  // The ID of this activity item.
+  string activity_id = 5;
+  // The message reference recording ID the activity is related to, if relevant.
+  string reference_recording_id = 6;
+  // The message thread ID the activity is related to, if relevant.
+  string message_thread_id = 7;
+  // The recording ID of the message that this item's message is replying to, if relevant.
+  string reply_recording_id = 8;
+  // The number of messages between the most recent participant messages in the thread for this item, if relevant
+  int64 participant_message_gap = 9;
+  // Whether the user has seen this item.
+  bool seen = 10;
+  // The identifier for this item. Used for marking seen.
+  ActivityItemIdentifier identifier = 11;
+  // The private room ID the activity is related to, if relevant.
+  string private_room_id = 12;
+  // The channel ID the activity is related to, if relevant.
+  string channel_id = 13;
+}
+
+// A compressed activity log item returned in the log list, information to be looked up from the response
+message NormalizedActivityLogItem {
+  // The ID of this activity item.
+  string activity_id = 1;
+  // The type of activity this item represents.
+  ActivityType type = 2;
+  // The time that the event occurred.
+  google.protobuf.Timestamp event_time = 3;
+  // The number of users involved in this activity item. If more than one, this is considered to be a group item.
+  int64 total_users = 4;
+  // The user(s) ids involved in this activity log item. If incomplete, a key to the next page will be included.
+  NormalizedActivityLogItemUsers users = 5;
+  // References to any other object ids which might be related to this activity log item.
+  repeated NormalizedActivityLogItemReference reference_ids = 6;
+  // The message thread id related to this item, if relevant.
+  string message_thread_id = 7;
+  // The number of messages between the most recent participant messages in the thread for this item, if relevant
+  int64 participant_message_gap = 8;
+  // Whether the user has seen this item.
+  bool seen = 9;
+  // The identifier for this item. Used for marking seen.
+  ActivityItemIdentifier identifier = 10;
+  // The private room id related to this item, if relevant.
+  string private_room_id = 11;
+  // The channel id related to this item, if relevant.
+  string channel_id = 12;
+}
+
+message NormalizedActivityLogItemUsers {
+  // A list of user ids related to a particular activity log item.
+  repeated string user_id = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+message NormalizedActivityLogItemReference {
+  oneof reference {
+    // The message reference.
+    string message_recording_id = 1;
+  }
+}
+
+// An individual or grouped item in the activity log.
+message ActivityLogItem {
+  // The ID of this activity item.
+  string activity_id = 1;
+  // The type of activity this item represents.
+  ActivityType type = 2;
+  // The time that the event occurred.
+  google.protobuf.Timestamp event_time = 3;
+  // The number of users involved in this activity item. If more than one, this is considered to be a group item.
+  int64 total_users = 4;
+  // The user(s) involved in this activity log item. If incomplete, a key to the next page will be included.
+  ActivityLogItemUsers users = 5;
+  // References to any other objects which might be related to this activity log item.
+  repeated ActivityLogItemReference references = 6;
+  // The message thread id related to this item, if relevant.
+  string message_thread_id = 7;
+  // The number of messages between the most recent participant messages in the thread for this item, if relevant
+  int64 participant_message_gap = 8;
+  // Whether the user has seen this item.
+  bool seen = 9;
+  // The identifier for this item. Used for marking seen.
+  ActivityItemIdentifier identifier = 10;
+  // The private room id related to this item, if relevant.
+  string private_room_id = 11;
+  // The channel id related to this item, if relevant.
+  string channel_id = 12;
+}
+
+// A unique identifier for an activity log item.
+message ActivityItemIdentifier {
+  // The coordinate for the item.
+  string coordinate = 1;
+  // The time that the event occurred. This may be different from the event_time on the ActivityLogItem message
+  google.protobuf.Timestamp original_event_time = 4;
+}
+
+// A reference from an activity item to the thing(s) that was interacted with.
+message ActivityLogItemReference {
+  // The specific thing being being referenced by an activity item.
+  oneof reference {
+    // The item is a message.
+    message.v2.Message message = 1;
+  }
+}
+
+message ActivityCoordinate {
+  // The recipient user id of the activity
+  string recipient_user_id = 1;
+  // The activity type
+  ActivityType type = 2;
+  // The reference id, which is the subject of the item.
+  // Could be a message id or a user id depending on the type
+  string reference_id = 3;
+}
+
+// A list of users involved in the activity item and performed the activity type.
+// It is possible for this to be an incomplete list, in which case a paging key will be provided.
+message ActivityLogItemUsers {
+  // A list of users related to a particular activity log item.
+  repeated user.v2.User user = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+// The type of an activity item in the activity log.
+enum ActivityType {
+  // This is an unset value. Receiving this value is always an error.
+  ACTIVITY_TYPE_INVALID = 0;
+  // A user from your contact list just joined ChitChat.
+  ACTIVITY_TYPE_CONTACT_JOINED = 1;
+  // A user has followed you.
+  ACTIVITY_TYPE_FOLLOW_YOU = 2;
+  // A user mentioned you in a message.
+  ACTIVITY_TYPE_MESSAGE_MENTIONED_YOU = 3;
+  // A user has liked a message.
+  ACTIVITY_TYPE_MESSAGE_LIKE = 4;
+  // A user has removed a like from a message.
+  ACTIVITY_TYPE_MESSAGE_UNLIKE = 5;
+  // A user has reposted a message.
+  ACTIVITY_TYPE_MESSAGE_REPOST = 6;
+  // A user has removed a repost from a message.
+  ACTIVITY_TYPE_MESSAGE_UN_REPOST = 7;
+  // A user has replied to a message.
+  ACTIVITY_TYPE_MESSAGE_REPLY = 8;
+  // A user has sent you a private message.
+  ACTIVITY_TYPE_MESSAGE_PRIVATE = 9;
+  // A user liked your private message
+  ACTIVITY_TYPE_PRIVATE_MESSAGE_LIKE = 10;
+  // A user unliked your private message
+  ACTIVITY_TYPE_PRIVATE_MESSAGE_UNLIKE = 11;
+  // A user has invited you to a channel.
+  ACTIVITY_TYPE_CHANNEL_PARTICIPANT_INVITE = 12;
+  // An invite activity item is no longer needed.
+  ACTIVITY_TYPE_CHANNEL_PARTICIPANT_INVITE_CLEARED = 13;
+}

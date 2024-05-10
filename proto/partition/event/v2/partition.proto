@@ -1,0 +1,116 @@
+syntax = "proto3";
+
+package airchat.partition.event.v2;
+option java_package = "com.airchat.partition.event.v2";
+option java_outer_classname = "PartitionProto";
+option java_multiple_files = true;
+option swift_prefix = "PartitionV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/partition/event/v2";
+
+import "airchat/activity/v2/activity.proto";
+import "airchat/gateway/v2/status_stream.proto";
+import "airchat/message/v2/message.proto";
+import "airchat/message/event/v2/message.proto";
+import "airchat/user/event/v2/user.proto";
+
+// A partitioning of a long list of users to send an envelope to.
+message Partition {
+  // The beginning of the partition (inclusive).
+  bytes partition_start = 1;
+  // The end of the partition (inclusive).
+  bytes partition_end = 2;
+  // An identifier for the list to partition.
+  PartitionListIdentifier identifier = 3;
+  // Payload information for the partition.
+  PartitionPayload payload = 4;
+}
+
+// An easily extensible identifier for the list to partition.
+message PartitionListIdentifier {
+  // A list of ID's or other list values to exclude from processing in all partitions.
+  repeated string exclude_id = 1;
+  // The identifier that uniquely describes the list.
+  oneof list_identifier {
+    // The list is for the followers of a particular user.
+    string follower_user_id = 2;
+    // The list is for the status streaming subscribers to a user.
+    string status_subscription_user_id = 3;
+    // The list is for the followed users of the specified user.
+    string followed_user_id = 4;
+    // The list is for the message recordings where a user has left a specific event type.
+    EventRecordingsByUserAndType event_recordings_by_user_and_type = 5;
+    // The list is for the messages created by a particular user.
+    string messages_by_user_id = 6;
+    // The list is for the followers of the list of users.
+    FollowerUserIdsIdentifier follower_user_ids_identifier = 7;
+    // The list is for the private messages created by a particular user.
+    string private_messages_by_user_id = 8;
+    // The list is for the highlight context ids by user id.
+    string highlight_context_ids_by_user_id = 9;
+    // The list is for the message thread feed items by user id and followed user id.
+    MessageThreadFeedItemsByUserIdAndFollowedId message_thread_feed_items_by_user_id_and_followed_id = 10;
+    // The list is for the message thread feed items by message thread id and followed user id.
+    MessageThreadFeedItemsByMessageThreadIdAndFollowedId message_thread_feed_items_by_message_thread_id_and_followed_id = 11;
+  }
+}
+
+// An easily extensible payload for the partition.
+message PartitionPayload {
+  // The payload to split to each recipient.
+  oneof payload {
+    // The activity to forward to each user (like, listen, follow, message, etc.).
+    activity.v2.ActivityItem activity_item = 1;
+    // The user's status to stream to subscribed targets.
+    StatusAndTarget stream_status_and_target = 2;
+    // A status subscription to append for a subscriber, including users from the list.
+    gateway.v2.StatusSubscription user_status_subscription = 3;
+    // A message was published and there may be user specific handling needed.
+    message.event.v2.MessagePublished message_published = 4;
+    // A repost was added or removed.
+    message.event.v2.MessageRepostUpdate message_repost_update = 5;
+    // Delete messages.
+    bool delete_messages = 6;
+    // Delete private messages.
+    bool delete_private_messages = 7;
+    // A highlight item was added or removed.
+    message.event.v2.HighlightItemUpdate highlight_item_update = 8;
+    // A message thread feed needs an update.
+    message.event.v2.MessageThreadFeedUpdate message_thread_feed_update = 9;
+    // User follow event.
+    user.event.v2.UserFollow user_follow = 10;
+  }
+}
+
+// A partition identifier for fetching recordings where a user has left events of a specific type.
+message EventRecordingsByUserAndType {
+  // The user who left the events on the recordings.
+  string user_id = 1;
+  // The specific type of the events the user left.
+  airchat.message.v2.MessageEventType event_type = 2;
+}
+
+// A status and an optional related targets, if being sent to a given target.
+message StatusAndTarget {
+  // A status to stream to subscribed users.
+  gateway.v2.Status status = 1;
+}
+
+// A partition identifier for the followers of the list of users.
+message FollowerUserIdsIdentifier {
+  // The list of user ID's to fetch the followers for.
+  repeated string user_id = 1;
+}
+
+message MessageThreadFeedItemsByUserIdAndFollowedId {
+  // The user ID to fetch the message thread feed items for.
+  string user_id = 1;
+  // The followed user ID to fetch the message thread feed items for.
+  string followed_user_id = 2;
+}
+
+message MessageThreadFeedItemsByMessageThreadIdAndFollowedId {
+  // The message thread ID to fetch the message thread feed items for.
+  string message_thread_id = 1;
+  // The followed user ID to fetch the message thread feed items for.
+  string followed_user_id = 2;
+}

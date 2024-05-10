@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package airchat.links.v2;
+option java_package = "com.airchat.links.v2";
+option java_outer_classname = "LinksProto";
+option java_multiple_files = true;
+option swift_prefix = "LinksV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/links/v2";
+
+// Information needed to create a link to a user.
+message UserLink {
+  // The username of the user to link to.
+  string username = 1;
+}
+
+// Information needed to create a link to a message.
+message PostLink {
+  // The username of the user to link to.
+  string username = 1;
+  // The ID of the message to link to.
+  string recording_id = 2;
+  // (Optional) The id of the thread this message should display within.
+  string thread_id = 3;
+}

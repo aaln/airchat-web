@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+package airchat.relationship.v2;
+option java_package = "com.airchat.relationship.v2";
+option java_outer_classname = "RelationshipApiProto";
+option java_multiple_files = true;
+option swift_prefix = "RelationshipV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/relationship/v2";
+
+import "airchat/relationship/v2/relationship.proto";
+import "airchat/user/v2/user.proto";
+
+// A service for reasoning about the connections between users.
+service RelationshipAPI {
+  // Uploads a batch of contacts and receive a response for the batch with the rooms the contacts are part of.
+  rpc UploadContacts(UploadContactsRequest) returns (UploadContactsResponse);
+  // Gets featured users for the requesting user.
+  rpc GetFeaturedUsers (GetFeaturedUsersRequest) returns (GetFeaturedUsersResponse);
+  // Gets the data related to the invite contact.
+  rpc GetInviteContactData (GetInviteContactDataRequest) returns (GetInviteContactDataResponse);
+  // Gets suggested users that the current user may want to follow.
+  rpc GetSuggestedUsers (GetSuggestedUsersRequest) returns (GetSuggestedUsersResponse);
+  // Gets personalized recommended users that the current user may want to follow.
+  rpc GetRecommendedUsers (GetRecommendedUsersRequest) returns (GetRecommendedUsersResponse);
+}
+
+message UploadContactsRequest {
+  // A batch of contacts to upload as the current user's address book contacts.
+  repeated Contact contacts = 1;
+}
+
+message UploadContactsResponse {
+  // If there was an error processing the contacts batch, it will be supplied here.
+  ContactsUploadError error = 1;
+  // Can be empty if no contacts match.
+  repeated airchat.user.v2.User user = 2;
+}
+
+message GetFeaturedUsersRequest {
+  // Nothing here
+}
+
+message GetFeaturedUsersResponse {
+  // Can be empty if no users set as featured.
+  repeated airchat.user.v2.User user = 1;
+}
+
+message GetInviteContactDataRequest {
+  repeated string phone_number_hash = 1;
+}
+
+message GetInviteContactDataResponse {
+  repeated InviteContactData phone_number_data = 1;
+}
+
+message GetSuggestedUsersRequest {
+  // A key used to determine the pagination location. If no key is provided, the first page will be returned.
+  string page_key = 1;
+}
+
+message GetSuggestedUsersResponse {
+  // A list of suggested users.
+  repeated user.v2.User user = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+message GetRecommendedUsersRequest {
+  // A key used to determine the pagination location. If no key is provided, the first page will be returned.
+  string page_key = 1;
+}
+
+message GetRecommendedUsersResponse {
+  // A list of recommended users.
+  repeated user.v2.User user = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}

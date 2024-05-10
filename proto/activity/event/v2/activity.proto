@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package airchat.activity.event.v2;
+option java_package = "com.airchat.activity.event.v2";
+option java_outer_classname = "ActivityProto";
+option java_multiple_files = true;
+option swift_prefix = "ActivityV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/activity/event/v2";
+
+import "airchat/activity/v2/activity.proto";
+
+message ActivityEvent {
+  // The activity item to log or count.
+  activity.v2.ActivityItem item = 1;
+  // The ID of the user the event should be logged/counted for.
+  string user_id = 2;
+}

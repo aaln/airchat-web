@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package airchat.search.v2;
+option java_package = "com.airchat.search.v2";
+option java_outer_classname = "SearchApiProto";
+option java_multiple_files = true;
+option swift_prefix = "SearchV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/search/v2";
+
+import "airchat/search/v2/search.proto";
+
+// A service handling search.
+service SearchAPI {
+  // A generalized search function.
+  rpc Search (SearchRequest) returns (SearchResponse);
+}
+
+message SearchRequest {
+  // The query to search by.
+  string query = 1;
+  // The type of searches to perform and thus the result types returned.
+  // Requires at least one search type to be included.
+  repeated SearchType type = 2;
+}
+
+message SearchResponse {
+  // A list of typed results for each requested SearchType.
+  repeated SearchTypedResult hit = 1;
+}

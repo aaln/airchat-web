@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package airchat.message.event.v2;
+option java_package = "com.airchat.message.event.v2";
+option java_outer_classname = "MessageInternalApiProto";
+option java_multiple_files = true;
+option swift_prefix = "MessageInternalV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/message/event/v2";
+
+import "airchat/message/v2/message.proto";
+
+// A service for interacting with messages.
+service MessageInternalAPI {
+  // Gets a list of hydrated messages.
+  rpc GetHydratedMessages(GetHydratedMessagesRequest) returns (GetHydratedMessagesResponse);
+  // Gets the list of user IDs sorted by their interaction scores relative to the current user.
+  rpc GetUserIdsByInteractionScore (GetUserIdsByInteractionScoreRequest) returns (GetUserIdsByInteractionScoreResponse);
+  // Gets a list of private hydrated messages.
+  rpc GetHydratedPrivateMessages(GetHydratedPrivateMessagesRequest) returns (GetHydratedPrivateMessagesResponse);
+}
+
+message GetHydratedMessagesRequest {
+  // The recording IDs to get hydrated messages for.
+  repeated string recording_id = 1;
+  // The context user id
+  string user_id = 2;
+}
+
+message GetHydratedMessagesResponse {
+  // The list of hydrated messages.
+  repeated message.v2.Message message = 1;
+}
+
+message GetUserIdsByInteractionScoreRequest {
+  // The user ID to get the interaction scores relative to.
+  string user_id = 1;
+  // A key used to determine the pagination location. If no key is provided, the first page will be returned.
+  string page_key = 2;
+}
+
+message GetUserIdsByInteractionScoreResponse {
+  // The list of user IDs sorted by their interaction scores relative to the current user
+  repeated string user_id = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+message GetHydratedPrivateMessagesRequest {
+  // The context user id
+  string user_id = 1;
+  // The recording IDs to get hydrated private messages for.
+  repeated string recording_id = 2;
+}
+
+message GetHydratedPrivateMessagesResponse {
+  // The list of hydrated private messages.
+  repeated message.v2.Message message = 1;
+}

@@ -1,0 +1,160 @@
+syntax = "proto3";
+
+package airchat.user.v2;
+option java_package = "com.airchat.user.v2";
+option java_outer_classname = "UserProto";
+option java_multiple_files = true;
+option swift_prefix = "UserV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/user/v2";
+
+import "google/protobuf/timestamp.proto";
+
+// A basic user information message.
+message User {
+  // The user's hash or unique ID.
+  string id = 1;
+  // The username of the user.
+  string username = 2;
+  // The visible name of the user.
+  string name = 3;
+  // The path of the user's avatar image (if one exists).
+  string avatar = 4;
+  // The user's current standing in the system.
+  UserAccountStatus status = 5;
+  // The date when the user was created, or empty if not available.
+  google.protobuf.Timestamp created_time = 6;
+  // The user's bio data.
+  string bio = 7;
+  // A link to the user's website.
+  string web_url = 8;
+  // The user's Twitter handle, if they previously verified their twitter account.
+  string twitter_handle = 9;
+  // The user's Instagram handle
+  string instagram_handle = 10;
+  // The user's profile background color.
+  UserAccountBackgroundColor background_color = 11;
+  // Extra information about how the user is related with other entities.
+  oneof perspective {
+    // The user's perspective data.
+    UserPerspective user_perspective = 12;
+  }
+}
+
+// All relationship information between user and viewer (user that requested information).
+message UserPerspective {
+  // True if the other user follows the current user.
+  bool follows = 1;
+  // The date when the other user followed the current user.
+  google.protobuf.Timestamp follows_since_time = 2;
+  // True if the current user follows the other user.
+  bool following = 3;
+  // The date when the current user followed the other user.
+  google.protobuf.Timestamp following_since_time = 4;
+  // The date when the perspective was last updated.
+  google.protobuf.Timestamp last_updated_time = 5;
+}
+
+// Representation of restrictions one user imposes on another.
+message UserRestriction {
+  // The user who initiated the action.
+  string from_user_id = 1;
+  // The user the action was taken against.
+  string to_user_id = 2;
+  // Whether the fromUser blocked the toUser.
+  bool blocked = 3;
+  // Whether the fromUser muted the toUser.
+  bool muted = 4;
+  // Indicates whether the toUser is suspended.
+  bool suspended = 5;
+}
+
+// A query to retrieve restrictions taken by from_user_id towards users in to_user_id list.
+message UserRestrictionQuery {
+  // The user imposing the restrictions.
+  string from_user_id = 1;
+  // The list of users on whom the restrictions are imposed by the from_user_id.
+  repeated string to_user_id = 2;
+}
+
+// The status of a user's account.
+enum UserAccountStatus {
+  // This is an unset value (the default if nobody sets it).
+  USER_ACCOUNT_STATUS_INVALID = 0;
+  // The user's account is fully activated and can access all endpoints.
+  USER_ACCOUNT_STATUS_ACTIVE = 1;
+  // The user's account has not gone through onboarding.
+  USER_ACCOUNT_STATUS_NEW = 2;
+  // The user's account has been temporarily locked out.
+  USER_ACCOUNT_STATUS_LOCKED_OUT = 3;
+  // The user's account has been suspended and is not allowed to access any endpoint.
+  USER_ACCOUNT_STATUS_SUSPENDED = 4;
+}
+
+// The background color of a user's profile.
+enum UserAccountBackgroundColor {
+  // This is an unset value (the default if nobody sets it).
+  USER_ACCOUNT_BACKGROUND_COLOR_INVALID = 0;
+  // Profile color #87C0E3
+  USER_ACCOUNT_BACKGROUND_COLOR_POWDER_BLUE = 1;
+  // Profile color #E9502F
+  USER_ACCOUNT_BACKGROUND_COLOR_RED = 2;
+  // Profile color #51B174
+  USER_ACCOUNT_BACKGROUND_COLOR_GREEN = 3;
+  // Profile color #416FDF
+  USER_ACCOUNT_BACKGROUND_COLOR_BLUE = 4;
+  // Profile color #7163E1
+  USER_ACCOUNT_BACKGROUND_COLOR_PURPLE = 5;
+  // Profile color #191919
+  USER_ACCOUNT_BACKGROUND_COLOR_DARK_GREY = 6;
+}
+
+// A single top level metadata item to update in a user's profile.
+message UpdateUserItem {
+  oneof item {
+    // The new name for the user.
+    string name = 1;
+    // The new bio for the user.
+    string bio = 2;
+    // The new username for the user.
+    string username = 3;
+    // The new avatar for the user.
+    bytes  avatar = 4;
+    // The new external website URL for the user.
+    string web_url = 5;
+    // The user's access token for Twitter, which can be used to add their Twitter profile information.
+    string twitter_access_token = 6;
+    // The background color for the user's profile.
+    UserAccountBackgroundColor background_color = 7;
+    // The user's Twitter handle
+    string twitter_handle = 8;
+    // The user's Instagram handle
+    string instagram_handle = 9;
+  }
+}
+
+message UserAnalytics {
+  // The user ID.
+  string user_id = 1;
+  // The number of followers.
+  int64 follower_count = 2;
+  // The number of users this user is following.
+  int64 following_count = 3;
+  // Information about attribution of the user's signup, if invited by another user.
+  User user_signup_attribution = 4;
+}
+
+// Represents an interest or topic that a user can select.
+message UserInterest {
+  // The ID of the interest
+  string id = 1;
+  // The display title of the interest
+  string title = 2;
+}
+
+// A featured user account for a specific interest
+message FeaturedUser {
+  // the featured user
+  User user = 1;
+  // the interest that they are featured for.
+  UserInterest interest = 2;
+}

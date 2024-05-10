@@ -1,0 +1,680 @@
+syntax = "proto3";
+
+package airchat.message.v2;
+option java_package = "com.airchat.message.v2";
+option java_outer_classname = "MessageApiProto";
+option java_multiple_files = true;
+option swift_prefix = "MessageV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/message/v2";
+
+import "airchat/user/v2/user.proto";
+import "airchat/message/v2/message.proto";
+import "google/protobuf/timestamp.proto";
+
+// A service handling messages.
+service MessageAPI {
+  // Initiates a message upload.
+  rpc CreateUpload (CreateUploadRequest) returns (CreateUploadResponse);
+  // Creates an upload URL for a media segment.
+  rpc ReadyUploadSegment (ReadyUploadSegmentRequest) returns (ReadyUploadSegmentResponse);
+  // Completes the upload and generates the playlist.
+  rpc CompleteUpload (CompleteUploadRequest) returns (CompleteUploadResponse);
+  // Aborts the upload and deletes the segments.
+  rpc AbortUpload (AbortUploadRequest) returns (AbortUploadResponse);
+
+  // Gets the list of messages.
+  rpc GetMessages (GetMessagesRequest) returns (GetMessagesResponse);
+  // Deletes a message.
+  rpc DeleteMessage (DeleteMessageRequest) returns (DeleteMessageResponse);
+
+  // Creates a message thread.
+  rpc CreateMessageThread (CreateMessageThreadRequest) returns (CreateMessageThreadResponse);
+  // Gets a message thread.
+  rpc GetMessageThreads (GetMessageThreadsRequest) returns (GetMessageThreadsResponse);
+  // Gets a message thread.
+  rpc GetMessageThreadsByReference (GetMessageThreadsByReferenceRequest) returns (GetMessageThreadsByReferenceResponse);
+  // Gets a message thread.
+  rpc GetMessageThreadDetailsByReference (GetMessageThreadDetailsByReferenceRequest) returns (GetMessageThreadDetailsByReferenceResponse);
+
+  // Get a page of messages within an index range.
+  rpc GetThreadMessagesByIndex (GetThreadMessagesByIndexRequest) returns (GetThreadMessagesByIndexResponse);
+  // Get all deleted thread message indexes in a given index range.
+  rpc GetThreadDeletedIndexes (GetThreadDeletedIndexesRequest) returns (GetThreadDeletedIndexesResponse);
+
+  // Sends a message event.
+  rpc SendMessageEvent (SendMessageEventRequest) returns (SendMessageEventResponse);
+  // Get the event log items for a specific message.
+  rpc GetMessageEventLog (GetMessageEventLogRequest) returns (GetMessageEventLogResponse);
+  // Gets message analytics for the requested types.
+  rpc GetMessageAnalytics (GetMessageAnalyticsRequest) returns (GetMessageAnalyticsResponse);
+
+  // Gets the message feed.
+  rpc GetMessageFeed (GetMessageFeedRequest) returns (GetMessageFeedResponse);
+  // Gets the user feed.
+  rpc GetUserFeed (GetUserFeedRequest) returns (GetUserFeedResponse);
+  // Gets the highlight feed.
+  rpc GetHighlightFeed (GetHighlightFeedRequest) returns (GetHighlightFeedResponse);
+  // Gets the message feed for a given channel.
+  rpc GetChannelFeed (GetChannelFeedRequest) returns (GetChannelFeedResponse);
+
+  // Gets the highlighted items
+  rpc GetHighlights (GetHighlightsRequest) returns (GetHighlightsResponse);
+  // Highlights a message or thread.
+  rpc SaveHighlight (SaveHighlightRequest) returns (SaveHighlightResponse);
+  // Removes the highlighted items
+  rpc RemoveHighlight (RemoveHighlightRequest) returns (RemoveHighlightResponse);
+
+  // Gets the bookmarked items
+  rpc GetBookmarks (GetBookmarksRequest) returns (GetBookmarksResponse);
+  // Bookmarks a message or thread.
+  rpc SaveBookmark (SaveBookmarkRequest) returns (SaveBookmarkResponse);
+  // Removes the bookmarked items
+  rpc RemoveBookmark (RemoveBookmarkRequest) returns (RemoveBookmarkResponse);
+
+  // Updates the message with link references.
+  rpc UpdateMessageLinkMetadata (UpdateMessageLinkMetadataRequest) returns (UpdateMessageLinkMetadataResponse);
+
+  // Creates a transcription for a message using an on-device model.
+  rpc CreateTranscription (CreateTranscriptionRequest) returns (CreateTranscriptionResponse);
+
+  //
+  // Image Upload RPCs
+  //
+
+  // Creates an upload URL and image reference id.
+  rpc CreateImageUpload (CreateImageUploadRequest) returns (CreateImageUploadResponse);
+  // Completes the upload.
+  rpc CompleteImageUpload (CompleteImageUploadRequest) returns (CompleteImageUploadResponse);
+  // Aborts the upload and deletes the image.
+  rpc AbortImageUpload (AbortImageUploadRequest) returns (AbortImageUploadResponse);
+  // Updates the message with the image references.
+  rpc UpdateMessageImageReferences (UpdateMessageImageReferencesRequest) returns (UpdateMessageImageReferencesResponse);
+
+  //
+  // Mention RPCs
+  //
+
+  // Update mentioned users
+  rpc UpdateMessageMentions (UpdateMessageMentionsRequest) returns (UpdateMessageMentionsResponse);
+  // Get mention candidates
+  rpc GetMentionCandidates (GetMentionCandidatesRequest) returns (GetMentionCandidatesResponse);
+
+  //
+  // Private message RPCs
+  //
+
+  // Initiates a private message upload.
+  rpc CreatePrivateUpload (CreatePrivateUploadRequest) returns (CreatePrivateUploadResponse);
+
+  // Creates a private room.
+  rpc CreatePrivateRoom (CreatePrivateRoomRequest) returns (CreatePrivateRoomResponse);
+  // Gets a private room.
+  rpc GetPrivateRoom (GetPrivateRoomRequest) returns (GetPrivateRoomResponse);
+  // Get the list of active private rooms where the current user is a participant.
+  rpc GetPrivateRooms (GetPrivateRoomsRequest) returns (GetPrivateRoomsResponse);
+
+  // Creates a private room.
+  rpc ClearPrivateRoomUnreadCount (ClearPrivateRoomUnreadCountRequest) returns (ClearPrivateRoomUnreadCountResponse);
+
+  // Get a page of private room messages within an index range.
+  rpc GetPrivateMessagesByIndex (GetPrivateMessagesByIndexRequest) returns (GetPrivateMessagesByIndexResponse);
+  // Get all deleted private room message indexes in a given index range.
+  rpc GetPrivateRoomDeletedIndexes (GetPrivateRoomDeletedIndexesRequest) returns (GetPrivateRoomDeletedIndexesResponse);
+}
+
+message CreateUploadRequest {
+  // The recordingId
+  string recording_id = 1;
+  // The ID of the message thread the message will be sent to.
+  string message_thread_id = 2;
+  // Playlist configuration information for the default playlist.
+  // Each uploaded segment will be part of this playlist.
+  airchat.message.v2.Playlist playlist_config = 3;
+  // An optional header for the segments in the default playlist.
+  // This is needed when segments are header-lite, such as with fMP4.
+  airchat.message.v2.PlaylistHeader playlist_header = 4;
+  // Time that client claims the chit was created.
+  google.protobuf.Timestamp created_time = 5;
+  // The optional channel ID to associate with the message.
+  string channel_id = 6;
+}
+
+message CreateUploadResponse {
+  // EMPTY
+}
+
+message ReadyUploadSegmentRequest {
+  // The ID of the message to add segments to.
+  string recording_id = 1;
+  // The actual duration of the segment in decimal seconds.
+  double duration = 2;
+  // The index of the segment that the client intends to upload.
+  // If not provided, the next segment (determined by the back end) will be returned.
+  int32 segment_index = 3;
+  // Indicates whether the message is private.
+  bool is_message_private = 4;
+}
+
+message ReadyUploadSegmentResponse {
+  // The index of this new segment.
+  int32 index = 1;
+  // A signed URL used to upload the message segment.
+  string upload_url = 2;
+}
+
+message CompleteUploadRequest {
+  // The ID of the message to complete.
+  string recording_id = 1;
+  // The number of segments the client expects to have uploaded.
+  // For backwards compatibility, the default value (zero) will disable the validation for now.
+  int32 num_segments = 2;
+  // User ids who are mentioned in the message
+  repeated string mentioned_user_ids = 3;
+  // Indicates whether the message is private.
+  bool is_message_private = 4;
+  // The raw bytes of a thumbnail.
+  bytes thumbnail_image = 5;
+}
+
+message CompleteUploadResponse {
+  // The completion could either include the message or debug data if
+  // there was an error involving an incomplete upload.
+  oneof payload {
+    // The completed message if the completion was successful.
+    message.v2.Message message = 1;
+    // A list of segment data to determine what might be missing.
+    message.v2.Segments segments = 2;
+  }
+}
+
+message AbortUploadRequest {
+  // The ID of the message to abort.
+  string recording_id = 1;
+  // Indicates whether the message is private.
+  bool is_message_private = 2;
+}
+
+message AbortUploadResponse {
+  // EMPTY
+}
+
+message GetMessagesRequest {
+  repeated string recording_id = 1;
+}
+
+message GetMessagesResponse {
+  repeated message.v2.Message message = 1;
+}
+
+message DeleteMessageRequest {
+  // The ID of the message to delete.
+  string recording_id = 1;
+  // Indicates whether the message is private.
+  bool is_message_private = 2;
+}
+
+message DeleteMessageResponse {
+  // EMPTY
+}
+
+message CreateMessageThreadRequest {
+  // The ID of the reference message this thread is for.
+  string reference_recording_id = 1;
+  // The optional client-supplied thread ID
+  string message_thread_id = 2;
+  // Indicates whether the thread is visible to participants only.
+  bool participant_only_visibility = 3;
+}
+
+message CreateMessageThreadResponse {
+  // The message thread.
+  airchat.message.v2.MessageThread message_thread = 1;
+}
+
+message GetMessageThreadsRequest {
+  // The list of message thread IDs to get.
+  repeated string message_thread_id = 1;
+}
+
+message GetMessageThreadsResponse {
+  // The list of message threads.
+  repeated airchat.message.v2.MessageThread message_thread = 1;
+}
+
+message GetMessageThreadsByReferenceRequest {
+  // The reference message ID to get message threads for.
+  string reference_recording_id = 1;
+  // A key used to determine the pagination location.
+  // If no key is provided, the first page will be returned.
+  string page_key = 2;
+}
+
+message GetMessageThreadsByReferenceResponse {
+  // The list of message threads.
+  repeated airchat.message.v2.MessageThread message_thread = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+message GetMessageThreadDetailsByReferenceRequest {
+  // The reference message ID to get the thread details for.
+  string reference_recording_id = 1;
+  // A key used to determine the pagination location.
+  // If no key is provided, the first page will be returned.
+  string page_key = 2;
+  // Indicates whether to include threads from all participants.
+  bool include_all = 3;
+}
+
+message GetMessageThreadDetailsByReferenceResponse {
+  // The list of message threads with additional info.
+  repeated airchat.message.v2.MessageThreadDetails message_thread_details = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+message GetThreadMessagesByIndexRequest {
+  // The message thread ID to get messages for.
+  string message_thread_id = 1;
+  // The starting message index.
+  int64 start_index = 2;
+  // The ending message index.
+  int64 end_index = 3;
+}
+
+message GetThreadMessagesByIndexResponse {
+  // The list of messages.
+  repeated Message message = 1;
+}
+
+message GetThreadDeletedIndexesRequest {
+  // The message thread ID to get deleted indexes for.
+  string message_thread_id = 1;
+  // The starting index.
+  int64 start_index = 2;
+  // The ending index.
+  int64 end_index = 3;
+}
+
+message GetThreadDeletedIndexesResponse {
+  // The deleted message thread indexes.
+  repeated MessageThreadDeletedIndex message_thread_deleted_index = 1;
+}
+
+message SendMessageEventRequest {
+  // The recording ID of the message.
+  string recording_id = 1;
+  // The event type.
+  MessageEventType event_type = 2;
+  // Indicates whether the message is private.
+  bool is_message_private = 3;
+}
+
+message SendMessageEventResponse {
+  // EMPTY
+}
+
+message GetMessageEventLogRequest {
+  // The recording ID of the message to get events for.
+  string recording_id = 1;
+  // The types of events to filter for in the response.
+  repeated MessageEventType message_event_type = 2;
+}
+
+message GetMessageEventLogResponse {
+  // A list of events in the log for the message.
+  repeated message.v2.MessageEventItem message_event_item = 1;
+}
+
+message GetMessageAnalyticsRequest {
+  // The list of message IDs to get the analytics for.
+  repeated string recording_id = 1;
+}
+
+message GetMessageAnalyticsResponse {
+  // A list of message analytics.
+  repeated MessageAnalytics message_analytics = 1;
+}
+
+message GetMessageFeedRequest {
+  // A key used to determine the pagination location. If no key is provided, the first page will be returned.
+  string page_key = 1;
+}
+
+message GetMessageFeedResponse {
+  // The items in the feed.
+  repeated MessageFeedItem items = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+message GetUserFeedRequest {
+  // The user ID to get the feed for.
+  string user_id = 1;
+  // A key used to determine the pagination location. If no key is provided, the first page will be returned.
+  string page_key = 2;
+  // Indicates whether to hide reposts.
+  bool hide_reposts = 3;
+}
+
+message GetUserFeedResponse {
+  // The items in the feed.
+  repeated MessageFeedItem items = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+message GetHighlightFeedRequest {
+  // A key used to determine the pagination location. If no key is provided, the first page will be returned.
+  string page_key = 1;
+}
+
+message GetHighlightFeedResponse {
+  // The items in the feed.
+  repeated MessageFeedItem items = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+message GetChannelFeedRequest {
+  // The channel ID to get the feed for.
+  string channel_id = 1;
+  // A key used to determine the pagination location. If no key is provided, the first page will be returned.
+  string page_key = 2;
+}
+
+message GetChannelFeedResponse {
+  // The items in the feed.
+  repeated MessageFeedItem items = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+message GetHighlightsRequest {
+  // The user ID to get the highlights for.
+  string user_id = 1;
+  // A key used to determine the pagination location. If no key is provided, the first page will be returned.
+  string page_key = 2;
+}
+
+message GetHighlightsResponse {
+  // The highlighted items formatted as a list of feed items.
+  repeated MessageFeedItem items = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+message SaveHighlightRequest {
+  oneof context {
+    // The message recording ID
+    string recording_id = 1;
+    // The message thread ID
+    string message_thread_id = 2;
+  }
+}
+
+message SaveHighlightResponse {
+  MessageFeedItem item = 1;
+}
+
+message RemoveHighlightRequest {
+  oneof context {
+    // The message recording ID
+    string recording_id = 1;
+    // The message thread ID
+    string message_thread_id = 2;
+  }
+}
+
+message RemoveHighlightResponse {
+  // EMPTY
+}
+
+message GetBookmarksRequest {
+  // A key used to determine the pagination location. If no key is provided, the first page will be returned.
+  string page_key = 1;
+}
+
+message GetBookmarksResponse {
+  // The bookmarked items formatted as a list of feed items.
+  repeated MessageFeedItem items = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+message SaveBookmarkRequest {
+  oneof context {
+    // The message recording ID
+    string recording_id = 1;
+    // The message thread ID
+    string message_thread_id = 2;
+  }
+}
+
+message SaveBookmarkResponse {
+  MessageFeedItem item = 1;
+}
+
+message RemoveBookmarkRequest {
+  oneof context {
+    // The message recording ID
+    string recording_id = 1;
+    // The message thread ID
+    string message_thread_id = 2;
+  }
+}
+
+message RemoveBookmarkResponse {
+  // EMPTY
+}
+
+message UpdateMessageLinkMetadataRequest {
+  // The recording ID of the message.
+  string recording_id = 1;
+  // Indicates whether the message is private.
+  bool is_message_private = 2;
+  // The list of link references to update.
+  repeated LinkMetadataUpload link_metadata_upload = 3;
+}
+
+message UpdateMessageLinkMetadataResponse {
+  // The updated and hydrated message.
+  Message message = 1;
+}
+
+message CreateTranscriptionRequest {
+  // The recording ID of the message.
+  string recording_id = 1;
+  // The transcription text.
+  string transcription_text = 2;
+  // The transcription model used.
+  string transcription_model = 3;
+  // Indicates whether the message is private.
+  bool is_message_private = 4;
+}
+
+message CreateTranscriptionResponse {
+  // EMPTY
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Image upload RPCs
+// ---------------------------------------------------------------------------------------------------------------------
+
+message CreateImageUploadRequest {
+  // The recording ID of the message.
+  string recording_id = 1;
+  // Indicates whether the message is private.
+  bool is_message_private = 2;
+  // The image resolution
+  Resolution resolution = 3;
+}
+
+message CreateImageUploadResponse {
+  // The image reference id.
+  string image_reference_id = 1;
+  // The signed URL used to upload the image.
+  string upload_url = 2;
+}
+
+message CompleteImageUploadRequest {
+  // The recording ID of the message.
+  string recording_id = 1;
+  // Indicates whether the message is private.
+  bool is_message_private = 2;
+  // The image reference id.
+  string image_reference_id = 3;
+}
+
+message CompleteImageUploadResponse {
+  // EMPTY
+}
+
+message AbortImageUploadRequest {
+  // The recording ID of the message.
+  string recording_id = 1;
+  // Indicates whether the message is private.
+  bool is_message_private = 2;
+  // The image reference id.
+  string image_reference_id = 3;
+}
+
+message AbortImageUploadResponse {
+  // EMPTY
+}
+
+message UpdateMessageImageReferencesRequest {
+  // The recording ID of the message.
+  string recording_id = 1;
+  // Indicates whether the message is private.
+  bool is_message_private = 2;
+  // The image reference id.
+  repeated string image_reference_ids = 3;
+}
+
+message UpdateMessageImageReferencesResponse {
+  // The updated and hydrated message.
+  Message message = 1;
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Mention RPCs
+// ---------------------------------------------------------------------------------------------------------------------
+
+message UpdateMessageMentionsRequest {
+  // The recording ID of the message.
+  string recording_id = 1;
+  // The list of mentioned user IDs.
+  repeated string mentioned_user_id = 2;
+}
+
+message UpdateMessageMentionsResponse {
+  // The updated and hydrated message.
+  Message message = 1;
+}
+
+message GetMentionCandidatesRequest {
+  // the message id whose transcript will be searched through for potential users to show as mention candidates
+  string message_id = 1;
+}
+
+message GetMentionCandidatesResponse {
+  repeated user.v2.User candidates = 1;
+  repeated MentionCandidate mention_candidates = 2;
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Private message RPCs
+// ---------------------------------------------------------------------------------------------------------------------
+
+message CreatePrivateUploadRequest {
+  // The recordingId
+  string recording_id = 1;
+  // The ID of the private room the message will be sent to.
+  string private_room_id = 2;
+  // Playlist configuration information for the default playlist.
+  // Each uploaded segment will be part of this playlist.
+  airchat.message.v2.Playlist playlist_config = 3;
+  // An optional header for the segments in the default playlist.
+  // This is needed when segments are header-lite, such as with fMP4.
+  airchat.message.v2.PlaylistHeader playlist_header = 4;
+  // Time that client claims the chit was created.
+  google.protobuf.Timestamp created_time = 5;
+}
+
+message CreatePrivateUploadResponse {
+  // EMPTY
+}
+
+message CreatePrivateRoomRequest {
+  // The ID of the target user to create the private room for.
+  string user_id = 1;
+}
+
+message CreatePrivateRoomResponse {
+  // The private room.
+  PrivateRoom private_room = 1;
+}
+
+message GetPrivateRoomRequest {
+  oneof id {
+    // The new ID of the recording to receive new comments for.
+    string private_room_id = 1;
+    // The ID of the user to get the private room for.
+    string user_id = 2;
+  }
+}
+
+message GetPrivateRoomResponse {
+  // The private room.
+  PrivateRoom private_room = 1;
+}
+
+message GetPrivateRoomsRequest {
+  // A key used to determine the pagination location. If no key is provided, the first page will be returned.
+  string page_key = 1;
+}
+
+message GetPrivateRoomsResponse {
+  // The list of private rooms.
+  repeated PrivateRoom private_room = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+message ClearPrivateRoomUnreadCountRequest {
+  // The private room ID to clear the unread count for.
+  string private_room_id = 1;
+}
+
+message ClearPrivateRoomUnreadCountResponse {
+  // EMPTY
+}
+
+message GetPrivateMessagesByIndexRequest {
+  // The private room ID to get messages for.
+  string private_room_id = 1;
+  // The starting message index.
+  int64 start_index = 2;
+  // The ending message index.
+  int64 end_index = 3;
+}
+
+message GetPrivateMessagesByIndexResponse {
+  // The list of messages.
+  repeated airchat.message.v2.Message message = 1;
+}
+
+message GetPrivateRoomDeletedIndexesRequest {
+  // The private room ID to get deleted indexes for.
+  string private_room_id = 1;
+  // The starting index.
+  int64 start_index = 2;
+  // The ending index.
+  int64 end_index = 3;
+}
+
+message GetPrivateRoomDeletedIndexesResponse {
+  // The deleted private room indexes.
+  repeated PrivateRoomDeletedIndex private_room_deleted_index = 1;
+}

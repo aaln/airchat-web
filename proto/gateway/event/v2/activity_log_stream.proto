@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package airchat.gateway.event.v2;
+option java_package = "com.airchat.gateway.event.v2";
+option java_outer_classname = "ActivityLogStreamProto";
+option java_multiple_files = true;
+option swift_prefix = "ActivityLogStreamV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/gateway/event/v2";
+
+import "airchat/gateway/v2/gateway.proto";
+import "airchat/activity/v2/activity.proto";
+
+// An event describing a new activity log event subscription. Backend only.
+message ActivityLogSubscription {
+  // The stream identifier for the subscribing stream.
+  gateway.v2.StreamIdentifier stream_id = 1;
+  // The user subscribing to events.
+  string user_id = 2;
+  // The type of action being taken.
+  gateway.v2.SubscriptionAction action = 3;
+}
+
+// Internal message to event-stream service. Backend only.
+message ActivityLogInternalEvent {
+  // The stream to send the event to.
+  gateway.v2.StreamIdentifier stream_id = 1;
+  // A new ActivityLogItem relevant to the current user.
+  airchat.activity.v2.ActivityLogItem log_item = 2;
+}

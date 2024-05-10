@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package airchat.relationship.v2;
+option java_package = "com.airchat.relationship.v2";
+option java_outer_classname = "RelationshipProto";
+option java_multiple_files = true;
+option swift_prefix = "RelationshipV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/relationship/v2";
+
+// An address book contact.
+message Contact {
+  // The contact's name from the user's address book.
+  string name = 1;
+  
+  oneof phone_number {
+    // The contact's phone number as a SHA-1 hash.
+    string phone_number_hash = 2;
+    // The contact's phone numbers as SHA-1 hashes.
+    PhoneNumberList phone_number_list = 3;
+  }
+}
+
+// A list of phone numbers.
+message PhoneNumberList {
+  // The contact's phone numbers as SHA-1 hashes.
+  repeated string phone_number_hash = 1;
+}
+
+message InviteContactData {
+  string phone_number_hash = 1;
+  string username = 2;
+  int64 friend_count = 3;
+}
+
+// Indicates the type of error encountered uploading contacts.
+enum ContactsUploadError {
+  // There is no error.
+  CONTACTS_UPLOAD_ERROR_INVALID = 0;
+  // There was an internal error processing the batch of contacts.
+  CONTACTS_UPLOAD_ERROR_INTERNAL = 1;
+  // There was at least one invalid phone number in the batch.
+  CONTACTS_UPLOAD_ERROR_INVALID_NUMBER = 2;
+  // The batch supplied was too large and was not processed.
+  CONTACTS_UPLOAD_ERROR_BATCH_TOO_LARGE = 3;
+}

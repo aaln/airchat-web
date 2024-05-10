@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package airchat.channel.event.v2;
+option java_package = "com.airchat.channel.event.v2";
+option java_outer_classname = "ChannelInternalApiProto";
+option java_multiple_files = true;
+option swift_prefix = "ChannelInternalV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/channel/event/v2";
+
+import "airchat/channel/v2/channel.proto";
+
+// A service for interacting with channels.
+service ChannelInternalAPI {
+  // Gets a list of hydrated channels.
+  rpc GetHydratedChannels(GetHydratedChannelsRequest) returns (GetHydratedChannelsResponse);
+}
+
+message GetHydratedChannelsRequest {
+  // The channel IDs to get hydrated.
+  repeated string channel_id = 1;
+  // The context user id
+  string user_id = 2;
+}
+
+message GetHydratedChannelsResponse {
+  // The list of hydrated channels.
+  repeated channel.v2.Channel channel = 1;
+}

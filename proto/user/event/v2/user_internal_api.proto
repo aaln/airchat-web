@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+package airchat.user.event.v2;
+option java_package = "com.airchat.user.event.v2";
+option java_outer_classname = "UserInternalApiProto";
+option java_multiple_files = true;
+option swift_prefix = "UserInternalV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/user/event/v2";
+
+import "airchat/user/v2/user.proto";
+import "airchat/message/v2/message.proto";
+
+// A service for updating and viewing user data.
+service UserInternalAPI {
+  // Checks whether a user is followed.
+  rpc IsFollowed (IsFollowedRequest) returns (IsFollowedResponse);
+  // Gets user restrictions between other users than the current user.
+  rpc GetUserRestrictions (GetUserRestrictionsRequest) returns (GetUserRestrictionsResponse);
+  // Checks whether a user is found in another user's contacts book
+  rpc IsInContacts (IsInContactsRequest) returns (IsInContactsResponse);
+  // Calculates mention candidates
+  rpc CalculateMentionCandidates (CalculateMentionCandidatesRequest) returns (CalculateMentionCandidatesResponse);
+  // Gets the user analytics.
+  rpc GetUserAnalytics (GetUserAnalyticsRequest) returns (GetUserAnalyticsResponse);
+  // Gets personalized recommended users that the current user may want to follow.
+  rpc GetRecommendedUsers (GetRecommendedUsersRequest) returns (GetRecommendedUsersResponse);
+}
+
+message IsFollowedRequest {
+  // The user ID of the follower.
+  string follower_user_id = 1;
+  // The user ID of the followed user.
+  string followed_user_id = 2;
+}
+
+message IsFollowedResponse {
+  // Whether the user is followed.
+  bool is_followed = 1;
+}
+
+message IsInContactsRequest {
+  // The user id whose contact book to search
+  string from_user_id = 1;
+  // The user id to search for
+  string target_user_id = 2;
+}
+
+message IsInContactsResponse {
+  // True if the target user is found in from user's contacts
+  bool in_contacts = 1;
+}
+
+message GetUserRestrictionsRequest {
+  // A list of queries for restrictions between one user and many other users.
+  repeated user.v2.UserRestrictionQuery restriction_query = 1;
+}
+
+message GetUserRestrictionsResponse {
+  // The list of user restrictions.
+  repeated user.v2.UserRestriction user_restrictions = 1;
+}
+
+message CalculateMentionCandidatesRequest {
+  string for_user_id = 1;
+  string transcription = 2;
+  // Users mentioned in previous message in thread, users lost in thread forked from, users who are around. Users who may be mentioned, but are merely suggestions
+  repeated string user_ids_around_conversation = 3;
+  // Users who shouldn't even be suggested unless their name is explicitly said
+  repeated string low_priority_user_ids_around_conversation = 4;
+}
+message CalculateMentionCandidatesResponse {
+  repeated user.v2.User candidates = 1;
+  repeated message.v2.MentionCandidate mention_candidates = 2;
+}
+
+message GetUserAnalyticsRequest {
+  // The user ID to get analytics for.
+  string user_id = 1;
+}
+
+message GetUserAnalyticsResponse {
+  // The user analytics.
+  user.v2.UserAnalytics user_analytics = 1;
+}
+
+message GetRecommendedUsersRequest {
+  // the user id to fetch users for
+  string user_id = 1;
+  // A key used to determine the pagination location. If no key is provided, the first page will be returned.
+  string page_key = 2;
+  // the phone hash of the user to search for
+  string phone_hash = 3;
+}
+
+message GetRecommendedUsersResponse {
+  // A list of recommended users.
+  repeated user.v2.User user = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}

@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package airchat.links.v2;
+option java_package = "com.airchat.links.v2";
+option java_outer_classname = "LinksApiProto";
+option java_multiple_files = true;
+option swift_prefix = "LinksV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/links/v2";
+
+import "airchat/links/v2/links.proto";
+
+// A service handling link shortening.
+service LinksAPI {
+  // Create a shortened link which can be used to redirect to the chosen URL type at a later point in time.
+  rpc CreateShortLink (CreateShortLinkRequest) returns (CreateShortLinkResponse);
+  // Convert the path of the short link to the full link for redirect.
+  rpc GetFullLink (GetFullLinkRequest) returns (GetFullLinkResponse);
+}
+
+message CreateShortLinkRequest {
+  // The type of short link to create.
+  oneof type {
+    // A user link should be created.
+    UserLink user_link = 1;
+    // A post link should be created.
+    PostLink post_link = 2;
+  }
+}
+
+message CreateShortLinkResponse {
+  // A shortened link for easier customer use.
+  string short_link = 1;
+}
+
+message GetFullLinkRequest {
+  // The path for the short link, used to look up the full length link to redirect to.
+  string short_link_path = 1;
+}
+
+message GetFullLinkResponse {
+  // The full length link to redirect to.
+  string full_link = 1;
+}

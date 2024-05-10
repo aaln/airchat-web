@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package airchat.channel.event.v2;
+option java_package = "com.airchat.channel.event.v2";
+option java_outer_classname = "ChannelProto";
+option java_multiple_files = true;
+option swift_prefix = "ChannelV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/channel/event/v2";
+
+import "airchat/channel/v2/channel.proto";
+
+message ChannelParticipantUpdate {
+  // The channel ID.
+  string channel_id = 1;
+  // The participant user ID.
+  string participant_user_id = 2;
+  // The type of action being taken.
+  ChannelParticipantUpdateAction action = 3;
+  // The action was taken on a non-participant.
+  bool non_participant_action = 4;
+}
+
+message UpdateChannelIndex {
+  // The channel that has to be indexed.
+  channel.v2.Channel channel = 1;
+}
+
+message ChannelDeleted {
+  // The channel ID.
+  string channel_id = 1;
+}
+
+enum ChannelParticipantUpdateAction {
+  // This is an unset value. It should never be set on purpose and receiving it is an error.
+  CHANNEL_PARTICIPANT_UPDATE_ACTION_INVALID = 0;
+  // The channel participant is added.
+  CHANNEL_PARTICIPANT_UPDATE_ACTION_ADDED = 1;
+  // The channel participant is removed.
+  CHANNEL_PARTICIPANT_UPDATE_ACTION_REMOVED = 2;
+}

@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package airchat.auth.event.v2;
+option java_package = "com.airchat.auth.event.v2";
+option java_outer_classname = "AuthInternalApiProto";
+option java_multiple_files = true;
+option swift_prefix = "AuthInternalV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/auth/event/v2";
+
+// An internal service for authenticating users with Airchat.
+service AuthInternalAPI {
+  // Fetches phone numbers associated with the user
+  rpc GetUserPhoneFactors (GetUserPhoneFactorsRequest) returns (GetUserPhoneFactorsResponse);
+}
+
+message GetUserPhoneFactorsRequest {
+  // The user ID to fetch phone numbers for
+  string user_id = 1;
+}
+
+message GetUserPhoneFactorsResponse {
+  // The list of phone numbers associated with the user
+  repeated string phone_number = 1;
+}

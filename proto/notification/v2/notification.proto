@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package airchat.notification.v2;
+option java_package = "com.airchat.notification.v2";
+option java_outer_classname = "NotificationProto";
+option java_multiple_files = true;
+option swift_prefix = "NotificationV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/notification/v2";
+
+import "google/protobuf/timestamp.proto";
+
+// A wrapper containing all context for an APN token.
+message ApnToken {
+  // The APN token itself.
+  string token     = 1;
+  // The bundle ID of the application.
+  string bundle_id = 2;
+  // The locale for the token.
+  string locale    = 3;
+  // Indicates if the token is meant to be used in sandbox environment.
+  bool   sandbox   = 4;
+}
+
+// A wrapper containing all context for a FCM token.
+message FcmToken {
+  // The FCM token itself.
+  string token        = 1;
+  // The package name of the application.
+  string package_name = 2;
+  // The locale for the token.
+  string locale       = 3;
+}
+
+// The state of a push token.
+message PushTokenState {
+  // The user related with the token.
+  string user_id = 1;
+  // The status type of the token.
+  PushTokenStatus status = 2;
+  // The date when the token was updated, or empty if not available.
+  google.protobuf.Timestamp updated_time = 11;
+}
+
+// The status of a push token.
+enum PushTokenStatus {
+  // This is an unset value and should always be considered an error.
+  PUSH_TOKEN_STATUS_INVALID = 0;
+  // The push TOKEN is working fine.
+  PUSH_TOKEN_STATUS_OK = 1;
+  // The push TOKEN was rejected by the provider.
+  PUSH_TOKEN_STATUS_BAD_TOKEN = 2;
+}
+
+// The levels for new message push notifications.
+enum NewMessageNotificationLevel {
+  // This is an unset value and should always be considered an error.
+  NEW_MESSAGE_NOTIFICATION_LEVEL_INVALID = 0;
+  // Receive no new message push notifications.
+  NEW_MESSAGE_NOTIFICATION_LEVEL_NONE = 1;
+  // Receive new message push notifications only if being directly replied to.
+  NEW_MESSAGE_NOTIFICATION_LEVEL_REPLY_ONLY = 2;
+  // Receive all new message push notifications.
+  NEW_MESSAGE_NOTIFICATION_LEVEL_ALL = 3;
+}

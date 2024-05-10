@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package airchat.gateway.v2;
+option java_package = "com.airchat.gateway.v2";
+option java_outer_classname = "NotificationStreamProto";
+option java_multiple_files = true;
+option swift_prefix = "NotificationStreamV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/gateway/v2";
+
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+// ---------------------------------------------------------------------------------------------
+// NOTE: Below are copied messages from the notificationv2 package. Please keep them in sync.
+// ---------------------------------------------------------------------------------------------
+
+// An envelope for all messages to and from the client. The payload should be one of the other defined messages, text, or empty.
+message Envelope {
+  // the ID of the message, for use with updating a message's status
+  string id = 1;
+  // the hash of the user which should receive the message
+  string to_hash = 2;
+  // the sender of the message
+  string from_hash = 3;
+  // the type of the message
+  EnvelopeType type = 4;
+  // the time this message was created
+  google.protobuf.Timestamp created_time = 5;
+  // encodes the type of the message with the serialized bytes and a URI indicating the type (this is a complex type)
+  google.protobuf.Any payload = 6;
+  // tracing information for this message which should be propagated
+  Tracing tracing = 7;
+}
+
+// NOTE: This is a copy of Tracing from the notificationv2 package. Please keep them in sync.
+// Tracing information for the parent message. Follows the spirit of Open Zipkin B3 propagation.
+message Tracing {
+  // A UUID either 32 or 36 characters long (depending on if dashes are included) which forms the overall ID of the transaction. Every span in the transaction shares this ID.
+  string trace_id = 1;
+  // The first 16 characters of a UUID with dashes removed. It indicates the position of the current operation in the current transaction tree.
+  string span_id = 2;
+  // Indicates if the transaction should be sampled or not. The system that starts the transaction is responsible for deciding if the transaction is sampled or not.
+  bool sampled = 3;
+}
+
+// NOTE: This is a copy of EnvelopeType from the notificationv2 package. Please keep them in sync.
+// The purpose for the envelope being sent.
+enum EnvelopeType {
+  ENVELOPE_TYPE_INVALID = 0;
+  ENVELOPE_TYPE_CONTACT_JOINED = 1;
+  ENVELOPE_TYPE_NEW_FOLLOWER = 2;
+  ENVELOPE_TYPE_GENERAL_ALERT = 3;
+  ENVELOPE_TYPE_MESSAGE_REPLY = 4;
+  ENVELOPE_TYPE_MESSAGE_LIKE = 5;
+  ENVELOPE_TYPE_MESSAGE_REPOST = 6;
+  ENVELOPE_TYPE_MESSAGE = 7;
+  ENVELOPE_TYPE_MESSAGE_FEED_UPDATED = 8;
+  ENVELOPE_TYPE_MESSAGE_RETRACTION = 9;
+  ENVELOPE_TYPE_MESSAGE_MENTION = 10;
+  ENVELOPE_TYPE_MESSAGE_PRIVATE = 11;
+  ENVELOPE_TYPE_PRIVATE_MESSAGE_UPDATED = 12;
+  ENVELOPE_TYPE_CHANNEL_PARTICIPANT_INVITE = 13;
+  ENVELOPE_TYPE_INVITED_TO_APP = 14;
+}

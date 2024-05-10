@@ -1,0 +1,131 @@
+syntax = "proto3";
+
+package airchat.user.event.v2;
+option java_package = "com.airchat.user.event.v2";
+option java_outer_classname = "UserProto";
+option java_multiple_files = true;
+option swift_prefix = "UserV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/user/event/v2";
+
+import "google/protobuf/timestamp.proto";
+import "airchat/user/v2/user.proto";
+
+// A User Online Log event.
+message UserOnlineLog {
+  // The user ID.
+  string user_id = 1;
+  // The time this user was online.
+  google.protobuf.Timestamp                last_online_time = 2;
+  // The time this user online log will expire.
+  google.protobuf.Timestamp                expiration_time = 3;
+}
+
+// A user profile update.
+message UserProfileUpdate {
+  // The ID of the user whose profile has updated.
+  string id = 1;
+  // The specific profile name that has been updated.
+  oneof profile_item {
+    // The user's updated name.
+    string name = 2;
+    // The user's updated username.
+    string username = 3;
+    // The user's updated avatar URL.
+    string avatar_url = 4;
+    // The user's updated bio.
+    string bio = 5;
+    // The user's updated twitter handle.
+    string twitter_handle = 6;
+    // The user's updated instagram handle.
+    string instagram_handle = 7;
+  }
+}
+
+// A user has followed or unfollowed another user.
+message UserFollow {
+  // The user performing the follow action.
+  string follower_user_id = 1;
+  // The ID of the user that the user is performing a follow action on.
+  string followed_user_id = 2;
+  // The type of follow action being performed (follow vs unfollow).
+  UserFollowType type = 3;
+}
+
+// The types of user actions.
+enum UserFollowType {
+  // This is an unset value (the default if nobody sets it).
+  USER_FOLLOW_TYPE_INVALID = 0;
+  // When a user follows another user
+  USER_FOLLOW_TYPE_FOLLOW = 1;
+  // When a user unfollows another user
+  USER_FOLLOW_TYPE_UNFOLLOW = 2;
+}
+
+// Event emitted when a user was blocked by another user.
+message UserBlocked {
+  // User that executed the action.
+  string blocker_user_id = 1;
+  // User that is being blocked/unblocked
+  string blocked_user_id = 2;
+  // Action to perform.
+  BlockAction action = 3;
+}
+
+// The types of block actions.
+enum BlockAction {
+  BLOCK_ACTION_INVALID = 0;
+  BLOCK_ACTION_BLOCK = 1;
+  BLOCK_ACTION_UNBLOCK = 2;
+}
+
+// Event emitted when a user was muted by another user.
+message UserMuted {
+  // User that executed the action.
+  string muter_user_id = 1;
+  // User that is being muted/unmuted.
+  string muted_user_id = 2;
+  // Action to perform.
+  MuteAction action = 3;
+}
+
+// The types of mute actions.
+enum MuteAction {
+  MUTE_ACTION_INVALID = 0;
+  MUTE_ACTION_MUTE = 1;
+  MUTE_ACTION_UNMUTE = 2;
+}
+
+// The user has signalled that they are deleting their account.
+message UserDelete {
+  airchat.user.v2.User user = 1;
+}
+
+// The user has just been created.
+message UserCreated {
+  airchat.user.v2.User user = 1;
+}
+
+// A user has logged out.
+message UserLogout {
+  // The ID of the user who has logged out.
+  string user_id = 1;
+}
+
+// User status has been updated.
+message UserStatusUpdated {
+  // The ID of the user whose status has been updated.
+  string user_id = 1;
+  // The new status of the user.
+  airchat.user.v2.UserAccountStatus status = 2;
+  // The previous status of the user.
+  airchat.user.v2.UserAccountStatus previous_status = 3;
+}
+
+
+// User invited a phone number
+message UserPhoneHashInvited {
+  // The phone hash to be invited
+  string phone_hash = 1;
+  // The id of user who invited phone hash
+  string invited_by = 2;
+}

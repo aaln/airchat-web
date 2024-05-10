@@ -1,0 +1,213 @@
+syntax = "proto3";
+
+package airchat.message.event.v2;
+option java_package = "com.airchat.message.event.v2";
+option java_outer_classname = "MessageProto";
+option java_multiple_files = true;
+option swift_prefix = "MessageV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/message/event/v2";
+
+import "airchat/message/v2/message.proto";
+import "google/protobuf/timestamp.proto";
+
+// A new message has been published.
+message MessagePublished {
+  // The message that has been published
+  airchat.message.v2.Message message = 1;
+  // Indicates whether the thread this message belongs to was highlighted.
+  bool is_thread_highlighted = 2;
+}
+
+// A new message has been published for follower.
+message MessagePublishedForFollower {
+  // The message that has been published
+  airchat.message.v2.Message message = 1;
+  // The follower user id
+  string follower_user_id = 2;
+  // Indicates whether the thread this message belongs to was highlighted.
+  bool is_thread_highlighted = 3 [deprecated = true];
+  // Indicates whether the message was inserted into the topic as a result of the user being followed.
+  bool is_from_follow = 4;
+}
+
+// A new message has been published for priority follower.
+message MessagePublishedForPriorityFollower {
+  // The message that has been published
+  airchat.message.v2.Message message = 1;
+  // The follower user id
+  string follower_user_id = 2;
+  // Indicates whether the thread this message belongs to was highlighted.
+  bool is_thread_highlighted = 3 [deprecated = true];
+}
+
+// A message transcription is completed.
+message MessageTranscriptionCompleted {
+  // The message that has been transcribed
+  airchat.message.v2.Message message = 1;
+  // The transcription text
+  string transcription_string = 2;
+  // The transcription client
+  airchat.message.v2.TranscriptionClient transcription_client = 3;
+  // Transcription data model used by the client
+  string transcription_model = 4;
+  // Detected language
+  string transcription_language = 5;
+  // Transcription segments
+  repeated message.v2.TranscriptionSegment transcription_segments = 6;
+  // Transcription status
+  airchat.message.v2.TranscriptionStatus transcription_status = 7;
+  // No speech probability
+  double no_speech_probability = 8;
+}
+
+message MessageRepostUpdate {
+  // The recording ID of a message involved in the repost update.
+  string recording_id = 1;
+  // The action which occurred.
+  MessageRepostAction action = 2;
+  // The user who performed the action.
+  string action_user_id = 3;
+  // A user who follows the action user.
+  // This is optional when provided to partitioning and required when sent broadly.
+  string follower_user_id = 4;
+  // The time when the event occurred. Used if the action is addition.
+  google.protobuf.Timestamp event_time = 5;
+}
+
+message UpdateMessageThreadStats {
+  // The message thread ID of the thread whose stats we are updating.
+  string message_thread_id = 1;
+  // The action which occurred.
+  MessageThreadUpdateAction action = 2;
+  // The user who performed the action.
+  string action_user_id = 3;
+  // The message which triggered the action.
+  airchat.message.v2.Message message = 4;
+}
+
+message UpdateMessageThreadCount {
+  // The message recording ID of the message whose thread count we are updating.
+  string recording_id = 1;
+}
+
+message MessageDeleted {
+  // The message that has been deleted.
+  airchat.message.v2.Message message = 1;
+}
+
+message TranscriptionUpdated {
+  // The recording ID of the message whose transcription has been updated.
+  string recording_id = 1;
+  // Indicates whether the message is private.
+  bool is_message_private = 2;
+}
+
+message RefreshMessageTranscription {
+  // The message we want to transcribe
+  airchat.message.v2.Message message = 1;
+  // The transcription client we want to use to transcribe the message
+  airchat.message.v2.TranscriptionClient client = 2;
+}
+
+// A message to be deleted.
+message DeleteMessage {
+  // The recording ID of the message to delete.
+  string recording_id = 1;
+  // Indicates whether the message is private.
+  bool is_message_private = 2;
+}
+
+message UpdateMessageIndex {
+  // The message that has to be indexed.
+  airchat.message.v2.Message message = 1;
+}
+
+// A new private message has been published.
+message PrivateMessagePublished {
+  // The private message that has been published
+  airchat.message.v2.Message message = 1;
+}
+
+// An image reference to be deleted.
+message DeleteImageReference {
+  // The image reference to delete.
+  string image_reference_id = 1;
+}
+
+message HighlightItemUpdate {
+  // The action which occurred.
+  HighlightItemAction action = 1;
+  // The ID of the item that was highlighted.
+  string context_id = 2;
+  // The type of item that was highlighted.
+  HighlightContextType context_type = 3;
+  // The user who performed the action.
+  string action_user_id = 4;
+  // The time when the context item was updated.
+  google.protobuf.Timestamp last_updated_time = 5;
+  // A user who follows the action user.
+  // This is optional when provided to partitioning and required when sent broadly.
+  string follower_user_id = 6;
+}
+
+message MessageThreadFeedUpdate {
+  // The action which occurred.
+  MessageThreadUpdateAction action = 1;
+  // The message thread ID.
+  string message_thread_id = 2;
+  // The reference recording ID of the message thread.
+  string reference_recording_id = 3;
+  // The user who performed the action.
+  string action_user_id = 4;
+  // The last message time in the thread for a user in question.
+  google.protobuf.Timestamp last_message_time = 5;
+  // Indicates whether the thread was highlighted.
+  bool is_thread_highlighted = 6;
+  // A user who follows the action user.
+  // This is optional when provided to partitioning and required when sent broadly.
+  string follower_user_id = 7;
+  // Indicates whether the thread was inserted into the topic as a result of the user being followed.
+  bool is_from_follow = 8;
+}
+
+// The type of repost action which occurred.
+enum MessageRepostAction {
+  // An unset value, which should always be interpreted as an error when received.
+  MESSAGE_REPOST_ACTION_INVALID = 0;
+  // A repost was created.
+  MESSAGE_REPOST_ACTION_ADDED = 1;
+  // A repost was deleted.
+  MESSAGE_REPOST_ACTION_DELETED = 2;
+}
+
+// The type of highlight context.
+enum HighlightContextType {
+  // An unset value, which should always be interpreted as an error when received.
+  HIGHLIGHT_CONTEXT_TYPE_INVALID = 0;
+  // User highlighted a post.
+  HIGHLIGHT_CONTEXT_TYPE_POST = 1;
+  // User highlighted a thread.
+  HIGHLIGHT_CONTEXT_TYPE_THREAD = 2;
+}
+
+// The type of highlight action which occurred.
+enum HighlightItemAction {
+  // An unset value, which should always be interpreted as an error when received.
+  HIGHLIGHT_ITEM_ACTION_INVALID = 0;
+  // A highlight item was created.
+  HIGHLIGHT_ITEM_ACTION_ADDED = 1;
+  // A highlight item was deleted.
+  HIGHLIGHT_ITEM_ACTION_DELETED = 2;
+}
+
+// The type of message thread action which occurred.
+enum MessageThreadUpdateAction {
+  // An unset value, which should always be interpreted as an error when received.
+  MESSAGE_THREAD_UPDATE_ACTION_INVALID = 0;
+  // No action. Used for the data backfill.
+  MESSAGE_THREAD_UPDATE_ACTION_NONE = 1;
+  // A message thread post was created.
+  MESSAGE_THREAD_UPDATE_ACTION_POST_CREATED = 2;
+  // A message thread post was deleted.
+  MESSAGE_THREAD_UPDATE_ACTION_POST_DELETED = 3;
+}

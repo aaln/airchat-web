@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package airchat.gateway.v2;
+option java_package = "com.airchat.gateway.v2";
+option java_outer_classname = "GatewayProto";
+option java_multiple_files = true;
+option swift_prefix = "GatewayV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/gateway/v2";
+
+// An identifier for the stream, both where it is hosted and which connection within that instance.
+message StreamIdentifier {
+  // The ID of the instance that the stream is hosted on.
+  string instance_id = 1;
+  // The ID of the stream connection on the instance.
+  string connection_id = 2;
+}
+
+// Describes the action being taken in a subscription event.
+enum SubscriptionAction {
+  // This is an unset value. It should never be set on purpose and receiving it is an error.
+  SUBSCRIPTION_ACTION_INVALID = 0;
+  // The subscription event is intending to create or update a subscription.
+  SUBSCRIPTION_ACTION_SUBSCRIBE = 1;
+  // The subscription event is intending to remove a subscription.
+  SUBSCRIPTION_ACTION_UNSUBSCRIBE = 2;
+}

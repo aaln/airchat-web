@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+package airchat.activity.v2;
+option java_package = "com.airchat.activity.v2";
+option java_outer_classname = "ActivityApiProto";
+option java_multiple_files = true;
+option swift_prefix = "ActivityV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/activity/v2";
+
+import "airchat/activity/v2/activity.proto";
+import "airchat/message/v2/message.proto";
+import "airchat/user/v2/user.proto";
+
+// A service handling activity feeds for the current user.
+service ActivityAPI {
+  // Gets a log of individual and grouped activity events.
+  rpc GetActivityLog (GetActivityLogRequest) returns (GetActivityLogResponse);
+  // Gets a log of the user's activity, sent in a normalized format for smaller size
+  rpc GetNormalizedActivityLog (GetNormalizedActivityLogRequest) returns (GetNormalizedActivityLogResponse);
+  // Gets a list of users involved in a particular activity item.
+  rpc GetActivityItemUsers (GetActivityItemUsersRequest) returns (GetActivityItemUsersResponse);
+  // Gets the counter for new activity log entries for the current user.
+  rpc GetNewActivityCounter (GetNewActivityCounterRequest) returns (GetNewActivityCounterResponse);
+  // Resets the counter for new activity log entries to zero for the current user.
+  rpc ClearNewActivityCounter (ClearNewActivityCounterRequest) returns (ClearNewActivityCounterResponse);
+  // Marks a list of activity items as seen.
+  rpc MarkActivityItemsSeen (MarkActivityItemsSeenRequest) returns (MarkActivityItemsSeenResponse);
+  // Get the latest activity item by a coordinate
+  rpc GetLatestActivityItemByCoordinate (GetLatestActivityItemByCoordinateRequest) returns (GetLatestActivityItemByCoordinateResponse);
+}
+
+message GetActivityLogRequest {
+  // A key used to determine the pagination location. If no key is provided, the first page will be returned.
+  string page_key = 1;
+  // Whether to only return log items with provided ActivityTypes. If no types are provided, return any activity types.
+  repeated ActivityType activity_types = 2;
+}
+
+message GetActivityLogResponse {
+  // A list which is a page of activity log items which could be either individual and grouped items.
+  repeated ActivityLogItem log_item = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+message GetNormalizedActivityLogRequest {
+  // A key used to determine the pagination location. If no key is provided, the first page will be returned.
+  string page_key = 1;
+  // Whether to only return log items with provided ActivityTypes. If no types are provided, return any activity types.
+  repeated ActivityType activity_types = 2;
+}
+
+// A normalized response for smaller size.
+// Users, references, and messages are deduplicated and sent in separate fields.
+message GetNormalizedActivityLogResponse {
+  // A list which is a page of activity log items which could be either individual and grouped items.
+  // The
+  repeated NormalizedActivityLogItem log_item = 1;
+  // All users related to this list of log items
+  repeated user.v2.User user = 2;
+  // All messages related to this list of log items
+  repeated message.v2.Message message = 3;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 4;
+}
+
+message GetActivityItemUsersRequest {
+  // The ID of the activity log item to fetch the users for.
+  string activity_id = 1;
+  // A key used to determine the pagination location. If no key is provided, the first page will be returned.
+  string page_key = 2;
+}
+
+message GetActivityItemUsersResponse {
+  // The users involved in a particular activity log item.
+  ActivityLogItemUsers activity_item_users = 1;
+}
+
+message GetNewActivityCounterRequest {
+  // EMPTY
+}
+
+message GetNewActivityCounterResponse {
+  // The number of new activity log items.
+  int64 new_activity_items = 1;
+}
+
+message ClearNewActivityCounterRequest {
+  // EMPTY
+}
+
+message ClearNewActivityCounterResponse {
+  // EMPTY
+}
+
+message MarkActivityItemsSeenRequest {
+  // List of identifiers including coordinate and event time.
+  repeated ActivityItemIdentifier identifier = 1;
+}
+
+message MarkActivityItemsSeenResponse {
+  // EMPTY
+}
+
+
+message GetLatestActivityItemByCoordinateRequest {
+  // The coordinate to look up by
+  ActivityCoordinate coordinate = 1;
+}
+
+message GetLatestActivityItemByCoordinateResponse {
+  // Latest activity item for given coordinate
+  ActivityLogItem item = 1;
+}

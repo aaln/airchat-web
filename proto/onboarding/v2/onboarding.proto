@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package airchat.onboarding.v2;
+option java_package = "com.airchat.onboarding.v2";
+option java_outer_classname = "OnboardingProto";
+option java_multiple_files = true;
+option swift_prefix = "OnboardingV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/onboarding/v2";
+
+// All of the potential onboarding validation errors.
+enum OnboardingValidationError {
+  // This is an unset value and should be considered a bug if received.
+  ONBOARDING_VALIDATION_ERROR_INVALID = 0;
+  // The user has no username set. Please set the username before calling again.
+  ONBOARDING_VALIDATION_ERROR_MISSING_USERNAME = 1;
+  // The user has no name set. Please set the name before calling again.
+  ONBOARDING_VALIDATION_ERROR_MISSING_NAME = 2;
+  // The user has no avatar set. Please upload an avatar before callint again.
+  ONBOARDING_VALIDATION_ERROR_MISSING_AVATAR = 3;
+}
+
+// Event fired once onboarding is complete. Used for the librarian
+message UserOnboardingComplete {
+  // user_id of newly onboarded user
+  string user_id = 1;
+}
+
+message Locale {
+  // The language code.
+  string language = 1;
+  // The region code.
+  string region = 2;
+}

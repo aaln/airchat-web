@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package airchat.gateway.v2;
+option java_package = "com.airchat.gateway.v2";
+option java_outer_classname = "StatusStreamApiProto";
+option java_multiple_files = true;
+option swift_prefix = "StatusStreamV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/gateway/v2";
+
+import "airchat/gateway/v2/status_stream.proto";
+
+// A service for handling user statuses that are relevant to the current user.
+service StatusStreamAPI {
+  // Initiates a stream of user statuses related to a list of user ID's
+  rpc StatusStream (stream StatusStreamRequest) returns (stream StatusStreamResponse);
+  // Updates the set of userIDs being subscribed to.
+  rpc UpdateStatusSubscription (UpdateStatusSubscriptionRequest) returns (UpdateStatusSubscriptionResponse);
+  // Publishes a new status to be dispatched to subscribers.
+  rpc SendStatus (SendStatusRequest) returns (SendStatusResponse);
+}
+
+message StatusStreamRequest {
+  oneof request {
+    // Update the subscribed items in the current connection.
+    UpdateStatusSubscriptionRequest subscription = 1;
+    // Publish new status.
+    SendStatusRequest send_status = 2;
+  }
+}
+
+message StatusStreamResponse {
+  // The ID of this connection.
+  string connection_id = 1;
+  // A single user status update. May not be present on the first return, so connection ID is immediately available.
+  Status status = 2;
+}
+
+message UpdateStatusSubscriptionRequest {
+  // The ID of the connection to update. Only mandatory when used in the UpdateStatusSubscription unary call.
+  string connection_id = 1;
+  // Replaces the previous subscription with a new list of user ID's.
+  repeated string user_id = 2;
+}
+
+message UpdateStatusSubscriptionResponse {
+  // EMPTY
+}
+
+message SendStatusRequest {
+  // Status to be published.
+  Status status = 1;
+}
+
+message SendStatusResponse {
+  // EMPTY
+}

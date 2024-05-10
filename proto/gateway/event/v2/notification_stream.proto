@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package airchat.gateway.event.v2;
+option java_package = "com.airchat.gateway.event.v2";
+option java_outer_classname = "NotificationStreamProto";
+option java_multiple_files = true;
+option swift_prefix = "NotificationStreamV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/gateway/event/v2";
+
+import "airchat/gateway/v2/gateway.proto";
+import "airchat/gateway/v2/notification_stream.proto";
+
+// An event describing a new notification subscription.
+message NotificationSubscription {
+  // The stream identifier for the subscribing stream.
+  gateway.v2.StreamIdentifier stream_id = 1;
+  // The user subscribing to events.
+  string user_id = 2;
+  // The type of action being taken.
+  gateway.v2.SubscriptionAction action = 3;
+}
+
+// An event describing a new notification relevant to a particular stream subscription.
+message NotificationEvent {
+  // The stream to send the event to.
+  gateway.v2.StreamIdentifier stream_id = 1;
+  // A new envelope relevant to the notification we want to send.
+  gateway.v2.Envelope envelope = 2;
+}

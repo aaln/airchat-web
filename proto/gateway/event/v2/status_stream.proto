@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package airchat.gateway.event.v2;
+option java_package = "com.airchat.gateway.event.v2";
+option java_outer_classname = "StatusStreamProto";
+option java_multiple_files = true;
+option swift_prefix = "StatusStreamV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/gateway/event/v2";
+
+import "airchat/gateway/v2/gateway.proto";
+import "airchat/gateway/v2/status_stream.proto";
+
+// An event describing a new status relevant to a particular stream subscription.
+message StatusEvent {
+  // The stream to send the status event to.
+  gateway.v2.StreamIdentifier stream_id = 1;
+  // The status to send to the stream.
+  gateway.v2.Status status = 2;
+}

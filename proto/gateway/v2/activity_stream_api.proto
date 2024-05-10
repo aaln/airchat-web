@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package airchat.gateway.v2;
+option java_package = "com.airchat.gateway.v2";
+option java_outer_classname = "ActivityStreamApiProto";
+option java_multiple_files = true;
+option swift_prefix = "ActivityStreamV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/gateway/v2";
+
+import "airchat/activity/v2/activity.proto";
+
+// A service for handling client subscriptions to activity relevant to the user.
+service ActivityStreamAPI {
+  // Stream activity log items relevant to the current user using a bidirectional stream
+  rpc ActivityStream (stream ActivityStreamRequest) returns (stream ActivityStreamResponse);
+}
+
+message ActivityStreamRequest {
+  oneof request {
+    // Ping the server to keep the connection alive.
+    ActivityStreamPingRequest ping = 1;
+  }
+}
+
+message ActivityStreamResponse {
+  // A new ActivityLogItem relevant to the current user.
+  airchat.activity.v2.ActivityLogItem log_item = 1;
+}
+
+message ActivityStreamPingRequest {}

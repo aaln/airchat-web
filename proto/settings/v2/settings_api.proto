@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package airchat.settings.v2;
+option java_package = "com.airchat.settings.v2";
+option java_outer_classname = "SettingsApiProto";
+option java_multiple_files = true;
+option swift_prefix = "SettingsV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/settings/v2";
+
+import "airchat/settings/v2/settings.proto";
+
+// The service for all User settings.
+service SettingsAPI {
+  // List all of the Settings for the current User.
+  rpc GetSettings (GetSettingsRequest) returns (GetSettingsResponse);
+  // Updates the entire Settings object. Any consumers must provide the entire object when updating.
+  rpc UpdateSettings (UpdateSettingsRequest) returns (UpdateSettingsResponse);
+}
+
+message GetSettingsRequest {
+  // Nothing
+}
+
+message GetSettingsResponse {
+  Settings settings = 1;
+}
+
+message UpdateSettingsRequest{
+  Settings settings = 1;
+}
+
+message UpdateSettingsResponse {
+  // Nothing
+}
+

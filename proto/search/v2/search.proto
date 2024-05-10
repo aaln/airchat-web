@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package airchat.search.v2;
+option java_package = "com.airchat.search.v2";
+option java_outer_classname = "SearchProto";
+option java_multiple_files = true;
+option swift_prefix = "SearchV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/search/v2";
+
+import "airchat/channel/v2/channel.proto";
+import "airchat/message/v2/message.proto";
+import "airchat/user/v2/user.proto";
+
+// A wrapper which types a search result.
+message SearchTypedResult {
+  // The typed result.
+  oneof result {
+    // User typed search hits.
+    UserResults user = 1;
+    // User typed search hits from suggestions list.
+    UserResults suggestion = 2;
+  }
+}
+
+// A list of user typed search results.
+message UserResults {
+  // A list of users which match the search query.
+  repeated user.v2.User user = 1;
+}
+
+// The message search result.
+message MessageSearchResult {
+  airchat.message.v2.Message message = 1;
+}
+
+// The message search result.
+message ChannelSearchResult {
+  airchat.channel.v2.Channel channel = 1;
+}
+
+// The type of the search to perform.
+enum SearchType {
+  // This is an unset value and should always be considered an error.
+  SEARCH_TYPE_INVALID = 0;
+  // Users will be searched.
+  SEARCH_TYPE_USER = 1;
+  // Search users from suggestion system.
+  SEARCH_TYPE_SUGGESTION = 2;
+}

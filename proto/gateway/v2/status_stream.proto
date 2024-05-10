@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package airchat.gateway.v2;
+option java_package = "com.airchat.gateway.v2";
+option java_outer_classname = "StatusStreamProto";
+option java_multiple_files = true;
+option swift_prefix = "StatusStreamV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/gateway/v2";
+
+import "google/protobuf/timestamp.proto";
+import "airchat/gateway/v2/gateway.proto";
+
+// An event updating a user's status.
+message Status {
+  // The user or group who should receive the status, or empty if every connected user should be informed.
+  string to = 1;
+  // The user whose status has changed.
+  string from = 2;
+  // The type of status that has changed.
+  StatusType type = 3;
+  // The value of the status that has changed.
+  bool value = 4;
+  // The time the status was sent.
+  google.protobuf.Timestamp created_time = 5;
+}
+
+// An event describing a new/updated status subscription.
+message StatusSubscription {
+  // The stream identifier for the subscribing stream.
+  StreamIdentifier stream_id = 1;
+  // The users being subscribed to.
+  repeated string user_id = 2;
+  // The user subscribing to events.
+  string subscriber_user_id = 3;
+  // The type of action being taken.
+  SubscriptionAction action = 4;
+  // If append is true, this subscription should be appended to the existing one for the user.
+  bool append = 5;
+  // TRUE if this subscription represents a new connection, FALSE otherwise.
+  // This will be set by the back end.
+  bool new_connection = 6;
+}
+
+// The type of status being updated.
+enum StatusType {
+  // An unset value as the default value. This value should only be seen when no other value was set.
+  STATUS_TYPE_INVALID = 0;
+  // Indicates if a user is online.
+  STATUS_TYPE_ONLINE_STATUS = 1;
+  // Indicates that a user is listening to an audio message.
+  STATUS_TYPE_LISTENING_STATUS = 2;
+  // Indicates that a user is still listening to an audio message.
+  STATUS_TYPE_LISTENING_HEARTBEAT = 3;
+  // Indicates that a user is recording a new message.
+  STATUS_TYPE_RECORDING_STATUS = 4;
+  // Indicates that a user is still recording a new message.
+  STATUS_TYPE_RECORDING_HEARTBEAT = 5;
+  // Indicates that a user is recording a new video message.
+  STATUS_TYPE_RECORDING_VIDEO_STATUS = 6;
+  // Indicates that a user is still recording a new video message.
+  STATUS_TYPE_RECORDING_VIDEO_HEARTBEAT = 7;
+  // Indicates that a user is watching a video message.
+  STATUS_TYPE_WATCHING_STATUS = 8;
+  // Indicates that a user is still watching a video message.
+  STATUS_TYPE_WATCHING_STATUS_HEARTBEAT = 9;
+  // Indicates that a user is typing a new text message.
+  STATUS_TYPE_TYPING_STATUS = 10;
+  // Indicates that a user is still typing a new text message.
+  STATUS_TYPE_TYPING_STATUS_HEARTBEAT = 11;
+}

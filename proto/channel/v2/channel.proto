@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package airchat.channel.v2;
+option java_package = "com.airchat.channel.v2";
+option java_outer_classname = "ChannelProto";
+option java_multiple_files = true;
+option swift_prefix = "ChannelV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/channel/v2";
+
+import "google/protobuf/timestamp.proto";
+import "airchat/user/v2/user.proto";
+
+message Channel {
+  // The channel ID.
+  string id = 1;
+  // The channel name.
+  string name = 2;
+  // The channel summary.
+  string summary = 3;
+  // The channel owner. Added on hydration.
+  user.v2.User owner = 4;
+  // The number of participants in the channel.
+  int64 participant_count = 5;
+  // The channel handle.
+  string handle = 6;
+  // Indicates whether the current user is a participant in the channel. Added on hydration.
+  bool is_participant = 7;
+  // The channel avatar.
+  string avatar_path = 8;
+  // Indicates whether the channel is open.
+  bool is_open = 9;
+  // Indicates whether the current user is allowed to join the open channel. Added on hydration.
+  bool is_allowed_to_join = 10;
+  // The channel creation date.
+  google.protobuf.Timestamp created_date = 11;
+}
+
+message ChannelInviteCode {
+  // The channel ID.
+  string channel_id = 1;
+  // The channel invite code.
+  string invite_code = 2;
+  // The channel invite code creation date.
+  google.protobuf.Timestamp created_date = 3;
+}
+
+message ChannelParticipantInvite {
+  // The channel ID.
+  string channel_id = 1;
+  // The participant.
+  user.v2.User participant = 5;
+  // The participant invite creation date.
+  google.protobuf.Timestamp created_date = 3;
+  // The participant invite last updated date.
+  google.protobuf.Timestamp last_updated_date = 4;
+}

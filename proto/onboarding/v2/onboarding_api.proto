@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package airchat.onboarding.v2;
+option java_package = "com.airchat.onboarding.v2";
+option java_outer_classname = "OnboardingApiProto";
+option java_multiple_files = true;
+option swift_prefix = "OnboardingV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/onboarding/v2";
+
+import "airchat/onboarding/v2/onboarding.proto";
+
+// A service for handling the onboarding flow.
+service OnboardingAPI {
+  // Validates the completion of the client coordinated onboarding sequence.
+  // If no errors are returned, the user is valid and has been marked as active. The client should refresh the auth token.
+  rpc ValidateOnboarding (ValidateOnboardingRequest) returns (ValidateOnboardingResponse);
+}
+
+message ValidateOnboardingRequest {
+  Locale locale = 1;
+}
+
+message ValidateOnboardingResponse {
+  // A list of onboarding validation errors.
+  // An empty list indicates that the user is valid and that the client should refresh the auth token.
+  repeated OnboardingValidationError error = 1;
+}

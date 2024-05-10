@@ -1,0 +1,299 @@
+syntax = "proto3";
+
+package airchat.channel.v2;
+option java_package = "com.airchat.channel.v2";
+option java_outer_classname = "ChannelApiProto";
+option java_multiple_files = true;
+option swift_prefix = "ChannelV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/channel/v2";
+
+import "airchat/user/v2/user.proto";
+import "airchat/channel/v2/channel.proto";
+import "airchat/message/v2/message.proto";
+
+// A service handling channels.
+service ChannelAPI {
+  // Creates a new channel.
+  rpc CreateChannel (CreateChannelRequest) returns (CreateChannelResponse);
+  // Updates a channel.
+  rpc UpdateChannel (UpdateChannelRequest) returns (UpdateChannelResponse);
+  // Deletes a channel.
+  rpc DeleteChannel (DeleteChannelRequest) returns (DeleteChannelResponse);
+
+  // Adds a participant to a channel. Used by the channel owner if they are granted permission to add participants.
+  rpc AddChannelParticipant (AddChannelParticipantRequest) returns (AddChannelParticipantResponse);
+  // Removes a participant from a channel. Used by the channel owner.
+  rpc RemoveChannelParticipant (RemoveChannelParticipantRequest) returns (RemoveChannelParticipantResponse);
+
+  // Used by a current user to join a channel using an invite code.
+  rpc JoinChannel (JoinChannelRequest) returns (JoinChannelResponse);
+  // Used by a current user to leave a channel.
+  rpc LeaveChannel (LeaveChannelRequest) returns (LeaveChannelResponse);
+
+  // Gets a list of participants in a channel.
+  rpc GetChannelParticipants (GetChannelParticipantsRequest) returns (GetChannelParticipantsResponse);
+
+  // Gets a channel by ID or handle.
+  rpc GetChannel (GetChannelRequest) returns (GetChannelResponse);
+  // Gets channels owned by a user.
+  rpc GetOwnerChannels (GetOwnerChannelsRequest) returns (GetOwnerChannelsResponse);
+  // Gets channels a participant is in.
+  rpc GetParticipantChannels (GetParticipantChannelsRequest) returns (GetParticipantChannelsResponse);
+
+  // Generates an invite code for a channel.
+  rpc GenerateChannelInviteCode (GenerateChannelInviteCodeRequest) returns (GenerateChannelInviteCodeResponse);
+  // Removes an invite code for a channel.
+  rpc RemoveChannelInviteCode (RemoveChannelInviteCodeRequest) returns (RemoveChannelInviteCodeResponse);
+  // Gets invite codes for a channel.
+  rpc GetChannelInviteCodes (GetChannelInviteCodesRequest) returns (GetChannelInviteCodesResponse);
+
+  // Hides or unhides a message in a channel.
+  rpc HideChannelMessage (HideChannelMessageRequest) returns (HideChannelMessageResponse);
+
+  // Creates a participant invite for a channel.
+  rpc CreateChannelParticipantInvite (CreateChannelParticipantInviteRequest) returns (CreateChannelParticipantInviteResponse);
+  // Retracts a pending participant invite (used by the owner).
+  rpc RetractChannelParticipantInvite (RetractChannelParticipantInviteRequest) returns (RetractChannelParticipantInviteResponse);
+  // Rejects a pending participant invite (used by the participant).
+  rpc RejectChannelParticipantInvite (RejectChannelParticipantInviteRequest) returns (RejectChannelParticipantInviteResponse);
+  // Gets pending participant invites for a channel.
+  rpc GetPendingChannelParticipantInvites (GetPendingChannelParticipantInvitesRequest) returns (GetPendingChannelParticipantInvitesResponse);
+  // Gets pending participant invites for a user.
+  rpc GetUserChannelParticipantInvites (GetUserChannelParticipantInvitesRequest) returns (GetUserChannelParticipantInvitesResponse);
+}
+
+message CreateChannelRequest {
+  // The channel name.
+  string name = 1;
+  // The channel summary.
+  string summary = 2;
+  // The raw bytes of an avatar image.
+  bytes avatar_data = 3;
+  // Indicates whether the channel is open.
+  bool is_open = 4;
+}
+
+message CreateChannelResponse {
+  // The created channel.
+  Channel channel = 1;
+}
+
+message UpdateChannelRequest {
+  // The channel ID.
+  string channel_id = 1;
+  // The channel name.
+  string name = 2;
+  // The channel summary.
+  string summary = 3;
+  // The channel handle.
+  string handle = 4;
+  // The raw bytes of an avatar image.
+  bytes avatar_data = 5;
+  // Indicates whether the channel is open.
+  bool is_open = 6;
+}
+
+message UpdateChannelResponse {
+  // The created channel.
+  Channel channel = 1;
+}
+
+message DeleteChannelRequest {
+  // The channel ID.
+  string channel_id = 1;
+}
+
+message DeleteChannelResponse {
+  // EMPTY
+}
+
+message AddChannelParticipantRequest {
+  // The channel ID.
+  string channel_id = 1;
+  // The participant user ID to add.
+  string participant_user_id = 2;
+}
+
+message AddChannelParticipantResponse {
+  // EMPTY
+}
+
+message RemoveChannelParticipantRequest {
+  // The channel ID.
+  string channel_id = 1;
+  // The participant user ID to remove.
+  string participant_user_id = 2;
+}
+
+message RemoveChannelParticipantResponse {
+  // EMPTY
+}
+
+message GetChannelParticipantsRequest {
+  // The channel ID.
+  string channel_id = 1;
+  // A key used to determine the pagination location. If no key is provided, the first page will be returned.
+  string page_key = 2;
+}
+
+message GetChannelParticipantsResponse {
+  // The channel of participants.
+  repeated user.v2.User participant = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+message JoinChannelRequest {
+  // The channel ID.
+  string channel_id = 1;
+  // The invite code.
+  string invite_code = 2;
+}
+
+message JoinChannelResponse {
+  Channel channel = 1;
+}
+
+message LeaveChannelRequest {
+  // The channel ID.
+  string channel_id = 1;
+}
+
+message LeaveChannelResponse {
+  // EMPTY
+}
+
+message GetChannelRequest {
+  oneof identifier {
+    // The channel ID.
+    string channel_id = 1;
+    // The channel handle.
+    string handle = 2;
+  }
+}
+
+message GetChannelResponse {
+  // The channel.
+  Channel channel = 1;
+}
+
+message GetOwnerChannelsRequest {
+  // EMPTY
+}
+
+message GetOwnerChannelsResponse {
+  // The list of channels.
+  repeated Channel channel = 1;
+}
+
+message GetParticipantChannelsRequest {
+  // EMPTY
+}
+
+message GetParticipantChannelsResponse {
+  // The list of channels.
+  repeated Channel channel = 1;
+}
+
+message GenerateChannelInviteCodeRequest {
+  // The channel ID.
+  string channel_id = 1;
+}
+
+message GenerateChannelInviteCodeResponse {
+  // The invite code.
+  ChannelInviteCode channel_invite_code = 1;
+}
+
+message RemoveChannelInviteCodeRequest {
+  // The channel ID.
+  string channel_id = 1;
+  // The invite code.
+  string invite_code = 2;
+}
+
+message RemoveChannelInviteCodeResponse {
+  // EMPTY
+}
+
+message GetChannelInviteCodesRequest {
+  // The channel ID.
+  string channel_id = 1;
+}
+
+message GetChannelInviteCodesResponse {
+  // The list of invite codes.
+  repeated ChannelInviteCode channel_invite_code = 1;
+}
+
+message HideChannelMessageRequest {
+  // The channel ID.
+  string channel_id = 1;
+  // The recording ID.
+  string recording_id = 2;
+  // Indicates whether the message should be hidden.
+  bool hidden = 3;
+}
+
+message HideChannelMessageResponse {
+  // The updated and hydrated message.
+  airchat.message.v2.Message message = 1;
+}
+
+message CreateChannelParticipantInviteRequest {
+  // The channel ID.
+  string channel_id = 1;
+  // The participant user ID.
+  string participant_user_id = 2;
+}
+
+message CreateChannelParticipantInviteResponse {
+  // The participant invite.
+  ChannelParticipantInvite channel_participant_invite = 1;
+}
+
+message RetractChannelParticipantInviteRequest {
+  // The channel ID.
+  string channel_id = 1;
+  // The participant user ID.
+  string participant_user_id = 2;
+}
+
+message RetractChannelParticipantInviteResponse {
+  // EMPTY
+}
+
+message RejectChannelParticipantInviteRequest {
+  // The channel ID.
+  string channel_id = 1;
+}
+
+message RejectChannelParticipantInviteResponse {
+  // EMPTY
+}
+
+message GetPendingChannelParticipantInvitesRequest {
+  // The channel ID.
+  string channel_id = 1;
+  // A key used to determine the pagination location. If no key is provided, the first page will be returned.
+  string page_key = 2;
+}
+
+message GetPendingChannelParticipantInvitesResponse {
+  // The list of invites.
+  repeated ChannelParticipantInvite channel_participant_invite = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}
+
+message GetUserChannelParticipantInvitesRequest {
+  // A key used to determine the pagination location. If no key is provided, the first page will be returned.
+  string page_key = 1;
+}
+
+message GetUserChannelParticipantInvitesResponse {
+  // The list of invites.
+  repeated ChannelParticipantInvite channel_participant_invite = 1;
+  // The key to the next page of results, or empty if there are no more results.
+  string next_page_key = 2;
+}

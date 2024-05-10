@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package airchat.settings.v2;
+option java_package = "com.airchat.settings.v2";
+option java_outer_classname = "SettingsProto";
+option java_multiple_files = true;
+option swift_prefix = "SettingsV2";
+option go_package = "github.com/airchat-org/client-airchat-v2-golang/airchat/settings/v2";
+
+// The complete set of a User's settings.
+message Settings {
+  // List of setting entries to be returned.
+  repeated SettingsEntry settings_entry = 1;
+}
+
+// This describes a setting entry and its value.
+message SettingsEntry {
+  oneof setting_type {
+    // The settings entry for a notification type
+    NotificationSetting notification_setting = 1;
+  }
+}
+
+// The settings entry for the available notification types.
+message NotificationSetting {
+  oneof setting {
+    // Setting for receiving new contacts joined notifications.
+    SettingsToggle new_contact_joined_notifications = 1;
+    // Setting for rooms new messages notifications which the user is a speaker in.
+    SettingsToggle new_messages_notifications = 2;
+    // Setting for receiving likes notifications from listeners.
+    SettingsToggle likes_notifications = 3;
+    // Setting for receiving new followers notifications from rooms.
+    SettingsToggle followers_notifications = 4;
+    // Setting for receiving notifications when someone mentions you.
+    SettingsToggle mention_notifications = 5;
+    // Setting for receiving notifications when someone reposts your content.
+    SettingsToggle repost_notifications = 6;
+  }
+}
+
+// Defines the state of a binary settings entry.
+enum SettingsToggle {
+  SETTINGS_TOGGLE_INVALID = 0;
+  SETTINGS_TOGGLE_ON = 1;
+  SETTINGS_TOGGLE_OFF = 2;
+}
