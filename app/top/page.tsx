@@ -1,22 +1,25 @@
-import MessagesContainer from '@/components/messages-container';
+import { Header } from '@/components/header';
+import TopContainer from '@/components/top-container';
+import prisma from '@/lib/prisma';
 
 export default async function Page({
-  params,
   searchParams
 }: {
-  params: { username: string };
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-  // const search = searchParams.search;
-  // @ts-ignore
-  // let results = await prisma.messages.findMany({
-  //   take: 50,
-  //   orderBy: {
-  //     messageAnalytics: {
-  //       likeCount: 'desc',
-  //     },
-  //   },
-  // } as any);
-  // results = results.filter(message => message.fromUser.username !== "naval" && message.fromUser.username !== "norgard");
-  return <MessagesContainer />;
+  const search = searchParams.search;
+  let results = await prisma.messages.findMany({
+    take: 150,
+    orderBy: {
+      messageAnalytics: {
+        likeCount: 'desc'
+      }
+    }
+  } as any);
+  return (
+    <main className='flex min-h-screen flex-col gap-6 items-center justify-start'>
+      <Header />
+      <TopContainer messages={results} />
+    </main>
+  );
 }

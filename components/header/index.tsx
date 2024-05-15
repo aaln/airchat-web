@@ -26,6 +26,9 @@ export const Header = () => {
               <Button variant='ghost'>Stream</Button>
             </Link>
           )}
+          <Link href='/top'>
+            <Button variant='ghost'>Top</Button>
+          </Link>
           <Link href='/search'>
             <Button variant='ghost'>Search</Button>
           </Link>
