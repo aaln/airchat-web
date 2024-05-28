@@ -2,6 +2,8 @@
 
 An unofficial web client for the innovative Airchat app, designed to integrate with the unofficial internal Airchat API. This project serves as an open-source initiative, providing a reference for developers interested in interfacing with Airchat's capabilities. While the official Airchat app currently lacks a web client and a public API, this project aims to fill that gap and invites contributions from the community.
 
+[Blog post describing context](https://aaronlandy.medium.com/how-i-built-an-open-source-airchat-web-client-for-nextjs-using-their-unofficial-api-8d89b3ea8598)
+
 Explore the demo: [Airchat Web Client Demo](https://airchat-web.vercel.app/)
 
 <p align="start">
